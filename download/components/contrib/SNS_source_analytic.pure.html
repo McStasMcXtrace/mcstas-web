@@ -1,0 +1,176 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: SNS_source_analytic Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>SNS_source_analytic</CODE> Component</H1>
+
+A source that produces a time and energy distribution from 
+parameterized SNS moderator files  
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> F. X. Gallmeier</B>
+  <LI> <B>Origin:</B> SNS Oak Ridge National Laboratory</B>
+  <LI> <B>Date:</B> October 18, 2010</B>
+  <LI> <B>Version:</B>(Unknown)</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Produces a time-of-flight spectrum from SNS moderator files
+moderator files can be obtained from the author
+<strong>IMPORTANT: The output units of this component are N/pulse</strong>
+<strong>IMPORTANT: The component needs a FULL PATH to the source input file</strong>
+Notes:
+(1) the raw moderator files are per Sr.  The parameters focus_xw focus_yh and dist 
+provide the solid angle with which the beam line is served. 
+The best practice is to set focus_xw and focus_yh to the width and height of the 
+closest beam component, and dist as the distance from the moderator 
+location to this component.
+(2) Be sure that Emin and Emax are within the limits of 1e-5 to 100 eV
+(3) the proton pulse length T determines short- and long-pulse mode 
+
+Beamport definitions:
+BL11: a1Gw2-11-f5_fit_fit.dat
+BL14: a1Gw2-14-f5_fit_fit.dat
+BL17: a1Gw2-17-f5_fit_fit.dat
+BL02: a1Gw2-2-f5_fit_fit.dat
+BL05: a1Gw2-5-f5_fit_fit.dat
+BL08: a1Gw2-8-f5_fit_fit.dat
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>filename</B></TD>
+     <TD>-</TD>
+     <TD>Filename of source data</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>xwidth</TD>
+     <TD>m</TD>
+     <TD>width of moderator (default 0.1 m)
+</TD>
+<TD ALIGN=RIGHT>0.10</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>m</TD>
+     <TD>height of moderator (default 0.12 m)
+</TD>
+<TD ALIGN=RIGHT>0.12</TD> </TR>
+<TR> <TD><B>dist</B></TD>
+     <TD>m</TD>
+     <TD>Distance from source to the focusing rectangle (no default)
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>focus_xw</B></TD>
+     <TD>m</TD>
+     <TD>Width of focusing rectangle (no default)
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>focus_yh</B></TD>
+     <TD>m</TD>
+     <TD>Height of focusing rectangle (no default)
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>Emin</TD>
+     <TD>meV</TD>
+     <TD>minimum energy of neutrons (default 0.01 meV)
+</TD>
+<TD ALIGN=RIGHT>0.01</TD> </TR>
+<TR> <TD>Emax</TD>
+     <TD>meV</TD>
+     <TD>maximum energy of neutrons (default 1e5 meV)
+</TD>
+<TD ALIGN=RIGHT>1.0e5</TD> </TR>
+<TR> <TD>tinmin</TD>
+     <TD>us</TD>
+     <TD>minimum time of neutrons (default 0 us)
+</TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+<TR> <TD>tinmax</TD>
+     <TD>us</TD>
+     <TD>maximum time of neutrons (default 2000 us)
+</TD>
+<TD ALIGN=RIGHT>2000.0</TD> </TR>
+<TR> <TD>sample_E</TD>
+     <TD>-</TD>
+     <TD>sample energy from:  (default 0)
+0="probability distribution", 
+1="energy range", 
+2="lambda range", 
+3="log(energy) range"</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>sample_t</TD>
+     <TD>-</TD>
+     <TD>sample t from:  (default 0)
+0="probability distribution", 
+1="time range"</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>proton_T</TD>
+     <TD>us</TD>
+     <TD>proton pulse length  (0 us)
+</TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+<TR> <TD>p_power</TD>
+     <TD>MW</TD>
+     <TD>proton power (default 2 MW)
+</TD>
+<TD ALIGN=RIGHT>2.0</TD> </TR>
+<TR> <TD>n_pulses</TD>
+     <TD>default 1</TD>
+     <TD>number of pulses </TD>
+<TD ALIGN=RIGHT>1.0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>hdiv</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>vdiv</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>p_in</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="SNS_source_analytic.comp">Source code</A> for <CODE>SNS_source_analytic.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

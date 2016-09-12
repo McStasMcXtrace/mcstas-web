@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Saphire_Filter Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Saphire_Filter</CODE> Component</H1>
+
+Saphire filter at 300K
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Jonas Okkels Birk (based upon Filteg_Graphite by Thomas C Hansen (2000))</B>
+  <LI> <B>Origin:</B> PSI</B>
+  <LI> <B>Date:</B> 6 December 2006</B>
+  <LI> <B>Version:</B> 1.1.1.1 </B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+
+This saphire filter, defined by two identical rectangular opening apertures,
+is based upon an absorption function absorp=exp(L*A+C*(exp(-(B/L^2+D/L^4))))
+decribed by Freund (1983) Nucl. Instrum. Methods, A278, 379-401. The
+defaultvalues is for Saphire at 300K as found by measurement by (Mildner &
+Lamaze (1998) J. Appl. Cryst. 31,835-840
+( http://journals.iucr.org/j/issues/1998/06/00/hw0070/hw0070bdy.html#BB4)). It
+is possble to ajust the formular to other materials or temperatures by typing in
+other parameters.
+The transmission in saphire is only lightly demependt on temperature, but
+The formular is only cheked at wavelenths between 0.5 and 14 AA (0.4 meV 0.3
+eV).
+The filter is for example used in the Eiger beamline at PSI to cut of high
+energies. 
+
+
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>xmin</TD>
+     <TD>m</TD>
+     <TD>Lower x bound           
+</TD>
+<TD ALIGN=RIGHT>-0.16</TD> </TR>
+<TR> <TD>xmax</TD>
+     <TD>m</TD>
+     <TD>Upper x bound           
+</TD>
+<TD ALIGN=RIGHT>0.16</TD> </TR>
+<TR> <TD>ymin</TD>
+     <TD>m</TD>
+     <TD>Lower y bound           
+</TD>
+<TD ALIGN=RIGHT>-0.16</TD> </TR>
+<TR> <TD>ymax</TD>
+     <TD>m</TD>
+     <TD>Upper y bound           
+</TD>
+<TD ALIGN=RIGHT>0.16</TD> </TR>
+<TR> <TD>len</TD>
+     <TD>m</TD>
+     <TD>Thickness of filter      
+</TD>
+<TD ALIGN=RIGHT>0.1</TD> </TR>
+<TR> <TD>A</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>0.8116</TD> </TR>
+<TR> <TD>B</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>0.1618</TD> </TR>
+<TR> <TD>C</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>21.24</TD> </TR>
+<TR> <TD>D</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>0.1291</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Saphire_Filter.comp">Source code</A> for <CODE>Saphire_Filter.comp</CODE>.
+  <LI> </UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

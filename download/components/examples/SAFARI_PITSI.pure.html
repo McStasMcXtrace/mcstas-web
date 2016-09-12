@@ -1,0 +1,204 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: SAFARI_PITSI Instrument at  Necsa</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>SAFARI_PITSI</CODE> Instrument</H1>
+
+Powder Instrument for Transition in Structure Investigations
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    Necsa</B>
+  <LI> <B>Author:</B> Deon Marais (deon.marais@necsa.co.za)</B>
+  <LI> <B>Origin:</B> Necsa</B>
+  <LI> <B>Date:</B> September 2013</B>
+  <LI> <B>Version:</B> $Revision 0.1 $</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Necsa Neutron Powder Diffractometer located at beam port 5 of the SAFARI-1 research reactor, South Africa
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>source_lam_min</TD>
+     <TD>Angs</TD>
+     <TD>Minimum wavelenth of source
+</TD>
+<TD ALIGN=RIGHT>0.5</TD> </TR>
+<TR> <TD>source_lam_max</TD>
+     <TD>Angs</TD>
+     <TD>Maximum wavelenth of source
+</TD>
+<TD ALIGN=RIGHT>2.0</TD> </TR>
+<TR> <TD>hi_res</TD>
+     <TD>-</TD>
+     <TD>Selects hi-resolution(1) or hi-intensity(0) reactor beam through primary shutter</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>mono_Si_type</TD>
+     <TD>Mostly used: 331 and 551</TD>
+     <TD>Monochromator Silicon type options: 422 400 311 511 111 331 </TD>
+<TD ALIGN=RIGHT>551</TD> </TR>
+<TR> <TD>mono_mosh</TD>
+     <TD>arc min</TD>
+     <TD>Monochromator horizontal mosaicity
+</TD>
+<TD ALIGN=RIGHT>30</TD> </TR>
+<TR> <TD>mono_mosv</TD>
+     <TD>arc min</TD>
+     <TD>Monochromator vertical mosaicity
+</TD>
+<TD ALIGN=RIGHT>30</TD> </TR>
+<TR> <TD>mono_dx</TD>
+     <TD>m</TD>
+     <TD>Monochromator delta x - positive to left of reactor beam  
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>mono_dy</TD>
+     <TD>m</TD>
+     <TD>Monochromator delta y - positive upward of reactor beam
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>mono_dz</TD>
+     <TD>m</TD>
+     <TD>Monochromator delta z - positive along reactor beam
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>mono_takeoff</TD>
+     <TD>deg</TD>
+     <TD>Monochromator takeoff angle - positive anti-clockwise from reactor beam
+</TD>
+<TD ALIGN=RIGHT>90.0</TD> </TR>
+<TR> <TD>mono_dtilt</TD>
+     <TD>deg</TD>
+     <TD>Monochromator tilt angle - not implemented yet
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>mono_r_h</TD>
+     <TD>min 5.0 m</TD>
+     <TD>[m]    Monochromator horizontal focus radius </TD>
+<TD ALIGN=RIGHT>5.0</TD> </TR>
+<TR> <TD>mono_r_v</TD>
+     <TD>min 0.9 m</TD>
+     <TD>[m]    Monochromator vertical focus radius </TD>
+<TD ALIGN=RIGHT>3.572</TD> </TR>
+<TR> <TD>port_takeoff</TD>
+     <TD>70 or 90 deg</TD>
+     <TD>[deg]    Port takeoff angle - positive anti clockwise from reactor beam </TD>
+<TD ALIGN=RIGHT>90.0</TD> </TR>
+<TR> <TD>inc_slit_rot</TD>
+     <TD>deg</TD>
+     <TD>Incident slit delta rotation - not implemented yet
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>inc_slit_dx</TD>
+     <TD>m</TD>
+     <TD>Incident slit delta x position - positive to left of incident beam
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>inc_slit_to_cor</TD>
+     <TD>m</TD>
+     <TD>Incident slit to sample stage center of rotation  
+</TD>
+<TD ALIGN=RIGHT>0.01</TD> </TR>
+<TR> <TD>inc_slit_width</TD>
+     <TD>m</TD>
+     <TD>Incident slit width 0.00013m to 0.006m
+</TD>
+<TD ALIGN=RIGHT>0.006</TD> </TR>
+<TR> <TD>inc_slit_height</TD>
+     <TD>m</TD>
+     <TD>Incident slit height 0m to 0.05m
+</TD>
+<TD ALIGN=RIGHT>0.05</TD> </TR>
+<TR> <TD>inc_slit_sep</TD>
+     <TD>-</TD>
+     <TD>Incident slit separation between width and height. <0:use emperical calc, >=0:distance in m</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>mono_to_cor</TD>
+     <TD>m</TD>
+     <TD>Distance between monochromator and center of rotation
+</TD>
+<TD ALIGN=RIGHT>2.5</TD> </TR>
+<TR> <TD>sample_dx</TD>
+     <TD>m</TD>
+     <TD>Sample delta x - positive to left of incident beam if sample_dom=0
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>sample_dy</TD>
+     <TD>m</TD>
+     <TD>Sample delta y - positive upword of incident beam
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>sample_dz</TD>
+     <TD>m</TD>
+     <TD>Sample delta x - positive along of incident beam if sample_dom=0
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>sample_dom</TD>
+     <TD>deg</TD>
+     <TD>Sample delta omega - positive anti-clockwise from incident beam
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>det_takeoff</TD>
+     <TD>deg</TD>
+     <TD>Detector takeoff angle - positive anti-clockwise from incident beam
+</TD>
+<TD ALIGN=RIGHT>-114.375</TD> </TR>
+<TR> <TD>cor_to_det</TD>
+     <TD>m</TD>
+     <TD>Distance between sample centre of rotation and detector
+</TD>
+<TD ALIGN=RIGHT>1.179</TD> </TR>
+<TR> <TD>dangle_interest</TD>
+     <TD>deg</TD>
+     <TD>Delta angle of interenterest.
+</TD>
+<TD ALIGN=RIGHT>125</TD> </TR>
+<TR> <TD>full_instrument</TD>
+     <TD>-</TD>
+     <TD>When 1, simulates the complete instrument. When 0, only simulate from the outlet collimator</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="SAFARI_PITSI.instr">Source code</A> for <CODE>SAFARI_PITSI.instr</CODE>.
+  <LI> The South African Nuclear Energy Corporation <a href="http://www.necsa.co.za"> website</a>  
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:08 2016</ADDRESS>
+</BODY></HTML>

@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: ILL_H16_IN5_Mantid Instrument at  Mantid</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>ILL_H16_IN5_Mantid</CODE> Instrument</H1>
+
+The full ILL IN5B ToF spectrometer adapted for use with Mantid-friendly NeXus output.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    Mantid</B>
+  <LI> <B>Author:</B> E. Farhi, J. Ollivier, Celia Castan Guerrero</B>
+  <LI> <B>Origin:</B> Mantid</B>
+  <LI> <B>Date:</B> Jan 2004-2009</B>
+  <LI> <B>Version:</B>(Unknown)</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+
+  The full ILL IN5B: H16 guide & chopper system + sample + PSD and tof detector, adapted for
+  use with Mantid-friendly NeXus output. To compile and run, use these steps:
+
+  <ol>
+    <li>Compile the instrument with NeXus support - zero neutrons:
+    <ul>
+      <li>export MCSTAS_CFLAGS="-g -lm -O2 -DUSE_NEXUS -lNeXus"
+      <li>mcrun -c -n0 --format=NeXus ILL_H16_IN5_Mantid.instr --no-output-files
+    </ul>
+    <li>Generate the IDF in XML format using the (Perl) mcdisplay tool:
+    <ul>
+      <li>mcdisplay ILL_H16_IN5_Mantid.instr -n0 --format=Mantid
+    </ul>
+    <li>Run a simulation with NeXus output
+    <ul>
+      <li>mcrun ILL_H16_IN5_Mantid.instr --format=NeXus
+    </ul>
+  </ol>
+
+ The IN5@ILL TOF spectrometer from cold source to final detector, with sample.
+ The detector model includes Fe housing and tube cross talk absorbing masks 
+ with angle restriction (neutrons that scatter in Fe in front of a tube and 
+ enter a different tube are absorbed).
+
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>lambda</TD>
+     <TD>AA</TD>
+     <TD>mean incident wavelength
+</TD>
+<TD ALIGN=RIGHT>4.5</TD> </TR>
+<TR> <TD>dlambda</TD>
+     <TD>AA</TD>
+     <TD>wavelength half width. Use e.g. 0.8*lambda for white beam.
+</TD>
+<TD ALIGN=RIGHT>0.09</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="ILL_H16_IN5_Mantid.instr">Source code</A> for <CODE>ILL_H16_IN5_Mantid.instr</CODE>.
+  <LI> The <a href="http://www.ill.eu/in5">IN5@ILL</a> cold time of flight instrument
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: SE_example Instrument at  Templates</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>SE_example</CODE> Instrument</H1>
+
+Mockup of transmission Spin-Echo, written for PNCMI 2010 school in Delft.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    Templates</B>
+  <LI> <B>Author:</B> Erik Knudsen, Peter Willendrup</B>
+  <LI> <B>Origin:</B> Risoe</B>
+  <LI> <B>Date:</B> June 2010</B>
+  <LI> <B>Version:</B> 0.2</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+This instrument shows the use of essential McStas polarisation components, including Pol_mirror, Pol_simpleBfield and MeanPolLambda_monitor.
+
+Pol_mirror is used to polarize and analyze the incoming and scattered beams.
+Pol_simpleBfield is used to define guidefields and flippers.
+MeanPolLambda_montior is used to monitor beam polarisation.
+
+Example: mcrun SE_example.instr dBz=-0.0001,0.0001 -N41 -n1e5 
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>POL_ANGLE</TD>
+     <TD>deg</TD>
+     <TD>Reflection angle of polarizer/analyzer
+</TD>
+<TD ALIGN=RIGHT>2</TD> </TR>
+<TR> <TD>SAMPLE</TD>
+     <TD>1</TD>
+     <TD>Flag to include (0) or exclude incoherent scatterer
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>Bguide</TD>
+     <TD>T</TD>
+     <TD>Field magnitude in guide fields
+</TD>
+<TD ALIGN=RIGHT>0.1</TD> </TR>
+<TR> <TD>Bflip</TD>
+     <TD>T</TD>
+     <TD>Magnitude of flipper fields, 
+</TD>
+<TD ALIGN=RIGHT>3e-4</TD> </TR>
+<TR> <TD>dBz</TD>
+     <TD>T</TD>
+     <TD>Magnitude field perturbation in first guide field
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>Lam</TD>
+     <TD>Angstrom</TD>
+     <TD>Mean wavelength of neutrons emitted from source
+</TD>
+<TD ALIGN=RIGHT>8</TD> </TR>
+<TR> <TD>dLam</TD>
+     <TD>Angstrom</TD>
+     <TD>Wavelength spread of neutrons emitted from source
+</TD>
+<TD ALIGN=RIGHT>0.8</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="SE_example.instr">Source code</A> for <CODE>SE_example.instr</CODE>.
+  <LI> Requires mcstas 1.12b (or beta). PolLambda_monitor has been modified to work (nL->nlam)
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:08 2016</ADDRESS>
+</BODY></HTML>

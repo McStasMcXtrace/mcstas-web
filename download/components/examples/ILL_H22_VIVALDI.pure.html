@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: ILL_H22_VIVALDI Instrument at  ILL   </TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>ILL_H22_VIVALDI</CODE> Instrument</H1>
+
+The VIVALDI Laue diffractometer on the H22 curved thermal guide at the ILL    
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    ILL   </B>
+  <LI> <B>Author:</B> FARHI Emmanuel (farhi@ill.fr)</B>
+  <LI> <B>Origin:</B>ILL</B>
+  <LI> <B>Date:</B> June, 2008</B>
+  <LI> <B>Version:</B> $Revision$   </B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+VIVALDI (Very-Intense, Vertical-Axis Laue DIffractometer) provides a tool for
+development of new diffraction experiments, and is complementary to other ILL
+single-crystal diffractometers. Fields of interest for experiments on VIVALDI
+include magnetism, charge density waves, high-pressure studies and structural
+phase transitions. VIVALDI allows rapid preliminary investigation of new
+materials, even when only small single crystals are available. The detector is
+also suitable for some types of diffuse scattering experiments on a
+monochromatic beam. 
+
+VIVALDI is located at the end of the thermal guide H22. The full thermal
+spectrum can be accepted without detrimental overlap of reflections for
+primitive unit cells up to 25 Angs on edge. 
+
+This model include a cryostat and container description, with a crystal sample.
+
+
+Input parameters:
+m: [1]   m-value of whole guide coating. 0 absorbing, 1 for Ni, 1.2 for Ni58, 2-4 for SM
+lambda:    [AA]  mean incident wavelength.
+dlambda:   [AA]  wavelength full width.
+crystal:   [str] File name for crystal description (LAU)
+verbose:   [1]   Print DIF configuration. 0 to be quiet
+  
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>lambda</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>3</TD> </TR>
+<TR> <TD>dlambda</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>2.2</TD> </TR>
+<TR> <TD>crystal</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>"YBaCuO.lau"</TD> </TR>
+<TR> <TD>container</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>"V.laz"</TD> </TR>
+<TR> <TD>verbose</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="ILL_H22_VIVALDI.instr">Source code</A> for <CODE>ILL_H22_VIVALDI.instr</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

@@ -1,0 +1,101 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Virtual_mcnp_output Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Virtual_mcnp_output</CODE> Component</H1>
+
+Detector-like component that writes neutron state parameters into a
+'virtual source' neutron file with MCNP/PTRAC format.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> <a href="mailto hennanec@ensimag.fr">Chama Hennane</a> and E. Farhi</B>
+  <LI> <B>Origin:</B> <a href="http://www.ill.fr/">ILL</a></B>
+  <LI> <B>Date:</B> July 7th, 2006</B>
+  <LI> <B>Version:</B>  $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Detector-like component writing neutron state parameters to a
+virtual source neutron file with MCNP/PTRAC format.
+The component geometry is the full plane, and saves the neutron state as
+it exits from the previous component.
+Format is the one used by MCNP 5 files :
+
+   position_X position_Y position_Z dir_X dir_Y dir_Z energy weight time
+
+energy is in Mega eV
+positions are in cm and the direction vector is normalized to 1.
+
+%BUGS
+This component will NOT work with parallel execution (MPI).
+
+EXAMPLE:
+To create a file collecting all neutron states with MCNP5 format
+COMPONENT fichier_sortie = Virtual_mcnp_output(
+   filename = "exit_guide_result.dat")
+ at the position where will be the Virtual_mcnp_input.
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>filename</TD>
+     <TD>str</TD>
+     <TD>name of the MCNP5 neutron output file,
+or stdout if left to 0.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>hfile</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Virtual_mcnp_output.comp">Source code</A> for <CODE>Virtual_mcnp_output.comp</CODE>.
+  <LI> <a href="http://mcnp-green.lanl.gov/index.html">MCNP</a>
+  <LI> MCNP -- A General Monte Carlo N-Particle Transport Code, Version 5, Volume II: User's Guide, p177
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

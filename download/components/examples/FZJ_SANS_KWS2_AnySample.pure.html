@@ -1,0 +1,96 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: SANS_KWS2_AnySample Instrument at  FZ_Juelich</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>SANS_KWS2_AnySample</CODE> Instrument</H1>
+
+KWS2 SANS instrument at FZ-Juelich. 2 detectors. 4 available sample models.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    FZ_Juelich</B>
+  <LI> <B>Author:</B> Henrich Frielinghaus</B>
+  <LI> <B>Origin:</B>     FZ-Juelich/FRJ-2/IFF/KWS-2</B>
+  <LI> <B>Date:</B>       Sept 2004</B>
+  <LI> <B>Version:</B>    $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+
+KWS2 SANS instrument at FZ-Juelich. Custom sample (None, Guinier, Debye or Any).
+Sample is at 40 m from source. 2 detectors.
+
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>lambda</TD>
+     <TD>AA</TD>
+     <TD>Mean wavelength of neutrons      </TD>
+<TD ALIGN=RIGHT>7.0</TD> </TR>
+<TR> <TD>dlambda</TD>
+     <TD>AA</TD>
+     <TD>Wavelength spread of neutrons    </TD>
+<TD ALIGN=RIGHT>0.7</TD> </TR>
+<TR> <TD>FLUX</TD>
+     <TD>n/s/cm2/st</TD>
+     <TD>incoming neutron flux </TD>
+<TD ALIGN=RIGHT>1e8</TD> </TR>
+<TR> <TD>NGblen</TD>
+     <TD>m</TD>
+     <TD>collimation width/height </TD>
+<TD ALIGN=RIGHT>0.05</TD> </TR>
+<TR> <TD>sample</TD>
+     <TD>int</TD>
+     <TD>type of sample, as 
+0=None, 1='AnySample', 2='Debye' or 3='Guinier' </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>Clen</TD>
+     <TD>m</TD>
+     <TD>distance to collimation in 0-20. Sample is at 40 m from source </TD>
+<TD ALIGN=RIGHT>10.0</TD> </TR>
+<TR> <TD>Dlen</TD>
+     <TD>m</TD>
+     <TD>distance from sample to detector </TD>
+<TD ALIGN=RIGHT>10.0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="FZJ_SANS_KWS2_AnySample.instr">Source code</A> for <CODE>SANS_KWS2_AnySample.instr</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

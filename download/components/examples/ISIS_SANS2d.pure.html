@@ -1,0 +1,115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: ISIS_SANS2d Instrument at  ISIS</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>ISIS_SANS2d</CODE> Instrument</H1>
+
+This instrument models the ISIS TS2 SANS2d instrument.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    ISIS</B>
+  <LI> <B>Author:</B> Richard Heenan with edits by Peter Willendrup</B>
+  <LI> <B>Origin:</B> ISIS, DTU Fysik</B>
+  <LI> <B>Date:</B> 2014</B>
+  <LI> <B>Version:</B> 0.2</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+This instrument models the ISIS TS2 SANS2d instrument up to the sample position.
+
+From the author:
+<p><b>IMPORTANT:</b> The instrument model does not currently include a correct moderator description 
+- and the results it produces have not been validated against experimental results.
+<p>The actual bender is continuously curved, here use straight segments approx.with gravity.
+1/7/10 L1=4m  increased gap between bender exit and S1 slit from .247 to .286m
+At 4m we actually use 1.75 to 16.5 angstrom. 
+<p>Note "2m guides" are actually 1.985m long (new ones will be 1.981m) so "real gaps" are included below, losses are pro-rata the gap/guide lengths.
+<p>Both rear & front detectors are 980mm square and offset 150 above beam (would only use 100mm with hindsight) 
+<p>Rear detector can be offset -300mm or +269mm sideways.
+<p>Front detector is closest at approx 1.4m,  furthest at approx((read det position) - 1.6m) , offset  up to -1200mm sideways 
+there are 2 baffles between front & rear detector
+<p>NIMROD (W5) spectrum might better than SANS2d (E2) spectrum for liquid H2 face incurent use.
+Stu Ansell's McStas spectra for TS-2 actually have no angle variation included.
+In reality spectra and backgrounds will vary, fast background is likely much higher on ZOOM(E1) than SANS2d (E2)
+<p>RKH 2014
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>L1</TD>
+     <TD>m</TD>
+     <TD>Variable distance from 1st to 2nd variable slit
+</TD>
+<TD ALIGN=RIGHT>3.926</TD> </TR>
+<TR> <TD>A1w</TD>
+     <TD>m</TD>
+     <TD>Width of first collimation slit, rectangular slit
+</TD>
+<TD ALIGN=RIGHT>0.030</TD> </TR>
+<TR> <TD>A1h</TD>
+     <TD>m</TD>
+     <TD>Height of first collimation slit, rectangular slit
+</TD>
+<TD ALIGN=RIGHT>0.02</TD> </TR>
+<TR> <TD>S6</TD>
+     <TD>last of the optis slits</TD>
+     <TD>[m] Radius of slit S6 </TD>
+<TD ALIGN=RIGHT>0.006</TD> </TR>
+<TR> <TD>A2</TD>
+     <TD>m</TD>
+     <TD>Radius of second collimation slit, circular slit
+</TD>
+<TD ALIGN=RIGHT>0.006</TD> </TR>
+<TR> <TD>Lmin</TD>
+     <TD>AA</TD>
+     <TD>Minimum wavelength to produce at the source
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>Lmax</TD>
+     <TD>AA</TD>
+     <TD>Maximum wavelength to produce at the source
+</TD>
+<TD ALIGN=RIGHT>14</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="ISIS_SANS2d.instr">Source code</A> for <CODE>ISIS_SANS2d.instr</CODE>.
+  <LI> 
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

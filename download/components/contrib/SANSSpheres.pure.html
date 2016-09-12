@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: SANSSpheres Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>SANSSpheres</CODE> Component</H1>
+
+Based on a SANS-component in McStas by Peter Willendrup
+A sample of monodisperse spherical particles in solution.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Martin Cramer Pedersen (mcpe@nbi.dk)</B>
+  <LI> <B>Origin:</B> KU-Science</B>
+  <LI> <B>Date:</B> October 17, 2012</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+A simple component simulating the scattering from a box-shaped, thin solution
+of monodisperse, spherical particles.
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>R</TD>
+     <TD>AA</TD>
+     <TD>Radius of the spherical particles.
+</TD>
+<TD ALIGN=RIGHT>100.0</TD> </TR>
+<TR> <TD>Concentration</TD>
+     <TD>mM</TD>
+     <TD>Concentration of sample.
+</TD>
+<TD ALIGN=RIGHT>0.01</TD> </TR>
+<TR> <TD>DeltaRho</TD>
+     <TD>cm/AA^3</TD>
+     <TD>Excess scattering length density of the 
+particles.
+</TD>
+<TD ALIGN=RIGHT>1.0e-14</TD> </TR>
+<TR> <TD>AbsorptionCrosssection</TD>
+     <TD>1/m</TD>
+     <TD>Absorption cross section of the sample.
+</TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+<TR> <TD><B>xwidth</B></TD>
+     <TD>m</TD>
+     <TD>Dimension of component in the x-direction.
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>yheight</B></TD>
+     <TD>m</TD>
+     <TD>Dimension of component in the y-direction.
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>zdepth</B></TD>
+     <TD>m</TD>
+     <TD>Dimension of component in the z-direction.
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>SampleToDetectorDistance</B></TD>
+     <TD>m</TD>
+     <TD>Distance from sample to detector (for 
+focusing the scattered neutrons).
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>DetectorRadius</B></TD>
+     <TD>m</TD>
+     <TD>Radius of the detector (for focusing the 
+scattered neutrons).
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="SANSSpheres.comp">Source code</A> for <CODE>SANSSpheres.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

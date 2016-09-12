@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: SANSQMonitor Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>SANSQMonitor</CODE> Component</H1>
+
+A circular detector measuring the radial average of intensity as a function 
+of the momentum transform in the sample.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Martin Cramer Pedersen (mcpe@nbi.dk)</B>
+  <LI> <B>Origin:</B> KU-Science</B>
+  <LI> <B>Date:</B> October 17, 2012</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+A simple component simulating the scattering from a box-shaped, thin solution
+of monodisperse, spherical particles.
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>RFilename</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>"RDetector"</TD> </TR>
+<TR> <TD>qFilename</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>"QDetector"</TD> </TR>
+<TR> <TD>NumberOfBins</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>100</TD> </TR>
+<TR> <TD>restore_neutron</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD><B>RadiusDetector</B></TD>
+     <TD>m</TD>
+     <TD>Radius of the detector (in the xy-plane).
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>DistanceFromSample</B></TD>
+     <TD>m</TD>
+     <TD>Distance from the sample to this component.
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>LambdaMin</TD>
+     <TD>AA</TD>
+     <TD>Max sensitivity in lambda - used to compute the
+highest possible value of momentum transfer, q.
+</TD>
+<TD ALIGN=RIGHT>1.0</TD> </TR>
+<TR> <TD>Lambda0</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>Nofq</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>Iofq</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>IofqSquared</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>NofR</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>IofR</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>IofRSquared</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="SANSQMonitor.comp">Source code</A> for <CODE>SANSQMonitor.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

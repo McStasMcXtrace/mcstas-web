@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//IETF//DTD HTML//EN">
+<html> <head>
+<title>Linux installation page</title>
+</head>
+
+<body>
+
+<h1> McStas 2.2a or later on Linux</h1>
+In principle any Linux distribution should be able to run McStas, but
+we specifically support Debian (.deb) and RedHat (.rpm) package based
+distributions.
+<p>If your system supports neither of these package systems (or is
+another Unix variant than Linux, such as e.g. FreeBSD), please
+refer to this page: <a href="../install_unix/">Unix (src code) installation</a>.
+
+<h2>Debian class systems</h1>
+<p>McStas provides a package repository for use with Debian-based
+distributions, such as Debian, Ubuntu and Mint Linux.
+To allow automatic update of your mcstas, mcstas-components and
+tools when new revisions are relased, follow the below instruction.
+
+<p>Important: If you want to keep your McStas 1.x
+alongside McStas 2.2a or later, please use our <a target=_blank
+href="https://raw.githubusercontent.com/McStasMcXtrace/McCode/master/tools/migration-tool/migrate-mcstas-1.x.sh">migration
+script</a> BEFORE installing McStas 2.2a or later.
+
+If you want to keep your McStas 2.0
+alongside McStas 2.2a or later, please use our <a target=_blank
+href="https://raw.githubusercontent.com/McStasMcXtrace/McCode/master/tools/migration-tool/migrate-mcstas-2.0.sh">migration
+script</a> BEFORE installing McStas 2.2a or later.
+
+<p> On Debian class systems (including Ubuntu, mint etc.):
+<pre>cd /etc/apt/sources.list.d
+sudo wget http://packages.mccode.org/debian/mccode.list
+sudo apt-get update
+</pre>
+
+<p>After following these steps your package manager should now be
+  aware of mcstas
+<pre>
+mcstas@debian:~$ apt-cache search mcstas
+<b>mcstas-2.2a</b> - mcstas built using CMake
+<b>mcstas-comps-2.2a</b> - mcstas-comps built using CMake
+<b><font color=blue>mcstas-suite-perl</font></b> - A metapackage for McStas + perl tools
+<b><font color=blue>mcstas-suite-python</font></b> - A metapackage for McStas + python tools
+<b>mcstas-tools-2.2a</b> - legacy-tools built using CMake
+<b>mcstas-tools-python-mcplot-chaco-2.2a</b> - python-tools-mcplot built using CMake
+<b>mcstas-tools-python-mcplot-matplotlib-2.2a</b> - python-tools-mcplot built using CMake
+<b>mcstas-tools-python-mcrun-2.2a</b> - python-tools-mcrun built using CMake
+<b>mcstas-manuals-2.2a</b> - mcstastex built using CMake
+<b>mcstas-tools-python-mcdisplay-2.2a</b> - python-tools-mcdisplay built using CMake
+<b>mcstas-tools-python-mcdisplay-matplotlib-2.2a</b> - python-tools-mcdisplay built using CMake
+<b>mcstas-tools-python-mcdisplay-r-2.2a</b> - python-tools-mcdisplay built using CMake
+<b>mcstas-tools-python-mcdisplay-vtk-2.2a</b> - python-tools-mcdisplay built using CMake
+</pre>
+<p>The new <font color=blue>meta-packages</font> mcstas-suite-perl and
+mcstas-suite-python allows you to install mcstas with one or both sets
+of tools (mcrun/mcplot etc.) by simple apt-get commands like
+<p><pre>sudo apt-get install mcstas-suite</pre>
+
+<p>
+<ul>
+  <li>Optionally install  <a href="http://ifit.mccode.org">iFit</a> to visualize results using a Matlab environment (for free, no license needed).</li>
+  <li>Optionally install a VRML/X3D plotter such as <a href="http://freewrl.sourceforge.net/">Freewrl</a> or <a href="http://www.instantreality.org/">InstantReality</a>.</li>
+  <li>Optionally, you can install the <a href="http://www.nexusformat.org/">NeXus format</a> libraries to be able to export data files in HDF5.</li>
+</ul>
+<p>Please report any trouble with the repository to <a href="mailto:mcstas-users@mcstas.org">mcstas-users@mcstas.org</a>.
+
+<h2>RedHat class systems</h1>
+
+<p>McStas provides a package repository for use with RedHat-based
+distributions, such as RedHat, Fedora, CentOS and Scientific Linux.
+To allow automatic update of your mcstas, mcstas-components and
+tools when new revisions are relased, follow the below instruction.
+
+<p>Important: If you want to keep your McStas 1.x
+alongside McStas 2.2a or later, please use our <a target=_blank
+href="https://raw.githubusercontent.com/McStasMcXtrace/McCode/master/tools/migration-tool/migrate-mcstas-1.x.sh">migration
+script</a> BEFORE installing McStas 2.2a or later.
+
+If you want to keep your McStas 2.0
+alongside McStas 2.2a or later, please use our <a target=_blank
+href="https://raw.githubusercontent.com/McStasMcXtrace/McCode/master/tools/migration-tool/migrate-mcstas-2.0.sh"">migration
+script</a> BEFORE installing McStas 2.2a or later.
+<p> On RedHat class systems (including Scientific Linux, CentOS etc.):
+<pre>cd /etc/yum.repos.d
+sudo wget http://packages.mccode.org/rpm/mccode.repo
+sudo yum update
+</pre>
+<p> On some RPM-oriented systems like RHEL, CentOS or Scientific
+Linux, you may also need to install the EPEL extensions to resolve
+some dependencies. See <a href="https://fedoraproject.org/wiki/EPEL">this webpage</a> for further instructions.
+
+<p>After following these steps your package manager should now be
+  aware of mcstas
+<pre>
+mcstas@redhat~# yum search mcstas
+Loaded plugins: security
+===================================== N/S Matched: mcstas =====================================
+<b>mcstas-2.2a.x86_64</b> : mcstas built using CMake
+<b>mcstas-comps-2.2a.x86_64</b> : mcstas-comps built using CMake
+<b>mcstas-manuals-2.2a.x86_64</b> : mcstastex built using CMake
+<b><font color=blue>mcstas-suite-perl.x86_64</font><</b> : A metapackage for McStas + perl tools
+<b><font color=blue>mcstas-suite-python.x86_64</font><</b> : A metapackage for McStas + python tools
+<b>mcstas-tools-2.2a.x86_64</b> : legacy-tools built using CMake
+<b>mcstas-tools-python-mcdisplay-2.2a.x86_64</b> : python-tools-mcdisplay built using CMake
+<b>mcstas-tools-python-mcdisplay-matplotlib-2.2a.x86_64</b> : python-tools-mcdisplay built using CMake
+<b>mcstas-tools-python-mcdisplay-r-2.2a.x86_64</b> : python-tools-mcdisplay built using CMake
+<b>mcstas-tools-python-mcdisplay-vtk-2.2a.x86_64</b> : python-tools-mcdisplay built using CMake
+<b>mcstas-tools-python-mcplot-chaco-2.2a.x86_64</b> : python-tools-mcplot built using CMake
+<b>mcstas-tools-python-mcplot-matplotlib-2.2a.x86_64</b> : python-tools-mcplot built using CMake
+<b>mcstas-tools-python-mcrun-2.2a.x86_64</b> : python-tools-mcrun built using CMake
+<b>mcstas-tools-svn.x86_64</b> : legacy-tools built using CMake
+  Name and summary matches only, use "search all" for everything
+</pre>
+<p>The new <font color=blue>meta-packages</font> mcstas-suite-perl and
+mcstas-suite-python allows you to install mcstas with one or both sets
+of tools (mcrun/mcplot etc.) by simple yum commands like
+<p><pre>sudo yum install mcstas-suite</pre>
+<p>
+<ul>
+  <li>Optionally install  <a href="http://ifit.mccode.org">iFit</a> to visualize results using a Matlab environment (for free, no license needed).</li>
+  <li>Optionally install a VRML/X3D plotter such as <a href="http://freewrl.sourceforge.net/">Freewrl</a> or <a href="http://www.instantreality.org/">InstantReality</a>.</li>
+  <li>Optionally, you can install the <a href="http://www.nexusformat.org/">NeXus format</a> libraries to be able to export data files in HDF5.</li>
+</ul>
+<p>Please report any trouble with the repository to <a href="mailto:mcstas-users@mcstas.org">mcstas-users@mcstas.org</a>.
+
+<h2>Other Linux/Unix class systems</h1>
+In case your Unix is not Debian or RedHat like, you should still be
+able to build either from the source tarball or directly from SVN -
+see <a href="../install_unix/">Unix (src code)</a> installation page.
+
+<p><b>The distribution packages for McStas may be downloaded via <a href="http://downloads.mcstas.org"</a>http://downloads.mcstas.org</a></b>
+
+<p>Please report any trouble in using the build-scripts to <a href="mailto:mcstas-users@mcstas.org">mcstas-users@mcstas.org</a>.
+<hr>
+<address></address>
+<!-- hhmts start -->Last modified: Thu Apr  7 15:10:51 CEST 2016 <!-- hhmts end -->
+</body> </html>

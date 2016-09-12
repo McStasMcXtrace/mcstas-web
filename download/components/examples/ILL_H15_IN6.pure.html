@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: ILL_H15_IN6 Instrument at  ILL</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>ILL_H15_IN6</CODE> Instrument</H1>
+
+The IN6 Time-of-Flight simulation, positioned as the first instrument in the
+cold guide H15 (Nickel coating) at the ILL.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    ILL</B>
+  <LI> <B>Author:</B> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></B>
+  <LI> <B>Origin:</B> <a href="http://www.ill.fr">ILL (France)</a></B>
+  <LI> <B>Date:</B> 17th Jan 2005.</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+
+IN6 is a time focussing time-of-flight spectrometer designed for quasielastic and
+inelastic scattering for incident wavelengths in the range of 4 to 6 Angs.
+
+An intense beam is extracted from the H15 guide by a vertically focussing
+monochromator array. It consists of three composite pyrolytic graphite
+monochromators using the full height (20 cm) of the guide and focussing the beam
+at the sample position. In order to minimise the interference with the
+subsequent instruments, the monochromator can deliver only four wavelengths:
+4.1; 4.6; 5.1; and 5.9 Angs. The second order reflection from the graphite
+monochromator is removed by a beryllium-filter cooled at liquid nitrogen
+temperature.
+
+To achieve the time-focussing condition, the beam is pulsed by a Fermi chopper.
+It has a small slot length to ensure a good transmission. The normal distance
+between the Fermi chopper and the sample is 38 cm. To prevent frame-overlap when
+the chopper is rotating faster than 7500 rpm, a suppressor chopper is placed
+before the Fermi chopper and rotates in phase with the latter.
+
+The secondary spectrometer consists first of an evacuated sample area. The
+detector bank is entirely covered with detector boxes, thus avoiding the
+inconvenience of moving the counters.
+
+This instrument model contains the complete H15 guide, a triple monochromator
+(using the GROUP), two Fermi Choppers (including one background chopper), a
+liquid sample handling coherent and incoherent processes (elastic and inelastic)
+with multiple scattering, customized monitors, and the SPLIT mechanism to
+improve the statistics.
+
+Example: lambda=4.14 Detector: M_theta_t_all_I=70
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>lambda</TD>
+     <TD>Angs</TD>
+     <TD>wavelength within 4.14|4.6|5.12|5.92
+</TD>
+<TD ALIGN=RIGHT>4.14</TD> </TR>
+<TR> <TD>dlambda</TD>
+     <TD>Angs</TD>
+     <TD>wavelength HALF spread. default is 0.075
+</TD>
+<TD ALIGN=RIGHT>0.075</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="ILL_H15_IN6.instr">Source code</A> for <CODE>ILL_H15_IN6.instr</CODE>.
+  <LI> <a href="http://www.ill.fr/in6">The IN6@ILL Yellow Pages</a>
+  <LI> R.Scherm et al, "Another Time of Flight Spectrometer", ILL Report 76S235, 1976
+  <LI> R.Scherm, "A high-resolution spectrometer ...", report Jul-295-NP, Kernforschungsanlage Julich, 1965
+  <LI> Y.Blanc, "Le spectrometre a temps de vol IN6", ILL Report 83BL21G, 1983
+  <LI> K.H.Beckurts et al, Neutron physics, Kernforschungsanlage Karlsruhe, 1964 (p317)
+  <LI> R.Scherm and T.Springer, "Proposal of a multiple Chopper...", Kernforschungsanlage Julich, 19xx
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

@@ -1,0 +1,224 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Bender Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Bender</CODE> Component</H1>
+
+Models a curved neutron guide.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Philipp Bernhardt</B>
+  <LI> <B>Origin:</B> Uni. Erlangen (Germany)</B>
+  <LI> <B>Date:</B> Februar 7 1999</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Models a curved neutron guide with cylindrical walls.
+
+Bender radius, entrance width and height are necessary input data. To define
+the bender, you may either enter the deviation angle 'Win' or the length 'l'.
+The bender may consist of 'k' vertical channels, separated by partitioning walls
+of thickness 'd'. Three different reflectivity profiles can be given: for outer
+walls, for inner walls and for the top and bottom walls. The partitioning walls
+have the same coating as the exterior walls.
+
+The entrance lies in the X-Y plane, centered on the Z axis. The neutrons will
+also leave the bender in the X-Y plane at the z-value l=r*Win, i.e. they are
+centred on (0,0,r*Win); they have an (average) flight direction along the z-axis.
+Therefore, the following component is adjacent, if positioned AT (0,0,r*Win)
+<b>without</b> rotation.
+So, seen from outside, it behaves like a straight guide along the Z axis. As a
+consequence, it is shown straight in 'mcdisplay'.
+This behaviour results from a co-ordinate transformation inside the component.
+It is done to facilitate its use. Neither rotation nor shift along the x-axis
+need to be calculated; a new arm is not necessary. Internally, the bender is
+bent to the negative X axis;
+
+Example:
+Bender of 120 mm height, 50 mm width, 250 m radius and 0.04 rad (or 2.292 deg) curvature
+not channeled, with a standard m=2 coating on
+
+Bender(w=0.05,h=0.12,r=250,Win=0.04,
+       R0a=0.99,Qca=0.021,alphaa=6.07,ma=2,Wa=0.003,
+       R0i=0.99,Qci=0.021,alphai=6.07,mi=2,Wi=0.003,
+       R0s=0.99,Qcs=0.021,alphas=6.07,ms=2,Ws=0.003)
+
+%BUGS
+Some users have reported potentially strange behaviours with this component.
+This component does not work with gravitation on.
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>w</B></TD>
+     <TD>m</TD>
+     <TD>Width at the bender entry and exit
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>h</B></TD>
+     <TD>m</TD>
+     <TD>Height at the bender entry and exit
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>r</B></TD>
+     <TD>m</TD>
+     <TD>Radius of the bender
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>Win</TD>
+     <TD>rad</TD>
+     <TD>Angle of the deflection of the whole bender
+</TD>
+<TD ALIGN=RIGHT>0.04</TD> </TR>
+<TR> <TD>k</TD>
+     <TD>1</TD>
+     <TD>Number of channels inside the bender
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>d</TD>
+     <TD>m</TD>
+     <TD>Thickness of one blade separating the channels
+</TD>
+<TD ALIGN=RIGHT>0.001</TD> </TR>
+<TR> <TD>l</TD>
+     <TD>m</TD>
+     <TD>length of bender l=r*Win
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>R0a</TD>
+     <TD>1</TD>
+     <TD>Low-angle reflectivity at the <b>outer</b> side of the bender
+</TD>
+<TD ALIGN=RIGHT>0.99</TD> </TR>
+<TR> <TD>Qca</TD>
+     <TD>AA-1</TD>
+     <TD>Critical scattering vector
+</TD>
+<TD ALIGN=RIGHT>0.021</TD> </TR>
+<TR> <TD>alphaa</TD>
+     <TD>AA</TD>
+     <TD>Slope of reflectivity
+</TD>
+<TD ALIGN=RIGHT>6.07</TD> </TR>
+<TR> <TD>ma</TD>
+     <TD>1</TD>
+     <TD>m-value of material
+</TD>
+<TD ALIGN=RIGHT>2</TD> </TR>
+<TR> <TD>Wa</TD>
+     <TD>AA-1</TD>
+     <TD>Width of supermirror cut-off
+</TD>
+<TD ALIGN=RIGHT>0.003</TD> </TR>
+<TR> <TD>R0i</TD>
+     <TD>1</TD>
+     <TD>Low-angle reflectivity at the <b>inner</b> side of the bender
+</TD>
+<TD ALIGN=RIGHT>0.99</TD> </TR>
+<TR> <TD>Qci</TD>
+     <TD>AA-1</TD>
+     <TD>Critical scattering vector
+</TD>
+<TD ALIGN=RIGHT>0.021</TD> </TR>
+<TR> <TD>alphai</TD>
+     <TD>AA</TD>
+     <TD>Slope of reflectivity
+</TD>
+<TD ALIGN=RIGHT>6.07</TD> </TR>
+<TR> <TD>mi</TD>
+     <TD>1</TD>
+     <TD>m-value of material
+</TD>
+<TD ALIGN=RIGHT>2</TD> </TR>
+<TR> <TD>Wi</TD>
+     <TD>AA-1</TD>
+     <TD>Width of supermirror cut-off
+</TD>
+<TD ALIGN=RIGHT>0.003</TD> </TR>
+<TR> <TD>R0s</TD>
+     <TD>1</TD>
+     <TD>Low-angle reflectivity at the <b>top and bottom</b> side of the bender
+</TD>
+<TD ALIGN=RIGHT>0.99</TD> </TR>
+<TR> <TD>Qcs</TD>
+     <TD>AA-1</TD>
+     <TD>Critical scattering vector
+</TD>
+<TD ALIGN=RIGHT>0.021</TD> </TR>
+<TR> <TD>alphas</TD>
+     <TD>AA</TD>
+     <TD>Slope of reflectivity
+</TD>
+<TD ALIGN=RIGHT>6.07</TD> </TR>
+<TR> <TD>ms</TD>
+     <TD>1</TD>
+     <TD>m-value of material
+</TD>
+<TD ALIGN=RIGHT>2</TD> </TR>
+<TR> <TD>Ws</TD>
+     <TD>AA-1</TD>
+     <TD>Width of supermirror cut-off
+</TD>
+<TD ALIGN=RIGHT>0.003</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>bk</B></TD>
+     <TD>m</TD>
+     <TD>Width of 1 channel + 1 separating blade
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>mWin</B></TD>
+     <TD>rad</TD>
+     <TD>Angle of the deflection of the whole bender
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Bender.comp">Source code</A> for <CODE>Bender.comp</CODE>.
+  <LI> <a href="../contrib/Guide_curved.comp.html>Guide_curved</a> (contributed)
+  <LI> See also <a href="http://mailman.risoe.dk/pipermail/neutron-mc/1999q1/000052.html">Additional note</a> from <a href="mailto:philipp.bernhardt@siemens.com">Philipp Bernhardt</a>.
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

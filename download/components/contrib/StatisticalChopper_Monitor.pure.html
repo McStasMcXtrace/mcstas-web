@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: StatisticalChopper_Monitor Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>StatisticalChopper_Monitor</CODE> Component</H1>
+
+Monitor designed to compute the autocorrelation signal for the Statistical Chopper
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> C. Monzat/E. Farhi</B>
+  <LI> <B>Origin:</B> ILL</B>
+  <LI> <B>Date:</B> 2009</B>
+  <LI> <B>Version:</B> 1.0</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+This component is a time sensitive monitor which calculates the cross 
+correlation between the pseudo random sequence of a statistical chopper 
+and the signal received. It mainly uses fonctions of component Monitor_nD.
+It is possible to use the various options of the Monitor_nD but the user MUST NOT
+specify "time" in the options. Auto detection of the time limits is possible if the 
+user chooses tmin=>tmax.
+
+StatisticalChopper_Monitor(options ="banana bins=500, abs theta limits=[5,105],bins=1000")
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>comp</B></TD>
+     <TD>StatisticalChopper</TD>
+     <TD>name of the component monitored. Do not use quotes </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>tmin</TD>
+     <TD>s</TD>
+     <TD>minimal time of detection </TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+<TR> <TD>tmax</TD>
+     <TD>s</TD>
+     <TD>maximal time of detection </TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="StatisticalChopper_Monitor.comp">Source code</A> for <CODE>StatisticalChopper_Monitor.comp</CODE>.
+  <LI> R. Von Jan and R. Scherm. The statistical chopper for neutron time-of-flight spectroscopy. Nuclear Instruments and Methods, 80 (1970) 69-76.
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

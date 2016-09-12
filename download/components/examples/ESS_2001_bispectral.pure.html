@@ -1,0 +1,235 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: ESS_2001_bispectral Instrument at  ESS</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>ESS_2001_bispectral</CODE> Instrument</H1>
+
+Instrument short description
+Bispectral extraction system
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    ESS</B>
+  <LI> <B>Author:</B> Henrik Jacobsen, contact: hjacobse@fys.ku.dk</B>
+  <LI> <B>Origin:</B> NBI, ESS</B>
+  <LI> <B>Date:</B>  October 2012.</B>
+  <LI> <B>Version:</B> 0.2</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Bispectral extraction: A thermal and a cold source at the same time. The neutrons from the cold source are reflected into the guide by a ~2.5m long mirror in front of the guide.
+
+
+mcrun --mpi=2 bispectral_monitors -p flat_flatm_156m_bispectral_5deg.par -d flat_flatm_156m_bispectral_5deg -n 1e8
+
+
+
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>man_lam</TD>
+     <TD>1</TD>
+     <TD>0: use standard wavelength, overrides input parameters. 1: use input parameters
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>thermal</TD>
+     <TD>1</TD>
+     <TD>Choose which sources to use. 0: only cold source. 1: only thermal source. 2: both sources.	
+</TD>
+<TD ALIGN=RIGHT>2</TD> </TR>
+<TR> <TD>cold_Lam_min</TD>
+     <TD>AA</TD>
+     <TD>Minimum wavelength emitted by the cold moderator
+</TD>
+<TD ALIGN=RIGHT>0.1</TD> </TR>
+<TR> <TD>cold_Lam_max</TD>
+     <TD>AA</TD>
+     <TD>Maximum wavelength emitted by the cold moderator
+</TD>
+<TD ALIGN=RIGHT>10</TD> </TR>
+<TR> <TD>thermal_Lam_min</TD>
+     <TD>AA</TD>
+     <TD>Minimum wavelength emitted by the thermal moderator
+</TD>
+<TD ALIGN=RIGHT>0.1</TD> </TR>
+<TR> <TD>thermal_Lam_max</TD>
+     <TD>AA</TD>
+     <TD>Maximum wavelength emitted by the thermal moderator
+</TD>
+<TD ALIGN=RIGHT>10</TD> </TR>
+<TR> <TD>thermal_hotspot_fac</TD>
+     <TD>1</TD>
+     <TD>Intensity increase in thermal hot spot
+</TD>
+<TD ALIGN=RIGHT>1.0</TD> </TR>
+<TR> <TD>cold_hotspot_fac</TD>
+     <TD>1</TD>
+     <TD>Intensity increase in cold hot spot
+</TD>
+<TD ALIGN=RIGHT>1.0</TD> </TR>
+<TR> <TD>use_full_guide_flag</TD>
+     <TD>1</TD>
+     <TD>1: Use full guide. 2: Remove left part of guide to let cold neutrons through
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>guide_start</TD>
+     <TD>m</TD>
+     <TD>Distance from thermal moderator to guide start
+</TD>
+<TD ALIGN=RIGHT>2</TD> </TR>
+<TR> <TD>Length</TD>
+     <TD>m</TD>
+     <TD>Distance from source to sample
+</TD>
+<TD ALIGN=RIGHT>150</TD> </TR>
+<TR> <TD>focus_start_w</TD>
+     <TD>m</TD>
+     <TD>First horizontal focus in real space
+</TD>
+<TD ALIGN=RIGHT>-1.2620</TD> </TR>
+<TR> <TD>focus_end_w</TD>
+     <TD>m</TD>
+     <TD>Second horizontal focus in real space
+</TD>
+<TD ALIGN=RIGHT>150.3187</TD> </TR>
+<TR> <TD>smallaxis_w</TD>
+     <TD>m</TD>
+     <TD>Width of small axis
+</TD>
+<TD ALIGN=RIGHT>0.2550</TD> </TR>
+<TR> <TD>focus_start_h</TD>
+     <TD>m</TD>
+     <TD>First vertical focus in real space
+</TD>
+<TD ALIGN=RIGHT>-2.1415</TD> </TR>
+<TR> <TD>focus_end_h</TD>
+     <TD>m</TD>
+     <TD>Second vertical focus in real space
+</TD>
+<TD ALIGN=RIGHT>150.0778</TD> </TR>
+<TR> <TD>smallaxis_h</TD>
+     <TD>m</TD>
+     <TD>Height of small axis
+</TD>
+<TD ALIGN=RIGHT>0.3847</TD> </TR>
+<TR> <TD>maxdiv</TD>
+     <TD>deg</TD>
+     <TD>Maximum divergence detected
+</TD>
+<TD ALIGN=RIGHT>2.0</TD> </TR>
+<TR> <TD>coldperthermal</TD>
+     <TD>1</TD>
+     <TD>Amount of simulated cold neutrons per thermal neutrons
+</TD>
+<TD ALIGN=RIGHT>30</TD> </TR>
+<TR> <TD>mirror_type</TD>
+     <TD>1</TD>
+     <TD>The type of mirror. 0: no mirror. 1: flat mirror. 2: curved mirror.
+</TD>
+<TD ALIGN=RIGHT>2</TD> </TR>
+<TR> <TD>mirror_coating_type</TD>
+     <TD>1</TD>
+     <TD>The coating distribution of the mirror. 1: same for all plates. 2: parabolic
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>mirror_offset</TD>
+     <TD>m</TD>
+     <TD>The offset of the center of the mirror in the x direction
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>theta1</TD>
+     <TD>deg</TD>
+     <TD>The angle of the first mirror plate
+</TD>
+<TD ALIGN=RIGHT>1.25</TD> </TR>
+<TR> <TD>theta2</TD>
+     <TD>deg</TD>
+     <TD>The angle of the central mirror plate
+</TD>
+<TD ALIGN=RIGHT>1.25</TD> </TR>
+<TR> <TD>theta3</TD>
+     <TD>deg</TD>
+     <TD>The angle at the end of the mirror
+</TD>
+<TD ALIGN=RIGHT>1.25</TD> </TR>
+<TR> <TD>m_mirror</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>5</TD> </TR>
+<TR> <TD>h_mirror</TD>
+     <TD>m</TD>
+     <TD>The height of the part of the mirror that is outside the guide
+</TD>
+<TD ALIGN=RIGHT>0.15</TD> </TR>
+<TR> <TD>Pulse_width</TD>
+     <TD>s</TD>
+     <TD>Length of the long pulse.
+</TD>
+<TD ALIGN=RIGHT>0.00286</TD> </TR>
+<TR> <TD>frequency</TD>
+     <TD>Hz</TD>
+     <TD>Frequency of source
+</TD>
+<TD ALIGN=RIGHT>14.0</TD> </TR>
+<TR> <TD>gravity</TD>
+     <TD>m/s^2</TD>
+     <TD>Gravitational acceleration
+</TD>
+<TD ALIGN=RIGHT>-9.81</TD> </TR>
+<TR> <TD>substrate_thickness</TD>
+     <TD>m</TD>
+     <TD>The thickness of the substrate of the mirror
+</TD>
+<TD ALIGN=RIGHT>0.0005</TD> </TR>
+<TR> <TD>coating_thickness</TD>
+     <TD>m</TD>
+     <TD>The thickness of the coating of the mirror	
+</TD>
+<TD ALIGN=RIGHT>10e-6</TD> </TR>
+<TR> <TD>m1</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>5</TD> </TR>
+<TR> <TD>m2</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>4</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="ESS_2001_bispectral.instr">Source code</A> for <CODE>ESS_2001_bispectral.instr</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

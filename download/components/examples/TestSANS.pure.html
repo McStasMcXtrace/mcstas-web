@@ -1,0 +1,100 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: TestSANS Instrument at  Templates</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>TestSANS</CODE> Instrument</H1>
+
+Template instrument for a suite of SANS sample models.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    Templates</B>
+  <LI> <B>Author:</B> Martin Cramer Pedersen (mcpe@nbi.dk) and S&oslash;en Kynde (kynde@nbi.dk)</B>
+  <LI> <B>Origin:</B> KU-Science</B>
+  <LI> <B>Date:</B> October 29th, 2012</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Model instrument with test use-cases for a suite of SANS-sample components modelling
+a set of in-solution SANS samples.
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>DistSrcPin1</TD>
+     <TD>m</TD>
+     <TD>Distance to first pinhole from source.
+</TD>
+<TD ALIGN=RIGHT>1.0</TD> </TR>
+<TR> <TD>DistSrcPin2</TD>
+     <TD>m</TD>
+     <TD>Distance to second pinhole - used for focussing rays.
+</TD>
+<TD ALIGN=RIGHT>10.0</TD> </TR>
+<TR> <TD>DistPinSamp</TD>
+     <TD>m</TD>
+     <TD>Collimation length.
+</TD>
+<TD ALIGN=RIGHT>1.0</TD> </TR>
+<TR> <TD>DistSampDet</TD>
+     <TD>m</TD>
+     <TD>Sample-detector-distance.
+</TD>
+<TD ALIGN=RIGHT>10.0</TD> </TR>
+<TR> <TD>DetRadius</TD>
+     <TD>m</TD>
+     <TD>Radius of the circular detector.
+</TD>
+<TD ALIGN=RIGHT>4.0</TD> </TR>
+<TR> <TD>Lambda</TD>
+     <TD>AA</TD>
+     <TD>Wavelength of the rays emitted from source.
+</TD>
+<TD ALIGN=RIGHT>4.5</TD> </TR>
+<TR> <TD>DLambda</TD>
+     <TD>AA</TD>
+     <TD>Relative deviation of wavelength of the rays emitted from source.
+</TD>
+<TD ALIGN=RIGHT>0.1</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="TestSANS.instr">Source code</A> for <CODE>TestSANS.instr</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:08 2016</ADDRESS>
+</BODY></HTML>

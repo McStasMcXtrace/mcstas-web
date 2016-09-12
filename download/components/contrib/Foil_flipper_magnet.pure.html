@@ -1,0 +1,152 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Foil_flipper_magnet Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Foil_flipper_magnet</CODE> Component</H1>
+
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Erik B Knudsen</B>
+  <LI> <B>Origin:</B> DTU Physics</B>
+  <LI> <B>Date:</B> Sep. 2015</B>
+  <LI> <B>Version:</B> 0.01 </B>
+  <LI> <B>Modification history:</B> <UL>
+    <LI>  
+  </UL>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+A magnet with a spin-flip foil inside
+
+This component models a magnet with a constant magnetic field and a slanted 
+magnetized foil inside acting as a spin-flipper. This arrangement may be used to
+target the geometry of a Spin-Echo SANS instrument (Rekveldt, NIMB, 1997 || Rekveldt, Rev Sci Instr. 2005).
+In its most basic form a SE-SANS instrument nrelies  on inclined field regions of
+constant magnetic field, which can be difficult to realize. Instead it is possible to emulate
+such regions using a magnetized foil.
+
+In this component th emagntzied foil is modelled as a canted (by the angle phi) mathematical plane inside a region
+of constant magnetic field of dimensions (xwidth,yheight,zdepth). Furthermore, exponetially decaying stray fields from
+the constant field region may be specified by giving parameters (Bxwidth,Byheight,Bzdepth) > (xwidth,yheight,zdepth).
+
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>field_function</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>const_magnetic_field</TD> </TR>
+<TR> <TD>stray_field_function</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>NULL</TD> </TR>
+<TR> <TD><B>xwidth</B></TD>
+     <TD>m</TD>
+     <TD>width of the magnet </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>yheight</B></TD>
+     <TD>m</TD>
+     <TD>height of the magnet </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>zdepth</B></TD>
+     <TD>m</TD>
+     <TD>thickness of the magnet </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>Bxwidth</TD>
+     <TD>m</TD>
+     <TD>width of the B-field of thev component </TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>Byheight</TD>
+     <TD>m</TD>
+     <TD>height of the B-field of the component </TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>Bzdepth</TD>
+     <TD>m</TD>
+     <TD>thickness of the B-field of the component </TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>phi</TD>
+     <TD>rd</TD>
+     <TD>angle (from the xz-plane) of the foil-spinflipper inside the magnet </TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+<TR> <TD><B>Bx</B></TD>
+     <TD>T</TD>
+     <TD>Parameter used for x composant of field.
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>By</B></TD>
+     <TD>T</TD>
+     <TD>Parameter used for y composant of field.
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>Bz</B></TD>
+     <TD>T</TD>
+     <TD>Parameter used for z composant of field.
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>foil_in</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>verbose</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>stray_fields</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>instray_magnet</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>outstray_magnet</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>inside_magnet</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Foil_flipper_magnet.comp">Source code</A> for <CODE>Foil_flipper_magnet.comp</CODE>.
+  <LI> 
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

@@ -1,0 +1,155 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+  <title>McStas: quick installation instructions</title>
+</head>
+<body>
+<h1>!!WARNING: OBSOLETE- McStas 2.0 specific!!<br>
+</h1>
+<br>
+<h3 align="center"><font color="#ff0000">Getting McStas</font></h3>
+
+Before you install McStas, you may try it from our <a href="file:///ubuntu">Ubuntu</a> Live-DVD. Just burn the DVD and
+reboot your machine. The local system is not affected, all runs from
+the disk.
+<br>
+<br>
+Get the binary distributions for your system or source code from the <a href="/download">Download</a> page. <br>
+McStas is licensed under a GPL2. You can also get it from our <a target="_blank" href="http://nightly.mccode.org/Current/">nightly build
+webpage.</a>
+<h3 align="center"><font color="#ff0000">Requirements</font></h3>
+<h4><font color="#3366ff">Linux Debian and RPM based systems</font></h4>
+The dependency packages are automatically installed when selecting the mcstas-suite package below. <br>
+If you wish to install manually the required dependencies prior to the mcstas package, just do:<br>
+<blockquote>
+  <pre>sudo apt-get install libtk-codetext-perl gcc openmpi-dev openmpi-bin<br>sudo apt-get install perl perl-tk pdl pgplot5 gnuplot-x11 libpgplot-perl bash<br>sudo apt-get install python python-chaco python-matplotlib python-yaml<br>sudo apt-get-install whitedune<br></pre></blockquote>Optionally, you can install the <a href="http://www.nexusformat.org/">NeXus format</a> libraries to be able to export data files in HDF5.<br>
+
+<br>
+
+<h4><font color="#3366ff">Linux (other)</font></h4>
+You will need to install a C compiler (e.g. gcc), and openmpi if you wish to use multi-processing.<br>
+For the McStas Perl tools: <br>
+<blockquote>perl, perl-Tk and perl-dl (pdl) with PGPLOT hooks. <br>
+We also recommend <a href="http://sourceforge.net/projects/gnuplot/">Gnuplot</a> and a VRML/X3D plotter such as <a href="http://freewrl.sourceforge.net/">Freewrl</a> or <a href="www.instantreality.org/">InstantReality</a>.<br>
+</blockquote>
+For the McStas Python tools:<br>
+<blockquote>python, python-chaco, python-matplotlib, python-yaml<br>
+</blockquote>
+You will also need CMake to install from source code.<br>
+Optionally, you can install the <a href="http://www.nexusformat.org/">NeXus format</a> libraries to be able to export data files in HDF5.<br>
+<h4><font color="#3366ff">Windows</font></h4>
+<ul>
+  <li>Download and install a <b>Strawberry Perl 5.16</b> for your system from <a href="http://strawberryperl.com">http://strawberryperl.com</a>
+  </li>
+  <li>Download <a href="http://ppds.mccode.org/ZipPackage/PPDs.zip">this zip file</a> (rightclik, save as)
+  </li>
+  <li>Unzip the Zip file and using a command window, cd to the folder
+  </li>
+  <li>Run the enclosed <pre>postsetup.bat</pre></li>
+  <li>Download and install <a href="http://code.google.com/p/pythonxy/">Python(x,y)</a>.</li>
+  <li>Optionally install  <a href="http://ifit.mccode.org">iFit</a> to visualize results using a Matlab environment (for free, no license needed).</li>
+  <li>Optionally install a VRML/X3D plotter such as <a href="http://freewrl.sourceforge.net/">Freewrl</a> or <a href="file:///home/farhi/svn/web/contents/download/install/www.instantreality.org/">InstantReality</a>.</li>
+  <li>Optionally install <a href="http://sourceforge.net/projects/gnuplot/">Gnuplot</a>.</li>
+<li>Optionally, you can install the <a href="http://www.nexusformat.org/">NeXus format</a> libraries to be able to export data files in HDF5.</li>
+
+</ul>
+<h4><font color="#3366ff">MacOSX</font></h4>
+You need to install Xcode, e.g. from the App store (or installation medium or from <a href="http://ifit.mccode.org/Downloads/binary/mac32/xcode3210a432.dmg">here</a> - old but functional).<br>
+You also need to install Command Line Tools inside Xcode
+(Xcode -&gt; Preferences-&gt; Downloads -&gt; Components) and also allow
+installation of third party software (System Preferences -&gt; Security &amp;
+Privacy -&gt; General -&gt; Allow applications downloaded from:
+Anywhere) - can be reset after installation of SciPDL etc. from the DMG.<br>
+<br>
+On MacOSX 10.8 (Mountain Lion), install <a href="http://xquartz.macosforge.org/landing/">XQuartz</a> (X11).<br>
+<br>
+Python: Install either one of:<br>
+<ul>
+  <li><a href="https://www.enthought.com/store/">Enthought Python Canopy</a> and then follow instructions <a href="http://docs.enthought.com/canopy/quick-start/install_macos.html">here</a>.</li>
+  <li><a href="http://fonnesbeck.github.com/ScipySuperpack/">SciPy superpack</a>.</li>
+</ul>
+Then install python-yaml by launching a terminal and :<br>
+<blockquote>
+  <pre>sudo easy_install pyyaml<br></pre>
+</blockquote>
+<ul>
+  <li>Optionally install  <a href="http://ifit.mccode.org">iFit</a> to visualize results using a Matlab environment (for free, no license needed).</li>
+  <li>Optionally install a VRML/X3D plotter such as <a href="http://freewrl.sourceforge.net/">Freewrl</a> or <a href="file:///home/farhi/svn/web/contents/download/install/www.instantreality.org/">InstantReality</a>.</li>
+  <li>Optionally install <a href="http://sourceforge.net/projects/gnuplot/">Gnuplot</a>.</li>
+<li>Optionally install the <a href="http://www.nexusformat.org/">NeXus format</a> libraries to be able to export data files in HDF5.</li>
+
+</ul>
+<h3 align="center"><font color="#ff0000">Installation</font></h3>
+<br>
+<h4><font color="#3366ff">Linux Debian and RPM based systems</font></h4>
+<h5>On Debian based systems (Debian, Ubuntu, Mint...)</h5>
+<p>Just install our Debian repository, and then the mcstas-suite package:<br>
+</p>
+<blockquote>
+  <pre>sudo apt-add-repository 'deb http://packages.mccode.org/debian stable main'<br>sudo apt-get update<br>sudo apt-get install mcstas-suite libtk-codetext-perl</pre>
+</blockquote>
+You may optionally install <a href="http://ifit.mccode.org">iFit</a> to visualize results using a Matlab environment (for free, no license needed).<br>
+<blockquote>
+  <pre>sudo apt-get install ifit MCRInstaller</pre>
+</blockquote>
+<h5>
+On RPM based systems</h5>
+<p>Just install our RPM repository, and then the mcstas-suite package:</p>
+<blockquote>
+  <pre>cd /etc/yum.repos.d
+sudo wget http://packages.mccode.org/rpm/mccode.repo
+sudo yum update<br>sudo yum install mcstas-suite<br></pre>
+</blockquote>
+<h4>
+  <font color="#3366ff">Linux (other)</font></h4>
+
+Get the source package, and follow the build instructions on the <a href="/svn/svn.html">SVN</a> page (for e.g. mcstas-2.0):<br>
+<blockquote>
+  <pre>tar xzf mcstas-2.0-src.tar.gz<br>cd mcstas-2.0-src<br>mkdir build &amp;&amp; cd build<br>cmake ..<br>make<br>sudo make install<br></pre>
+</blockquote>
+You will need to repeat this procedure for all packages (or only the mcstas-comps and the Perl one), e.g. <br>
+<blockquote>
+  <pre>mcstas-comps<br>mcstas-tools-perl<br>mcstas-tools-python-mcrun<br>mcstas-tools-python-mcplot-chaco<br>mcstas-tools-python-mcplot-matplotlib<br></pre>
+</blockquote>
+<h4>
+  <font color="#3366ff">Windows</font></h4>
+
+Install the McStas packages in this order:
+<ul>
+<li>McStas core package (mcstas-NSIS-2.0-*.exe)
+  </li><li>McStas component package (mcstas-comps-NSIS-2.0-*.exe)
+  </li><li>McStas Perl tool package (mcstas-tools-perl-NSIS-2.0-*.exe)
+  </li><li>- then the optional Python packages if wanted
+</li>
+</ul>
+
+Once everything is installed, use the new links on your desktop for 
+either starting mcgui directly or starting a "mcstas environment shell" 
+with mcrun, mcplot, mcgui etc.
+<br>
+<br>
+<h4>
+  <font color="#3366ff">MacOSX</font></h4>
+Install the packages in this order:<br>
+<blockquote>
+  <pre>Tk-804<br>SciPDL<br>McStas<br>mcstas-comps<br>mcstas-tools-perl<br>mcstas-tools-python-mcrun<br>mcstas-tools-python-mcplot-chaco<br>mcstas-tools-python-mcplot-matplotlib<br></pre>
+</blockquote>
+
+<h3 align="center"><font color="#ff0000">Configuration</font></h3>
+<h4><font color="#3366ff">Linux</font></h4>
+To build the McStas library documentation after installation (if missing), use e.g.:<br>
+<blockquote>
+  <pre>cd /usr/local/lib/mcstas-2.0
+sudo mcdoc -t</pre>
+</blockquote>
+<br>
+<br>
+You may have a look at the <a href="/documentation/faq/faq.html">FAQ</a>
+page in case of troubles.<br>
+<br>
+<br>
+Last modified: Fri Oct 18 16:25:25 CEST 2013<ul>
+</ul>
+
+
+</body></html>

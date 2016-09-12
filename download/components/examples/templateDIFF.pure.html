@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: templateDIFF Instrument at  Templates</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>templateDIFF</CODE> Instrument</H1>
+
+Simple monochromator Diffractometer for powders
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    Templates</B>
+  <LI> <B>Author:</B> E. Farhi</B>
+  <LI> <B>Origin:</B> LLB/ILL</B>
+  <LI> <B>Date:</B> 13 Apr 2006</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+A template powder diffractometer used as a tutorial at LLB.
+Default geometry is from D20@ILL.
+
+If included after a guide, use ALPHA1=0 and L1=0 (the first collimator is then
+the guide with effective ALPHA1=m*0.1*lambda). If you prefer to include 
+explicitely a collimator before the monochromator, use L1=1.2.
+
+Monochromator lattice parameter
+PG       002 DM=3.355 AA (Highly Oriented Pyrolythic Graphite)
+PG       004 DM=1.607 AA
+Heusler  111 DM=3.362 AA (Cu2MnAl)
+CoFe         DM=1.771 AA (Co0.92Fe0.08)
+Ge       111 DM=3.266 AA
+Ge       311 DM=1.714 AA
+Ge       511 DM=1.089 AA
+Ge       533 DM=0.863 AA
+Si       111 DM=3.135 AA
+Cu       111 DM=2.087 AA
+Cu       002 DM=1.807 AA
+Cu       220 DM=1.278 AA
+Cu       111 DM=2.095 AA
+
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>lambda</TD>
+     <TD>Angs</TD>
+     <TD>Wavelength at monochromator, computed from DM and THETA_M if left as 0.
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>DM</TD>
+     <TD>Angs</TD>
+     <TD>d-spacing of monochromator, computed from lambda and THETA_M if left as 0.
+</TD>
+<TD ALIGN=RIGHT>3.355</TD> </TR>
+<TR> <TD>Powder</TD>
+     <TD>str</TD>
+     <TD>File name for powder description
+</TD>
+<TD ALIGN=RIGHT>"Na2Ca3Al2F14.laz"</TD> </TR>
+<TR> <TD>RV</TD>
+     <TD>m</TD>
+     <TD>Monochromator vertical curvature, 0 for flat, -1 for automatic setting
+</TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>L1</TD>
+     <TD>m</TD>
+     <TD>Source-Monochromator distance
+</TD>
+<TD ALIGN=RIGHT>17</TD> </TR>
+<TR> <TD>L2</TD>
+     <TD>m</TD>
+     <TD>Monochromator-Sample distance
+</TD>
+<TD ALIGN=RIGHT>3.2</TD> </TR>
+<TR> <TD>L3</TD>
+     <TD>m</TD>
+     <TD>Sample-Detector distance
+</TD>
+<TD ALIGN=RIGHT>1.471</TD> </TR>
+<TR> <TD>ALPHA1</TD>
+     <TD>before monochromator</TD>
+     <TD>[min]  Horizontal collimator divergence for L1 arm </TD>
+<TD ALIGN=RIGHT>5</TD> </TR>
+<TR> <TD>ALPHA2</TD>
+     <TD>monochromator-sample</TD>
+     <TD>[min]  Horizontal collimator divergence for L2 arm </TD>
+<TD ALIGN=RIGHT>60</TD> </TR>
+<TR> <TD>ALPHA3</TD>
+     <TD>sample-detector</TD>
+     <TD>[min]  Horizontal collimator divergence for L3 arm </TD>
+<TD ALIGN=RIGHT>5</TD> </TR>
+<TR> <TD>ETA</TD>
+     <TD>gaussian</TD>
+     <TD>[min]  Monochromator horizontal mosaic </TD>
+<TD ALIGN=RIGHT>12</TD> </TR>
+<TR> <TD>verbose</TD>
+     <TD>1</TD>
+     <TD>Print DIF configuration. 0 to be quiet
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>THETA_M</TD>
+     <TD>deg</TD>
+     <TD>Monochromator take-off angle, computed from lambda and DM if left as 0.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>SM</TD>
+     <TD>1</TD>
+     <TD>Scattering sense of beam from Monochromator. 1:left, -1:right
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="templateDIFF.instr">Source code</A> for <CODE>templateDIFF.instr</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:08 2016</ADDRESS>
+</BODY></HTML>

@@ -1,0 +1,144 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: multi_pipe Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>multi_pipe</CODE> Component</H1>
+
+multi pipe circular slit.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Uwe Filges</B>
+  <LI> <B>Origin:</B>(Unknown)</B>
+  <LI> <B>Date:</B> March, 2005</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+No transmission around the slit is allowed.
+
+example for an input file
+# user defined geometry
+# x(i) y(i) r(i) [m]
+  0.02 0.03 0.01
+ -0.04 0.015 0.005
+
+ warning: at least two values must be in the file
+
+Example: multi_pipe(xmin=-0.01, xmax=0.01, ymin=-0.01, ymax=0.01)
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>filename</TD>
+     <TD>str</TD>
+     <TD>define user table of holes </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD><B>xmin</B></TD>
+     <TD>m</TD>
+     <TD>Lower x bound </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>xmax</B></TD>
+     <TD>m</TD>
+     <TD>Upper x bound </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>ymin</B></TD>
+     <TD>m</TD>
+     <TD>Lower y bound </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>ymax</B></TD>
+     <TD>m</TD>
+     <TD>Upper y bound </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>radius</TD>
+     <TD>-</TD>
+     <TD>radius of a single hole</TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+<TR> <TD>gap</TD>
+     <TD>m</TD>
+     <TD>distance between holes </TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+<TR> <TD>thickness</TD>
+     <TD>m</TD>
+     <TD>thickness of the pipe </TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+<TR> <TD>xwidth</TD>
+     <TD>m</TD>
+     <TD>Width of slit plate. Overrides xmin,xmax. </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>m</TD>
+     <TD>Height of slit plate. Overrides ymin,ymax. </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>pTable</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>user_file</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>ynum</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>xnum</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>diam</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>w_pipe</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>h_pipe</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>h_number</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="multi_pipe.comp">Source code</A> for <CODE>multi_pipe.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

@@ -1,0 +1,154 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: StatisticalChopper Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>StatisticalChopper</CODE> Component</H1>
+
+Statistical (correlation) Chopper
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B>  C. Monzat/E. Farhi/S. Rozenkranz</B>
+  <LI> <B>Origin:</B> ILL</B>
+  <LI> <B>Date:</B> Nov 10th, 2009</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+This component is a statistical chopper based on a pseudo random sequence that the user
+can specify. Inspired from DiskChopper, it should be used with SatisticalChopper_Monitor component.
+
+Example: StatisticalChopper(nu=1487*60/255) use default sequence
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>radius</TD>
+     <TD>m</TD>
+     <TD>Radius of the disc
+</TD>
+<TD ALIGN=RIGHT>0.5</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>m</TD>
+     <TD>Slit height (if = 0, equal to radius). Auto centering of beam at half height.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD><B>nu</B></TD>
+     <TD>Hz</TD>
+     <TD>Frequency of the Chopper, omega=2*PI*nu
+(algebraic sign defines the direction of rotation)
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>jitter</TD>
+     <TD>s</TD>
+     <TD>Jitter in the time phase
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>delay</TD>
+     <TD>s</TD>
+     <TD>Time 'delay'.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>isfirst</TD>
+     <TD>0/1</TD>
+     <TD>Set it to 1 for the first chopper position in a cw source
+(it then spreads the neutron time distribution)
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>abs_out</TD>
+     <TD>0/1</TD>
+     <TD>Absorb neutrons hitting outside of chopper radius?
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>phase</TD>
+     <TD>deg</TD>
+     <TD>Angular 'delay' (overrides delay)
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>verbose</TD>
+     <TD>1</TD>
+     <TD>Set to 1 to display Disk chopper configuration
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>n_pulse</TD>
+     <TD>1</TD>
+     <TD>Number of pulses (Only if isfirst)
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>sequence</TD>
+     <TD>str</TD>
+     <TD>Slit sequence around disk, with 0=closed, 1=open positions.
+NULL or "" will set a default sequence.
+</TD>
+<TD ALIGN=RIGHT>"NULL"</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>delta_y</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>height</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>omega</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>Sequence</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>SequenceIndex</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>nslit</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>m</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="StatisticalChopper.comp">Source code</A> for <CODE>StatisticalChopper.comp</CODE>.
+  <LI> R. Von Jan and R. Scherm. The statistical chopper for neutron time-of-flight spectroscopy. Nuclear Instruments and Methods, 80 (1970) 69-76.
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

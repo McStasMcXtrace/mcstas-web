@@ -1,0 +1,130 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: SANSPDBFast Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>SANSPDBFast</CODE> Component</H1>
+
+A sample describing a thin solution of proteins using linear interpolation
+to increase computational speed. This components must be compiled with the
+-lgsl and -lgslcblas flags (and possibly linked to the appropriate libraries).
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Martin Cramer Pedersen (mcpe@nbi.dk) and Søren Kynde (kynde@nbi.dk)</B>
+  <LI> <B>Origin:</B> KU-Science</B>
+  <LI> <B>Date:</B> October 17, 2012</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+This components expands the formfactor amplitude of the protein on spherical
+harmonics and computes the scattering profile using these. The expansion is
+done on amino-acid level and does not take hydration layer into account.
+The component must have a valid .pdb-file as an argument.
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>NumberOfQBins</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>200</TD> </TR>
+<TR> <TD>RhoSolvent</TD>
+     <TD>AA</TD>
+     <TD>Scattering length density of the buffer - 
+default is 100% D2O.
+</TD>
+<TD ALIGN=RIGHT>6.4e-14</TD> </TR>
+<TR> <TD>Concentration</TD>
+     <TD>mM</TD>
+     <TD>Concentration of sample.
+</TD>
+<TD ALIGN=RIGHT>0.01</TD> </TR>
+<TR> <TD>AbsorptionCrosssection</TD>
+     <TD>1/m</TD>
+     <TD>Absorption cross section of the sample.
+</TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+<TR> <TD><B>xwidth</B></TD>
+     <TD>m</TD>
+     <TD>Dimension of component in the x-direction.
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>yheight</B></TD>
+     <TD>m</TD>
+     <TD>Dimension of component in the y-direction.
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>zdepth</B></TD>
+     <TD>m</TD>
+     <TD>Dimension of component in the z-direction.
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>SampleToDetectorDistance</B></TD>
+     <TD>m</TD>
+     <TD>Distance from sample to detector (for 
+focusing the scattered neutrons).
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>DetectorRadius</B></TD>
+     <TD>m</TD>
+     <TD>Radius of the detector (for focusing the 
+scattered neutrons).
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>qMin</TD>
+     <TD>AA^-1</TD>
+     <TD>Lowest q-value, for which a point is gene-
+rated in the scattering profile
+</TD>
+<TD ALIGN=RIGHT>0.001</TD> </TR>
+<TR> <TD>qMax</TD>
+     <TD>AA^-1</TD>
+     <TD>Highest q-value, for which a point is gene-
+rated in the scattering profile
+</TD>
+<TD ALIGN=RIGHT>0.5</TD> </TR>
+<TR> <TD>PDBFilepath</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>"PDBfile.pdb"</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="SANSPDBFast.comp">Source code</A> for <CODE>SANSPDBFast.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

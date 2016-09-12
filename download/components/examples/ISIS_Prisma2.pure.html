@@ -1,0 +1,134 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: ISIS_Prisma2 Instrument at  ISIS</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>ISIS_Prisma2</CODE> Instrument</H1>
+
+Simple simulation of PRISMA2 with RITA-style analyser backend.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    ISIS</B>
+  <LI> <B>Author:</B> Kristian Nielsen and Mark Hagen</B>
+  <LI> <B>Origin:</B> ISIS/Risoe</B>
+  <LI> <B>Date:</B> August 1998.</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Demonstrates how the standard components from the component library
+may be easily modified for special purposes; in this case to have
+the individual analyser blades paint a "color" on the neutrons to
+differentiate them in the detector.
+
+Output is in the file "prisma2.tof". The format is ASCII; each
+line consists of the time-of-flight in microseconds followed by seven
+intensities of neutrons from each individual analyser blade.
+
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>TT</TD>
+     <TD>deg</TD>
+     <TD>Take-off angle at the sample position, aka A4
+</TD>
+<TD ALIGN=RIGHT>-30</TD> </TR>
+<TR> <TD>PHA</TD>
+     <TD>deg</TD>
+     <TD>Analyzer group rotation angle, aka A5
+</TD>
+<TD ALIGN=RIGHT>22</TD> </TR>
+<TR> <TD>PHA1</TD>
+     <TD>deg</TD>
+     <TD>Analyzer 1 tilt angle
+</TD>
+<TD ALIGN=RIGHT>-3</TD> </TR>
+<TR> <TD>PHA2</TD>
+     <TD>deg</TD>
+     <TD>Analyzer 2 tilt angle
+</TD>
+<TD ALIGN=RIGHT>-2</TD> </TR>
+<TR> <TD>PHA3</TD>
+     <TD>deg</TD>
+     <TD>Analyzer 3 tilt angle
+</TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>PHA4</TD>
+     <TD>deg</TD>
+     <TD>Analyzer 4 tilt angle
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>PHA5</TD>
+     <TD>deg</TD>
+     <TD>Analyzer 5 tilt angle
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>PHA6</TD>
+     <TD>deg</TD>
+     <TD>Analyzer 6 tilt angle
+</TD>
+<TD ALIGN=RIGHT>2</TD> </TR>
+<TR> <TD>PHA7</TD>
+     <TD>deg</TD>
+     <TD>Analyzer 7 tilt angle
+</TD>
+<TD ALIGN=RIGHT>3</TD> </TR>
+<TR> <TD>TTA</TD>
+     <TD>deg</TD>
+     <TD>Take-off angle at the analyzer position, aka A6
+</TD>
+<TD ALIGN=RIGHT>4</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>Monochromator_color</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>This instrument contains embedded components</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="ISIS_Prisma2.instr">Source code</A> for <CODE>ISIS_Prisma2.instr</CODE>.
+  <LI> The McStas User manual
+<a href="http://www.isis.rl.ac.uk/excitations/prisma/">PRISMA</a>
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

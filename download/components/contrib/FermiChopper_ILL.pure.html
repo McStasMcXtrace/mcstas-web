@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: FermiChopper_ILL Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>FermiChopper_ILL</CODE> Component</H1>
+
+Fermi Chopper with rotating frame.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> M. Poehlmann, C. Carbogno, H. Schober, E. Farhi</B>
+  <LI> <B>Origin:</B>     ILL Grenoble / TU Muenchen</B>
+  <LI> <B>Date:</B>       May 2002</B>
+  <LI> <B>Version:</B>    $Revision$</B>
+  <LI> <B>Modification history:</B> <UL>
+    <LI>  K.Lieutenant, June 2005: added phase parameter. Comp validation.
+    <LI>  E. Farhi, Jul 2008: uniformize parameter names ()
+    <LI>  EF, Oct 2008: fix chopper orientation
+    <LI>  EF, Mar 2009: fixed infinite recursion which may cause SEGV. Cleanup of code.
+  </UL>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Models a Fermi chopper with optional supermirror coated blades
+supermirror facilities may be disabled by setting m = 0, R0=0
+Slit packages are straight. Chopper slits are separated by an infinitely
+thin absorbing material. The effective transmission (resulting from fraction
+of the transparent material and its transmission) may be specified.
+The chopper slit package width may be specified through the total width 'xwidth'
+of the full package or the width 'w' of each single slit. The other parameter
+is calculated by: xwidth = nslit*w.
+
+Example:
+FermiChopper_ILL(phase=-50.0, radius=0.04, nu=100,
+  yheight=0.08, w=0.00022475, nslit=200.0, R0=0.0,
+  Qc=0.02176, alpha=2.33, m=0.0, length=0.012, eff=0.95,
+  zero_time=0)
+
+Markus Poehlmann     <Markus.Poehlmann@ph.tum.de>
+Christian Carbogno   <carbogno@ph.tum.de>
+and Helmut Schober   <schober@ill.fr>
+
+%VALIDATION
+Apr 2005: extensive external test, most problems solved (cf. 'Bugs')
+Validated by: K. Lieutenant
+
+limitations:
+no blade width used
+
+%BUGS
+- overestimates peak width for long wavelengths
+- does not give the right pulse position, shape and width for slit widths below 0.1 mm
+- fails sometimes when using MPI
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>phase</TD>
+     <TD>deg</TD>
+     <TD>chopper phase at t=0
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>radius</TD>
+     <TD>m</TD>
+     <TD>chopper cylinder radius
+</TD>
+<TD ALIGN=RIGHT>0.04</TD> </TR>
+<TR> <TD>nu</TD>
+     <TD>Hz</TD>
+     <TD>chopper frequency
+</TD>
+<TD ALIGN=RIGHT>100</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>m</TD>
+     <TD>Height of chopper
+</TD>
+<TD ALIGN=RIGHT>0.08</TD> </TR>
+<TR> <TD>w</TD>
+     <TD>m</TD>
+     <TD>width of one chopper slit
+</TD>
+<TD ALIGN=RIGHT>0.00022475</TD> </TR>
+<TR> <TD>nslit</TD>
+     <TD>1</TD>
+     <TD>number of chopper slits
+</TD>
+<TD ALIGN=RIGHT>200.0</TD> </TR>
+<TR> <TD>R0</TD>
+     <TD>1</TD>
+     <TD>low-angle reflectivity
+</TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+<TR> <TD>Qc</TD>
+     <TD>AA-1</TD>
+     <TD>critical scattering vector
+</TD>
+<TD ALIGN=RIGHT>0.02176</TD> </TR>
+<TR> <TD>alpha</TD>
+     <TD>AA</TD>
+     <TD>slope of reflectivity
+</TD>
+<TD ALIGN=RIGHT>2.33</TD> </TR>
+<TR> <TD>m</TD>
+     <TD>1</TD>
+     <TD>m-value of material. Zero means completely absorbing.
+</TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+<TR> <TD>W</TD>
+     <TD>AA-1</TD>
+     <TD>width of supermirror cut-off
+</TD>
+<TD ALIGN=RIGHT>2e-3</TD> </TR>
+<TR> <TD>length</TD>
+     <TD>m</TD>
+     <TD>channel length of the Fermi chopper
+</TD>
+<TD ALIGN=RIGHT>0.012</TD> </TR>
+<TR> <TD>eff</TD>
+     <TD>1</TD>
+     <TD>efficiency = transmission x fraction of transparent material
+</TD>
+<TD ALIGN=RIGHT>0.95</TD> </TR>
+<TR> <TD>zero_time</TD>
+     <TD>1</TD>
+     <TD>set time to zero: 0: no  1: once per half cycle
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>xwidth</TD>
+     <TD>m</TD>
+     <TD>optional total width of slit package
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>verbose</TD>
+     <TD>1</TD>
+     <TD>optional flag to display component statistics, use 1 or 3 (debuging)
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>FCVars</B></TD>
+     <TD>-</TD>
+     <TD>structure containing many neutron counters for the data in 'verbose', mean velocities, angular frequency of the chopper etc.
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="FermiChopper_ILL.comp">Source code</A> for <CODE>FermiChopper_ILL.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

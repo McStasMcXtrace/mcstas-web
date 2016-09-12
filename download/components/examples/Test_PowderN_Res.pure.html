@@ -1,0 +1,112 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Test_PowderN_Res Instrument at  Test_samples</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Test_PowderN_Res</CODE> Instrument</H1>
+
+Idealized powder diffractometer, to illustrate the difference between 'banana,theta' and 'banana,divergence' in Monitor_nD.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    Test_samples</B>
+  <LI> <B>Author:</B> Peter Willendrup</B>
+  <LI> <B>Origin:</B> DTU</B>
+  <LI> <B>Date:</B> 20160309</B>
+  <LI> <B>Version:</B> 2.3</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Idealized powder diffractometer, to illustrate the difference between 'banana,theta' and 'banana,divergence' in Monitor_nD. Includes a Na2Ca3Al2F14 powder sample.
+
+The beam from the source is very low-divergent, to allow studying effects at the sample "only".
+
+By default, absorption in the sample is effectively suppressed.
+
+Example: mcrun Test_PowderNRes  Lambda0=2.5667 dLambda=0.01 radius=0.001,0.021 TT=71.8 D_PHI=6 SPLITS=117 Distance=30 sig_abs=1e-09 -N21
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>Lambda0</TD>
+     <TD>AA</TD>
+     <TD>Central wavelength of the source
+</TD>
+<TD ALIGN=RIGHT>2.5667</TD> </TR>
+<TR> <TD>dLambda</TD>
+     <TD>AA</TD>
+     <TD>Width of wavelength band from the source
+</TD>
+<TD ALIGN=RIGHT>0.01</TD> </TR>
+<TR> <TD>radius</TD>
+     <TD>m</TD>
+     <TD>Radius of cylindrical powder sample
+</TD>
+<TD ALIGN=RIGHT>0.01</TD> </TR>
+<TR> <TD>TT</TD>
+     <TD>deg</TD>
+     <TD>Two-theta (scattering angle) of small banana detectors
+</TD>
+<TD ALIGN=RIGHT>72</TD> </TR>
+<TR> <TD>D_PHI</TD>
+     <TD>deg</TD>
+     <TD>d_phi focusing around detector "plane" in degrees
+</TD>
+<TD ALIGN=RIGHT>6</TD> </TR>
+<TR> <TD>SPLITS</TD>
+     <TD>1</TD>
+     <TD>SPLIT statistics booster at sample position
+</TD>
+<TD ALIGN=RIGHT>117</TD> </TR>
+<TR> <TD>Distance</TD>
+     <TD>m</TD>
+     <TD>Distance between source and sample
+</TD>
+<TD ALIGN=RIGHT>30</TD> </TR>
+<TR> <TD>sig_abs</TD>
+     <TD>barns</TD>
+     <TD>Absorption cross-section in the sample
+</TD>
+<TD ALIGN=RIGHT>1e-9</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Test_PowderN_Res.instr">Source code</A> for <CODE>Test_PowderN_Res.instr</CODE>.
+  <LI> A reference/HTML link for more information
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:08 2016</ADDRESS>
+</BODY></HTML>

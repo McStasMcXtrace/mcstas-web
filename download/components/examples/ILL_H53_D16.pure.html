@@ -1,0 +1,153 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: ILL_H53_D16 Instrument at  ILL</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>ILL_H53_D16</CODE> Instrument</H1>
+
+The D16 diffractometer/reflectometer on the H53 curved cold guide at the ILL
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    ILL</B>
+  <LI> <B>Author:</B> FARHI Emmanuel (farhi@ill.fr)</B>
+  <LI> <B>Origin:</B>ILL</B>
+  <LI> <B>Date:</B> Oct 7, 2008</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+The H53 (120 x 60 mm2) curved cold guide feeds D16 (after IN14, and IN16). 
+D16 is a two-circle diffractometer. The primary white beam is reflected by a
+focussing pyrolytic graphite monochromator (122 x 60 mm2 with mosaicity 0.7
+deg) providing an important flux at the sample. The monochromator housing has
+two beam holes at take-off angles of 90 deg and 115 deg, corresponding to 4.7
+Angs and 5.6 Angs beams and incorporates the slit systems.
+
+Example: m=1.2 Detector: Det_psd_I=6.4729E+03
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>lambda</TD>
+     <TD>Angs</TD>
+     <TD>Wavelength at monochromator, computed from DM and THETA_M if left as 0.
+</TD>
+<TD ALIGN=RIGHT>4.7</TD> </TR>
+<TR> <TD>DM</TD>
+     <TD>Angs</TD>
+     <TD>d-spacing of monochromator, computed from lambda and THETA_M if left as 0.
+</TD>
+<TD ALIGN=RIGHT>3.355</TD> </TR>
+<TR> <TD>dlambda</TD>
+     <TD>AA</TD>
+     <TD>wavelength half width.
+</TD>
+<TD ALIGN=RIGHT>0.05</TD> </TR>
+<TR> <TD>Powder</TD>
+     <TD>str</TD>
+     <TD>File name for powder description. 
+If set to NULL, use a 100 Angs particule colloid 
+</TD>
+<TD ALIGN=RIGHT>"Na2Ca3Al2F14.laz"</TD> </TR>
+<TR> <TD>RV</TD>
+     <TD>m</TD>
+     <TD>Monochromator vertical curvature, 0 for flat, -1 for automatic setting
+</TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>L1</TD>
+     <TD>m</TD>
+     <TD>Guide-Monochromator distance
+</TD>
+<TD ALIGN=RIGHT>0.1</TD> </TR>
+<TR> <TD>L2</TD>
+     <TD>m</TD>
+     <TD>Monochromator-Sample distance
+</TD>
+<TD ALIGN=RIGHT>2.8</TD> </TR>
+<TR> <TD>L3</TD>
+     <TD>m</TD>
+     <TD>Sample-Detector distance
+</TD>
+<TD ALIGN=RIGHT>1.0</TD> </TR>
+<TR> <TD>THETA_M</TD>
+     <TD>deg</TD>
+     <TD>Monochromator take-off angle, computed from lambda and DM if left as 0.
+</TD>
+<TD ALIGN=RIGHT>44.46</TD> </TR>
+<TR> <TD>TwoTheta</TD>
+     <TD>in plane</TD>
+     <TD>[deg] Detector rotation </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>RadiusDet</TD>
+     <TD>m</TD>
+     <TD>Detector entrance window radius
+</TD>
+<TD ALIGN=RIGHT>0.36</TD> </TR>
+<TR> <TD>DetEthick</TD>
+     <TD>m</TD>
+     <TD>Detector entrance window thickness
+</TD>
+<TD ALIGN=RIGHT>.01</TD> </TR>
+<TR> <TD>DetEgap</TD>
+     <TD>m</TD>
+     <TD>Detector entrance window gap to flat detector inner window
+</TD>
+<TD ALIGN=RIGHT>0.08</TD> </TR>
+<TR> <TD>DetVthick</TD>
+     <TD>m</TD>
+     <TD>Detector active volume thickness 
+</TD>
+<TD ALIGN=RIGHT>5e-3</TD> </TR>
+<TR> <TD>verbose</TD>
+     <TD>1</TD>
+     <TD>Print DIF configuration. 0 to be quiet
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>TILT</TD>
+     <TD>deg</TD>
+     <TD>Monochromator additional tilt, for rocking curves
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="ILL_H53_D16.instr">Source code</A> for <CODE>ILL_H53_D16.instr</CODE>.
+  <LI> The <a href="http://www.ill.fr/d16">D16 diffractometer</a> at the ILL
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

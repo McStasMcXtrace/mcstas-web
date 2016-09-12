@@ -1,0 +1,187 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Source_multi_surfaces Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Source_multi_surfaces</CODE> Component</H1>
+
+Rectangular neutron source with subareas - using wavelength spectra reading
+from files
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Ludovic Giller, Uwe Filges</B>
+  <LI> <B>Origin:</B> PSI/Villigen</B>
+  <LI> <B>Date:</B> 31.10.06</B>
+  <LI> <B>Version:</B> $Revision$</B>
+  <LI> <B>Modification history:</B> <UL>
+    <LI> 
+  </UL>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+This routine is a rectangular neutron source, which aims at a square target
+centered at the beam (in order to improve MC-acceptance rate).
+The angular divergence is then given by the dimensions of the target.
+The source surface can be divided in subareas (maximum 7 in one dimension). 
+For each subarea a discret spectrum must be loaded given by its corresponding
+file. The name of the files are saved in one file and will be called with the
+parameter "filename".
+In fact the routine first reads the spectrum from files (up to 49) and it 
+selects randomly a subarea. Secondly it generates a neutron with an random
+energy, selected from the spectrum corresponding to the subsurface chosen, and
+with a random direction of propagation within the target.
+ATTENTION 1:  the files must be located in the working directory where also
+		the instrument file is located
+ATTENTION 2:  the wavelenght distribution (or binning) must be uniform 
+
+The file giving the name of sub-sources is matrix like, 
+   eg. for a 3x2 (x,y) division :
+                   spec1_1.dat spec1_2.dat spec1_3.dat
+                   spec2_1.dat spec2_2.dat spec2_3.dat(RETURN-key)
+
+               ATTENTION : The line break after the last line is important.
+			     Otherwise the files can not be read in !!!
+
+               and for example spec1_2.dat must be like, always from big to
+               small lambda :
+			#surface 1_2
+			#comments must be preceded by "#"
+			#lambda [AA] 	intensity [a.u.]
+			9.0		1.39E+08
+			8.75		9.67E+08
+			8.5		1.17E+09
+			8.25		1.50E+09
+			8.0		1.60E+09
+			7.75		1.43E+09
+			7.5		1.40E+09
+			7.25		1.36E+09
+			7.0		1.35E+09
+			6.75		1.33E+09
+			6.5		1.32E+09
+			6.25		1.31E+09
+
+
+		[a.u.] 	means that your chosen unit for the intensity influences
+			the outcoming unit. What you put in you will get out !
+			i.e. whatever is the unit for the input intensity you
+			will have the same unit for the the output.
+			Generally McStas works in neutrons per second [n/s].
+
+Usage example:
+  Source_multi_surfaces(yheight=0.16,xwidth=0.09,dist=1.18,xw=0.08,yh=0.15,xdim=4,ydim=4,
+                        Lmin=0.01,Lmax=10.0,filename="files_name.dat")
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>filename</TD>
+     <TD>str</TD>
+     <TD>Name of the file containing a list of the spectra file names
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>m</TD>
+     <TD>Source y-height
+</TD>
+<TD ALIGN=RIGHT>0.16</TD> </TR>
+<TR> <TD>xwidth</TD>
+     <TD>m</TD>
+     <TD>Source x-width
+</TD>
+<TD ALIGN=RIGHT>0.09</TD> </TR>
+<TR> <TD>dist</TD>
+     <TD>m</TD>
+     <TD>Distance to target along z axis
+</TD>
+<TD ALIGN=RIGHT>1.18</TD> </TR>
+<TR> <TD>xw</TD>
+     <TD>m</TD>
+     <TD>Width(x) of target
+</TD>
+<TD ALIGN=RIGHT>0.08</TD> </TR>
+<TR> <TD>yh</TD>
+     <TD>m</TD>
+     <TD>Height(y) of target
+</TD>
+<TD ALIGN=RIGHT>0.15</TD> </TR>
+<TR> <TD>xdim</TD>
+     <TD>int</TD>
+     <TD>Number of subareas in the x direction
+</TD>
+<TD ALIGN=RIGHT>4</TD> </TR>
+<TR> <TD>ydim</TD>
+     <TD>int</TD>
+     <TD>Number of subareas in the y direction
+</TD>
+<TD ALIGN=RIGHT>4</TD> </TR>
+<TR> <TD>Emin</TD>
+     <TD>eV</TD>
+     <TD>Minimum energy of neutrons
+</TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+<TR> <TD>Emax</TD>
+     <TD>eV</TD>
+     <TD>Maximum energy of neutrons
+</TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+<TR> <TD>Lmin</TD>
+     <TD>AA</TD>
+     <TD>Minimum wavelength of neutrons
+</TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+<TR> <TD>Lmax</TD>
+     <TD>AA</TD>
+     <TD>Maximum wavelength of neutrons
+</TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>p_in</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Source_multi_surfaces.comp">Source code</A> for <CODE>Source_multi_surfaces.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

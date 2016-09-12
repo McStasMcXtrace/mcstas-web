@@ -1,0 +1,138 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Lens_simple Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Lens_simple</CODE> Component</H1>
+
+Rectangular/circular slit with parabolic/spherical LENS.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Henrich Frielinghaus</B>
+  <LI> <B>Origin:</B> FZ Juelich</B>
+  <LI> <B>Date:</B> June 2010</B>
+  <LI> <B>Version:</B> 1.0</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+A simple rectangular or circular slit. You may either 
+specify the radius (circular shape), or the rectangular bounds.
+No transmission around the slit is allowed.
+
+At the slit position there is/are also a LENS or multiple LENSES present.
+Spherical/parabolic abberation is taken into account in a simplified
+manner. The focal point becomes a function of the distance ss from the
+origin of the lens where the ray hits the lens (plane).
+With this focal distance the refraction is calculated based on simple
+geometrical optics (as tought already in school).
+
+The approximation gets wrong when the distance ss is too big, and
+total reflection becomes possible. Then the corrections of the focal
+distance are strong (see foc*= ... lines. When this correction factor
+is too close to zero, the corrections become highly wrong).
+
+The advantage of this routine is the simplicity which makes the
+simulation very fast - especially for multiple lenses. The argument
+for this way of treating the lenses is that the collimation and
+detector distance are large (say 20m) compared to the lens thickness
+(say 2-5cm) and the lens array thickness (say max. 1m).
+
+For lens arrays one still can simulate several of these simplified
+lenses instead of an exact treatment (because 5cm<<1m). The author
+believes that this medium detailed treatment meets usually the
+desired accuracy.
+
+Example: Lens_simple(rho=5.16e10,Rc=0.0254,Nl=7,xmin=-0.01,xmax=0.01,ymin=-0.01,ymax=0.01)
+         Lens_simple(rho=5.16e10,Rc=0.0254,Nl=7,radius=0.01)
+         Lens_simple(rho=5.16e10,Rc=0.0254,Nl=7,radius=0.035,SigmaAL=0.141, d0=0.002)
+         ^^^^^^^^^^^ last example includes absorption of MgF2-lens.
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>rho</TD>
+     <TD>m-2</TD>
+     <TD>Scattering length density </TD>
+<TD ALIGN=RIGHT>5.16e14</TD> </TR>
+<TR> <TD>Rc</TD>
+     <TD>m</TD>
+     <TD>Radius (concave: Rc>0) of biconcave lens    </TD>
+<TD ALIGN=RIGHT>0.02</TD> </TR>
+<TR> <TD>Nl</TD>
+     <TD>1</TD>
+     <TD>Number of single lenses </TD>
+<TD ALIGN=RIGHT>7.0</TD> </TR>
+<TR> <TD>parab</TD>
+     <TD>not 0 -> parabolic, for 0 spherical</TD>
+     <TD>Switch </TD>
+<TD ALIGN=RIGHT>1.1</TD> </TR>
+<TR> <TD>xmin</TD>
+     <TD>m</TD>
+     <TD>Lower x bound </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>xmax</TD>
+     <TD>m</TD>
+     <TD>Upper x bound </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>ymin</TD>
+     <TD>m</TD>
+     <TD>Lower y bound </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>ymax</TD>
+     <TD>m</TD>
+     <TD>Upper y bound </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>radius</TD>
+     <TD>m</TD>
+     <TD>Radius of slit in the z=0 plane, centered at Origin </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>SigmaAL</TD>
+     <TD>1/(m*AA)</TD>
+     <TD>Absorption cross section per lambda (wavelength) </TD>
+<TD ALIGN=RIGHT>0.141</TD> </TR>
+<TR> <TD>d0</TD>
+     <TD>m</TD>
+     <TD>Minimum thickness in the centre of the lens </TD>
+<TD ALIGN=RIGHT>0.002</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Lens_simple.comp">Source code</A> for <CODE>Lens_simple.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

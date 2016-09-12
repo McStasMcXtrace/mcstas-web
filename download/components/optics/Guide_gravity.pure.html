@@ -1,0 +1,296 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Guide_gravity Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Guide_gravity</CODE> Component</H1>
+
+Neutron straight guide with gravity. Can be channeled and focusing.
+Waviness may be specified, as well as side chamfers (on substrate).
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></B>
+  <LI> <B>Origin:</B> <a href="http://www.ill.fr">ILL (France)</a>.</B>
+  <LI> <B>Date:</B> Aug 03 2001</B>
+  <LI> <B>Version:</B> $Revision$</B>
+  <LI> <B>Modification history:</B> <UL>
+    <LI>  E. Farhi, from Gravity_guide by nslit. Lefmann (buggy).
+    <LI>  E. Farhi, focusing channels are now ok (Sept 4th, 2001).
+    <LI>  E. Farhi, 2D channel array. Correct focus bug (Dec 14th 2002)
+    <LI>  E. Farhi, Waviness+chamfers+nelements (Aug 19th 2003)
+  </UL>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Models a rectangular straight guide tube centered on the Z axis, with
+gravitation handling. The entrance lies in the X-Y plane.
+The guide can be channeled (nslit,d,nhslit parameters). The guide coating
+specifications may be entered via different ways (global, or for
+each wall m-value).
+
+Waviness (random) may be specified either globally or for each mirror type.
+Side chamfers (due to substrate processing) may be specified the same way.
+In order to model a realistic straight guide assembly, a long guide of
+length 'l' may be splitted into 'nelements' between which chamfers/gaps are
+positioned.
+
+The reflectivity may be specified either using an analytical mode (see
+Component manual) or as a text file in free format, with 1st
+column as q[Angs-1] and 2nd column as the reflectivity R in [0-1].
+For details on the geometry calculation see the description in the McStas
+component manual.
+
+There is a special rotating mode in order to approximate a Fermi Chopper
+behaviour, in the case the neutron trajectory is nearly linear inside the
+chopper slits, i.e. the neutrons are fast w/r/ to the chopper speed.
+Slits are straight, but may be super-mirror coated. In this case, the
+component is NOT centered, but located at its entry window. It should then 
+be shifted by -l/2.
+
+Example: Guide_gravity(w1=0.1, h1=0.1, w2=0.1, h2=0.1, l=12,
+          R0=0.99, Qc=0.0219, alpha=6.07, m=1.0, W=0.003)
+
+%VALIDATION
+May 2005: extensive internal test, all problems solved
+Validated by: nslit. Lieutenant
+
+Example values: m=4 Qc=0.02 W=1/300 alpha=6.49 R0=1
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>w1</B></TD>
+     <TD>m</TD>
+     <TD>Width at the guide entry
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>h1</B></TD>
+     <TD>m</TD>
+     <TD>Height at the guide entry
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>w2</TD>
+     <TD>m</TD>
+     <TD>Width at the guide exit. If 0, use w1.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>h2</TD>
+     <TD>m</TD>
+     <TD>Height at the guide exit. If 0, use h1.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD><B>l</B></TD>
+     <TD>m</TD>
+     <TD>length of guide
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>R0</TD>
+     <TD>1</TD>
+     <TD>Low-angle reflectivity
+</TD>
+<TD ALIGN=RIGHT>0.995</TD> </TR>
+<TR> <TD>Qc</TD>
+     <TD>AA-1</TD>
+     <TD>Critical scattering vector
+</TD>
+<TD ALIGN=RIGHT>0.0218</TD> </TR>
+<TR> <TD>alpha</TD>
+     <TD>AA</TD>
+     <TD>Slope of reflectivity
+</TD>
+<TD ALIGN=RIGHT>4.38</TD> </TR>
+<TR> <TD>m</TD>
+     <TD>1</TD>
+     <TD>m-value of material. Zero means completely absorbing. m=0.65 
+glass/SiO2 Si   Ni  Ni58  supermirror Be    Diamond 
+m=  0.65       0.47 1   1.18  2-6         1.01  1.12
+for glass/SiO2, m=1 for Ni, 1.2 for Ni58, m=2-6 for supermirror.
+m=0.47 for Si
+</TD>
+<TD ALIGN=RIGHT>1.0</TD> </TR>
+<TR> <TD>W</TD>
+     <TD>AA-1</TD>
+     <TD>Width of supermirror cut-off
+</TD>
+<TD ALIGN=RIGHT>0.003</TD> </TR>
+<TR> <TD>nslit</TD>
+     <TD>1</TD>
+     <TD>Number of vertical channels in the guide (>= 1)
+(nslit-1 vertical dividing walls).
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>d</TD>
+     <TD>m</TD>
+     <TD>Thickness of subdividing walls
+</TD>
+<TD ALIGN=RIGHT>0.0005</TD> </TR>
+<TR> <TD>mleft</TD>
+     <TD>1</TD>
+     <TD>m-value of material for left.   vert. mirror
+</TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>mright</TD>
+     <TD>1</TD>
+     <TD>m-value of material for right.  vert. mirror
+</TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>mtop</TD>
+     <TD>1</TD>
+     <TD>m-value of material for top.    horz. mirror
+</TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>mbottom</TD>
+     <TD>1</TD>
+     <TD>m-value of material for bottom. horz. mirror
+</TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>nhslit</TD>
+     <TD>1</TD>
+     <TD>Number of horizontal channels in the guide (>= 1).
+(nhslit-1 horizontal dividing walls).
+this enables to have nslit*nhslit rectangular channels
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>G</TD>
+     <TD>m/s2</TD>
+     <TD>Gravitation norm. 0 value disables G effects.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>aleft</TD>
+     <TD>1</TD>
+     <TD>alpha-value of left  vert. mirror
+</TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>aright</TD>
+     <TD>1</TD>
+     <TD>alpha-value of right vert. mirror
+</TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>atop</TD>
+     <TD>1</TD>
+     <TD>alpha-value of top   horz. mirror
+</TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>abottom</TD>
+     <TD>1</TD>
+     <TD>alpha-value of left  horz. mirror
+</TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>wavy</TD>
+     <TD>deg</TD>
+     <TD>Global guide waviness
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>wavy_z</TD>
+     <TD>deg</TD>
+     <TD>Partial waviness along propagation axis
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>wavy_tb</TD>
+     <TD>deg</TD>
+     <TD>Partial waviness in transverse direction for top/bottom mirrors
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>wavy_lr</TD>
+     <TD>deg</TD>
+     <TD>Partial waviness in transverse direction for left/right mirrors
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>chamfers</TD>
+     <TD>m</TD>
+     <TD>Global chamfers specifications (in/out/mirror sides).
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>chamfers_z</TD>
+     <TD>m</TD>
+     <TD>Input and output chamfers
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>chamfers_lr</TD>
+     <TD>m</TD>
+     <TD>Chamfers on left/right mirror sides
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>chamfers_tb</TD>
+     <TD>m</TD>
+     <TD>Chamfers on top/bottom mirror sides
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>nelements</TD>
+     <TD>1</TD>
+     <TD>Number of sections in the guide (length l/nelements).
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>nu</TD>
+     <TD>Hz</TD>
+     <TD>Rotation frequency (round/s) for Fermi Chopper approximation
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>phase</TD>
+     <TD>deg</TD>
+     <TD>Phase shift for the Fermi Chopper approximation
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>reflect</TD>
+     <TD>str</TD>
+     <TD>Reflectivity file name. Format [q(Angs-1) R(0-1)]
+</TD>
+<TD ALIGN=RIGHT>"NULL"</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>GVars</B></TD>
+     <TD>-</TD>
+     <TD>.N_reflection: (1) Array of the cumulated Number of reflections.
+N_reflection[0] total nb of reflections,
+N_reflection[1,2,3,4] l/r/t/b reflections,
+N_reflection[5] total nb neutrons exiting guide,
+N_reflection[6] total nb neutrons entering guide.</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>pTable</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Guide_gravity.comp">Source code</A> for <CODE>Guide_gravity.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

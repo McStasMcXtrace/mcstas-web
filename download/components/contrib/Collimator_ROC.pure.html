@@ -1,0 +1,121 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Collimator_ROC Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Collimator_ROC</CODE> Component</H1>
+
+Radial Oscillationg Collimator (ROC)
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> <a href="mailto:hansen@ill.fr">Thomas C Hansen</a></B>
+  <LI> <B>Origin:</B> <a href="http://www.ill.fr">ILL</a> (Dif/<a href="http://www.ill.fr/YellowBook/D20">D20</a>)</B>
+  <LI> <B>Date:</B> 15 May 2000</B>
+  <LI> <B>Version:</B> $Revision$</B>
+  <LI> <B>Modification history:</B> <UL>
+    <LI>  J.Ollivier Nov 2001: cleaned the code
+  </UL>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+
+This is an implementation of an Ideal radial oscillating collimator,
+which is usually placed between a polycrystalline sample and a linear
+curved position sensitive detector on a 2-axis diffractometer like D20.
+The transfer function has been implemented analytically, as this is
+much more efficient than doing Monte-Caqrlo (MC) choices and to absorb
+many neutrons on the absorbing blades. The function is basically triangular
+(except for rather 'exotic' focuss apertures) and depends on the distance
+from the projection of the focus centre to the plane perpendicular to the
+collimator planes to the intersection of the same projection of the velocity
+vector of the neutron with a line that is perpendicular to it and containing
+the same projection of the focus centre. The oscillation is assumed to be
+absolutely regular and so shading each angle the same way. All neutrons not
+hitting the collimator core will be absorbed.
+
+Example: Collimator_ROC(
+    ROC_pitch=5, ROC_ri=0.15, ROC_ro=0.3, ROC_h=0.15,
+    ROC_ttmin=-25, ROC_ttmax=135, ROC_sign=-1)
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>ROC_pitch</TD>
+     <TD>deg</TD>
+     <TD>Angular pitch between the absorbing blades 
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>ROC_ri</TD>
+     <TD>m</TD>
+     <TD>Inner radius of the collimator             
+</TD>
+<TD ALIGN=RIGHT>0.4</TD> </TR>
+<TR> <TD>ROC_ro</TD>
+     <TD>m</TD>
+     <TD>Outer radius of the collimator             
+</TD>
+<TD ALIGN=RIGHT>1.2</TD> </TR>
+<TR> <TD>ROC_h</TD>
+     <TD>m</TD>
+     <TD>Height of the collimator                   
+</TD>
+<TD ALIGN=RIGHT>0.153</TD> </TR>
+<TR> <TD>ROC_ttmin</TD>
+     <TD>deg</TD>
+     <TD>Lower scattering angle limit               
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>ROC_ttmax</TD>
+     <TD>deg</TD>
+     <TD>Higher scattering angle limit              
+</TD>
+<TD ALIGN=RIGHT>100</TD> </TR>
+<TR> <TD>ROC_sign</TD>
+     <TD>1</TD>
+     <TD>Chirality/takeoff sign                    
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Collimator_ROC.comp">Source code</A> for <CODE>Collimator_ROC.comp</CODE>.
+  <LI> <a href="http://www.ill.fr/d20/">D20 diffractometer at the ILL</a>
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

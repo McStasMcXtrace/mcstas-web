@@ -1,0 +1,157 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Res_sample Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Res_sample</CODE> Component</H1>
+
+Sample for resolution function calculation.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Kristian Nielsen</B>
+  <LI> <B>Origin:</B> Risoe</B>
+  <LI> <B>Date:</B> 1999</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+An inelastic sample with completely uniform scattering in both Q and
+energy. This sample is used together with the Res_monitor component and
+(optionally) the mcresplot front-end to compute the resolution function of
+triple-axis or inverse-geometry time-of-flight instruments.
+
+The shape of the sample is either a hollow cylinder or a rectangular box. The
+hollow cylinder shape is specified with an inner and outer radius.
+The box is specified with dimensions xwidth, yheight, zdepth.
+
+The scattered neutrons will have directions towards a given disk and
+energies betweed E0-dE and E0+dE.
+This target area may also be rectangular if specified focus_xw and focus_yh
+or focus_aw and focus_ah, respectively in meters and degrees.
+The target itself is either situated according to given coordinates (x,y,z), or
+setting the relative target_index of the component to focus at (next is +1).
+This target position will be set to its AT position. When targeting to centered
+components, such as spheres or cylinders, define an Arm component where to focus at.
+
+Example: Res_sample(thickness=0.001,radius=0.02,yheight=0.4,focus_r=0.05,
+    E0=14.6,dE=2, target_x=0, target_y=0, target_z=1)
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>thickness</TD>
+     <TD>-</TD>
+     <TD>Thickness of hollow cylinder in (x,z) plane</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>radius</TD>
+     <TD>m</TD>
+     <TD>Outer radius of hollow cylinder </TD>
+<TD ALIGN=RIGHT>0.01</TD> </TR>
+<TR> <TD>focus_r</TD>
+     <TD>m</TD>
+     <TD>Radius of sphere containing target. </TD>
+<TD ALIGN=RIGHT>0.05</TD> </TR>
+<TR> <TD>E0</TD>
+     <TD>meV</TD>
+     <TD>Center of scattered energy range </TD>
+<TD ALIGN=RIGHT>14</TD> </TR>
+<TR> <TD>dE</TD>
+     <TD>meV</TD>
+     <TD>half width of scattered energy range </TD>
+<TD ALIGN=RIGHT>2</TD> </TR>
+<TR> <TD>target_x</TD>
+     <TD>-</TD>
+     <TD>
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>target_y</TD>
+     <TD>m</TD>
+     <TD>position of target to focus at </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>target_z</TD>
+     <TD>-</TD>
+     <TD>
+</TD>
+<TD ALIGN=RIGHT>.5</TD> </TR>
+<TR> <TD>focus_xw</TD>
+     <TD>m</TD>
+     <TD>horiz. dimension of a rectangular area </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>focus_yh</TD>
+     <TD>m</TD>
+     <TD>vert. dimension of a rectangular area </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>focus_aw</TD>
+     <TD>deg</TD>
+     <TD>horiz. angular dimension of a rectangular area </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>focus_ah</TD>
+     <TD>deg</TD>
+     <TD>vert. angular dimension of a rectangular area </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>xwidth</TD>
+     <TD>m</TD>
+     <TD>horiz. dimension of sample, as a width </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>m</TD>
+     <TD>vert. dimension of sample, as a height </TD>
+<TD ALIGN=RIGHT>0.05</TD> </TR>
+<TR> <TD>zdepth</TD>
+     <TD>m</TD>
+     <TD>depth of sample </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>target_index</TD>
+     <TD>1</TD>
+     <TD>relative index of component to focus at, e.g. next is +1 </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>res_struct</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Res_sample.comp">Source code</A> for <CODE>Res_sample.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

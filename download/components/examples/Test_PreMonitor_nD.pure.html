@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Test_PreMonitor_nD Instrument at  Tests_optics</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Test_PreMonitor_nD</CODE> Instrument</H1>
+
+A test of the PreMonitor_nD component
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    Tests_optics</B>
+  <LI> <B>Author:</B> E. Farhi</B>
+  <LI> <B>Origin:</B> LLB</B>
+  <LI> <B>Date:</B> 13 Apr 2015</B>
+  <LI> <B>Version:</B> 4621 </B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+A test of the PreMonitor_nD component showing the effective usable part
+reflected from a monochromator.
+
+Example: ETA=1 lambda=1 Detector: Mon_Sample=1.36e+08
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>lambda</TD>
+     <TD>Angs</TD>
+     <TD>Wavelength at monochromator, computed from DM and THETA_M if left as 0.
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>DM</TD>
+     <TD>Angs</TD>
+     <TD>d-spacing of monochromator, computed from lambda and THETA_M if left as 0.
+</TD>
+<TD ALIGN=RIGHT>3.355</TD> </TR>
+<TR> <TD>RV</TD>
+     <TD>m</TD>
+     <TD>Monochromator vertical curvature, 0 for flat, -1 for automatic setting
+</TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>RH</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>L1</TD>
+     <TD>m</TD>
+     <TD>Source-Monochromator distance
+</TD>
+<TD ALIGN=RIGHT>17</TD> </TR>
+<TR> <TD>L2</TD>
+     <TD>m</TD>
+     <TD>Monochromator-Sample distance
+</TD>
+<TD ALIGN=RIGHT>3.2</TD> </TR>
+<TR> <TD>ETA</TD>
+     <TD>gaussian</TD>
+     <TD>[min]  Monochromator mosaic </TD>
+<TD ALIGN=RIGHT>30</TD> </TR>
+<TR> <TD>verbose</TD>
+     <TD>1</TD>
+     <TD>Print DIF configuration. 0 to be quiet
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>THETA_M</TD>
+     <TD>deg</TD>
+     <TD>Monochromator take-off angle, computed from lambda and DM if left as 0.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>SM</TD>
+     <TD>1</TD>
+     <TD>Scattering sense of beam from Monochromator. 1:left, -1:right
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Test_PreMonitor_nD.instr">Source code</A> for <CODE>Test_PreMonitor_nD.instr</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:08 2016</ADDRESS>
+</BODY></HTML>

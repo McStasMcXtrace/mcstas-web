@@ -1,0 +1,145 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Mirror_Curved_Bispectral Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Mirror_Curved_Bispectral</CODE> Component</H1>
+
+Single mirror plate that is curved and fits into an elliptic guide. 
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Henrik Jacobsen</B>
+  <LI> <B>Origin:</B> RNBI</B>
+  <LI> <B>Date:</B> April 2012</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+
+
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>reflect</TD>
+     <TD>str</TD>
+     <TD>Name of relfectivity file. Format [q(Angs-1) R(0-1)]
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD><B>focus_s</B></TD>
+     <TD>m</TD>
+     <TD>first focal point of ellipse in ABSOLUTE COORDINATES
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>focus_e</B></TD>
+     <TD>m</TD>
+     <TD>second focal point of ellipse in ABSOLUTE COORDINATES
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>mirror_start</B></TD>
+     <TD>m</TD>
+     <TD>start of mirror in ABSOLUTE COORDINATES
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>guide_start</B></TD>
+     <TD>m</TD>
+     <TD>start of guide in ABSOLUTE COORDINATES
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>yheight</B></TD>
+     <TD>m</TD>
+     <TD>the height of the mirror when not in the guide
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>smallaxis</B></TD>
+     <TD>m</TD>
+     <TD>the smallaxis of the guide
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>length</B></TD>
+     <TD>m</TD>
+     <TD>the length of the mirror
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>m</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>transmit</TD>
+     <TD>0/1</TD>
+     <TD>0: non reflected neutrons are absorbed. 1: non reflected neutrons pass through
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>substrate_thickness</TD>
+     <TD>for absorption</TD>
+     <TD>[m]	thickness of substrate </TD>
+<TD ALIGN=RIGHT>0.0005</TD> </TR>
+<TR> <TD>coating_thickness</TD>
+     <TD>for absorption</TD>
+     <TD>[m]	thickness of coating </TD>
+<TD ALIGN=RIGHT>10e-6</TD> </TR>
+<TR> <TD>theta_1</TD>
+     <TD>deg</TD>
+     <TD>angle of mirror wrt propagation direction at start of mirror
+</TD>
+<TD ALIGN=RIGHT>1.25</TD> </TR>
+<TR> <TD>theta_2</TD>
+     <TD>deg</TD>
+     <TD>angle of mirror wrt propagation direction at center of mirror
+</TD>
+<TD ALIGN=RIGHT>1.25</TD> </TR>
+<TR> <TD>theta_3</TD>
+     <TD>deg</TD>
+     <TD>angle of mirror wrt propagation direction at end of mirror
+</TD>
+<TD ALIGN=RIGHT>1.25</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>pTable</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Mirror_Curved_Bispectral.comp">Source code</A> for <CODE>Mirror_Curved_Bispectral.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

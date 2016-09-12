@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Powder1 Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Powder1</CODE> Component</H1>
+
+General powder sample with a single scattering vector.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> E.M.Lauridsen, N.B.Christensen, A.B.Abrahamsen</B>
+  <LI> <B>Origin:</B> Risoe</B>
+  <LI> <B>Date:</B> 4.2.98</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+General powder sample with a single scattering vector. No multiple ,
+scattering, no incoherent scattering, no secondary extinction.
+The shape of the sample may be a cylinder of given radius or a box with
+dimensions xwidth, yheight, zdepth.
+The efficient is highly improved when restricting the vertical scattering
+range on the Debye-Scherrer cone (with 'd_phi').
+You may use PowderN to use N scattering lines defined in a file.
+
+Example: Powder1(radius=0.015,yheight=0.05,q =1.8049,d_phi=0.07,pack=1,
+      j=6,DW=1,F2=56.8,Vc=85.0054,sigma_abs=0.463)
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>radius</TD>
+     <TD>m</TD>
+     <TD>Radius of sample in (x,z) plane </TD>
+<TD ALIGN=RIGHT>0.01</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>m</TD>
+     <TD>Height of sample y direction </TD>
+<TD ALIGN=RIGHT>0.05</TD> </TR>
+<TR> <TD>xwidth</TD>
+     <TD>m</TD>
+     <TD>horiz. dimension of sample, as a width </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>zdepth</TD>
+     <TD>m</TD>
+     <TD>depth of box sample </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>q</TD>
+     <TD>AA^-1</TD>
+     <TD>Scattering vector of reflection </TD>
+<TD ALIGN=RIGHT>1.8049</TD> </TR>
+<TR> <TD>d</TD>
+     <TD>AA</TD>
+     <TD>d-spacing for sample, overrides 'q' </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>d_phi</TD>
+     <TD>deg,0-180</TD>
+     <TD>Angle corresponding to the vertical angular range
+to focus to, e.g. detector height. 0 for no focusing </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>pack</TD>
+     <TD>1</TD>
+     <TD>Packing factor </TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>j</TD>
+     <TD>1</TD>
+     <TD>Multiplicity of reflection </TD>
+<TD ALIGN=RIGHT>6</TD> </TR>
+<TR> <TD>DW</TD>
+     <TD>1</TD>
+     <TD>Debye-Waller factor of reflection </TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>F2</TD>
+     <TD>barns</TD>
+     <TD>Structure factor of reflection </TD>
+<TD ALIGN=RIGHT>56.8</TD> </TR>
+<TR> <TD>Vc</TD>
+     <TD>AA^3</TD>
+     <TD>Volume of unit cell </TD>
+<TD ALIGN=RIGHT>85.0054</TD> </TR>
+<TR> <TD>sigma_abs</TD>
+     <TD>barns</TD>
+     <TD>Absorption cross section per unit cell at 2200 m/s </TD>
+<TD ALIGN=RIGHT>0.463</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>my_s_v2</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>my_a_v</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>q_v</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>isrect</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Powder1.comp">Source code</A> for <CODE>Powder1.comp</CODE>.
+  <LI> <A HREF="http://neutron.risoe.dk/mcstas/components/tests/powder/">
+Test results</A> (not up-to-date).
+  <LI> See also: Powder1, Powder2 and PowderN
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

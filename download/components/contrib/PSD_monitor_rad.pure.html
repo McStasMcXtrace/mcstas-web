@@ -1,0 +1,114 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: PSD_monitor_rad Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>PSD_monitor_rad</CODE> Component</H1>
+
+Position-sensitive monitor with radially averaging.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Henrich Frielinghaus</B>
+  <LI> <B>Origin:</B>     FZ-Juelich/FRJ-2/IFF/KWS-2</B>
+  <LI> <B>Date:</B>       Sept 2004</B>
+  <LI> <B>Version:</B>    $Revision$</B>
+  <LI> <B>Modification history:</B> <UL>
+    <LI>    Kim Lefmann, 7 June 2005
+  </UL>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Radial monitor that allows for radial averaging.
+Comment: The intensity is given as two files:
+         1) a radial sum
+         2) a radial average (i.e. intensity per area)
+
+Example: PSD_monitor_rad(rmax=0.2, nr=100, filename="Output.psd", filename_av="Output_av.psd")
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>nr</TD>
+     <TD>1</TD>
+     <TD>Number of concentric circles </TD>
+<TD ALIGN=RIGHT>100</TD> </TR>
+<TR> <TD>filename</TD>
+     <TD>text</TD>
+     <TD>Name of file in which to store the detector image </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>filename_av</TD>
+     <TD>text</TD>
+     <TD>Name of file in which to store the averaged detector image </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>rmax</TD>
+     <TD>m</TD>
+     <TD>Outer radius of detector </TD>
+<TD ALIGN=RIGHT>0.2</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>PSDr_N</B></TD>
+     <TD>-</TD>
+     <TD>Array of neutron counts</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>PSDr_p</B></TD>
+     <TD>-</TD>
+     <TD>Array of neutron weight counts</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>PSDr_p2</B></TD>
+     <TD>-</TD>
+     <TD>Array of second moments</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>PSDr_av_p</B></TD>
+     <TD>-</TD>
+     <TD>Array of neutron weight counts, averaged</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>PSDr_av_p2</B></TD>
+     <TD>-</TD>
+     <TD>Array of second moments, averaged</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="PSD_monitor_rad.comp">Source code</A> for <CODE>PSD_monitor_rad.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

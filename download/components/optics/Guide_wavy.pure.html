@@ -1,0 +1,228 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Guide_wavy Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Guide_wavy</CODE> Component</H1>
+
+Neutron guide with gaussian waviness.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Kim Lefmann</B>
+  <LI> <B>Origin:</B> Risoe</B>
+  <LI> <B>Date:</B>(Unknown)</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Models a rectangular guide tube centered on the Z axis. The entrance lies
+in the X-Y plane.
+For details on the geometry calculation see the description in the McStas
+reference manual.
+
+%BUGS
+This component does not work with gravitation on. Use component Guide_gravity then.
+
+Example values: m=2 Qc=0.0218 (nat. Ni) W=1/300 alpha=4.38 R0=0.995
+                (given by Daniel Clemens, PSI)
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>w1</B></TD>
+     <TD>m</TD>
+     <TD>Width at the guide entry
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>h1</B></TD>
+     <TD>m</TD>
+     <TD>Height at the guide entry
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>w2</TD>
+     <TD>m</TD>
+     <TD>Width at the guide exit
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>h2</TD>
+     <TD>m</TD>
+     <TD>Height at the guide exit
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD><B>l</B></TD>
+     <TD>m</TD>
+     <TD>length of guide
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>R0</TD>
+     <TD>1</TD>
+     <TD>Low-angle reflectivity
+</TD>
+<TD ALIGN=RIGHT>0.995</TD> </TR>
+<TR> <TD>Qc</TD>
+     <TD>AA-1</TD>
+     <TD>Critical scattering vector
+</TD>
+<TD ALIGN=RIGHT>0.0218</TD> </TR>
+<TR> <TD>alpha</TD>
+     <TD>AA</TD>
+     <TD>Slope of reflectivity
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>m</TD>
+     <TD>1</TD>
+     <TD>m-value of material. Zero means completely absorbing.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>W</TD>
+     <TD>AA-1</TD>
+     <TD>Width of supermirror cut-off for all mirrors
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>alpha1</TD>
+     <TD>AA</TD>
+     <TD>Slope of reflectivity left
+</TD>
+<TD ALIGN=RIGHT>4.38</TD> </TR>
+<TR> <TD>m1</TD>
+     <TD>1</TD>
+     <TD>m-value of material, left
+</TD>
+<TD ALIGN=RIGHT>2</TD> </TR>
+<TR> <TD>W1</TD>
+     <TD>AA-1</TD>
+     <TD>Width of supermirror cut-off left
+</TD>
+<TD ALIGN=RIGHT>0.003</TD> </TR>
+<TR> <TD>alpha2</TD>
+     <TD>AA</TD>
+     <TD>Slope of reflectivity right
+</TD>
+<TD ALIGN=RIGHT>4.38</TD> </TR>
+<TR> <TD>m2</TD>
+     <TD>1</TD>
+     <TD>m-value of material, right.
+</TD>
+<TD ALIGN=RIGHT>2</TD> </TR>
+<TR> <TD>W2</TD>
+     <TD>AA-1</TD>
+     <TD>Width of supermirror cut-off right
+</TD>
+<TD ALIGN=RIGHT>0.003</TD> </TR>
+<TR> <TD>alpha3</TD>
+     <TD>AA</TD>
+     <TD>Slope of reflectivity top
+</TD>
+<TD ALIGN=RIGHT>4.38</TD> </TR>
+<TR> <TD>m3</TD>
+     <TD>1</TD>
+     <TD>m-value of material, top.
+</TD>
+<TD ALIGN=RIGHT>2</TD> </TR>
+<TR> <TD>W3</TD>
+     <TD>AA-1</TD>
+     <TD>Width of supermirror cut-off top
+</TD>
+<TD ALIGN=RIGHT>0.003</TD> </TR>
+<TR> <TD>alpha4</TD>
+     <TD>AA</TD>
+     <TD>Slope of reflectivity bottom
+</TD>
+<TD ALIGN=RIGHT>4.38</TD> </TR>
+<TR> <TD>m4</TD>
+     <TD>1</TD>
+     <TD>m-value of material, bottom.
+</TD>
+<TD ALIGN=RIGHT>2</TD> </TR>
+<TR> <TD>W4</TD>
+     <TD>AA-1</TD>
+     <TD>Width of supermirror cut-off bottom
+</TD>
+<TD ALIGN=RIGHT>0.003</TD> </TR>
+<TR> <TD>wavy_z</TD>
+     <TD>deg</TD>
+     <TD>Waviness in the z-(flight-)direction
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>wavy_xy</TD>
+     <TD>deg</TD>
+     <TD>Waviness in the transverse direction
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>whalf</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>hhalf</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>lwhalf</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>lhhalf</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>norm_nv</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>norm_nh</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>f_h</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>f_v</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>eta_z</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>eta_xy</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Guide_wavy.comp">Source code</A> for <CODE>Guide_wavy.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

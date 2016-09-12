@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Spot_sample Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Spot_sample</CODE> Component</H1>
+
+Spot sample.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Garrett Granroth</B>
+  <LI> <B>Origin:</B> Oak Ridge National Laboratory</B>
+  <LI> <B>Date:</B> 14.11.14</B>
+  <LI> <B>Version:</B> 1.20 </B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+A sample that is a series of delta functions in omega and Q.  The Q is 
+determined by a two theta value and an equal number of spots around the
+beam center.  This component is a variation of the V sample written
+by Kim Lefmann and Kristian Nielsen.  The following text comes from their 
+original component.
+A Double-cylinder shaped incoherent scatterer (a V-sample)
+No multiple scattering. Absorbtion included.
+The shape of the sample may be a box with dimensions xwidth, yheight, zthick.
+The area to scatter to is a disk of radius 'focus_r' situated at the target.
+This target area may also be rectangular if specified focus_xw and focus_yh
+or focus_aw and focus_ah, respectively in meters and degrees.
+The target itself is either situated according to given coordinates (x,y,z), or
+setting the relative target_index of the component to focus at (next is +1).
+This target position will be set to its AT position. When targeting to centered
+components, such as spheres or cylinders, define an Arm component where to
+focus at.
+
+Example: spot_sample(radius_o=0.01, h=0.05, pack = 1, 
+                    xwidth=0, yheight=0, zthick=0, Eideal=100.0,w=50.0,two_theta=25.0,n_spots=4)
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>radius_o</TD>
+     <TD>m</TD>
+     <TD>Outer radius of sample in (x,z) plane </TD>
+<TD ALIGN=RIGHT>0.01</TD> </TR>
+<TR> <TD>h</TD>
+     <TD>m</TD>
+     <TD>Height of sample y direction </TD>
+<TD ALIGN=RIGHT>0.05</TD> </TR>
+<TR> <TD>pack</TD>
+     <TD>1</TD>
+     <TD>Packing factor </TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>xwidth</TD>
+     <TD>m</TD>
+     <TD>horiz. dimension of sample, as a width </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>m</TD>
+     <TD>vert.. dimension of sample, as a height </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>zthick</TD>
+     <TD>m</TD>
+     <TD>thickness of sample </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>Eideal</TD>
+     <TD>meV</TD>
+     <TD>The presumed incident energy</TD>
+<TD ALIGN=RIGHT>100.0</TD> </TR>
+<TR> <TD>w</TD>
+     <TD>meV</TD>
+     <TD>The energy transfer of the delta function </TD>
+<TD ALIGN=RIGHT>50.0</TD> </TR>
+<TR> <TD>two_theta</TD>
+     <TD>degrees</TD>
+     <TD>the scattering angle of the spot </TD>
+<TD ALIGN=RIGHT>25.0</TD> </TR>
+<TR> <TD>n_spots</TD>
+     <TD>1</TD>
+     <TD>The number of spots to generate symmetrically around the beam </TD>
+<TD ALIGN=RIGHT>4</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>StructVarsV</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>VarsV</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Spot_sample.comp">Source code</A> for <CODE>Spot_sample.comp</CODE>.
+  <LI> 
+
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

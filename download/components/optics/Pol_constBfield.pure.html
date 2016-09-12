@@ -1,0 +1,105 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Pol_constBfield Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Pol_constBfield</CODE> Component</H1>
+
+Constant magnetic field.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Peter Christiansen</B>
+  <LI> <B>Origin:</B> RISOE</B>
+  <LI> <B>Date:</B> July 2006</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+
+Rectangular box with constant B field along y-axis (up). The
+component can be rotated to make either a guide field or a spin
+flipper. A neutron hitting outside the box opening or the box sides
+is absorbed.
+
+Example: Pol_constBfield(xwidth=0.1, yheight=0.1, length=0.2, fliplambda=5.0)
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>xwidth</B></TD>
+     <TD>-</TD>
+     <TD>Width of opening (m).</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>yheight</B></TD>
+     <TD>-</TD>
+     <TD>Height of opening (m).</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>length</B></TD>
+     <TD>-</TD>
+     <TD>Length of field (m).</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>B</TD>
+     <TD>Gauss</TD>
+     <TD>Magnetic field along y-direction </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>fliplambda</TD>
+     <TD>-</TD>
+     <TD>lambda for calculating B field</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>flipangle</TD>
+     <TD>-</TD>
+     <TD>Angle flipped for lambda = fliplambda
+fliplambda and flipangle overrides B so a neutron with s
+= (1, 0, 0) and v = (0, 0, v(fliplambda)) will have s =
+(cos(flipangle), sin(flipangle), 0) after the section.</TD>
+<TD ALIGN=RIGHT>180</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>omegaL</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Pol_constBfield.comp">Source code</A> for <CODE>Pol_constBfield.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

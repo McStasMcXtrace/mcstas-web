@@ -1,0 +1,85 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: ISIS_HET Instrument at  ISIS</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>ISIS_HET</CODE> Instrument</H1>
+
+HET: High Energy Transfer Chopper Spectrometer
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    ISIS</B>
+  <LI> <B>Author:</B> <a href="mailto:d.champion@rl.ac.uk">Dickon Champion</a></B>
+  <LI> <B>Origin:</B> <a href="http://www.isis.rl.ac.uk">ISIS (UK)</a></B>
+  <LI> <B>Date:</B> 22nd Jan 2004.</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+This instrument is a simple model of the HET spectrometer at the ISIS neutron
+facility. The input arguments are hardwired so that the Fermi chopper position
+is 10 metres from the moderator. This instrument uses the FC module written by
+Andrew Garret which comes with no guarantees as to its accuracy in modelling the
+Fermi Chopper.
+
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>Emin</TD>
+     <TD>meV</TD>
+     <TD>lowest energy sampled      </TD>
+<TD ALIGN=RIGHT>443.0</TD> </TR>
+<TR> <TD>Emax</TD>
+     <TD>meV</TD>
+     <TD>highest energy sampled     </TD>
+<TD ALIGN=RIGHT>470.0</TD> </TR>
+<TR> <TD>nu_chop</TD>
+     <TD>Hz</TD>
+     <TD>frequency of chopper rotation </TD>
+<TD ALIGN=RIGHT>600.0</TD> </TR>
+<TR> <TD>type</TD>
+     <TD>sloppy chopper = 1, B chopper = 2</TD>
+     <TD>chopper package selected </TD>
+<TD ALIGN=RIGHT>2</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="ISIS_HET.instr">Source code</A> for <CODE>ISIS_HET.instr</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

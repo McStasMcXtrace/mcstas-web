@@ -1,0 +1,104 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: HZB_NEAT Instrument at  HZB</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>HZB_NEAT</CODE> Instrument</H1>
+
+V3 Time-of-Flight-Spectrometer (NEAT) at BENSC, 1995 version.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    HZB</B>
+  <LI> <B>Author:</B> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a> and R. Lechner</B>
+  <LI> <B>Origin:</B> <a href="http://www.ill.fr">ILL (France)</a>/<a href="http://www.helmholtz-berlin.de/user/neutrons/index_en.html">BENSC (Germany)</a></B>
+  <LI> <B>Date:</B> 2011</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+
+In time-of-flight spectrometers neutron pulses are created by us-
+ing mechanical chopper devices, realised on NEAT by fast rotating
+discs with speeds up to 20000 RPM. The discs are coated with neu-
+tron absorbing materials except for the narrow windows. Phased to
+each other according to the flight time of neutrons between them,
+the choppers „cut out” pulses of neutrons with a desired wave-
+length from the white beam. An interaction with moving atoms in
+the sample changes the velocities of the scattered neutrons and
+this is detected by the secondary part of the spectrometer on the
+basis of the time of flight between the sample and the neutron de-
+tectors at 2.5 m distance. The secondary spectrometer of NEAT
+contains an array of 388 3He 60 cm2 area single counter detectors
+(SD) for the large-angle scattering.
+
+The NL 2 (upper part) guide is modelled.
+This model only contains the first and last choppers, and has only a single 
+pulse (no frame overlap). The sample is a 2mm thick plate rotated by 45 degrees,
+which material can be any powder/liquid/amorphous sample.
+
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>lambda</TD>
+     <TD>Angs</TD>
+     <TD>incident wavelength on sample </TD>
+<TD ALIGN=RIGHT>6</TD> </TR>
+<TR> <TD>dlambda</TD>
+     <TD>Angs</TD>
+     <TD>wavelength spread shot from the source </TD>
+<TD ALIGN=RIGHT>0.05</TD> </TR>
+<TR> <TD>rpm</TD>
+     <TD>rpm</TD>
+     <TD>disk chopper rotation speed, setting the resolution, Hz=rpm/60. </TD>
+<TD ALIGN=RIGHT>10000</TD> </TR>
+<TR> <TD>coh</TD>
+     <TD>str</TD>
+     <TD>sample coherent S(q,w) file name. Use LAZ/LAU or SQW file </TD>
+<TD ALIGN=RIGHT>"Rb_liq_coh.sqw"</TD> </TR>
+<TR> <TD>inc</TD>
+     <TD>str</TD>
+     <TD>sample incoherent S(q,w) file name. Use NULL to scatter incoherently </TD>
+<TD ALIGN=RIGHT>"Rb_liq_inc.sqw"</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="HZB_NEAT.instr">Source code</A> for <CODE>HZB_NEAT.instr</CODE>.
+  <LI> <a href="http://www.helmholtz-berlin.de/user/neutrons/instrumentation/neutron-instruments/v3/index_en.html">NEAT at HZB/BENSC</a>
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

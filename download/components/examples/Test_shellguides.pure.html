@@ -1,0 +1,143 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Test_shellguides Instrument at  Tests_optics</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Test_shellguides</CODE> Instrument</H1>
+
+ This is an instrument test file for 3 components.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    Tests_optics</B>
+  <LI> <B>Author:</B> <a href="tobias.panzner@psi.ch">Tobias Panzner</a>, <a href="mailto:uwe.filges@psi.ch">Uwe Filges</a></B>
+  <LI> <B>Origin:</B> PSI</B>
+  <LI> <B>Date:</B> 10.07.2010</B>
+  <LI> <B>Version:</B> 0.2</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+
+In the instrument files 3 new components are used:
+ 
+ - Sapphire_Filter.comp   : models a sapphire filter for suppression of a unwanted high energy part of a given source spectrum  
+                            (the properties can be changed in the instrument file itself)
+
+ - Guide_four_side.comp   : models a guide with different wall properties. here it is only a ordinary linear guide with reflecting walls.
+                            (the properties can be changed in the instrument file itself)   
+
+ - Guide_four_side_10_shells.comp: models a multi channel component. here it is used as a parabolic focusing lens (default values).         
+                                   some of the parameters can be change in the mcgui start menu to play around with the focusing properties.
+
+
+
+
+Example: mcrun test.instr <parameters=values>
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>Lambda_source</TD>
+     <TD>AA</TD>
+     <TD>central wavelength of the used wavelength spectra
+</TD>
+<TD ALIGN=RIGHT>5</TD> </TR>
+<TR> <TD>dLambda_source</TD>
+     <TD> +/- from  Lambda_source </TD>
+     <TD>[AA] bandgab of the used wavelength spectra </TD>
+<TD ALIGN=RIGHT>2</TD> </TR>
+<TR> <TD>Sapphire_Filter_Flag</TD>
+     <TD>--</TD>
+     <TD>flag to use (1) or not use (0) the high energie sapphire filter to clean the source spectrum
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>lens_width</TD>
+     <TD>m</TD>
+     <TD>width of the central part of the focusing devise 
+</TD>
+<TD ALIGN=RIGHT>0.004 </TD> </TR>
+<TR> <TD>lens_height</TD>
+     <TD>m</TD>
+     <TD>height of the central part of the focusing devise
+</TD>
+<TD ALIGN=RIGHT>0.004 </TD> </TR>
+<TR> <TD>channel_width</TD>
+     <TD>NOT  for the central channel, central channel is given by lens_width</TD>
+     <TD>[m] width of the channels of the focusing devise </TD>
+<TD ALIGN=RIGHT>0.002</TD> </TR>
+<TR> <TD>channel_height</TD>
+     <TD>NOT  for the central channel, central channel is given by lens_height</TD>
+     <TD>[m] height of the channels of the focusing devise </TD>
+<TD ALIGN=RIGHT>0.002</TD> </TR>
+<TR> <TD>m_lens</TD>
+     <TD>--</TD>
+     <TD>m-value used for all layers of the focusing devise
+</TD>
+<TD ALIGN=RIGHT>5</TD> </TR>
+<TR> <TD>lens_focal_in_hor</TD>
+     <TD>m</TD>
+     <TD>distance of the focal point in front of the focusing devise to the entrance of the focusing devise for the horizontal direction
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>lens_focal_in_ver</TD>
+     <TD>m</TD>
+     <TD>distance of the focal point in front of the focusing devise to the entrance of the focusing devise for the vertical direction
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>lens_focal_out_hor</TD>
+     <TD>m</TD>
+     <TD>distance of the  exit of the focusing devise to the focal point behind the devise for the horizontal direction
+</TD>
+<TD ALIGN=RIGHT>0.5</TD> </TR>
+<TR> <TD>lens_focal_out_ver</TD>
+     <TD>m</TD>
+     <TD>distance of the  exit of the focusing devise to the focal point behind the devise  for the vertical direction
+</TD>
+<TD ALIGN=RIGHT>0.35</TD> </TR>
+<TR> <TD>lens_glass_thickness</TD>
+     <TD>m</TD>
+     <TD>thickness the the glass walls used  for the focusing devise
+</TD>
+<TD ALIGN=RIGHT>0.0002</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Test_shellguides.instr">Source code</A> for <CODE>Test_shellguides.instr</CODE>.
+  <LI> A reference/HTML link for more information
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:08 2016</ADDRESS>
+</BODY></HTML>

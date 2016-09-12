@@ -1,0 +1,192 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Tunneling_sample Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Tunneling_sample</CODE> Component</H1>
+
+A Double-cylinder shaped all-incoherent scatterer
+with elastic, quasielastic (Lorentzian), and tunneling (sharp) 
+components.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Kim Lefmann </B>
+  <LI> <B>Origin:</B> Risoe</B>
+  <LI> <B>Date:</B> 10.05.07</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+A Double-cylinder shaped all-incoherent scatterer
+with both elastic, quasielastic (Lorentzian), and tunneling (sharp) 
+components. No multiple scattering. Absorbtion included.
+The shape of the sample may be a box with dimensions xwidth, yheight, zdepth.
+The area to scatter to is a disk of radius 'focus_r' situated at the target.
+This target area may also be rectangular if specified focus_xw and focus_yh
+or focus_aw and focus_ah, respectively in meters and degrees.
+The target itself is either situated according to given coordinates (x,y,z),
+or defined with the relative target_index of the component to focus
+to (next is +1).
+This target position will be set to its AT position. When targeting to
+centered components, such as spheres or cylinders, define an Arm component
+where to focus to.
+
+The outgoing polarization is calculated as for nuclear spin incoherence: 
+  P' = 1/3*P-2/3P = -1/3P 
+As above multiple scattering is ignored .
+
+Example: Tunneling_sample(thickness=0.001,radius=0.01,yheight=0.02,focus_r=0.035,
+          target_index=1)
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>thickness</TD>
+     <TD>m</TD>
+     <TD>Thickness of cylindrical sample in (x,z) plane </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>radius</TD>
+     <TD>m</TD>
+     <TD>Outer radius of sample in (x,z) plane </TD>
+<TD ALIGN=RIGHT>0.01</TD> </TR>
+<TR> <TD>focus_r</TD>
+     <TD>m</TD>
+     <TD>Radius of disk containing target. Use 0 for full space </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>p_interact</TD>
+     <TD>1</TD>
+     <TD>MC Probability for scattering the ray; otherwise transmit </TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>f_QE</TD>
+     <TD>1</TD>
+     <TD>Fraction of quasielastic scattering </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>f_tun</TD>
+     <TD>1</TD>
+     <TD>Fraction of tunneling scattering (f_QE+f_tun < 1) </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>gamma</TD>
+     <TD>meV</TD>
+     <TD>Lorentzian width of quasielastic broadening (HWHM) </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>E_tun</TD>
+     <TD>meV</TD>
+     <TD>Tunneling energy </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>target_x</TD>
+     <TD>-</TD>
+     <TD>
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>target_y</TD>
+     <TD>m</TD>
+     <TD>position of target to focus at </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>target_z</TD>
+     <TD>-</TD>
+     <TD>
+</TD>
+<TD ALIGN=RIGHT>0.235</TD> </TR>
+<TR> <TD>focus_xw</TD>
+     <TD>m</TD>
+     <TD>horiz. dimension of a rectangular area </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>focus_yh</TD>
+     <TD>m</TD>
+     <TD>vert.  dimension of a rectangular area </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>focus_aw</TD>
+     <TD>deg</TD>
+     <TD>horiz. angular dimension of a rectangular area </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>focus_ah</TD>
+     <TD>deg</TD>
+     <TD>vert.  angular dimension of a rectangular area </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>xwidth</TD>
+     <TD>m</TD>
+     <TD>horiz. dimension of sample, as a width </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>m</TD>
+     <TD>vert.  dimension of sample, as a height </TD>
+<TD ALIGN=RIGHT>0.05</TD> </TR>
+<TR> <TD>zdepth</TD>
+     <TD>m</TD>
+     <TD>depth of sample </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>sigma_abs</TD>
+     <TD>barns</TD>
+     <TD>Absorbtion cross section pr. unit cell </TD>
+<TD ALIGN=RIGHT>5.08</TD> </TR>
+<TR> <TD>sigma_inc</TD>
+     <TD>barns</TD>
+     <TD>Total incoherent scattering cross section pr. unit cell </TD>
+<TD ALIGN=RIGHT>4.935</TD> </TR>
+<TR> <TD>Vc</TD>
+     <TD>AA^3</TD>
+     <TD>Unit cell volume </TD>
+<TD ALIGN=RIGHT>13.827</TD> </TR>
+<TR> <TD>target_index</TD>
+     <TD>1</TD>
+     <TD>relative index of component to focus at, e.g. next is +1 </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>ftun</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>fQE</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>VarsV</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Tunneling_sample.comp">Source code</A> for <CODE>Tunneling_sample.comp</CODE>.
+  <LI> <A HREF="http://neutron.risoe.dk/mcstas/components/tests/v_sample/">Test
+results</A> (not up-to-date).
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

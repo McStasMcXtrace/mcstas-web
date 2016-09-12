@@ -1,0 +1,282 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Virtual_mcnp_input Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Virtual_mcnp_input</CODE> Component</H1>
+
+This component uses a filename of recorded neutrons from the reactor monte carlo
+code MCNP as a source of particles.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> <a href="mailto:hennanec@ensimag.fr">Chama Hennane</a> and E. Farhi</B>
+  <LI> <B>Origin:</B> <a href="http://www.ill.fr/">ILL</a></B>
+  <LI> <B>Date:</B> June 28th, 2006</B>
+  <LI> <B>Version:</B>  $Revision$</B>
+  <LI> <B>Modification history:</B> <UL>
+    <LI>  EF, July 25th 2006: bug fixes.
+  </UL>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+This component generates neutron events from a filename created using the
+MCNP Monte Carlo code for nuclear reactors. It is used to
+calculate flux exiting from hot or cold neutron sources.
+Neutron position and velocity is set from the filename. The neutron time is
+left at zero.
+
+Note that axes orientation may be different between MCNP and McStas.
+The component has the ability to center and orient the neutron beam to the Z-axis.
+It also may change the coordinate system from the MCNP frame to the McStas one.
+The verbose mode is highly recommended as it displays lots of useful informations.
+To obtain absolute intensity, set 'intensity' and 'nps' parameters.
+The source total intensity is 1.054e18 for LLB/Saclay (14 MW) and 4.28e18 for
+ILL/Grenoble (58 MW).
+
+Format of MCNP events are :
+
+  position_X position_Y position_Z dir_X dir_Y dir_Z Energy Weight Time
+
+energy is in Mega eV, time in shakes (1e-8 s),
+positions are in cm and the direction vector is normalized to 1.
+
+%BUGS
+We recommend NOT to use parallel execution (MPI) with this component. If you
+need to, set parameter 'smooth=1'.
+
+EXAMPLE:
+To generate PTRAC files using MCNP/MCNPX, add at the end of your input file:
+  f1:n          2001              // tally
+  (...)
+  ptrac         filename = asc
+                max  = -1000000   // number of neutrons to generate and stop
+                write = all
+                event = sur
+                filter = 2001,jsu // surface tally id
+To create a 'source' from a MCNP simulation event file for the ILL:
+COMPONENT source = Virtual_mcnp_input(
+   filename = "H10p", intensity=4.28e18, nps=11328982,
+   verbose = 1, autocenter="translate rotate rescale")
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>filename</TD>
+     <TD>str</TD>
+     <TD>Name of the MCNP PTRAC neutron input file. Empty string "" unactivates component
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>autocenter</TD>
+     <TD>str</TD>
+     <TD>String which may contain following keywords.
+"translate" or "center"  to center the beam area AT (0,0,0)
+"rotate"    or "orient"  to center the beam velocity along Z
+"change axes"            to change coordinate system definition
+"rescale"                to adapt intensity to abs. units.
+with factor intensity/nps.
+Other words are ignored.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>repeat_count</TD>
+     <TD>1</TD>
+     <TD>Number of times the source must be generated.
+0 unactivates the component
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>verbose</TD>
+     <TD>0|1</TD>
+     <TD>Displays additional informations if set to 1
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>intensity</TD>
+     <TD>n/s</TD>
+     <TD>Intensity multiplication factor
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>MCNP_ANALYSE</TD>
+     <TD>1</TD>
+     <TD>Number of neutron events to read for file pre-analysis.
+Use 0 to analyze them all.
+</TD>
+<TD ALIGN=RIGHT>10000</TD> </TR>
+<TR> <TD>surface_id</TD>
+     <TD>1</TD>
+     <TD>Index of the emitting MCNP surface to use. -1 for all.
+</TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>nps</TD>
+     <TD>1</TD>
+     <TD>Number of total events shot by MCNP to generate the PTRAC
+as indicated at the end of the MCNP 'o' file
+as 'source particle weight for summary table normalization'
+or alternatively 'nps = '.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>smooth</TD>
+     <TD>0/1</TD>
+     <TD>Smooth sparsed event files for file repetitions.
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>hfile</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>head</B></TD>
+     <TD>char</TD>
+     <TD>header buffer
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>rep</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>begin_neutrons</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>do_rotate</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>do_translate</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>bx</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>by</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>bz</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>angle2z</B></TD>
+     <TD>double, rad</TD>
+     <TD>rotation angle required to orient beam along Z axis
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>mean_x</B></TD>
+     <TD>double</TD>
+     <TD>\
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>mean_y</B></TD>
+     <TD>double</TD>
+     <TD>source center coordinates
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>mean_z</B></TD>
+     <TD>double</TD>
+     <TD>/
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>old_surface</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>surface</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>informed_event</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>informed_surface</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>min_x</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>min_y</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>min_z</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>max_x</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>max_y</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>max_z</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>min_vx</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>min_vy</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>min_vz</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>max_vx</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>max_vy</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>max_vz</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>mean_dx</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>mean_dy</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>mean_dz</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>n_count_extrapolated</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>repeat_cnt</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Virtual_mcnp_input.comp">Source code</A> for <CODE>Virtual_mcnp_input.comp</CODE>.
+  <LI> <a href="http://mcnp-green.lanl.gov/index.html">MCNP</a>
+  <LI> MCNP -- A General Monte Carlo N-Particle Transport Code, Version 5, Volume II: User's Guide, p177
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

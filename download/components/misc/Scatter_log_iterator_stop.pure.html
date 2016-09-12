@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Scatter_log_iterator_stop Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Scatter_log_iterator_stop</CODE> Component</H1>
+
+Iteration stop element for a Scatter_log
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Erik B Knudsen </B>
+  <LI> <B>Origin:</B> DTU Physics</B>
+  <LI> <B>Date:</B> November 2012</B>
+  <LI> <B>Version:</B> 1.21 </B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+
+This component marks the end of the trace-region in which pseudo-neutrons are handled. Please see the Scatter_log_iterator-component for more details.
+N.B. This component should be immediately followed by a construction like:
+COMPONENT a1 = Arm()
+AT (0,0,0) ABSOLUTE
+JUMP a0 WHEN(MC_GETPAR(iterator_stop_comp_name,loop))
+
+This is to extract the value of the loop variable from the innards of this component
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>iterator</B></TD>
+     <TD> </TD>
+     <TD>Instance name of the Scatter_log_iterator log component preceeding this one.
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>loop</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Scatter_log_iterator_stop.comp">Source code</A> for <CODE>Scatter_log_iterator_stop.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

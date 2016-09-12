@@ -1,0 +1,161 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Multilayer_Sample Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Multilayer_Sample</CODE> Component</H1>
+
+Multilayer Reflecting sample using matrix Formula.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Robert Dalgliesh</B>
+  <LI> <B>Origin:</B> McStas 1.12b</B>
+  <LI> <B>Date:</B> June 2010</B>
+  <LI> <B>Version:</B> 1.0</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+
+**************************************************************
+** in order to get this to compile you need to link against
+** the gsl and gslcblas libraries.
+**
+** to do this automatically edit
+** /usr/local/lib/mcstas/tools/perl/mcstas_config.perl
+**
+** add -lgsl and -lgslcblas to the CFLAGS line
+**************************************************************
+
+Horizontal reflecting substrate defined by SLDs,Thicknesses, roughnesses
+The superphase may also be determined
+
+Example: Multilayer_Sample(xmin=-0.1, xmax=0.1,zmin=-0.1, 
+zmax=0.1, nlayer=1,sldPar={0.0,2.0e-6,0.0e-6},dPar={20.0},
+sigmaPar={5.0,5.0})
+
+Example values: d1 500: sld1 (air) 0.0: sld2 (Si) 2.07e-6:
+                sldf1(film Ni) 9.1e-6
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>xwidth</TD>
+     <TD>m</TD>
+     <TD>Width of substrate
+</TD>
+<TD ALIGN=RIGHT>0.2</TD> </TR>
+<TR> <TD>zlength</TD>
+     <TD>m</TD>
+     <TD>Length of substrate
+</TD>
+<TD ALIGN=RIGHT>0.2</TD> </TR>
+<TR> <TD>nlayer</TD>
+     <TD>1</TD>
+     <TD>Number of film layers
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>sldPar</TD>
+     <TD>1</TD>
+     <TD>(Angstoms ^-2) Scattering length Density's of layers
+</TD>
+<TD ALIGN=RIGHT>{0.0</TD> </TR>
+<TR> <TD>dPar</TD>
+     <TD>1</TD>
+     <TD>(Angstroms) Thicknesses of film layers 
+</TD>
+<TD ALIGN=RIGHT>{20.0}</TD> </TR>
+<TR> <TD>sigmaPar</TD>
+     <TD>1</TD>
+     <TD>(Angstroms) r.m.s roughnesses of the interfaces
+</TD>
+<TD ALIGN=RIGHT>{5.0</TD> </TR>
+<TR> <TD>frac_inc</TD>
+     <TD>1</TD>
+     <TD>Fraction of statistics to assign to incoherent scattering
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>ythick</TD>
+     <TD>m</TD>
+     <TD>Thickness of substrate
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>mu_inc</TD>
+     <TD>m^-1</TD>
+     <TD>Incoherent scattering length
+</TD>
+<TD ALIGN=RIGHT>5.62</TD> </TR>
+<TR> <TD>target_index</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>focus_xw</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>focus_yh</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>sldParPtr</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>dParPtr</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>sigmaParPtr</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>tx</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>ty</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>tz</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Multilayer_Sample.comp">Source code</A> for <CODE>Multilayer_Sample.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

@@ -1,0 +1,241 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: PerfectCrystal Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>PerfectCrystal</CODE> Component</H1>
+
+Based on a perfect crystal component by: Miguel A. Gonzalez, A. Dianoux June 2013 (ILL)
+Changelog:
+Version 1.1
+ - BUGFIX: correct neutron energy shift in Doppler mode
+ - added option 'debyescherrer' to select analyzer geometry
+ - added option 'facette' to approximate analyzer sphere by small, flat crystals
+Version 1.0
+ - inital release
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Markus Appel</B>
+  <LI> <B>Origin:</B> ILL / FAU Erlangen-Nuernberg</B>
+  <LI> <B>Date:</B> 2015-12-21</B>
+  <LI> <B>Version:</B> 1.1 </B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Perfect crystal component, primarily for use as monochromator and analyzer in
+backscattering spectrometers. Reflection from a single Bragg reflex of a flat or
+spherical surface is simulated using a Darwin, Ewald or Gaussian profile. Doppler 
+movement of the monochromator is supported as well.
+
+Orientation of the crystal surface is *different* from other monochromator components!
+Gravitational energy shift for tall analyzers should work in principle, but it not tested yet.
+See the parameter description on how to define the geometry and properties.
+
+[1] Website for Backscattering Spectroscopy: http://www.ill.eu/sites/BS-review/index.htm
+
+Examples:
+IN16B (ILL) Si111 large angle analyzers (approximate dimensions):
+PerfectCrystal(radius=2, lambda=6.2708, sigma=0.24e-3, 
+               ttmin=40, ttmax=165, phimin=-45, phimax=+45, centerfocus=1)
+
+IN16B (ILL) Si111 Doppler monochromator:
+PerfectCrystal(radius=2.165, lambda=6.2708, sigma=0.24e-3,
+               width = 0.500, height = 0.250, centerfocus=0,
+               speed = 4.7, amplitude = 0.075, exclusive=1)
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>ttmin</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>NAN</TD> </TR>
+<TR> <TD>ttmax</TD>
+     <TD>deg</TD>
+     <TD>analyzer coverage angle in horizontal xz-plane between -180 and 180
+</TD>
+<TD ALIGN=RIGHT>NAN</TD> </TR>
+<TR> <TD>tt0</TD>
+     <TD>deg</TD>
+     <TD>angular center position in the horizontal plane (only if centerfocus==1)
+</TD>
+<TD ALIGN=RIGHT>NAN</TD> </TR>
+<TR> <TD>ttwidth</TD>
+     <TD>deg</TD>
+     <TD>horizontal coverage as center and full width
+</TD>
+<TD ALIGN=RIGHT>NAN</TD> </TR>
+<TR> <TD>width</TD>
+     <TD>m</TD>
+     <TD>absolute width
+</TD>
+<TD ALIGN=RIGHT>NAN</TD> </TR>
+<TR> <TD>phimin</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>NAN</TD> </TR>
+<TR> <TD>phimax</TD>
+     <TD>deg</TD>
+     <TD>vertical analyzer coverage between -90 and 90 (-180 and 180 if debyescherrer==1)
+</TD>
+<TD ALIGN=RIGHT>NAN</TD> </TR>
+<TR> <TD>phi0</TD>
+     <TD>deg</TD>
+     <TD>angular vertical position (only if centerfocus==1)
+</TD>
+<TD ALIGN=RIGHT>NAN</TD> </TR>
+<TR> <TD>phiwidth</TD>
+     <TD>deg</TD>
+     <TD>vertical coverage as center and full width
+</TD>
+<TD ALIGN=RIGHT>NAN</TD> </TR>
+<TR> <TD>height</TD>
+     <TD>m</TD>
+     <TD>absolute height (only if debyescherrer==0)
+</TD>
+<TD ALIGN=RIGHT>NAN</TD> </TR>
+<TR> <TD>debyescherrer</TD>
+     <TD>0/1</TD>
+     <TD>bend analyzer following a Debye-Scherrer ring along scattering angle tt (twotheta)
+(phi = [-180...180] in that case). Default: 0
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>facette</TD>
+     <TD>m</TD>
+     <TD>width of square crystal facettes arranged on the spherical surface (set 0 to disable). Default: 0
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>facette_xi</TD>
+     <TD>deg</TD>
+     <TD>random misalignemt of each facette. Default: 0
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>centerfocus</TD>
+     <TD>0/1</TD>
+     <TD>Component origin is the center of the analyzer sphere if 1,
+if set to 0 the origin is on the analyzer surface. Default: 0
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>radius</TD>
+     <TD>m</TD>
+     <TD>Radius of curvature, set to 0 for a flat surface. Default: 0
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>tau</TD>
+     <TD>A^-1</TD>
+     <TD>Scattering vector of the reflex (sometimes also called Q...)
+</TD>
+<TD ALIGN=RIGHT>NAN</TD> </TR>
+<TR> <TD>lambda</TD>
+     <TD>A</TD>
+     <TD>Alternatively to tau: backscattered wavelength
+</TD>
+<TD ALIGN=RIGHT>NAN</TD> </TR>
+<TR> <TD>R0</TD>
+     <TD>-</TD>
+     <TD>Peak reflectivity. Default: 1</TD>
+<TD ALIGN=RIGHT>1.0</TD> </TR>
+<TR> <TD>dtauovertau</TD>
+     <TD>see [1]</TD>
+     <TD>Plateau width of the Ewald/Darwin curve </TD>
+<TD ALIGN=RIGHT>NAN</TD> </TR>
+<TR> <TD>dtauovertau_ext</TD>
+     <TD>randomized for each trajectory, full width</TD>
+     <TD>Relative variation of tau </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>ewald</TD>
+     <TD>0/1</TD>
+     <TD>Use Ewald curve if 1, Darwin curve if 0. Default: 1 (Ewald)
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>sigma</TD>
+     <TD>meV</TD>
+     <TD>Width of the Gaussian reflectivity curve in meV (corresponding to 
+the energy resolution). 
+(The width will be transformed and the Gaussian is actually calculated in k-space.)
+</TD>
+<TD ALIGN=RIGHT>NAN</TD> </TR>
+<TR> <TD>ismirror</TD>
+     <TD>0/1</TD>
+     <TD>Simply reflect all neutrons if 1. Good for debugging/visualization. Default: 0
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>speed</TD>
+     <TD>m/s</TD>
+     <TD>Maximum Doppler speed. The actual monochromator velocity is randomized between
+-speed and +speed. Default: 0
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>amplitude</TD>
+     <TD>m</TD>
+     <TD>Amplitude of the Doppler movement. Default: 0
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>smartphase</TD>
+     <TD>0/1</TD>
+     <TD>Optimize Doppler phase for better MC efficiency if set to 1. 
+*WARNING:* Experimental option! Always compare to a simulation 
+without smartphase. Better do not use smartwidth with 
+Ewald/Darwin curves due to their endless tails. Default: 0
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>smartwidth</TD>
+     <TD>meV</TD>
+     <TD>Half width of the possible energy reflection window for smartphase. 
+</TD>
+<TD ALIGN=RIGHT>NAN</TD> </TR>
+<TR> <TD>exclusive</TD>
+     <TD>0/1</TD>
+     <TD>If set to 1, absorb all neutrons that missed the monochromator/analyzer surface.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>transmit</TD>
+     <TD>0...1</TD>
+     <TD>Monte-Carlo probability of transmitting an event through the 
+monochromator/analyzer surface. (Events with R=1.0 for DarwinE/Ewald curves
+are always reflected!). Default: 0
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>verbose</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="PerfectCrystal.comp">Source code</A> for <CODE>PerfectCrystal.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

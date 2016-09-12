@@ -1,0 +1,123 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Guide_curved Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Guide_curved</CODE> Component</H1>
+
+Non-focusing curved neutron guide.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Ross Stewart</B>
+  <LI> <B>Origin:</B> <a href="http://www.ill.fr">ILL (France)</a>.</B>
+  <LI> <B>Date:</B> November 18 2003</B>
+  <LI> <B>Version:</B> $Revision$</B>
+  <LI> <B>Modification history:</B> <UL>
+    <LI>  E. Farhi, uniformize parameter names (Jul 2008)
+  </UL>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Models a rectangular curved guide tube with entrance centered on the Z axis.
+The entrance lies in the X-Y plane.  Draws a true depiction
+of the guide, and trajectories.  Guide is not focusing.
+
+Example: Guide_curved(w1=0.1, h1=0.1, l=2.0, R0=0.99, Qc=0.021,
+               alpha=6.07, m=2, W=0.003, curvature=2700)
+
+%BUGS
+This component does not work with gravitation on. Use component Guide_gravity then.
+Systematic error on transmitted flux is found to be about 10%.
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>w1</B></TD>
+     <TD>m</TD>
+     <TD>Width at the guide entry
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>h1</B></TD>
+     <TD>m</TD>
+     <TD>Height at the guide entry
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>l</B></TD>
+     <TD>m</TD>
+     <TD>length of guide
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>R0</TD>
+     <TD>1</TD>
+     <TD>Low-angle reflectivity
+</TD>
+<TD ALIGN=RIGHT>0.995</TD> </TR>
+<TR> <TD>Qc</TD>
+     <TD>AA-1</TD>
+     <TD>Critical scattering vector
+</TD>
+<TD ALIGN=RIGHT>0.0218</TD> </TR>
+<TR> <TD>alpha</TD>
+     <TD>AA</TD>
+     <TD>Slope of reflectivity
+</TD>
+<TD ALIGN=RIGHT>4.38</TD> </TR>
+<TR> <TD>m</TD>
+     <TD>1</TD>
+     <TD>m-value of material. Zero means completely absorbing.
+</TD>
+<TD ALIGN=RIGHT>2</TD> </TR>
+<TR> <TD>W</TD>
+     <TD>AA-1</TD>
+     <TD>Width of supermirror cut-off
+</TD>
+<TD ALIGN=RIGHT>0.003</TD> </TR>
+<TR> <TD>curvature</TD>
+     <TD>m</TD>
+     <TD>Radius of curvature of the guide
+</TD>
+<TD ALIGN=RIGHT>2700</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Guide_curved.comp">Source code</A> for <CODE>Guide_curved.comp</CODE>.
+  <LI> <a href="../optics/Bender.comp.html">Bender</a>
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

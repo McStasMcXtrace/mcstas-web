@@ -1,0 +1,179 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Source_div Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Source_div</CODE> Component</H1>
+
+Neutron source with Gaussian or uniform divergence
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> KL</B>
+  <LI> <B>Origin:</B> Risoe</B>
+  <LI> <B>Date:</B> November 20, 1998</B>
+  <LI> <B>Version:</B> $Revision$</B>
+  <LI> <B>Modification history:</B> <UL>
+    <LI>  KL, 8 October 2001
+  </UL>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+The routine is a rectangular neutron source, which has a gaussian or uniform
+divergent output in the forward direction.
+The neutron energy is distributed between lambda0-dlambda and 
+lambda0+dlambda or between E0-dE and E0+dE. The flux unit is specified
+in n/cm2/s/st/energy unit (meV or Angs).
+In the case of uniform distribution (gauss=0), angles are uniformly distributed
+between -focus_aw and +focus_aw as well as -focus_ah and +focus_ah.
+For Gaussian distribution (gauss=1), 'focus_aw' and 'focus_ah' define the 
+FWHM of a Gaussian distribution. Energy/wavelength distribution is also 
+Gaussian.
+
+Example: Source_div(xwidth=0.1, yheight=0.1, focus_aw=2, focus_ah=2, E0=14, dE=2, gauss=0)
+
+%VALIDATION
+Feb 2005: tested by Kim Lefmann    (o.k.)
+Apr 2005: energy distribution used in external tests of Fermi choppers (o.k.)
+Jun 2005: wavelength distribution used in external tests of velocity selectors (o.k.)
+Validated by: K. Lieutenant
+
+%BUGS
+distribution is uniform in (hor. and vert.) angle (relative to moderator normal),
+therefore not suited for large angles
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>xwidth</B></TD>
+     <TD>m</TD>
+     <TD>Width of source
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>yheight</B></TD>
+     <TD>m</TD>
+     <TD>Height of source
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>focus_aw</B></TD>
+     <TD>deg</TD>
+     <TD>FWHM (Gaussian) or maximal (uniform) horz. width divergence
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>focus_ah</B></TD>
+     <TD>deg</TD>
+     <TD>FWHM (Gaussian) or maximal (uniform) vert. height divergence
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>E0</TD>
+     <TD>meV</TD>
+     <TD>Mean energy of neutrons.
+</TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+<TR> <TD>dE</TD>
+     <TD>meV</TD>
+     <TD>Energy half spread of neutrons.
+</TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+<TR> <TD>lambda0</TD>
+     <TD>Ang</TD>
+     <TD>Mean wavelength of neutrons (only relevant for E0=0)
+</TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+<TR> <TD>dlambda</TD>
+     <TD>Ang</TD>
+     <TD>Wavelength half spread of neutrons.
+</TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+<TR> <TD>gauss</TD>
+     <TD>0|1</TD>
+     <TD>Criterion: 0: uniform, 1: Gaussian distributions
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>flux</TD>
+     <TD>1/(s*cm**2*st*energy unit)</TD>
+     <TD>flux per energy unit, Angs or meV
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>thetah</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>thetav</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>sigmah</B></TD>
+     <TD>rad</TD>
+     <TD>parameter 'sigma' of the Gaussian distribution for horizontal divergence
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>sigmav</B></TD>
+     <TD>rad</TD>
+     <TD>parameter 'sigma' of the Gaussian distribution for vertical divergence
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>tan_h</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>tan_v</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>p_init</B></TD>
+     <TD>-</TD>
+     <TD>normalisation factor 1/'neutron_count'
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>dist</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>focus_xw</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>focus_yh</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Source_div.comp">Source code</A> for <CODE>Source_div.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

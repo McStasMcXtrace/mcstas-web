@@ -1,0 +1,320 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: ESS_moderator Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>ESS_moderator</CODE> Component</H1>
+
+A parametrised pulsed source for modelling ESS long pulses.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> P Willendrup and E Klinkby, February 2014, derived from K Lefmann ESS_moderator_long</B>
+  <LI> <B>Origin:</B> DTU</B>
+  <LI> <B>Date:</B>(Unknown)</B>
+  <LI> <B>Version:</B> $Revision$</B>
+  <LI> <B>Modification history:</B> <UL>
+    <LI>  J. Saroun (saroun@ujf.cas.cz)
+  </UL>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Produces a time-of-flight spectrum, from the ESS parameters
+Chooses evenly in lambda, evenly/exponentially decaying in time
+Adapted from ESS_moderator_long by: K Lefmann, 2001
+
+Updates and simplified interface:
+<ol>
+<li>The spectrum from the source(s) is defined via the sourcedef string input parameter which allows these values:
+<ul>
+<li>sourcedef="2001", legacy "Mezei moderators" from the original F. Mezei documents 
+"ESS reference moderator characteristics for generic instrument performance evaluation", but rescaled to ESS TDR frequency, pulselength and power.
+<li>sourcedef="TDR", Mezei moderators, with a wavelength-dependent correction term to the cold flux, derived from 
+2012 MCNPX calculations by ESS neutronics group. Corrections calculated by K Lieutenant (Vitess) and 
+implemented here by E Klinkby. NOTE: uses the 2001 brilliance for the thermal moderator!
+<li>sourcedef="2014", updated brilliance using formulation by Troels Schoenfeldt, including support for the "pancacke", i.e. flat geometry.
+<li>sourcedef="2015", updated brilliance using formulation by Troels Schoenfeldt, new butterfly baseline.
+</ul>
+<li>The component can use target_index for focusing to a given beam port. Use an Arm() and ROTATED to position 
+relatively to the moderator.
+<li>The component relies on the new ess_source-lib which is expected to become further enriched during design-finaliziation and construciton of the ESS.
+</ol>
+
+<p><b>Note that this component does not implement "engineering reality" and currently uses a coordinate system centered on the moderator assembly. An
+updated moderator component which references the "Moderator focus coordinate system" will be released later during the spring of 2016.</b>
+
+<p>Derived from ESS_moderator_long which was debugged intensively against Mezei note (4/12 2000) and VitESS @ Rencurel 2006.
+
+-----------------------------------------------
+Correction by J. Saroun, NPI Rez:
+1) version 2015: accepts negative port angles
+2) version 2015: weight by cosine of the port angle
+Warning: The negative beamport angle is not taken into acccount by mcplot
+
+%VALIDATION 
+Mezei-modererators validated against VitESS and Mezei note (4/12 2000) @ Rencurel 2006
+Benchmarked against multiple versions of ESS moderator group simulation data 2013-2015
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>isleft</TD>
+     <TD>1</TD>
+     <TD>Fraction of thermal neutrons generated at the "left" moderator slab in case of "2013" or "2014"
+</TD>
+<TD ALIGN=RIGHT>0.9</TD> </TR>
+<TR> <TD><B>Lmin</B></TD>
+     <TD>AA</TD>
+     <TD>Lower edge of wavelength distribution
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>Lmax</B></TD>
+     <TD>AA</TD>
+     <TD>Upper edge of wavelength distribution
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>cold_frac</TD>
+     <TD>1</TD>
+     <TD>Fraction of neutron statistics from cold source. It is implicitely assumed 
+that supermirror allows each beamline to choose the desired fraction
+of cold and thermal neutrons (i.e. extreme idealization).
+</TD>
+<TD ALIGN=RIGHT>1.0</TD> </TR>
+<TR> <TD>dist</TD>
+     <TD>m</TD>
+     <TD>Distance from source to focusing rectangle; at (0,0,dist)
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD><B>focus_xw</B></TD>
+     <TD>m</TD>
+     <TD>Width of focusing rectangle
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>focus_yh</B></TD>
+     <TD>m</TD>
+     <TD>Height of focusing rectangle
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>target_index</TD>
+     <TD>1</TD>
+     <TD>relative index of component to focus at, e.g. next is +1
+this is used to compute 'dist' automatically.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>tmax_multiplier</TD>
+     <TD>1</TD>
+     <TD>Defined maximum emission time at moderator, tmax= tmax_multiplier * ESS_PULSE_DURATION. Only in combination with sourcedef="2013", "2014" or "2015"
+</TD>
+<TD ALIGN=RIGHT>3</TD> </TR>
+<TR> <TD>yheight_c</TD>
+     <TD>m</TD>
+     <TD>Height of the cold source
+</TD>
+<TD ALIGN=RIGHT>0.12</TD> </TR>
+<TR> <TD>yheight_t</TD>
+     <TD>m</TD>
+     <TD>Height of the thermal source
+</TD>
+<TD ALIGN=RIGHT>0.12</TD> </TR>
+<TR> <TD>n_pulses</TD>
+     <TD>1</TD>
+     <TD>Number of pulses simulated. 0 and 1 creates one pulse. 
+The integrated intensity is constant 
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>acc_power</TD>
+     <TD>MW</TD>
+     <TD>Accelerator power in MW
+</TD>
+<TD ALIGN=RIGHT>5</TD> </TR>
+<TR> <TD>beamport_angle</TD>
+     <TD>deg</TD>
+     <TD>Direction within the beamport sector (0 < angle < extraction_opening for 2014, -extraction_opening/2 < angle < extraction_opening/2 for 2015) to direct neutrons. For sourcedef="2015", the only allowed values are 5,15,...,55 degrees measured from the central point.
+</TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>sourcedef</TD>
+     <TD>string</TD>
+     <TD>ESS source "database", values: "TDR", "2001", "2013", "2014", "2015"
+</TD>
+<TD ALIGN=RIGHT>"2015"</TD> </TR>
+<TR> <TD>xwidth_c</TD>
+     <TD>m</TD>
+     <TD>Width / arc-length opening of the cold source. 
+</TD>
+<TD ALIGN=RIGHT>0.1</TD> </TR>
+<TR> <TD>xwidth_t</TD>
+     <TD>m</TD>
+     <TD>Edge of thermal source
+</TD>
+<TD ALIGN=RIGHT>0.18</TD> </TR>
+<TR> <TD>extraction_opening</TD>
+     <TD>deg</TD>
+     <TD>Width of extraction-area in degrees (60 or 120 degrees). 120 deg only in combination with sourcedef="2014" and "2015". 
+</TD>
+<TD ALIGN=RIGHT>120</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>l_range</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>w_mult</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>w_geom</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>w_geom_c</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>w_geom_t</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>w_stat</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>cold</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>wasleft</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>cosine</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>tx</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>ty</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>tz</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>cx</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>cy</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>cz</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>cyl_radius</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>t1x</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>t1y</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>t1z</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>t2x</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>t2y</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>t2z</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>modextras</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>cold_bril</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>thermal_bril</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>tfocus_width</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>tfocus_time</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>dt</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>r_empty</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>lambda</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>xprime</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>yprime</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>zprime</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>sgnport</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>abs_beamport_angle</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>cos_beamport_angle</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>edge_thermal</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>cos_thermal</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>cos_cold</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>sin_beamport_angle</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="ESS_moderator.comp">Source code</A> for <CODE>ESS_moderator.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

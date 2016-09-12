@@ -1,0 +1,205 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: MultiDiskChopper Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>MultiDiskChopper</CODE> Component</H1>
+
+Based on DiskChopper (Revision 1.18) by Peter Willendrup (2006), 
+which in turn is based on Chopper (Philipp Bernhardt), Jitter and beamstop from work by 
+Kaspar Hewitt Klenoe (jan 2006), adjustments by Rob Bewey (march 2006)
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Markus Appel</B>
+  <LI> <B>Origin:</B> ILL / FAU Erlangen-Nuernberg</B>
+  <LI> <B>Date:</B> 2015-10-19</B>
+  <LI> <B>Version:</B> 1.0 </B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Models a disk chopper with a freely configurable slit pattern. For simple applications,
+use the DiskChopper component and see the component manual example of DiskChopper GROUPing.
+If the chopper slit pattern should be dynamically configurable or a complicated pattern
+is to be used as first chopper on a continuous source, use this component.
+
+Width and position of the slits is defined as a list in string parameters so
+they can easily be taken from instrument parameters.
+The chopper axis is located on the y axis as defined by the parameter delta_y.
+When the chopper is the first chopper after a continuous (i.e. time-independent) 
+source, the parameter isfirst should be set to 1 to increase Monte-Carlo efficiency.
+
+
+Examples (see parameter definitions for details): 
+Two opposite slits with 10 and 20deg opening, with the 20deg slit in the beam at t=0.02:
+MultiDiskChopper(radius=0.2, slit_center="0;180", slit_width="10;20", delta_y=-0.1, 
+                 nu=302, nslits=2, phase=180, delay=0.02)
+
+First chopper on a continuous source, creating pulse trains for one additional revolution
+before and after the revolution at t=0:
+MultiDiskChopper(radius=0.2, slit_center="0;180", slit_width="10;20", delta_y=-0.1, 
+                 nu=302, nslits=2, phase=180, isfirst=1, nrev=1)
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>slit_center</TD>
+     <TD>string</TD>
+     <TD>: (deg)   Angular position of the slits (similar to slit_width)
+</TD>
+<TD ALIGN=RIGHT>"0 180"</TD> </TR>
+<TR> <TD>slit_width</TD>
+     <TD>string</TD>
+     <TD>:  (deg)   Angular width of the slits, given as list in a string separated by
+space ' ', comma ',', underscore '_' or semicolon ';' . 
+</TD>
+<TD ALIGN=RIGHT>"10 20"</TD> </TR>
+<TR> <TD>nslits</TD>
+     <TD>-</TD>
+     <TD>Number of slits to read from slit_width and slit_center</TD>
+<TD ALIGN=RIGHT>2</TD> </TR>
+<TR> <TD>delta_y</TD>
+     <TD>m</TD>
+     <TD>y-position of the chopper rotation axis. If the chopper is located above
+the guide (delta_y>0), the coordinate system will be mirrored
+such that the created pulse pattern in time is the same as for delta_y<0.
+A warning will be printed in this case.
+</TD>
+<TD ALIGN=RIGHT>-0.3</TD> </TR>
+<TR> <TD>nu</TD>
+     <TD>Hz</TD>
+     <TD>Rotation speed of the disk, the sign determines the direction.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>nrev</TD>
+     <TD>-</TD>
+     <TD>Number of *additional* disk revolutions before *and* after the one around t=delay
+to distribute events on. If set to 2 for example, there will be 2 leading, 1 central,
+and 2 trailing revolutions of the disk (2*nrev+1 in total). Default: 0</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>ratio</TD>
+     <TD>-</TD>
+     <TD>Spacing of the additional revolutions from the parameter nrev from the central revolution.</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>jitter</TD>
+     <TD>s</TD>
+     <TD>Jitter in the time phase. Default: 0
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>delay</TD>
+     <TD>s</TD>
+     <TD>Time delay of the chopper clock. Default: 0
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>isfirst</TD>
+     <TD>0/1</TD>
+     <TD>Set to 1 for the first chopper after a continuous source. The neutron events
+will be shifted in time to pass the component (with adapted weight). Default: 0
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>phase</TD>
+     <TD>deg</TD>
+     <TD>Phase angle located on top of the disk at t=delay (see below). Default: 0
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>radius</TD>
+     <TD>m</TD>
+     <TD>Outer radius of the disk
+</TD>
+<TD ALIGN=RIGHT>0.375</TD> </TR>
+<TR> <TD>equal</TD>
+     <TD>0/1</TD>
+     <TD>If 0, the neutron events will be distributed between different slits proportional
+to the slit size. If 1, the events will be distributed such that each slit transmits
+the same number of events. This parameter can be used to achieve comparable 
+simulation statistics over different pulses when simulating small and large
+slits together. Default: 0
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>abs_out</TD>
+     <TD>-</TD>
+     <TD>If 1, absorb all neutrons outside the disk diameter. Default: 0</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>verbose</TD>
+     <TD>0/1</TD>
+     <TD>Set to 1 to display more information during the simulation. Default: 0
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>T</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>To</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>omega</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>dslit_center</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>dhslit_width</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>t0</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>t1</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>islit</B></TD>
+     <TD>-</TD>
+     <TD>Index of the slit which has transmitted the current neutron (between 0 and nslits-1).</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>irev</B></TD>
+     <TD>-</TD>
+     <TD>Index of the disk revolution that has transmitted the current neutron.
+Only set if isfirst=1. irev will be between (-nrev*ratio) and (nrev*ratio), where irev=0
+is the central revolution.</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="MultiDiskChopper.comp">Source code</A> for <CODE>MultiDiskChopper.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

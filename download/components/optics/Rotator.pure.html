@@ -1,0 +1,92 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Rotator Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Rotator</CODE> Component</H1>
+
+A rotative frame along vertical axis
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Emmanuel Farhi</B>
+  <LI> <B>Origin:</B> <a href="http://www.ill.fr">ILL</a></B>
+  <LI> <B>Date:</B> June 20th 2013</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+All components positioned after this one are rotating at frequency 'nu' with
+phase 'phase'. Use the Derotator component to put back the model steady.
+The rotation is performed w.r.t. the position of the component, along the 
+vertical axis 'y'.
+
+Example:
+  R=Rotator(nu=14, phase=0)
+  ...
+  DR=Derotator(rotator=R)
+  AT (0,0,0) RELATIVE R
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>nu</TD>
+     <TD>Hz</TD>
+     <TD>Rotation frequency (round/s) in the rotating option (vertical axis)
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>phase</TD>
+     <TD>deg</TD>
+     <TD>Phase shift
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>angle</B></TD>
+     <TD>deg</TD>
+     <TD>rotation angle </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Rotator.comp">Source code</A> for <CODE>Rotator.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

@@ -1,0 +1,78 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: templateNMX Instrument at  Templates</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>templateNMX</CODE> Instrument</H1>
+
+A simple Laue NMX diffractometer for macromolecules, adapted from the classic 
+templateLaue instrument.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    Templates</B>
+  <LI> <B>Author:</B> K. Nielsen</B>
+  <LI> <B>Origin:</B> ILL</B>
+  <LI> <B>Date:</B> June 2nd, 2010</B>
+  <LI> <B>Version:</B> $Revision$</B>
+  <LI> <B>Modification history:</B> <UL>
+    <LI>  EF, PW
+  </UL>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+A single crystal sample is illuminated with a white cold beam.
+Based on a Laue tutorial written by K. Nielsen, Feb 7, 2000.
+
+Example: templateNMX REPS=50 reflections=Rubredoxin.lau Detector: det_I=210.788
+Example: templateNMX REPS=700 reflections=PPase_D_P1.lau Detector: det_I=29.6512
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>REPS</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>43</TD> </TR>
+<TR> <TD>reflections</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>"Rubredoxin.lau"</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="templateNMX.instr">Source code</A> for <CODE>templateNMX.instr</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:08 2016</ADDRESS>
+</BODY></HTML>

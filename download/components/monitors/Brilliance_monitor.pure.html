@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Brilliance_monitor Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Brilliance_monitor</CODE> Component</H1>
+
+Special "Brilliance" monitor. 
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Peter Willendrup, derived from TOF_lambda_monitor.comp</B>
+  <LI> <B>Origin:</B> DTU Physics</B>
+  <LI> <B>Date:</B> May 23, 2012</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+If used in the right setting, will output "instantaneous" and "mean" brilliances in units of Neutrons/cm^2/ster/AA/s. Conditions for proper units:
+<ul>
+<li>Use a with a source of area 1x1cm
+<li>The source must illuminate/focus to an area of 1x1cm a 1m distance
+<li>Parametrise the Brilliance_monitor with the frequency of the source
+<li>To not change the source TOF distribution, place the Brilliance monitor close to the source!
+</ul>
+
+with a source of area 1x1cm illuminating/focusing to an area of 1x1cm a 1m distance, this monitor will output "instantaneous" and "mean" brilliances in units of Neutrons/cm^2/ster/AA/s
+
+Here is an example of the use of the component. Note how the mentioned Unit conditions are implemented in instrument code.
+
+COMPONENT Source = ESS_moderator_long(
+   l_low = lambdamin, l_high = lambdamax, dist = 1, xw = 0.01, yh = 0.01,
+   freq = 14, T=50, tau=287e-6, tau1=0, tau2=20e-6,
+   n=20, n2=5, d=0.00286, chi2=0.9, I0=6.9e11, I2=27.6e10,
+   branch1=0, branch2=0.5, twopulses=0, size=0.01)
+ AT (0, 0, 0) RELATIVE Origin
+
+COMPONENT BRIL = Brilliance_monitor(nlam=196,nt=401,filename="bril.sim",
+	t_0=0,t_1=4000,lambda_0=lambdamin,
+	lambda_1=lambdamax, Freq=14)
+AT (0,0,0.000001) RELATIVE Source
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>nlam</TD>
+     <TD>1</TD>
+     <TD>Number of bins in wavelength </TD>
+<TD ALIGN=RIGHT>101</TD> </TR>
+<TR> <TD>nt</TD>
+     <TD>1</TD>
+     <TD>Number of bins in TOF </TD>
+<TD ALIGN=RIGHT>1001</TD> </TR>
+<TR> <TD>lambda_0</TD>
+     <TD>AA</TD>
+     <TD>Minimum wavelength detected </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>lambda_1</TD>
+     <TD>AA</TD>
+     <TD>Maximum wavelength detected </TD>
+<TD ALIGN=RIGHT>20</TD> </TR>
+<TR> <TD>restore_neutron</TD>
+     <TD>1</TD>
+     <TD>If set, the monitor does not influence the neutron state </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD><B>Freq</B></TD>
+     <TD>Hz</TD>
+     <TD>Source frequency. Use freq=1 for reactor source </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>tofcuts</TD>
+     <TD>1</TD>
+     <TD>Flag to generate TOF-distributions as function of wavelength </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>toflambda</TD>
+     <TD>1</TD>
+     <TD>Flag to generate TOF-lambda distribution output ´ </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>xwidth</TD>
+     <TD>m</TD>
+     <TD>width of monitor </TD>
+<TD ALIGN=RIGHT>0.01</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>m</TD>
+     <TD>height of monitor </TD>
+<TD ALIGN=RIGHT>0.01</TD> </TR>
+<TR> <TD>source_dist</TD>
+     <TD>m</TD>
+     <TD>Distance from source. Beware when transporting through neutron optics! </TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>t_0</TD>
+     <TD>us</TD>
+     <TD>Minimum time </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>t_1</TD>
+     <TD>us</TD>
+     <TD>Maximum time </TD>
+<TD ALIGN=RIGHT>20000</TD> </TR>
+<TR> <TD>srcarea</TD>
+     <TD>cm^2</TD>
+     <TD>Source area </TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>tt_0</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>tt_1</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>BRIL_N</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>BRIL_p</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>BRIL_p2</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>BRIL_mean</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>BRIL_meanN</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>BRIL_meanE</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>BRIL_peak</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>BRIL_peakN</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>BRIL_peakE</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>BRIL_shape</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>BRIL_shapeN</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>BRIL_shapeE</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>xmin</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>xmax</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>ymin</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>ymax</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>ster</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>prsec</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>dlam</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>dt</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Brilliance_monitor.comp">Source code</A> for <CODE>Brilliance_monitor.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

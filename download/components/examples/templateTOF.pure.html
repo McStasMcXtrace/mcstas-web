@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: templateTOF Instrument at  Templates</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>templateTOF</CODE> Instrument</H1>
+
+A test instrument for the S(q,w) sample, with furnace/container
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    Templates</B>
+  <LI> <B>Author:</B> E. Farhi</B>
+  <LI> <B>Origin:</B> ILL</B>
+  <LI> <B>Date:</B> Jan 2004</B>
+  <LI> <B>Version:</B>(Unknown)</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+This instrument is a test instrument for the S(q,w) sample.
+It produces a tof-angle and q-energy detectors and also exports the
+S(q,w) and S(q) data.
+The sample environment is a single cylinder.
+The sample container has the same shape as the sample itself, but is not
+active when using a spherical sample shape (height=0).
+detector is 2.5 m diameter, with 40 cm heigh, 1 inch diameter detector tubes.
+
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>E0</TD>
+     <TD>meV</TD>
+     <TD>incident neutron beam energy                </TD>
+<TD ALIGN=RIGHT>4.94</TD> </TR>
+<TR> <TD>dE</TD>
+     <TD>meV</TD>
+     <TD>incident neutron beam energy spread         </TD>
+<TD ALIGN=RIGHT>0.24</TD> </TR>
+<TR> <TD>dt</TD>
+     <TD>s</TD>
+     <TD>time spread from chopper distribution       </TD>
+<TD ALIGN=RIGHT>6.4e-6</TD> </TR>
+<TR> <TD>coh</TD>
+     <TD>str</TD>
+     <TD>sample coherent Sqw data file or NULL       </TD>
+<TD ALIGN=RIGHT>"Rb_liq_coh.sqw"</TD> </TR>
+<TR> <TD>inc</TD>
+     <TD>str</TD>
+     <TD>sample incoherent Sqw data file or NULL     </TD>
+<TD ALIGN=RIGHT>"Rb_liq_inc.sqw"</TD> </TR>
+<TR> <TD>thickness</TD>
+     <TD>m</TD>
+     <TD>thickness of sample. 0=filled               </TD>
+<TD ALIGN=RIGHT>1e-4</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>m</TD>
+     <TD>height of sample. 0=sphere                  </TD>
+<TD ALIGN=RIGHT>0.0168</TD> </TR>
+<TR> <TD>radius</TD>
+     <TD>m</TD>
+     <TD>radius of sample (outer).                   </TD>
+<TD ALIGN=RIGHT>0.005</TD> </TR>
+<TR> <TD>container</TD>
+     <TD>str</TD>
+     <TD>container material or NULL                  </TD>
+<TD ALIGN=RIGHT>"Nb.laz"</TD> </TR>
+<TR> <TD>container_thickness</TD>
+     <TD>m</TD>
+     <TD>container thickness               </TD>
+<TD ALIGN=RIGHT>50e-6</TD> </TR>
+<TR> <TD>environment</TD>
+     <TD>str</TD>
+     <TD>sample environment material or NULL       </TD>
+<TD ALIGN=RIGHT>"Al.laz"</TD> </TR>
+<TR> <TD>environment_radius</TD>
+     <TD>m</TD>
+     <TD>sample environment outer radius    </TD>
+<TD ALIGN=RIGHT>0.025</TD> </TR>
+<TR> <TD>environment_thickness</TD>
+     <TD>m</TD>
+     <TD>sample environment thickness    </TD>
+<TD ALIGN=RIGHT>2e-3</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="templateTOF.instr">Source code</A> for <CODE>templateTOF.instr</CODE>.
+  <LI> The Isotropic_Sqw sample
+  <LI> The Samples_Isotropic_Sqw example instrument
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:08 2016</ADDRESS>
+</BODY></HTML>

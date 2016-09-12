@@ -1,0 +1,151 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Pol_mirror Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Pol_mirror</CODE> Component</H1>
+
+Polarising mirror.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Peter Christiansen</B>
+  <LI> <B>Origin:</B> RISOE</B>
+  <LI> <B>Date:</B> July 2006</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+This component models a rectangular infinitely thin mirror.
+For an unrotated component, the mirror surface lies in the Y-Z
+plane (ie. parallel to the beam).
+It relies on similar physics as the Monochromator_pol.
+The reflectivity function (see e.g. share/ref-lib for examples) and parameters 
+are passed to this component to give a bigger freedom. 
+The up direction is hardcoded to be along the y-axis (0, 1, 0)
+For now we assume:
+P(Transmit|Q) = 1 - P(Reflect|Q)
+i.e. NO ABSORPTION!
+
+The component can both reflect and transmit neutrons with a respective proportion
+depending on the p_reflect parameter:
+  p_reflect=-1 Reflect and transmit (proportions given from reflectivity) [default]
+  p_reflect=1 Only handle reflected events
+  p_reflect=0 Only handle transmitted events (reduce weight)
+  p_reflect=0-1 Both transmit and reflect with fixed statistics proportions
+
+The parameters can either be 
+double pointer initializations (e.g. {R0, Qc, alpha, m, W}) 
+or table names (e.g."supermirror_m2.rfl" AND useTables=1).
+NB! This might cause warnings by the compiler that can be ignored.
+
+Examples:
+Reflection function parametrization 
+Pol_mirror(zwidth = 0.40, yheight = 0.40,
+            rUpFunc=StdReflecFunc, rUpPar={1.0, 0.0219, 6.07, 2.0, 0.003})
+
+Table function 
+Pol_mirror(zwidth = 0.40, yheight = 0.40,
+            rUpFunc=TableReflecFunc, rUpPar="supermirror_m2.rfl",
+            rDownFunc=TableReflecFunc, rDownPar="supermirror_m3.rfl", 
+            useTables=1)
+
+See also the example instrument Test_Pol_Mirror (under tests).  
+
+GRAVITY: YES
+
+%BUGS 
+NO ABSORPTION
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>rUpFunc</TD>
+     <TD>1</TD>
+     <TD>Reflection function for spin up (q, *par, *r) </TD>
+<TD ALIGN=RIGHT>StdReflecFunc</TD> </TR>
+<TR> <TD>rDownFunc</TD>
+     <TD>1</TD>
+     <TD>Reflection function for spin down (q, *par, *r)</TD>
+<TD ALIGN=RIGHT>rUpFunc</TD> </TR>
+<TR> <TD>rUpPar</TD>
+     <TD>1</TD>
+     <TD>Parameters for rUpFunc </TD>
+<TD ALIGN=RIGHT>{0.99</TD> </TR>
+<TR> <TD>rDownPar</TD>
+     <TD>1</TD>
+     <TD>Parameters for rDownFunc </TD>
+<TD ALIGN=RIGHT>rUpPar</TD> </TR>
+<TR> <TD>useTables</TD>
+     <TD>1</TD>
+     <TD>Parameters are 0: Values, 1: Table names </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD><B>zwidth</B></TD>
+     <TD>m</TD>
+     <TD>Width of the mirror </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>yheight</B></TD>
+     <TD>m</TD>
+     <TD>Height of the mirror </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>p_reflect</TD>
+     <TD>1</TD>
+     <TD>Proportion of reflected events. Use 0 to only get the transmitted
+beam, and 1 to get only the reflected beam. Use -1 to use the
+mirror reflectivity.
+This value is purely computational and is not related to the actual
+reflectivity </TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>rUpParPtr</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>rDownParPtr</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Pol_mirror.comp">Source code</A> for <CODE>Pol_mirror.comp</CODE>.
+  <LI> 
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

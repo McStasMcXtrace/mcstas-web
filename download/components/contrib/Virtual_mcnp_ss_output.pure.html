@@ -1,0 +1,111 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Virtual_mcnp_ss_output Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Virtual_mcnp_ss_output</CODE> Component</H1>
+
+This component uses a Source Surface type file of recorded neutrons from the 
+reactor monte carlo code MCNP as a source of particles.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> <a href="mailto:esbe@dtu.dk">Esben Klinkby</a> and <a href="mailto:pkwi@dtu.dk">Peter Willendrup</a> </B>
+  <LI> <B>Origin:</B> <a href="http://www.risoe.dtu.dk/">DTU</a></B>
+  <LI> <B>Date:</B> January, 2012</B>
+  <LI> <B>Version:</B>  $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+This component draws neutron events from a Source Surface file created using the
+MCNP Monte Carlo code and converts them to make them suitable for a McStas simulation
+
+Note that axes orientation may be different between MCNP and McStas!
+Note also that the conversion of between McStas and MCNP units and parameters 
+is done automatically by this component - but the user must ensure that
+geometry description matches between the two Monte Carlo codes.
+
+The verbose mode is highly recommended as it displays lots of useful informations.
+
+This interface uses the MCNP Source Surface Read/Write format (SSW/SSR). 
+Infomation transfer from(to) SSW files proceeds via a set of Fortran modules 
+and subroutines collected in "subs.f"
+For succesful compilation, it is required that these subroutines are compiled 
+and linked to the instrument file:
+
+ mcstas dummy.instr  -> generates dummy.c
+ gfortran -c subs.f  -> generates subs.f
+ gcc -o runme.out dummy.c subs.o -lm -lgfortran  -> generates runme.out
+
+Note that this requires a fortran compiler (here gfortran) and gcc.
+
+%BUGS
+None known bugs so far. But surely this will change...
+Caveat: when writing the header for the output wssa file, the number of histories and tracks are assumed to be that of the
+        input MNCP run. This is generally not the case, due to losses in the McStas simulation step.
+        In case of losses any subsequel MCNP run based on the McStas output, can be confused by inconsistency between
+        header and file content. To resolve, either ensure that NPS is lower than the actual number of events in the McStas output.
+        Or hardcode values of nhis & ntrk in either subs.f or Virtual_mcnp_ss_output.comp.
+
+EXAMPLE of usage:
+first a MCNP simulation is run
+    and at a relevant surface, a Source Surface Write card is given (e.g. for MCNP surface #1, add the line:
+    SSW 1 
+    to the end of the input file.
+    By this a ".w" file is produced, which then serves as input to the McStas simulation.
+Present version: rename *.w to rssa, and make sure to put it in the dir from which McStas is run (or use symbolic links)
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>file</TD>
+     <TD>str</TD>
+     <TD>Name of the MCNP SSW neutron input file. Not active: Name assumed to be 'rssa' </TD>
+<TD ALIGN=RIGHT>"rssa"</TD> </TR>
+<TR> <TD>verbose</TD>
+     <TD>1</TD>
+     <TD>Toggles debugging info on/off </TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Virtual_mcnp_ss_output.comp">Source code</A> for <CODE>Virtual_mcnp_ss_output.comp</CODE>.
+  <LI> <a href="http://mcnp-green.lanl.gov/index.html">MCNP</a>
+  <LI> MCNP -- A General Monte Carlo N-Particle Transport Code, Version 5, Volume II: User's Guide, p177
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

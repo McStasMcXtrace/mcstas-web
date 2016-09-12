@@ -1,0 +1,106 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Test_FocalisationMirrors Instrument at  Tests_optics</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Test_FocalisationMirrors</CODE> Instrument</H1>
+
+Test instrument for neutron focalisation with a set of supermirrors. 
+No guide / velocity selector
+One parabolic SM converges the incoming beam to its focal point, then one 
+elliptic SM (with primary focal point at same location as parabolic SM focal point) 
+images the focal point onto the detector.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    Tests_optics</B>
+  <LI> <B>Author:</B> <a href="mailto:desert@drecam.cea.fr">Sylvain Desert</a></B>
+  <LI> <B>Origin:</B> <a href="http://www-llb.cea.fr/">LLB</a></B>
+  <LI> <B>Date:</B> 2007.</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Test instrument for the MirrorElli and MirrorPara components
+
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>Qmin</TD>
+     <TD>AA^-1</TD>
+     <TD>Minimum momentum transfer on the detector </TD>
+<TD ALIGN=RIGHT>.0001</TD> </TR>
+<TR> <TD>G</TD>
+     <TD>1</TD>
+     <TD>Ratio of the mirror focal length = increase in accepted divergence angle </TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>H</TD>
+     <TD>m</TD>
+     <TD>Height of mirrors </TD>
+<TD ALIGN=RIGHT>.0001</TD> </TR>
+<TR> <TD>F</TD>
+     <TD>m</TD>
+     <TD>Parabolic focal </TD>
+<TD ALIGN=RIGHT>.00066</TD> </TR>
+<TR> <TD>DET</TD>
+     <TD>m</TD>
+     <TD>Distance between the two elliptic focal points </TD>
+<TD ALIGN=RIGHT>8.2</TD> </TR>
+<TR> <TD>lambda</TD>
+     <TD>AA</TD>
+     <TD>Mean wavelength of neutrons </TD>
+<TD ALIGN=RIGHT>14</TD> </TR>
+<TR> <TD>divergence</TD>
+     <TD>deg</TD>
+     <TD>source divergence </TD>
+<TD ALIGN=RIGHT>.1</TD> </TR>
+<TR> <TD>BeamWidth</TD>
+     <TD>m</TD>
+     <TD>Length of the source to focalize </TD>
+<TD ALIGN=RIGHT>.05</TD> </TR>
+<TR> <TD>TetaMin</TD>
+     <TD>deg</TD>
+     <TD>Minimum angle that must be reflected by the device assuming m=3 SM (TetaMin=3 for 5A and above neutron) </TD>
+<TD ALIGN=RIGHT>3</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Test_FocalisationMirrors.instr">Source code</A> for <CODE>Test_FocalisationMirrors.instr</CODE>.
+  <LI> 
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:08 2016</ADDRESS>
+</BODY></HTML>

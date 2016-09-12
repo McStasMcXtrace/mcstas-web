@@ -1,0 +1,119 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: ILL_H22_D1A Instrument at  ILL</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>ILL_H22_D1A</CODE> Instrument</H1>
+
+Simple monochromator Diffractometer for powders (D1A) installed on H22, with 
+container/sample environment and radial collimator.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    ILL</B>
+  <LI> <B>Author:</B> E. Farhi</B>
+  <LI> <B>Origin:</B> ILL</B>
+  <LI> <B>Date:</B> 13 Apr 2006</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+D1A is a reliable diffractometer for standard crystallographic problems. It gives
+excellent results with the Rietveld method owing to its near perfect Gaussian
+peak-shape in the 2θ-range 30° to 150°.
+
+Special features include
+  a high fixed take-off angle of 122 deg, giving high resolution at large 
+    scattering angles (up to 160 deg);
+  a bank of 25 high efficiency collimators and counters;
+    an anisotropically squashed germanium monochromator focussing a 250
+    mm high beam onto only 30 mm;
+  a wide choice of wavelengths, from 1.39 Angs to 2.99 Angs, quickly available by
+    simple rotation of the focussing monochromator;
+
+The large monochromator take-off angle means that the diffraction pattern is
+focussed for the parallel geometry shown (2θ = 122°). The counter can be swept
+through 0 deg to 2θ = 160° deg for the highest angle counter, usually in steps 
+of 0.05 deg.
+Monochromator           Neutron wavelength
+Ge 117 DM=0.7946 AA     1.390     
+Ge 335 DM=0.8655 AA     1.514
+Ge 115 DM=1.0925 AA     1.911 (optimal)
+Ge 113 DM=1.712 AA      2.994
+
+The sample is a powder, in a container can, all positioned in an
+Al environment (e.g. cryostat/furnace shield).
+
+This instrument was installed on the H22 guide.
+
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>lambda</TD>
+     <TD>Angs</TD>
+     <TD>Wavelength at monochromator
+</TD>
+<TD ALIGN=RIGHT>1.911</TD> </TR>
+<TR> <TD>dlambda</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>0.03</TD> </TR>
+<TR> <TD>DM</TD>
+     <TD>Angs</TD>
+     <TD>d-spacing of monochromator. Use DM=0 to compute the values 
+from the requested wavelength.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>RV</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>powder</TD>
+     <TD>str</TD>
+     <TD>File name for powder sample description
+</TD>
+<TD ALIGN=RIGHT>"Na2Ca3Al2F14.laz"</TD> </TR>
+<TR> <TD>container</TD>
+     <TD>str</TD>
+     <TD>File name for container decription in Al cryostat/furnace
+</TD>
+<TD ALIGN=RIGHT>"V.laz"</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="ILL_H22_D1A.instr">Source code</A> for <CODE>ILL_H22_D1A.instr</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

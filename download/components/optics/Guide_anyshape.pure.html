@@ -1,0 +1,167 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Guide_anyshape Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Guide_anyshape</CODE> Component</H1>
+
+Reflecting surface (guide and mirror) with any shape, defined from an OFF file.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Emmanuel Farhi</B>
+  <LI> <B>Origin:</B> ILL</B>
+  <LI> <B>Date:</B> August 4th 2010</B>
+  <LI> <B>Version:</B> 1.0</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+
+This is a reflecting object component. Its shape is defined from an OFF file, 
+given with its file name. The object size is set as given from the file, where
+dimensions should be in meters. The bounding box may be re-scaled by specifying
+xwidth,yheight,zdepth parameters. The object may optionally be centered when
+using 'center=1'.
+
+The reflectivity is specified either from the usual parametric description 
+R0,Qc,alpha,W,m, or from a reflectivity file 'reflect' with a 2 column 
+format [q(Angs-1) R(0-1)].
+
+The complex OFF/PLY geometry option handles any closed non-convex polyhedra.
+  It supports the OFF and NOFF file format but not COFF (colored faces). 
+  Such files may be generated from XYZ data using:
+    qhull < coordinates.xyz Qx Qv Tv o > geomview.off 
+  or
+    powercrust coordinates.xyz
+  and viewed with geomview or java -jar jroff.jar (see below).
+  The default size of the object depends of the OFF file data, but its 
+  bounding box may be resized using xwidth,yheight and zdepth.
+  PLY geometry files are also supported.
+
+%BUGS
+This component does take into account gravitation accurately.
+
+Example values: m=4 Qc=0.0219 W=1/300 alpha=6.49 R0=1
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>reflect</TD>
+     <TD>str</TD>
+     <TD>Reflectivity file name. Format [q(Angs-1) R(0-1)]
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>geometry</TD>
+     <TD>str</TD>
+     <TD>Name of the OFF/PLY file describing the guide geometry
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>xwidth</TD>
+     <TD>m</TD>
+     <TD>Redimension the object bounding box on X axis is non-zero
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>m</TD>
+     <TD>Redimension the object bounding box on Y axis is non-zero
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>zdepth</TD>
+     <TD>m</TD>
+     <TD>Redimension the object bounding box on Z axis is non-zero
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>center</TD>
+     <TD>1</TD>
+     <TD>When set to 1, the object will be centered w.r.t. the local coordinate frame
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>transmit</TD>
+     <TD>1</TD>
+     <TD>When true, non reflected neutrons are transmitted through
+the surfaces, instead of being absorbed. No material absorption
+is taken into account though
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>R0</TD>
+     <TD>1</TD>
+     <TD>Low-angle reflectivity
+</TD>
+<TD ALIGN=RIGHT>0.99</TD> </TR>
+<TR> <TD>Qc</TD>
+     <TD>AA-1</TD>
+     <TD>Critical scattering vector
+</TD>
+<TD ALIGN=RIGHT>0.0219</TD> </TR>
+<TR> <TD>alpha</TD>
+     <TD>AA</TD>
+     <TD>Slope of reflectivity
+</TD>
+<TD ALIGN=RIGHT>3</TD> </TR>
+<TR> <TD>m</TD>
+     <TD>1</TD>
+     <TD>m-value of material. Zero means completely absorbing.
+</TD>
+<TD ALIGN=RIGHT>2</TD> </TR>
+<TR> <TD>W</TD>
+     <TD>AA-1</TD>
+     <TD>Width of supermirror cut-off
+</TD>
+<TD ALIGN=RIGHT>0.003</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>pTable</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>offdata</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Guide_anyshape.comp">Source code</A> for <CODE>Guide_anyshape.comp</CODE>.
+  <LI> <a href="http://www.geomview.org">Geomview and Object File Format (OFF)</a>
+  <LI> Java version of Geomview (display only) <a href="http://www.holmes3d.net/graphics/roffview/">jroff.jar</a>
+  <LI> <a href="http://qhull.org">qhull</a>
+  <LI> <a href="http://www.cs.ucdavis.edu/~amenta/powercrust.html">powercrust</a>
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

@@ -1,0 +1,217 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: SEMSANS_instrument Instrument at </TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>SEMSANS_instrument</CODE> Instrument</H1>
+
+INSTRUMENT_SITE: TU Delft. 
+SEMSANS-instrument
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:   </B>
+  <LI> <B>Author:</B> Morten Sales</B>
+  <LI> <B>Origin:</B> Copenhagen, Berlin, Delft</B>
+  <LI> <B>Date:</B> 2014</B>
+  <LI> <B>Version:</B> $Revision: 1</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+SEMSANS instrument with 2 isosceles triangular field coils
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>triacoil_depth</TD>
+     <TD>m</TD>
+     <TD>Half of the triangular coil depth in z-direction (one right triangle) </TD>
+<TD ALIGN=RIGHT>1.935000e-01</TD> </TR>
+<TR> <TD>triacoil_width</TD>
+     <TD>m</TD>
+     <TD>xwidth of triangular coil </TD>
+<TD ALIGN=RIGHT>7.042824e-02</TD> </TR>
+<TR> <TD>triacoil_height</TD>
+     <TD>m</TD>
+     <TD>yheight of triangular coil  </TD>
+<TD ALIGN=RIGHT>3.000000e-01</TD> </TR>
+<TR> <TD>pol_zdepth</TD>
+     <TD>m</TD>
+     <TD>Depth of the polariser along z </TD>
+<TD ALIGN=RIGHT>9.300000e-01</TD> </TR>
+<TR> <TD>vcoil_zdepth</TD>
+     <TD>m</TD>
+     <TD>Depth along z of the v-coil flipper </TD>
+<TD ALIGN=RIGHT>1.500000e-01</TD> </TR>
+<TR> <TD>Guide1_depth</TD>
+     <TD>m</TD>
+     <TD>Depth of first guide/precession field section </TD>
+<TD ALIGN=RIGHT>1.650000e-02</TD> </TR>
+<TR> <TD>Guide2_depth</TD>
+     <TD>m</TD>
+     <TD>Depth of second guide/precession field section </TD>
+<TD ALIGN=RIGHT>3.315000e-01</TD> </TR>
+<TR> <TD>Guide3_depth</TD>
+     <TD>m</TD>
+     <TD>Depth of third guide/precession field section </TD>
+<TD ALIGN=RIGHT>3.315000e-01</TD> </TR>
+<TR> <TD>Guide4_depth</TD>
+     <TD>m</TD>
+     <TD>Depth of fourth guide/precession field section </TD>
+<TD ALIGN=RIGHT>5.650000e-02</TD> </TR>
+<TR> <TD>Bguide</TD>
+     <TD>T</TD>
+     <TD>Field strength of guide/precession field </TD>
+<TD ALIGN=RIGHT>-5.000000e-04</TD> </TR>
+<TR> <TD>Bextra</TD>
+     <TD>T</TD>
+     <TD>Field strength of extra field in guide field 1 to acheive echo </TD>
+<TD ALIGN=RIGHT>-2.120000e-02</TD> </TR>
+<TR> <TD>Bt2</TD>
+     <TD>T</TD>
+     <TD>Field in first triangular coil </TD>
+<TD ALIGN=RIGHT>-4.440000e-03</TD> </TR>
+<TR> <TD>Bt1</TD>
+     <TD>T</TD>
+     <TD>Field in second triangular coil </TD>
+<TD ALIGN=RIGHT>-2.560000e-03</TD> </TR>
+<TR> <TD>DLambda</TD>
+     <TD>AA</TD>
+     <TD>Wavelength spread from source (half of it) </TD>
+<TD ALIGN=RIGHT>4.166366e+00</TD> </TR>
+<TR> <TD>Lambda</TD>
+     <TD>AA</TD>
+     <TD>Mean wavelength </TD>
+<TD ALIGN=RIGHT>4.559500e+00</TD> </TR>
+<TR> <TD>flippos</TD>
+     <TD>m</TD>
+     <TD>Position (away from position set by vcoil_34_pos) of pi-flipper </TD>
+<TD ALIGN=RIGHT>3.100000e-02</TD> </TR>
+<TR> <TD>FLIP</TD>
+     <TD>1</TD>
+     <TD>Choose polarisation direction using v-coil pi/2-flipper (1 is down, -1 is up) </TD>
+<TD ALIGN=RIGHT>1.000000e+00</TD> </TR>
+<TR> <TD>chop1_pos</TD>
+     <TD>m</TD>
+     <TD>Position of first chopper </TD>
+<TD ALIGN=RIGHT>5.000000e-01</TD> </TR>
+<TR> <TD>chop2_pos</TD>
+     <TD>m</TD>
+     <TD>Position of second chopper </TD>
+<TD ALIGN=RIGHT>9.740000e-01</TD> </TR>
+<TR> <TD>pol_pos</TD>
+     <TD>m</TD>
+     <TD>Position of polariser </TD>
+<TD ALIGN=RIGHT>1.907000e+00</TD> </TR>
+<TR> <TD>analyser_pos</TD>
+     <TD>m</TD>
+     <TD>Position of analyser </TD>
+<TD ALIGN=RIGHT>6.072000e+00</TD> </TR>
+<TR> <TD>grating_w</TD>
+     <TD>m</TD>
+     <TD>Width of transmitting part of grating </TD>
+<TD ALIGN=RIGHT>1.570000e-03</TD> </TR>
+<TR> <TD>grating_a</TD>
+     <TD>m</TD>
+     <TD>Width of absorbing part of grating </TD>
+<TD ALIGN=RIGHT>2.930000e-03</TD> </TR>
+<TR> <TD>slit_1_pos</TD>
+     <TD>m</TD>
+     <TD>Position of first slit </TD>
+<TD ALIGN=RIGHT>2.957000e+00</TD> </TR>
+<TR> <TD>slit_2_pos</TD>
+     <TD>m</TD>
+     <TD>Position of second slit </TD>
+<TD ALIGN=RIGHT>5.437000e+00</TD> </TR>
+<TR> <TD>Guide1_pos</TD>
+     <TD>m</TD>
+     <TD>Position of first guide/precession field </TD>
+<TD ALIGN=RIGHT>3.307000e+00</TD> </TR>
+<TR> <TD>Guide2_pos</TD>
+     <TD>m</TD>
+     <TD>Position of second guide/precession field </TD>
+<TD ALIGN=RIGHT>3.710500e+00</TD> </TR>
+<TR> <TD>Guide3_pos</TD>
+     <TD>m</TD>
+     <TD>Position of third guide/precession field </TD>
+<TD ALIGN=RIGHT>4.342000e+00</TD> </TR>
+<TR> <TD>Guide4_pos</TD>
+     <TD>m</TD>
+     <TD>Position of fourth guide/precession field </TD>
+<TD ALIGN=RIGHT>5.060500e+00</TD> </TR>
+<TR> <TD>vcoil_12_pos</TD>
+     <TD>m</TD>
+     <TD>Position of first v-coil pair </TD>
+<TD ALIGN=RIGHT>3.157000e+00</TD> </TR>
+<TR> <TD>vcoil_34_pos</TD>
+     <TD>m</TD>
+     <TD>Position of second v-coil pair </TD>
+<TD ALIGN=RIGHT>4.192000e+00</TD> </TR>
+<TR> <TD>vcoil_56_pos</TD>
+     <TD>m</TD>
+     <TD>Position of third v-coil pair </TD>
+<TD ALIGN=RIGHT>5.267000e+00</TD> </TR>
+<TR> <TD>triacoil_1_pos</TD>
+     <TD>m</TD>
+     <TD>Position of first triangular coil (centre) </TD>
+<TD ALIGN=RIGHT>3.517000e+00</TD> </TR>
+<TR> <TD>triacoil_2_pos</TD>
+     <TD>m</TD>
+     <TD>Position of second triangular coil (centre) </TD>
+<TD ALIGN=RIGHT>4.867000e+00</TD> </TR>
+<TR> <TD>grating_pos</TD>
+     <TD>m</TD>
+     <TD>Position of grating </TD>
+<TD ALIGN=RIGHT>6.757000e+00</TD> </TR>
+<TR> <TD>detector_pos</TD>
+     <TD>m</TD>
+     <TD>Position of detector </TD>
+<TD ALIGN=RIGHT>6.957000e+00</TD> </TR>
+<TR> <TD>tlow</TD>
+     <TD>mu-s</TD>
+     <TD>tmin of detector </TD>
+<TD ALIGN=RIGHT>2.190523040779461e+03</TD> </TR>
+<TR> <TD>thigh</TD>
+     <TD>mu-s</TD>
+     <TD>tmax of detector </TD>
+<TD ALIGN=RIGHT>1.214744595341338e+04</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="SEMSANS_instrument.instr">Source code</A> for <CODE>SEMSANS_instrument.instr</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:08 2016</ADDRESS>
+</BODY></HTML>

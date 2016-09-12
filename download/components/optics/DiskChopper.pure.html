@@ -1,0 +1,162 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: DiskChopper Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>DiskChopper</CODE> Component</H1>
+
+Based on Chopper (Philipp Bernhardt), Jitter and beamstop from work by 
+Kaspar Hewitt Klenoe (jan 2006), adjustments by Rob Bewey (march 2006)
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Peter Willendrup</B>
+  <LI> <B>Origin:</B> Risoe</B>
+  <LI> <B>Date:</B> March 9 2006</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Models a disc chopper with nslit identical slits, which are symmetrically distributed
+on the disc. At time t=0, the centre of the first slit opening will be situated at the
+vertical axis when phase=0.
+
+For more complicated gemometries, see component manual example of DiskChopper GROUPing.
+
+If the chopper is the 1st chopper of the instrument, it sets t time with phase
+- Only relevant for when using continuous source modules.
+
+Example: DiskChopper(radius=0.2, theta_0=10, nu=41.7, nslit=3, delay=0, isfirst=1) First chopper
+         DiskChopper(radius=0.2, theta_0=10, nu=41.7, nslit=3, delay=0, isfirst=0)
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>theta_0</TD>
+     <TD>deg</TD>
+     <TD>Angular width of the slits.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>radius</TD>
+     <TD>m</TD>
+     <TD>Radius of the disc
+</TD>
+<TD ALIGN=RIGHT>0.5</TD> </TR>
+<TR> <TD><B>yheight</B></TD>
+     <TD>m</TD>
+     <TD>Slit height (if = 0, equal to radius). Auto centering of beam at half height.
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>nu</B></TD>
+     <TD>Hz</TD>
+     <TD>Frequency of the Chopper, omega=2*PI*nu
+(algebraic sign defines the direction of rotation)
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>nslit</TD>
+     <TD>1</TD>
+     <TD>Number of slits, regularly arranged around the disk
+</TD>
+<TD ALIGN=RIGHT>3</TD> </TR>
+<TR> <TD>jitter</TD>
+     <TD>s</TD>
+     <TD>Jitter in the time phase
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>delay</TD>
+     <TD>s</TD>
+     <TD>Time 'delay'.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>isfirst</TD>
+     <TD>0/1</TD>
+     <TD>Set it to 1 for the first chopper position in a cw source
+(it then spreads the neutron time distribution)
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>n_pulse</TD>
+     <TD>1</TD>
+     <TD>Number of pulses (Only if isfirst)
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>abs_out</TD>
+     <TD>0/1</TD>
+     <TD>Absorb neutrons hitting outside of chopper radius?
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>phase</TD>
+     <TD>deg</TD>
+     <TD>Angular 'delay' (overrides delay)
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>xwidth</TD>
+     <TD>m</TD>
+     <TD>Horizontal slit width opening at beam center 
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>verbose</TD>
+     <TD>1</TD>
+     <TD>Set to 1 to display Disk chopper configuration
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>Tg</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>To</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>delta_y</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>height</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>omega</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="DiskChopper.comp">Source code</A> for <CODE>DiskChopper.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

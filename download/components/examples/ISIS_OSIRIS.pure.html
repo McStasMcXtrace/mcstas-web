@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: ISIS_OSIRIS Instrument at  ISIS</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>ISIS_OSIRIS</CODE> Instrument</H1>
+
+A simulation of the indirect TOF geometry part of the OSIRIS instrument.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    ISIS</B>
+  <LI> <B>Author:</B> Peter Christiansen with input from Mark Telling, updates by P Willendrup</B>
+  <LI> <B>Origin:</B> DTU Fysik, RISOE and ISIS</B>
+  <LI> <B>Date:</B> November 2015</B>
+  <LI> <B>Version:</B> </B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+
+If LAMBDA = 0, the choppers are disabled, else the choppers are
+centered to chop around this wavelength and the source is studied in the 
+interval LAMBDA +- DLAMBDA.
+
+IMPORTANT NOTES:
+
+1) Monchromator is not realistic in the sense that it does NOT
+   smear the beam out according to the mosaicity, only does the N=1 
+   reflection, and the d-spread is handled in a simple way
+
+2) The instrument is not validated or certified by ISIS. Is only put in
+   McStas for completeness.
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>LAMBDA</TD>
+     <TD>AA</TD>
+     <TD>Central wavelength of source and chopper wavelength  </TD>
+<TD ALIGN=RIGHT>6.66</TD> </TR>
+<TR> <TD>DLAMBDA</TD>
+     <TD>AA</TD>
+     <TD>Source interval [LAMBDA-DLAMBDA; LAMBDA+DLAMBDA] </TD>
+<TD ALIGN=RIGHT>0.1</TD> </TR>
+<TR> <TD>GUIDEREFLECTIVITY</TD>
+     <TD>1</TD>
+     <TD>Max reflectivity of guide </TD>
+<TD ALIGN=RIGHT>1.0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="ISIS_OSIRIS.instr">Source code</A> for <CODE>ISIS_OSIRIS.instr</CODE>.
+  <LI> 
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

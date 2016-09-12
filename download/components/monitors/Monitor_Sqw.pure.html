@@ -1,0 +1,213 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Monitor_Sqw Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Monitor_Sqw</CODE> Component</H1>
+
+This component is a Sqw Monitor that records the dynamic structure factor S(q,w)
+from a scattering location, seen from a detector location.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></B>
+  <LI> <B>Origin:</B> <a href="http://www.ill.fr">ILL</a></B>
+  <LI> <B>Date:</B> 31 jan 2014.</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+This component is a specialized Monitor_nD variation, which records the S(q,w)
+scattering law. It accepts about the same parameters as the Monitor_nD, but makes
+use of the 'q' and 'w' user variables. The neutrons are restored in their previous 
+state after neing detected (restore_neutron=1).
+
+The monitor records the intensity as a function of q=kf-ki and w=Ef-Ei were the 
+'f' refers to the component location, and the 'i' refers to the component located 
+at 'index' relative to the component location.
+
+The component uses automatic limits, and is thus not recommended with MPI/multiprocessing.
+In this case, the limits should be set manually, e.g. user1=q and user2=w
+  options="user1 limits=[0 10] bins=100, user2 limits=[-50 50] bins=200"
+
+A usage example is for instance:
+  COMPONENT sample = Isotropic_Sqw(...)
+
+  COMPONENT sqw = Monitor_Sqw(index=-1, radius=2, yheight=2, bins=128)
+
+This component can be used to generate dynamic structure factors comvolved with 
+the instrument response, and compare with molecular dynamics results (using e.g. nMoldyn).
+The incoming beam (e.g. at the sample) must be monochromatic.
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>user3</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>FLT_MAX</TD> </TR>
+<TR> <TD>xwidth</TD>
+     <TD>m</TD>
+     <TD>Width of detector.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>m</TD>
+     <TD>Height of detector.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>zdepth</TD>
+     <TD>m</TD>
+     <TD>Thickness of detector (z).
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>xmin</TD>
+     <TD>m</TD>
+     <TD>Lower x bound of opening
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>xmax</TD>
+     <TD>m</TD>
+     <TD>Upper x bound of opening
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>ymin</TD>
+     <TD>m</TD>
+     <TD>Lower y bound of opening
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>ymax</TD>
+     <TD>m</TD>
+     <TD>Upper y bound of opening
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>zmin</TD>
+     <TD>m</TD>
+     <TD>Lower z bound of opening
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>zmax</TD>
+     <TD>m</TD>
+     <TD>Upper z bound of opening
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>radius</TD>
+     <TD>m</TD>
+     <TD>Radius of sphere/banana shape monitor
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>bins</TD>
+     <TD>1</TD>
+     <TD>Number of bins to force for all variables.
+Use 'bins' keyword in 'options' for heterogeneous bins
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>min</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>-1e40</TD> </TR>
+<TR> <TD>max</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>1e40</TD> </TR>
+<TR> <TD>index</TD>
+     <TD>1</TD>
+     <TD>Index of the component where scattering occurs with respect to
+the location of the Monitor_Sqw location in the instrument description.
+The index is usually negative, and should point to e.g. a 
+Isotropic_Sqw, , PowderN, or Single_crystal instance.
+index=-1 for the previous component.
+</TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>options</TD>
+     <TD>str</TD>
+     <TD>String that specifies the configuration of the monitor
+The general syntax is "[x] options..." (see <b>Descr.</b>).
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>filename</TD>
+     <TD>str</TD>
+     <TD>Output file name. If not set an automatic file name is used.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>geometry</TD>
+     <TD>str</TD>
+     <TD>Name of an OFF file to specify a complex geometry detector
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>username3</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>DEFS</B></TD>
+     <TD>struct</TD>
+     <TD>structure containing Monitor_nD Defines </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>Vars</B></TD>
+     <TD>struct</TD>
+     <TD>structure containing Monitor_nD variables </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>detector</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>mean_vx</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>mean_vy</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>mean_vz</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>sum_p</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>offdata</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Monitor_Sqw.comp">Source code</A> for <CODE>Monitor_Sqw.comp</CODE>.
+  <LI> <a href="Monitor_nD.html">Monitor_nD</a>
+<a href="../examples/Test_Monitor_Sqw.html">Test_Monitor_Sqw</a>
+<a href="http://forge.ill.fr/projects/nmoldyn/">nMoldyn</a>
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

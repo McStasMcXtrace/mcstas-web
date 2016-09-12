@@ -1,0 +1,164 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Sans_spheres Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Sans_spheres</CODE> Component</H1>
+
+Sample for Small Angle Neutron Scattering - hard spheres in thin solution, mono disperse.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> P. Willendrup, K. Lefmann, L. Arleth</B>
+  <LI> <B>Origin:</B> Risoe</B>
+  <LI> <B>Date:</B> 19.12.2003</B>
+  <LI> <B>Version:</B> $Revision$</B>
+  <LI> <B>Modification history:</B> <UL>
+    <LI>  KL, 7 June 2005
+  </UL>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Sample for use in a SANS instrument, models hard, mono disperse spheres in thin solution.
+  The shape of the sample may be a filled box with dimensions 
+  xwidth, yheight, zdepth, a cylinder with dimensions radius and yheight,
+  a filled sphere with radius.
+
+Example: Sans_spheres(R = 100, Phi = 1e-3, Delta_rho = 0.6, sigma_abs = 50, xwidth=0.01, yheight=0.01, zdepth=0.005)
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>R</TD>
+     <TD>AA</TD>
+     <TD>Radius of scattering hard spheres </TD>
+<TD ALIGN=RIGHT>100</TD> </TR>
+<TR> <TD>Phi</TD>
+     <TD>1</TD>
+     <TD>Particle volume fraction </TD>
+<TD ALIGN=RIGHT>1e-3</TD> </TR>
+<TR> <TD>Delta_rho</TD>
+     <TD>fm/AA^3</TD>
+     <TD>Excess scattering length density </TD>
+<TD ALIGN=RIGHT>0.6</TD> </TR>
+<TR> <TD>sigma_abs</TD>
+     <TD>m^-1</TD>
+     <TD>Absorption cross section density at 2200 m/s </TD>
+<TD ALIGN=RIGHT>0.50</TD> </TR>
+<TR> <TD>xwidth</TD>
+     <TD>m</TD>
+     <TD>horiz. dimension of sample, as a width </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>m</TD>
+     <TD>vert . dimension of sample, as a height for cylinder/box </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>zdepth</TD>
+     <TD>m</TD>
+     <TD>depth of sample </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>radius</TD>
+     <TD>m</TD>
+     <TD>Outer radius of sample in (x,z) plane for cylinder/sphere </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>target_x</TD>
+     <TD>-</TD>
+     <TD>
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>target_y</TD>
+     <TD>m</TD>
+     <TD>position of target to focus at </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>target_z</TD>
+     <TD>-</TD>
+     <TD>
+</TD>
+<TD ALIGN=RIGHT>6</TD> </TR>
+<TR> <TD>target_index</TD>
+     <TD>1</TD>
+     <TD>Relative index of component to focus at, e.g. next is +1 </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>focus_xw</TD>
+     <TD>m</TD>
+     <TD>horiz. dimension of a rectangular area </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>focus_yh</TD>
+     <TD>m</TD>
+     <TD>vert.  dimension of a rectangular area </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>focus_aw</TD>
+     <TD>deg</TD>
+     <TD>horiz. angular dimension of a rectangular area </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>focus_ah</TD>
+     <TD>deg</TD>
+     <TD>vert.  angular dimension of a rectangular area </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>focus_r</TD>
+     <TD>m</TD>
+     <TD>Detector (disk-shaped) radius </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>my_s_pre</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>my_a_v</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>q_v</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>q</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>shape</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Sans_spheres.comp">Source code</A> for <CODE>Sans_spheres.comp</CODE>.
+  <LI> The test/example instrument <a href="../examples/SANS.instr">SANS.instr</a>.
+  <LI> Some alternative implementations exist as contributed components.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

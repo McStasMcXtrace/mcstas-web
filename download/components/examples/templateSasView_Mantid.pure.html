@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: templateSasView_Mantid Instrument at  Templates</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>templateSasView_Mantid</CODE> Instrument</H1>
+
+Test instrument for the SasView_model component generating event data for Mantid. No guide / velocity selector
+etc. 
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    Templates</B>
+  <LI> <B>Author:</B> Peter Willendrup and Torben Nielsen</B>
+  <LI> <B>Origin:</B> DTU, European Spallation Source ERIC </B>
+  <LI> <B>Date:</B> 25 Jan 2016 </B>
+  <LI> <B>Version:</B> </B>
+  <LI> <B>Modification history:</B> <UL>
+    <LI>  Based on templatesSANS.instr by Kim Lefmann 
+  </UL>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Very simple test instrument for the SasView_model component.
+
+Modified to show a proof of concept method for storing a 'Mantid friendly' type of NeXus file.
+
+Needed steps (McStas):
+1) Compile your instrument with NeXus library and ISO c99 support 
+2) Generate an IDF using mcdisplay templateSANS_Mantid --format=Mantid -n0
+3) mcrun templateSasView_Mantid -n1e6 --format=NeXus
+
+Needed steps (Mantid):
+a) Load McStas NeXus file
+b) Run Mantid algorithm: 'ConvertUnits' using the 'wavelenth' and 'elastic' options
+c) Run Mantid algorithm: 'Qxy' using the options 'MaxQxy=0.6', 'DeltaQ=0.003', 'SolidAngleWeighting=False'
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>lambda</TD>
+     <TD>AA</TD>
+     <TD>Mean wavelength of neutrons      </TD>
+<TD ALIGN=RIGHT>6</TD> </TR>
+<TR> <TD>dlambda</TD>
+     <TD>AA</TD>
+     <TD>Wavelength spread of neutrons    </TD>
+<TD ALIGN=RIGHT>0.05</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="templateSasView_Mantid.instr">Source code</A> for <CODE>templateSasView_Mantid.instr</CODE>.
+  <LI> *
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:08 2016</ADDRESS>
+</BODY></HTML>

@@ -1,0 +1,137 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: SNS_ARCS Instrument at SNS</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>SNS_ARCS</CODE> Instrument</H1>
+
+Model of the ARCS spectrometer from SNS.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:   SNS</B>
+  <LI> <B>Author:</B> G. Granroth</B>
+  <LI> <B>Origin:</B> SNS </B>
+  <LI> <B>Date:</B> Nov 2014</B>
+  <LI> <B>Version:</B> Nov 21, 2014</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+When using this ARCS instrument model, please reference
+<ul>
+<li>Granroth, G. E. and Abernathy, D. L., "Performance Comparisons of Four Direct Geometry
+Spectrometers Planned for Spallation Neutron Source",  Proceedings of ICANS-XVI, 289 (2003).
+<li>D. L. Abernathy,  M. B. Stone,  M. J. Loguillo, M. S. Lucas, O. Delaire, X.Tang, J. Y. Y. Lin, and 
+B. Fultz,"Design and operation of the wide angular-range chopper spectrometer ARCS at the
+Spallation Neutron Source", Review of Scientific Instruments, 83 , 015114 (2012)
+</ul>
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>Fermi_nu</TD>
+     <TD>Hz</TD>
+     <TD>Frequency of the Fermi chopper
+</TD>
+<TD ALIGN=RIGHT>420</TD> </TR>
+<TR> <TD>T0_nu</TD>
+     <TD>Hz</TD>
+     <TD>Frequency of the T0 chopper
+</TD>
+<TD ALIGN=RIGHT>90</TD> </TR>
+<TR> <TD>nrad</TD>
+     <TD>m</TD>
+     <TD>Radius of the Fermi chopper blades
+</TD>
+<TD ALIGN=RIGHT>0.58</TD> </TR>
+<TR> <TD>nchans</TD>
+     <TD>1</TD>
+     <TD>Number of channels in the Fermi chopper
+</TD>
+<TD ALIGN=RIGHT>40</TD> </TR>
+<TR> <TD>Edes</TD>
+     <TD>meV</TD>
+     <TD>Desired/target energy
+</TD>
+<TD ALIGN=RIGHT>50</TD> </TR>
+<TR> <TD>Et</TD>
+     <TD>meV</TD>
+     <TD>Energy transfer of the Spot_sample
+</TD>
+<TD ALIGN=RIGHT>25</TD> </TR>
+<TR> <TD>ttheta</TD>
+     <TD>deg</TD>
+     <TD>Scattering angle of the Spot_sample
+</TD>
+<TD ALIGN=RIGHT>25</TD> </TR>
+<TR> <TD>T0_off</TD>
+     <TD>unused at present</TD>
+     <TD>[deg]   Offset for T0 chopper </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>sxmin</TD>
+     <TD>m</TD>
+     <TD>Sample slit horz min value 
+</TD>
+<TD ALIGN=RIGHT>-0.04</TD> </TR>
+<TR> <TD>sxmax</TD>
+     <TD>m</TD>
+     <TD>Sample slit horz max value
+</TD>
+<TD ALIGN=RIGHT>0.04</TD> </TR>
+<TR> <TD>symin</TD>
+     <TD>m</TD>
+     <TD>Sample slit vert min value
+</TD>
+<TD ALIGN=RIGHT>-0.04</TD> </TR>
+<TR> <TD>symax</TD>
+     <TD>m</TD>
+     <TD>Sample slit vert max value
+</TD>
+<TD ALIGN=RIGHT>0.04</TD> </TR>
+<TR> <TD>run_num</TD>
+     <TD>unused at present</TD>
+     <TD>[1]     Virtual source run number </TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="SNS_ARCS.instr">Source code</A> for <CODE>SNS_ARCS.instr</CODE>.
+  <LI> <br>Granroth, G. E. and Abernathy, D. L.,”  Performance Comparisons of Four Direct Geometry Spectrometers Planned for Spallation Neutron Source “,  Proceedings of ICANS-XVI, 289 (2003).
+<br>D. L. Abernathy,  M. B. Stone,  M. J. Loguillo, M. S. Lucas, O. Delaire, X.Tang, J. Y. Y. Lin, and  B. Fultz,"Design and operation of the wide angular-range chopper spectrometer ARCS at the Spallation Neutron Source", Review of Scientific Instruments, 83 , 015114 (2012)
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:08 2016</ADDRESS>
+</BODY></HTML>

@@ -1,0 +1,276 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Virtual_tripoli4_input Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Virtual_tripoli4_input</CODE> Component</H1>
+
+This component reads a file of recorded neutrons from the reactor Monte Carlo
+code TRIPOLI4.4 as a source of particles.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> <a href="mailto:guillaume.campioni@cea.fr">Guillaume Campioni</a></B>
+  <LI> <B>Origin:</B> <a href="http://www.serma.cea.fr/">SERMA</a></B>
+  <LI> <B>Date:</B> Sep 28th, 2001</B>
+  <LI> <B>Version:</B>  $Revision$</B>
+  <LI> <B>Modification history:</B> <UL>
+    <LI>  E. Farhi: Added automatic orientation+beam info+intensity norm
+  </UL>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+This component generates neutron events from a file created using the
+TRIPOLI4 Monte Carlo code for nuclear reactors (as MCNP). It is used to
+calculate flux exiting from hot or cold neutron sources.
+Neutron position and velocity is set from the file. The neutron time is
+left at zero.
+Storage files from TRIPOLI4.4 contain several batches of particules, all
+of them having the same statictical weight.
+
+Note that axes orientation may be different between TRIPOLI4.4 and McStas.
+The component has the ability to center and orient the neutron beam to the Z-axis.
+It also changes the coordinate system from the Tripoli frame to the McStas one.
+The verbose mode is highly recommended as it displays lots of useful informations,
+including the absolute intensity normalisation factor. All neutron fluxes in the
+instrument should be multiplied by this factor. Such a renormalization is done
+when 'autocenter' contains the word 'rescale'.
+The source total intensity is 1.054e18 for LLB/Saclay (14 MW) and 4.28e18 for
+ILL/Grenoble (58 MW).
+
+Format of TRIPOLI4.4 event files is :
+
+  NEUTRON energy position_X position_Y position_Z dir_X dir_Y dir_Z weight
+
+energy is in Mega eV
+positions are in cm and the direction vector is normalized to 1.
+
+%BUGS
+We recommend NOT to use parallel execution (MPI) with this component. If you
+need to, set parameter 'smooth=1'.
+
+EXAMPLE:
+To create a 'source' from a Tripoli4 simulation event file for the ILL:
+COMPONENT source = Virtual_tripoli4_input(
+   filename = "ILL_SFH.dat", intensity=4.28e18,
+   verbose = 1, autocenter="translate rotate rescale")
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>filename</TD>
+     <TD>str</TD>
+     <TD>Name of the Tripoli4.4 neutron input file. Empty string "" unactivates component
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>autocenter</TD>
+     <TD>str</TD>
+     <TD>String which may contain following keywords.
+"translate" or "center"  to center the beam area AT (0,0,0)
+"rotate"    or "orient"  to center the beam velocity along Z
+"rescale"                to adapt intensity to abs. units.
+Other words are ignored.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>repeat_count</TD>
+     <TD>1</TD>
+     <TD>Number of times the source must be generated.
+0 unactivates the component
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>verbose</TD>
+     <TD>0|1</TD>
+     <TD>Displays additional informations if set to 1
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>intensity</TD>
+     <TD>n/s</TD>
+     <TD>Initial total Source integrated intensity
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>T4_ANALYSE</TD>
+     <TD>1</TD>
+     <TD>Number of neutron events to read for file pre-analysis.
+Use 0 to analyze them all.
+</TD>
+<TD ALIGN=RIGHT>10000</TD> </TR>
+<TR> <TD>radius</TD>
+     <TD>m</TD>
+     <TD>In the case the Tripoli4 batch file is a point, you may
+specify a disk emission area for the source.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>T4_ANALYSE_EMIN</TD>
+     <TD>meV</TD>
+     <TD>Minimal energy to use for file pre-analysis </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>T4_ANALYSE_EMAX</TD>
+     <TD>meV</TD>
+     <TD>Maximal energy to use for file pre-analysis </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>smooth</TD>
+     <TD>0/1</TD>
+     <TD>Smooth sparsed event files for file repetitions.
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>hfile</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>head</B></TD>
+     <TD>char</TD>
+     <TD>header buffer
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>nl</B></TD>
+     <TD>long</TD>
+     <TD>nb of lines in header
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>rep</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>begin_of_filename</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>begin_batch</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>do_rotate</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>do_translate</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>bx</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>by</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>bz</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>angle2z</B></TD>
+     <TD>double, rad</TD>
+     <TD>rotation angle required to orient beam along Z axis
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>nbatch</B></TD>
+     <TD>long</TD>
+     <TD>number of read neutron batches
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>nsize</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>mean_x</B></TD>
+     <TD>double</TD>
+     <TD>\
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>mean_y</B></TD>
+     <TD>double</TD>
+     <TD>source center coordinates
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>mean_z</B></TD>
+     <TD>double</TD>
+     <TD>/
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>intensity_extrapolated</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>min_x</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>min_y</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>min_z</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>max_x</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>max_y</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>max_z</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>min_vx</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>min_vy</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>min_vz</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>max_vx</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>max_vy</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>max_vz</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>n_count_extrapolated</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>repeat_cnt</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Virtual_tripoli4_input.comp">Source code</A> for <CODE>Virtual_tripoli4_input.comp</CODE>.
+  <LI> <a href="http://www.nea.fr/html/dbprog/tripoli-abs.html">Tripoli</a>
+  <LI> Virtual_tripoli4_output
+  <LI> CAMPIONI Guillaume, Etude et Modelisation des Sources Froides de Neutrons, These de Doctorat, CEA Saclay/UJF (2004)
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

@@ -1,0 +1,172 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Monochromator_pol Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Monochromator_pol</CODE> Component</H1>
+
+Flat polarizaing monochromator crystal.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Peter Christiansen</B>
+  <LI> <B>Origin:</B> RISOE</B>
+  <LI> <B>Date:</B> 2006</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Based on Monochromator_flat.
+Flat, infinitely thin mosaic crystal, useful as a monochromator or analyzer.
+For an unrotated monochromator component, the crystal surface lies in the Y-Z
+plane (ie. parallel to the beam).
+The mosaic and d-spread distributions are both Gaussian.
+Neutrons are just reflected (billard ball like). No correction is done for 
+mosaicity of reflecting crystal.
+The crystal is assumed to be a ferromagnet with spin pointing up 
+eta-tilde = (0, 1, 0) (along y-axis), so that the magnetic field is 
+pointing opposite (0, -|B|, 0).
+
+The polarisation is done by defining the reflectivity for spin up
+(Rup) and spin down (Rdown) (which can be negative, see now!) and
+based on this the nuclear and magnetic structure factors are
+calculated:
+FM = sign(Rup)*sqrt(|Rup|) + sign(Rdown)*sqrt(|Rdown|)
+FN = sign(Rup)*sqrt(|Rup|) - sign(Rdown)*sqrt(|Rdown|)
+and the physics is calculated as 
+Pol in = (sx_in, sy_in, sz_in) 
+Reflectivity R0 = FN*FN + 2*FN*FM*sy_in + FM*FM 
+               (= |Rup| + |Rdown| (for sy_in=0))
+Pol out:
+	sx = (FN*FN - FM*FM)*sx_in/R0;
+	sy = ((FN*FN - FM*FM)*sy_in + 2*FN*FM + FM*FM*sy_in)/R0;
+	sz = (FN*FN - FM*FM)*sz_in/R0;
+
+These equations are taken from: 
+Lovesey: "Theory of neutron scattering from condensed matter, Volume
+2", Eq. 10.96 and Eq. 10.110
+
+This component works with gravity (uses PROP_X0).
+
+Example: Monochromator_pol(zwidth=0.2, yheight=0.2, mosaic=30.0, dspread=0.0025,
+                           Rup=1.0, Rdown=0.0, Q=1.8734)
+
+Monochromator lattice parameter
+PG       002 DM=3.355 AA (Highly Oriented Pyrolythic Graphite)
+PG       004 DM=1.677 AA
+Heusler  111 DM=3.362 AA (Cu2MnAl)
+CoFe         DM=1.771 AA (Co0.92Fe0.08)
+Ge       111 DM=3.266 AA
+Ge       311 DM=1.714 AA
+Ge       511 DM=1.089 AA
+Ge       533 DM=0.863 AA
+Si       111 DM=3.135 AA
+Cu       111 DM=2.087 AA
+Cu       002 DM=1.807 AA
+Cu       220 DM=1.278 AA
+Cu       111 DM=2.095 AA
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>zwidth</TD>
+     <TD>m</TD>
+     <TD>Width of crystal </TD>
+<TD ALIGN=RIGHT>0.1</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>m</TD>
+     <TD>Height of crystal </TD>
+<TD ALIGN=RIGHT>0.1</TD> </TR>
+<TR> <TD>mosaic</TD>
+     <TD>arc minutes</TD>
+     <TD>Mosaicity (FWHM) </TD>
+<TD ALIGN=RIGHT>30.0</TD> </TR>
+<TR> <TD>dspread</TD>
+     <TD>1</TD>
+     <TD>Relative d-spread (FWHM) </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>Q</TD>
+     <TD>AA-1</TD>
+     <TD>Magnitude of scattering vector </TD>
+<TD ALIGN=RIGHT>1.8734</TD> </TR>
+<TR> <TD>DM</TD>
+     <TD>Angstrom</TD>
+     <TD>monochromator d-spacing instead of Q = 2*pi/DM </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>pThreshold</TD>
+     <TD>-</TD>
+     <TD>if probability>pThreshold then accept and weight else random</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>Rup</TD>
+     <TD>1</TD>
+     <TD>Reflectivity of neutrons with polarization up </TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>Rdown</TD>
+     <TD>1</TD>
+     <TD>Reflectivity of neutrons with polarization down </TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>debug</TD>
+     <TD>-</TD>
+     <TD>if debug > 0 print out some info about the calculations</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>mos_rms</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>d_rms</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>mono_Q</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>FN</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>FM</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Monochromator_pol.comp">Source code</A> for <CODE>Monochromator_pol.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

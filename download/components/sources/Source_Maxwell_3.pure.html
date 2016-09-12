@@ -1,0 +1,178 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Source_Maxwell_3 Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Source_Maxwell_3</CODE> Component</H1>
+
+Source with up to three Maxwellian distributions
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Kim Lefmann</B>
+  <LI> <B>Origin:</B> Risoe</B>
+  <LI> <B>Date:</B> March 2001</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+A parametrised continuous source for modelling a (cubic) source
+with (up to) 3 Maxwellian distributions.
+The source produces a continuous spectrum.
+The sampling of the neutrons is uniform in wavelength.
+
+Units of flux: neutrons/cm^2/second/ster
+(McStas units are in general neutrons/second)
+
+Example:  PSI cold source T1=150.42 K / 2.51 AA     I1 = 3.67 E11
+                          T2=38.74 K / 4.95 AA      I2 = 3.64 E11
+                          T3=14.84 K / 9.5 AA       I3 = 0.95 E11
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>size</TD>
+     <TD>m</TD>
+     <TD>Edge of cube shaped source (for backward compatibility)
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>m</TD>
+     <TD>Height of rectangular source
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>xwidth</TD>
+     <TD>m</TD>
+     <TD>Width of rectangular source
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD><B>Lmin</B></TD>
+     <TD>AA</TD>
+     <TD>Lower edge of lambda distribution
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>Lmax</B></TD>
+     <TD>AA</TD>
+     <TD>Upper edge of lambda distribution
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>dist</B></TD>
+     <TD>m</TD>
+     <TD>Distance from source to focusing rectangle; at (0,0,dist)
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>focus_xw</B></TD>
+     <TD>m</TD>
+     <TD>Width of focusing rectangle
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>focus_yh</B></TD>
+     <TD>m</TD>
+     <TD>Height of focusing rectangle
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>T1</B></TD>
+     <TD>K</TD>
+     <TD>1st temperature of thermal distribution
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>T2</TD>
+     <TD>K</TD>
+     <TD>2nd temperature of thermal distribution
+</TD>
+<TD ALIGN=RIGHT>300</TD> </TR>
+<TR> <TD>T3</TD>
+     <TD>K</TD>
+     <TD>3nd temperature of  - - -
+</TD>
+<TD ALIGN=RIGHT>300</TD> </TR>
+<TR> <TD><B>I1</B></TD>
+     <TD>in flux units, see above</TD>
+     <TD>[1/(cm**2*st)] flux, 1 </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>I2</TD>
+     <TD>in flux units, see above</TD>
+     <TD>[1/(cm**2*st)] flux, 2 </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>I3</TD>
+     <TD>1/(cm**2*st)</TD>
+     <TD>flux, 3  - - -
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>target_index</TD>
+     <TD>1</TD>
+     <TD>relative index of component to focus at, e.g. next is +1
+this is used to compute 'dist' automatically.
+</TD>
+<TD ALIGN=RIGHT>+1</TD> </TR>
+<TR> <TD>lambda0</TD>
+     <TD>AA</TD>
+     <TD>Mean wavelength of neutrons.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>dlambda</TD>
+     <TD>AA</TD>
+     <TD>Wavelength spread of neutrons.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>M</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>l_range</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>w_mult</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>w_source</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>h_source</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Source_Maxwell_3.comp">Source code</A> for <CODE>Source_Maxwell_3.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

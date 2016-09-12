@@ -1,0 +1,108 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Test_Sample_nxs_imaging Instrument at  HZB</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Test_Sample_nxs_imaging</CODE> Instrument</H1>
+
+Test TOF-imaging instrument for the Sample_nxs.comp component.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    HZB</B>
+  <LI> <B>Author:</B> Mirko Boin (HZB)</B>
+  <LI> <B>Origin:</B> HZB</B>
+  <LI> <B>Date:</B> 2012</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+
+This instrument relies on the 'nxs' library that is provided with McStas as of release 2.0.
+Please see in your MCSTAS/lib/share/nxslib/README.TXT and the links in the section below for
+further instructions and more details.
+
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>lambda1</TD>
+     <TD>AA</TD>
+     <TD>Lower bound of wavelength band  </TD>
+<TD ALIGN=RIGHT>3.7</TD> </TR>
+<TR> <TD>lambda2</TD>
+     <TD>AA</TD>
+     <TD>Upper bound of wavelength band  </TD>
+<TD ALIGN=RIGHT>4.4</TD> </TR>
+<TR> <TD>sample_detector_distance</TD>
+     <TD>m</TD>
+     <TD>Distance between sample and detector </TD>
+<TD ALIGN=RIGHT>0.05</TD> </TR>
+<TR> <TD>moderator_pinhole_distance</TD>
+     <TD>m</TD>
+     <TD>Distance between moderator and pinhole </TD>
+<TD ALIGN=RIGHT>30.0</TD> </TR>
+<TR> <TD>pinhole_sample_distance</TD>
+     <TD>m</TD>
+     <TD>Distance between pinhole and sample </TD>
+<TD ALIGN=RIGHT>0.05</TD> </TR>
+<TR> <TD>sample_x</TD>
+     <TD>m</TD>
+     <TD>Sample translation along x </TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+<TR> <TD>thickness</TD>
+     <TD>m</TD>
+     <TD>Sample thickness along z </TD>
+<TD ALIGN=RIGHT>0.02</TD> </TR>
+<TR> <TD>sample_file</TD>
+     <TD>str</TD>
+     <TD>Crystallographic structure from 'nsx' file </TD>
+<TD ALIGN=RIGHT>"Cu.nxs"</TD> </TR>
+<TR> <TD>moderator_face</TD>
+     <TD>str</TD>
+     <TD>Chosen ISIS moderator </TD>
+<TD ALIGN=RIGHT>"water" </TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Test_Sample_nxs_imaging.instr">Source code</A> for <CODE>Test_Sample_nxs_imaging.instr</CODE>.
+  <LI> M. Boin (2012), <i>J. Appl. Cryst.</i> <b>45</b>, 603-607, <a href="http://dx.doi.org/10.1107/S0021889812016056">doi:10.1107/S0021889812016056</a>
+M. Boin, R.C. Wimpory, A. Hilger, N. Kardjilov, S.Y. Zhang, M. Strobl (2012), <i>J. Phys.: Conf. Ser.</i> <b>340</b>, 012022, <a href="http://dx.doi.org/10.1088/1742-6596/340/1/012022">doi:10.1088/1742-6596/340/1/012022</a>
+M. Boin, A. Hilger, N. Kardjilov, S.Y. Zhang, E.C. Oliver, J.A. James, C. Randau, R.C. Wimpory (2011), <i>J. Appl. Cryst.</i> <b>44</b>, 1040-1046, <a href="http://dx.doi.org/10.1107/S0021889811025970">doi:10.1107/S0021889811025970</a>
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:08 2016</ADDRESS>
+</BODY></HTML>

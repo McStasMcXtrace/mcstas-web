@@ -1,0 +1,91 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: ESS_2015_test Instrument at  ESS</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>ESS_2015_test</CODE> Instrument</H1>
+
+Test of the ESS-2015 moderator model with updated component ESS_moderator_corr.comp  . 
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    ESS</B>
+  <LI> <B>Author:</B> Jan Saroun (saroun@ujf.cas.cz)</B>
+  <LI> <B>Origin:</B> NPI Rez</B>
+  <LI> <B>Date:</B> 04/01/2016</B>
+  <LI> <B>Version:</B> 0.1</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Measures flux projected on a 1cm^2 target at 100 m, 
+The beamline origin is centered at the nearest cross point between cold and thermal moderators.
+Accepts negative port angle. Default is -55 deg corresponding to the assumed BEER position (port 2).
+Records spatial and time distributions at 0.3 m from the beamline origin and wavelength distribution 
+behind the target slit.
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>frac</TD>
+     <TD>-</TD>
+     <TD>fraction of trials from the cold moderator</TD>
+<TD ALIGN=RIGHT>0.5</TD> </TR>
+<TR> <TD>lmin</TD>
+     <TD>-</TD>
+     <TD>, lmax	[A]	wavelength range</TD>
+<TD ALIGN=RIGHT>0.3</TD> </TR>
+<TR> <TD>lmax</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>8.3</TD> </TR>
+<TR> <TD>ANGLE</TD>
+     <TD>deg</TD>
+     <TD>port angle
+</TD>
+<TD ALIGN=RIGHT>-55</TD> </TR>
+<TR> <TD>mon_shift</TD>
+     <TD>m</TD>
+     <TD>shift of the monitor along x-axis
+</TD>
+<TD ALIGN=RIGHT>0.0 </TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="ESS_2015_test.instr">Source code</A> for <CODE>ESS_2015_test.instr</CODE>.
+  <LI> A reference/HTML link for more information
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

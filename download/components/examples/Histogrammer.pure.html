@@ -1,0 +1,116 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Histogrammer Instrument at  Tools</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Histogrammer</CODE> Instrument</H1>
+
+Takes eventfile input (Virtual_input/Vitess/MCNP/Tripoli4 formats) and applies Monitor_nD to generate
+histograms. Histograms can be chosen freely using the options string, see mcdoc Monitor_nD.comp
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    Tools</B>
+  <LI> <B>Author:</B> Peter Willendrup (peter.willendrup@risoe.dk)</B>
+  <LI> <B>Origin:</B> Risoe</B>
+  <LI> <B>Date:</B> 2007-03-19</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+
+Takes any possible  McStas eventfile inputs (Virtual_input/Vitess/MCNP/Tripoli4 formats) and applies
+Monitor_nD to generate user-selectable neutron histograms.
+
+Example: mcrun Histogrammer.instr MODE=0
+  - Gives information on the input parameters
+
+Example: mcrun Histogrammer.instr filename="events.dat" MODE=1 options="sphere theta phi outgoing previous" type="text"
+  - Reads a Virtual_output generated event file and applies a spherical PSD
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>filename</TD>
+     <TD>string</TD>
+     <TD>Specifies input event file
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>MODE</TD>
+     <TD>int</TD>
+     <TD>Input file mode/format - 0 for help on usage
+1=McStas,2=Vitess,3=MCNP,4=Tripoli4
+</TD>
+<TD ALIGN=RIGHT>0 </TD> </TR>
+<TR> <TD>options</TD>
+     <TD>string</TD>
+     <TD>Specifies the histogramming rules used by Monitor_nD.
+It <b>MUST</b> contain the 'previous' word - see mcdoc page
+</TD>
+<TD ALIGN=RIGHT>"sphere theta phi outgoing previous"</TD> </TR>
+<TR> <TD>type</TD>
+     <TD>string</TD>
+     <TD>Virtual_input event files, 'type' parameter(text/float/double) - see mcdoc page
+</TD>
+<TD ALIGN=RIGHT>"text"</TD> </TR>
+<TR> <TD>bufsize</TD>
+     <TD>int</TD>
+     <TD>Vitess_input 'buffersize' parameter - see mcdoc page
+</TD>
+<TD ALIGN=RIGHT>10000</TD> </TR>
+<TR> <TD>xwidth</TD>
+     <TD>m</TD>
+     <TD>Horizontal width of detector, or diameter for banana,cylinder and shpere geometry
+</TD>
+<TD ALIGN=RIGHT>0.1</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>m</TD>
+     <TD>Vertical height of detector, for plate, cylinder, banana shape
+</TD>
+<TD ALIGN=RIGHT>0.1</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Histogrammer.instr">Source code</A> for <CODE>Histogrammer.instr</CODE>.
+  <LI> <a href="../sources/Virtual_input.html">Virtual_input</a> component (McStas event file)
+  <LI> <a href="../misc/Vitess_input.html">Vitess_input</a> component (Vitess event file)
+  <LI> <a href="../contrib/Virtual_mcnp_input.html">Virtual_mcnp_input</a> component (MCNP PTRAC event file)
+  <LI> <a href="../contrib/Virtual_tripoli4_input.html">Virtual_tripoli4_input</a> component (Tripoli4 BATCH event file)
+  <LI> <a href="../monitors/Monitor_nD.html">Monitor_nD</a> component (detector/histogrammer)
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

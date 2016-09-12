@@ -1,0 +1,395 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: PSD_Detector Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>PSD_Detector</CODE> Component</H1>
+
+Position-sensitive gas-filled detector with gaseous thermal-neutron
+converter (box, cylinder or 'banana').
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Thorwald van Vuure</B>
+  <LI> <B>Origin:</B> ILL</B>
+  <LI> <B>Date:</B> Feb 21st, 2005</B>
+  <LI> <B>Version:</B> $Revision$</B>
+  <LI> <B>Modification history:</B> <UL>
+    <LI>  E. Farhi Aug 2008, allow event detector mode to save TOF signal
+  </UL>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+An n times m pixel Position Sensitive Detector (PSD), box, cylinder or banana
+filled with a mixture of thermal-neutron converter gas and stopping gas.
+This model implements wires detection, including charge drift, parallax, etc.
+The default is a simple 1D/2D position detector. However, setting
+the parameter 'type' to "events" will save the signal as an event file which
+contains all neutron parameters at detection points, including time. This is
+especially suited for TOF detectors. Please use Histogrammer afterwards.
+The gas creation event (neutron absorption in gas) is flagged as SCATTERED==1, 
+and the charge detection (signal) is flagged as SCATTERED==2.
+
+GEOMETRY:
+A flat rectangular box of given depth is simulated, or alternatively
+a cylinder (when giving radius), or a horizontal cylindrical 'banana'
+detector (when giving the width along the arc).
+Box position is at its center, the 'banana' and cylinder have their
+position at focus point, symetric in angular range for the 'banana'.
+
+GAS SPECIFICATIONS:
+The converter gas can be specified as He-3, BF3 or N2.
+The filling pressure of converter gas must be specified along
+with the zdepth: this gives an absorption probability (e.g. ~90% for
+0.18 nm neutrons at zdepth 3 cm and He-3 pressure 5 bar).
+The stopping gas can be specified as one of the following gases:
+CF4, C3H8, CO2, Xe/TMA or He, or any for which a table of stopping
+powers is available. NB: each stopping gas table has specific
+data on a pair of particles (from thermal-neutron absorptions in
+either He-3, BF3 or N2) in a specific gas. Unusual choices like N2
+as a converter and He as a stopping gas probably require the
+calculation of a new table.
+Tip: to do a simulation in pure He-3, specify 0 bar for the stopping gas.
+The pressures of the two gases together put a lower limit on the
+achievable spatial resolution, no matter what pixel size is
+specified.
+Example: 1 bar CF4 gives ~2.5 mm spatial resolution, 3 bar CF4 gives
+~1 mm. C3H8 requires more pressure for the same resolution, then
+Xe/TMA, then CO2 and finally He.
+
+IMPLEMENTED FEATURES:
+Taken into account are the following effects:
+- (rectangularly distributed) error in the recorded position due to
+  the range of the neutron capture products in the gas
+- angular dependence of absorption efficiency
+- border effect (events outside the sensitive volume tend to be
+  counted in the border pixels)
+- parallax effect (with, if desired, an electrostatic lens to
+  partially correct for this - use "LensOn=1")
+- wall effect
+To correctly take the wall effect into account, a value must be
+specified for the energy threshold for acceptance of an event as a
+valid neutron event. This normally serves to discriminate from
+gammas. Because these are not simulated in McStas, a value of 0 keV
+can be chosen for this threshold if one is interested in seeing the
+maximum number of neutrons; however, a more realistic value would be
+100 keV. This implies seeing the maximum number of neutrons as well,
+except in geometries with dominating wall effect.
+The border effect is a considerably complex phenomenon: it depends
+on the precise electric field configuration near the border. It is
+simulated here simply by introducing a dead zone, gas-filled,
+bordering the sensitive volume. Events in there can still cause
+signals in the detector. The dead zone can cause a shadow in the
+sensitive volume, just as in reality.
+The algorithm simply adds all events on the first 'pixel' in the
+dead zone to the border pixels. This is a coarse approximation,
+because the physical effect depends on the orientation of the
+tracks and the energy threshold setting. The bottom line is that
+tracking the position of the Center Of Gravity of the charge
+deposition in the detector does not allow for accurate modeling of
+the border effect, and therefore the border pixels should be
+ignored, just as in a real detector.
+Note that specifying 0 width of the dead zone next to the
+sensitive volume, apart from being unrealistic, does not allow
+accurate simulation of the border effect: in this case, there will
+be a relative lack of events on the border pixels due to the wall
+effect.
+This component determines the position of the Center Of Gravity of
+the charge cloud in the detector. It does not simulate independent
+channels.
+Manufacturing imperfections such as wire diameter variations and
+spread in electronic amplifier component properties are not simulated.
+This should allow an experimenter to identify these manufacturing
+imperfections in his physical machine and correct for them.
+
+Example: PSD_Detector(xwidth=0.192, yheight=0.192, nx=64, ny=64,
+                      zdepth=0.03, threshold=100, borderx=-1, bordery=-1,
+                      PressureConv=5, PressureStop=1,
+                      FN_Conv="Gas_tables/He3inHe.table", FN_Stop="Gas_tables/He3inCF4.table",
+                      xChDivRelSigma=0, yChDivRelSigma=0,
+                      filename="BIDIM19.psd")
+
+Example: PSD_Detector(xwidth=0.26, yheight=0.26, nx=128, ny=128,
+                      zdepth=0.03, threshold=100, borderx=-1, bordery=-1,
+                      PressureConv=5, PressureStop=1,
+                      FN_Conv="Gas_tables/He3inHe.table", FN_Stop="Gas_tables/He3inCF4.table",
+                      xChDivRelSigma=0, yChDivRelSigma=0,
+                      filename="BIDIM26.psd")
+
+Example: PSD_Detector(radius=0.0127, yheight=0.20, nx=1, ny=128,
+                      threshold=100, borderx=-1,
+                      PressureConv=9.9, PressureStop=0.1,
+                      FN_Conv="Gas_tables/He3inHe.table", FN_Stop="Gas_tables/He3inCO2.table",
+                      yChDivRelSigma=0.006,
+                      filename="ReuterStokes.psd")
+
+Example: PSD_Detector(awidth=1.533, yheight=0.4, nx=640, ny=256,
+                      radius=0.73, zdepth=0.032, dc=0.026, threshold=100,
+                      borderx=-1, bordery=-1,
+                      PressureConv=5, PressureStop=1,
+                      FN_Conv="Gas_tables/He3inHe.table", FN_Stop="Gas_tables/He3inCF4.table",
+                      xChDivRelSigma=0, yChDivRelSigma=0.0037,
+                      LensOn=1, filename="D19.psd")
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>nx</TD>
+     <TD>1</TD>
+     <TD>Number of pixel columns </TD>
+<TD ALIGN=RIGHT>128</TD> </TR>
+<TR> <TD>ny</TD>
+     <TD>1</TD>
+     <TD>Number of pixel rows </TD>
+<TD ALIGN=RIGHT>128</TD> </TR>
+<TR> <TD>xwidth</TD>
+     <TD>m</TD>
+     <TD>Width of detector opening, in the case of a flat box </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>radius</TD>
+     <TD>m</TD>
+     <TD>Radius of detector for cylindrical/banana shape </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>awidth</TD>
+     <TD>m</TD>
+     <TD>Width of detector opening along the horizontal arc of
+the detector, measured along the inside arc of the
+sensitive volume in the case of a 'banana' detector </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>m</TD>
+     <TD>Height of detector opening </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>zdepth</TD>
+     <TD>m</TD>
+     <TD>Depth of the sensitive volume of the detector </TD>
+<TD ALIGN=RIGHT>0.03</TD> </TR>
+<TR> <TD>threshold</TD>
+     <TD>keV</TD>
+     <TD>Energy threshold for acceptance of an event </TD>
+<TD ALIGN=RIGHT>100</TD> </TR>
+<TR> <TD>PressureConv</TD>
+     <TD>bar</TD>
+     <TD>Pressure of gaseous thermal-neutron converter
+(e.g. He-3) </TD>
+<TD ALIGN=RIGHT>5</TD> </TR>
+<TR> <TD>PressureStop</TD>
+     <TD>bar</TD>
+     <TD>Pressure of stopping gas </TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>interpolate</TD>
+     <TD>1</TD>
+     <TD>Performs energy interpolation if true </TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>p_interact</TD>
+     <TD>1</TD>
+     <TD>Fraction of statistical events to be treated by component.
+Set it to 0 to use real absorption probability </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>verbose</TD>
+     <TD>1</TD>
+     <TD>Gives more information and spectrum </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>LensOn</TD>
+     <TD>1</TD>
+     <TD>set to 1 to simulate an electrostatic lens according to
+P. Van Esch, NIM A 540 (2005) pp. 361-367. </TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>dc</TD>
+     <TD>m</TD>
+     <TD>Distance from the entrance window to the cathode plane,
+where the correction zone of the lens ends 
+for banana shape and LensOn=1 </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>borderx</TD>
+     <TD>m</TD>
+     <TD>Width of (gas-filled) border on the side of the detector </TD>
+<TD ALIGN=RIGHT>-2</TD> </TR>
+<TR> <TD>bordery</TD>
+     <TD>m</TD>
+     <TD>Height of (gas-filled) border on the top/bottom of the
+detector giving rise to various border effects.
+Set to -2 to obtain the height of one pixel, -1 for the
+depth of the detector (default), or specify a non-negative
+distance </TD>
+<TD ALIGN=RIGHT>-2</TD> </TR>
+<TR> <TD>xChDivRelSigma</TD>
+     <TD>1</TD>
+     <TD>Sigma of the error in position determination along the x
+axis (relative to xwidth), uniquely due to charge division
+readout. Set to 0 in case of independent channel readout
+along the x dimension </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>yChDivRelSigma</TD>
+     <TD>1</TD>
+     <TD>Relative sigma due to charge division in y direction ,
+(relative to yheight). </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>bufsize</TD>
+     <TD>1</TD>
+     <TD>Size of neutron output buffer
+default is 0, i.e. save all - recommended. </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>restore_neutron</TD>
+     <TD>1</TD>
+     <TD>If set, the monitor does not influence the neutron state </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>angle</TD>
+     <TD>deg</TD>
+     <TD>Angular opening of detector in the case of a 'banana' 
+detector, then overrides awidth parameter </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>type</TD>
+     <TD>string</TD>
+     <TD>If set to 'events' detector signal saves signal into an event
+file to be read e.g. by Histogrammer. This is to be used for 
+TOF detectors. </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>filename</TD>
+     <TD>text</TD>
+     <TD>Name of file in which to store the detector image
+The name of the component is used if file name is not specified </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>FN_Conv</TD>
+     <TD>text</TD>
+     <TD>Filename of the stopping power table of the converter
+gas </TD>
+<TD ALIGN=RIGHT>"He3inHe.table"</TD> </TR>
+<TR> <TD>FN_Stop</TD>
+     <TD>text</TD>
+     <TD>Filename of the stopping power table of the stopping
+gas </TD>
+<TD ALIGN=RIGHT>"He3inCF4.table"</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>PSD_N</B></TD>
+     <TD>-</TD>
+     <TD>Array of neutron counts</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>PSD_p</B></TD>
+     <TD>-</TD>
+     <TD>Array of neutron weight counts</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>PSD_p2</B></TD>
+     <TD>-</TD>
+     <TD>Array of second moments</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>EAP</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>M1P1</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>PosAP</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>EAT</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>M1T1</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>PosAT</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>CrossSectionHe</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>CountNeutrons</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>GeomCumul</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>AbsCumul</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>SensVolCumul</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>DetCumul</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>PHSpectrum</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>PHSpectrum0</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>PHSpectrum2</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>PHSpectrum_n</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>nH_p</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>nH_t</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>FullEnergyP</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>FullEnergyT</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>VariousErrors</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>DetectorType</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>DEFS</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>Vars</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="PSD_Detector.comp">Source code</A> for <CODE>PSD_Detector.comp</CODE>.
+  <LI> The test/example instrument <a href="../examples/Test_PSD_Detector.instr">Test_PSD_Detector.instr</a>.
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

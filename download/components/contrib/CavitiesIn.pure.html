@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: CavitiesIn Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>CavitiesIn</CODE> Component</H1>
+
+Slit - sorting in channels
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Henrich Frielinghaus</B>
+  <LI> <B>Origin:</B> JCNS - FZ-Juelich</B>
+  <LI> <B>Date:</B> Oct 2007</B>
+  <LI> <B>Version:</B> 1.0</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+This routine sorts the 'full' neutron beam (given by xw,yw)
+in xc,yc channels. These can be imagined as cavities.
+CavitiesOut sorts these channels back to normal coordinates. 
+
+Example: Slit(xw=0.05, yw=0.05, xc=4, yc=1)
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>xw</TD>
+     <TD>m</TD>
+     <TD>width in X-dir </TD>
+<TD ALIGN=RIGHT>0.05</TD> </TR>
+<TR> <TD>yw</TD>
+     <TD>m</TD>
+     <TD>width in Y-dir </TD>
+<TD ALIGN=RIGHT>0.05</TD> </TR>
+<TR> <TD>xc</TD>
+     <TD>m</TD>
+     <TD>channels in X-dir </TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>yc</TD>
+     <TD>m</TD>
+     <TD>channels in Y-dir </TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="CavitiesIn.comp">Source code</A> for <CODE>CavitiesIn.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

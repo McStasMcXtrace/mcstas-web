@@ -1,0 +1,131 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Moderator Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Moderator</CODE> Component</H1>
+
+A simple pulsed source for time-of-flight.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> KN, M.Hagen</B>
+  <LI> <B>Origin:</B> Risoe</B>
+  <LI> <B>Date:</B> August 1998</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Produces a simple time-of-flight spectrum, with a flat energy distribution
+
+Example: Moderator(radius = 0.0707, dist = 9.035, focus_xw = 0.021, focus_yh = 0.021,
+                   Emin = 10, Emax = 15, Ec = 9.0, t0 = 37.15, gamma = 39.1)
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>radius</TD>
+     <TD>m</TD>
+     <TD>Radius of source
+</TD>
+<TD ALIGN=RIGHT>0.07</TD> </TR>
+<TR> <TD><B>Emin</B></TD>
+     <TD>meV</TD>
+     <TD>Lower edge of energy distribution
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>Emax</B></TD>
+     <TD>meV</TD>
+     <TD>Upper edge of energy distribution
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>dist</TD>
+     <TD>m</TD>
+     <TD>Distance from source to the focusing rectangle
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>focus_xw</TD>
+     <TD>m</TD>
+     <TD>Width of focusing rectangle
+</TD>
+<TD ALIGN=RIGHT>0.02</TD> </TR>
+<TR> <TD>focus_yh</TD>
+     <TD>m</TD>
+     <TD>Height of focusing rectangle
+</TD>
+<TD ALIGN=RIGHT>0.02</TD> </TR>
+<TR> <TD>t0</TD>
+     <TD>mus</TD>
+     <TD>decay constant for low-energy neutrons
+</TD>
+<TD ALIGN=RIGHT>37.15</TD> </TR>
+<TR> <TD>Ec</TD>
+     <TD>meV</TD>
+     <TD>Critical energy, below which the flux decay is constant
+</TD>
+<TD ALIGN=RIGHT>9.0</TD> </TR>
+<TR> <TD>gamma</TD>
+     <TD>meV</TD>
+     <TD>energy dependence of decay time
+</TD>
+<TD ALIGN=RIGHT>39.1</TD> </TR>
+<TR> <TD>target_index</TD>
+     <TD>1</TD>
+     <TD>relative index of component to focus at, e.g. next is +1 
+this is used to compute 'dist' automatically.
+</TD>
+<TD ALIGN=RIGHT>+1</TD> </TR>
+<TR> <TD>flux</TD>
+     <TD>1/(s*cm**2*st*meV)</TD>
+     <TD>flux 
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>p_in</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Moderator.comp">Source code</A> for <CODE>Moderator.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

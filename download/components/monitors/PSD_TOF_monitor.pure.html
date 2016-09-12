@@ -1,0 +1,147 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: PSD_TOF_monitor Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>PSD_TOF_monitor</CODE> Component</H1>
+
+Position-sensitive monitor with TOF slices.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Peter Willendrup, derived from PSD_monitor by Kim Lefmann</B>
+  <LI> <B>Origin:</B> Risoe</B>
+  <LI> <B>Date:</B> Feb 3, 1998</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+An (nx times ny) pixel PSD monitor with nt time bins pr pixel. 
+
+Will output nt PSD images plus 1 integrated image.
+
+Example: PSD_TOF_monitor(xmin=-0.1, xmax=0.1, ymin=-0.1, ymax=0.1,
+            nx=90, ny=90, tmin=4000, tmax=7000, nt=3, filename="Output")
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>nx</TD>
+     <TD>1</TD>
+     <TD>Number of pixel columns </TD>
+<TD ALIGN=RIGHT>90</TD> </TR>
+<TR> <TD>ny</TD>
+     <TD>1</TD>
+     <TD>Number of pixel rows </TD>
+<TD ALIGN=RIGHT>90</TD> </TR>
+<TR> <TD>nt</TD>
+     <TD>1</TD>
+     <TD>Number of TOF bins </TD>
+<TD ALIGN=RIGHT>10</TD> </TR>
+<TR> <TD><B>filename</B></TD>
+     <TD>text</TD>
+     <TD>Name of file in which to store the detector image </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>restore_neutron</TD>
+     <TD>1</TD>
+     <TD>If set, the monitor does not influence the neutron state </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>xmin</TD>
+     <TD>m</TD>
+     <TD>Lower x bound of detector opening </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>xmax</TD>
+     <TD>m</TD>
+     <TD>Upper x bound of detector opening </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>ymin</TD>
+     <TD>m</TD>
+     <TD>Lower y bound of detector opening </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>ymax</TD>
+     <TD>m</TD>
+     <TD>Upper y bound of detector opening </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>xwidth</TD>
+     <TD>m</TD>
+     <TD>Width/diameter of detector (x). Overrides xmin,xmax. </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>m</TD>
+     <TD>Height of detector (y). Overrides ymin,ymax. </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>tmin</TD>
+     <TD>mu-s</TD>
+     <TD>Lower time bound </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>tmax</TD>
+     <TD>mu-s</TD>
+     <TD>Upper time bound </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>PSD_N</B></TD>
+     <TD>-</TD>
+     <TD>Array of neutron counts</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>PSD_p</B></TD>
+     <TD>-</TD>
+     <TD>Array of neutron weight counts</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>PSD_p2</B></TD>
+     <TD>-</TD>
+     <TD>Array of second moments</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>PSD_Ns</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>PSD_ps</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>PSD_p2s</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="PSD_TOF_monitor.comp">Source code</A> for <CODE>PSD_TOF_monitor.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

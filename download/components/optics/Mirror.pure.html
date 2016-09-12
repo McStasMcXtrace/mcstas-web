@@ -1,0 +1,139 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Mirror Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Mirror</CODE> Component</H1>
+
+Single mirror plate.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Kristian Nielsen</B>
+  <LI> <B>Origin:</B> Risoe</B>
+  <LI> <B>Date:</B> August 1998</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Single mirror plate (used to build guides in compound components).
+The component Mirror models a single rectangular neutron mirror plate.
+It can be used as a sample component or to e.g. assemble a complete neutron
+guide by putting multiple mirror components at appropriate locations and
+orientations in the instrument definition, much like a real guide is build
+from individual mirrors.
+Additionally, it may be centered in order to be used as a sample or
+monochromator plate, else it starts from AT position.
+Reflectivity is either defined by an analytical model (see Component Manual)
+or from a two-columns file with q [Angs-1] as first and R [0-1] as second.
+In the local coordinate system, the mirror lies in the first quadrant of the
+x-y plane, with one corner at (0, 0, 0). Plane is thus perpendicular to the
+incoming beam, and should usually be rotated.
+
+Example: Mirror(xwidth=.1, yheight=.1,R0=0.99,Qc=0.021,alpha=6.1,m=2,W=0.003)
+
+Example values: m=4 Qc=0.02 W=1/300 alpha=6.49 R0=1
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>reflect</TD>
+     <TD>str</TD>
+     <TD>Name of reflectivity file. Format [q(Angs-1) R(0-1)]
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD><B>xwidth</B></TD>
+     <TD>m</TD>
+     <TD>width of mirror plate
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>yheight</B></TD>
+     <TD>m</TD>
+     <TD>height of mirror plate
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>R0</TD>
+     <TD>1</TD>
+     <TD>Low-angle reflectivity
+</TD>
+<TD ALIGN=RIGHT>0.99</TD> </TR>
+<TR> <TD>Qc</TD>
+     <TD>AA-1</TD>
+     <TD>Critical scattering vector
+</TD>
+<TD ALIGN=RIGHT>0.021</TD> </TR>
+<TR> <TD>alpha</TD>
+     <TD>AA</TD>
+     <TD>Slope of reflectivity
+</TD>
+<TD ALIGN=RIGHT>6.07</TD> </TR>
+<TR> <TD>m</TD>
+     <TD>1</TD>
+     <TD>m-value of material. Zero means completely absorbing.
+</TD>
+<TD ALIGN=RIGHT>2</TD> </TR>
+<TR> <TD>W</TD>
+     <TD>AA-1</TD>
+     <TD>Width of supermirror cut-off
+</TD>
+<TD ALIGN=RIGHT>0.003</TD> </TR>
+<TR> <TD>center</TD>
+     <TD>1</TD>
+     <TD>if true (1), the Mirror is centered arount AT position.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>transmit</TD>
+     <TD>1</TD>
+     <TD>When true, non reflected neutrons are transmitted through
+the mirror, instead of being absorbed.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>pTable</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Mirror.comp">Source code</A> for <CODE>Mirror.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

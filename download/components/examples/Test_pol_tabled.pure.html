@@ -1,0 +1,75 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Test_pol_tabled Instrument at  Tests_polarization</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Test_pol_tabled</CODE> Instrument</H1>
+
+Test the tabled magnetic field option
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    Tests_polarization</B>
+  <LI> <B>Author:</B> Your name (email)</B>
+  <LI> <B>Origin:</B> Your institution</B>
+  <LI> <B>Date:</B> Current Date</B>
+  <LI> <B>Version:</B> 0.2</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+A test instrument to check that supplying a magnetic field as a vector field point cloud
+is working. The field referred to by the default input parameter MF is 10 \mu T along the z-axis
+at entry and flips to l0 \mu T along the negative z-axis halfway through
+
+Example: Test_pol_tabled.instr -n1e4 MF=flipfield.dat pol_6_I=0.665777
+  N.b. this example will not be run by autotest since it reuireq the presence of the file
+   flipfield.dat in the working directory.
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>MF</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>"flipfield.dat"</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Test_pol_tabled.instr">Source code</A> for <CODE>Test_pol_tabled.instr</CODE>.
+  <LI> A reference/HTML link for more information
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:08 2016</ADDRESS>
+</BODY></HTML>

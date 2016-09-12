@@ -1,0 +1,177 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Filter_gen Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Filter_gen</CODE> Component</H1>
+
+This components may either set the flux or change it (filter-like), using
+an external data filename.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B>  E. Farhi</B>
+  <LI> <B>Origin:</B> ILL</B>
+  <LI> <B>Date:</B> Dec, 15th, 2002</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+This component changes the neutron flux (weight) in order to match
+a reference table in a filename.
+Typically you may set the neutron flux (source-like), or multiply it
+using a transmission table (filter-like).
+The component may be placed after a source, in order to e.g.
+simulate a real source from a reference table, or used as a filter (BeO)
+, or as a window (Al). The behaviour of the component is
+specified using the 'options' parameter, or from the filename itself (see below)
+If the thickness for the transmission data filename D was t0, and a different
+thickness t1 would be required, then the resulting transmission is:
+  D^(t1/t0).
+You may use the 'thickness' and 'scaling' parameter for that purpose.
+
+<b>File format:</b>
+This filename may be of any 2-columns free format (k[Angs-1],p), (omega[meV],p)
+and (lambda[Angs],p) where p is the weight. The type of the filename may be
+written explicitely in the filename, as a comment, or using the 'options'
+parameter.
+Non mumerical content in filename is treated as comment (e.g. lines starting
+with '#' character).
+A table rebinning and linear interpolation are performed.
+
+EXAMPLE : in order to simulate a PG filter, using the lib/data/HOPG.trm file
+     Filter_gen(xwidth=.1 yheight=.1, filename="HOPG.trm")
+A Sapphire filter, using the lib/data/Al2O3_sapphire.trm file
+     Filter_gen(xwidth=.1 yheight=.1, filename="Al2O3_sapphire.trm")
+A Berylium filter, using the lib/data/Be.trm file
+     Filter_gen(xwidth=.1 yheight=.1, filename="Be.trm")
+  an other possibility to simulate a Be filter is to use the PowderN component:
+     PowderN(xwidth=.1, yheight=.1, zdepth=.1, reflections="Be.laz", p_inc=1e-4)
+
+in this filename, the comment line
+    # wavevector multiply
+sets the behaviour of the component. One may as well have used
+    options="wavevector multiply"
+in the component instance parameters.
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>filename</TD>
+     <TD>str</TD>
+     <TD>name of the filename to look at (first two columns data)
+data D should rather be sorted (ascending order) and monotonic
+filename may contain options (see below) as comment
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>options</TD>
+     <TD>str</TD>
+     <TD>string that can contain:
+"[ k p ]"      or "wavevector" for filename type,
+"[ omega p]"   or "energy",
+"[ lambda p ]" or "wavelength",
+"set"          to set the weight according to the table,
+"multiply"     to multiply (instead of set) the weight by factor,
+"add"          to add to current flux,
+"verbose"      to display additional informations.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>xmin</TD>
+     <TD>m</TD>
+     <TD>dimension of filter
+</TD>
+<TD ALIGN=RIGHT>-0.05</TD> </TR>
+<TR> <TD>xmax</TD>
+     <TD>m</TD>
+     <TD>dimension of filter
+</TD>
+<TD ALIGN=RIGHT>0.05</TD> </TR>
+<TR> <TD>ymin</TD>
+     <TD>m</TD>
+     <TD>dimension of filter
+</TD>
+<TD ALIGN=RIGHT>-0.05</TD> </TR>
+<TR> <TD>ymax</TD>
+     <TD>m</TD>
+     <TD>dimension of filter
+</TD>
+<TD ALIGN=RIGHT>0.05</TD> </TR>
+<TR> <TD>xwidth</TD>
+     <TD>m</TD>
+     <TD>Width/diameter of filter). Overrides xmin,xmax.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>m</TD>
+     <TD>Height of filter. Overrides ymin,ymax.
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>thickness</TD>
+     <TD>1</TD>
+     <TD>relative thickness. D = D^(thickness).
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>scaling</TD>
+     <TD>1</TD>
+     <TD>scaling factor. D = D*scaling.
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>verbose</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>pTable</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>Mode_Table</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>Type_Table</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Filter_gen.comp">Source code</A> for <CODE>Filter_gen.comp</CODE>.
+  <LI> <a href="../data/HOPG.trm">HOPG.trm</a> filename as an example.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

@@ -1,0 +1,87 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Test_Pol_TripleAxis Instrument at  Templates</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Test_Pol_TripleAxis</CODE> Instrument</H1>
+
+Based on Emmanuel Farhi's thermal H8 triple-axis spectrometer from
+Brookhaven reactor
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    Templates</B>
+  <LI> <B>Author:</B> Peter Christiansen</B>
+  <LI> <B>Origin:</B> RISOE</B>
+  <LI> <B>Date:</B> July 2006.</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+This instrument is a simple model of the thermal H8 triple-axis
+spectrometer from former Brookhaven reactor. It has an (polarizing)
+monochromator and a (polarizaing) analyzer. The sample is a vanadium
+cylinder.
+Three cases can be done:
+-1) Spin flip (flipper is inserted): Up->Down
+ 0) No polarization: Up/Down->Up/Down
+ 1) No spin flip: Up->Up 
+The Vanadium sample should give I(0)=2*(I(-1)+I(1)) and I(-1)=2*I(1).
+
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>OPTION</B></TD>
+     <TD>1</TD>
+     <TD>See above           </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>LAMBDA</TD>
+     <TD>Angs</TD>
+     <TD>Source wavelength   </TD>
+<TD ALIGN=RIGHT>2.0</TD> </TR>
+<TR> <TD>MOZ</TD>
+     <TD>Arc minutes</TD>
+     <TD>Mosaicity           </TD>
+<TD ALIGN=RIGHT>40</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Test_Pol_TripleAxis.instr">Source code</A> for <CODE>Test_Pol_TripleAxis.instr</CODE>.
+  <LI> 
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:08 2016</ADDRESS>
+</BODY></HTML>

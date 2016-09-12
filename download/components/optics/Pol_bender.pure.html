@@ -1,0 +1,245 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Pol_bender Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Pol_bender</CODE> Component</H1>
+
+Polarising bender.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Peter Christiansen</B>
+  <LI> <B>Origin:</B> RISOE</B>
+  <LI> <B>Date:</B> August 2006</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Based on Guide_curved written by Ross Stewart.
+Models a rectangular curved guide tube with entrance centered on the Z axis.
+The entrance lies in the X-Y plane.  Draws a true depiction
+of the guide with multiple slits (but without spacers), and trajectories.
+It relies on similar physics as the Monochromator_pol.
+The reflec function and parameters are passed to this component to
+give a bigger freedom. 
+The up direction is hardcoded to be along the y-axis (0, 1, 0)
+
+The guide is asummed to have half a spacer on each side:
+   slit1  slit2  slit3 
+ |+     ++     ++     +|
+ |+     ++     ++     +|  
+ <---------------------> xwidth
+ <------> xwidth/nslit (nslit=3)
+        <> d
+
+The reflection functions and parameters defaults as follows:
+Bot defaults to Top, Left defaults to Top, Right defaults to left.
+Down defaults to down and up defaults to up for all functions and 
+Top(Up and Down) defaults to StdReflecFunc and {0.99,0.0219,6.07,2.0,0.003}
+which stands for {R0, Qc, alpha, m, W}.
+
+Example: 
+Pol_bender(xwidth = 0.08, yheight = 0.08, length = 1.0, radius= 10.0, 
+	     nslit=5, d=0.0, endFlat=0, drawOption=2,
+	     rTopUpPar={0.99, 0.0219, 6.07, 3.0, 0.003},
+	     rTopDownPar={0.99, 0.0219, 6.07, 1.0, 0.003})
+
+See also the example instruments Test_Pol_Bender and 
+Test_Pol_Bender_Vs_Guide_Curved (under tests).
+
+%BUGS 
+This component has been against tested Guide_curved and found to
+give the same intensities. Gravity option has not been tested.
+
+GRAVITY: YES (when gravity is along y-axis)
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>rTopUpFunc</TD>
+     <TD>1</TD>
+     <TD>Top reflection function for spin up (q, *par, *reflecProb) </TD>
+<TD ALIGN=RIGHT>StdReflecFunc</TD> </TR>
+<TR> <TD>rTopDownFunc</TD>
+     <TD>1</TD>
+     <TD>Top reflection function for spin down (q, *par, *reflecProb) </TD>
+<TD ALIGN=RIGHT>StdReflecFunc</TD> </TR>
+<TR> <TD>rBotUpFunc</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>rTopUpFunc</TD> </TR>
+<TR> <TD>rBotDownFunc</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>rTopDownFunc</TD> </TR>
+<TR> <TD>rLeftUpFunc</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>rTopUpFunc</TD> </TR>
+<TR> <TD>rLeftDownFunc</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>rTopDownFunc</TD> </TR>
+<TR> <TD>rRightUpFunc</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>rLeftUpFunc</TD> </TR>
+<TR> <TD>rRightDownFunc</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>rLeftDownFunc</TD> </TR>
+<TR> <TD>rTopUpPar</TD>
+     <TD>1</TD>
+     <TD>Parameters for rTopUpFunc </TD>
+<TD ALIGN=RIGHT>{0.99</TD> </TR>
+<TR> <TD>rTopDownPar</TD>
+     <TD>1</TD>
+     <TD>Parameters for rTopDownFunc </TD>
+<TD ALIGN=RIGHT>{0.99</TD> </TR>
+<TR> <TD>rBotUpPar</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>rTopUpPar</TD> </TR>
+<TR> <TD>rBotDownPar</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>rTopDownPar</TD> </TR>
+<TR> <TD>rLeftUpPar</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>rTopUpPar</TD> </TR>
+<TR> <TD>rLeftDownPar</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>rTopDownPar</TD> </TR>
+<TR> <TD>rRightUpPar</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>rLeftUpPar</TD> </TR>
+<TR> <TD>rRightDownPar</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>rLeftDownPar</TD> </TR>
+<TR> <TD><B>xwidth</B></TD>
+     <TD>m</TD>
+     <TD>Width at the guide entry </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>yheight</B></TD>
+     <TD>m</TD>
+     <TD>Height at the guide entry </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>length</B></TD>
+     <TD>m</TD>
+     <TD>length of guide along center </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>radius</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>G</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>9.8</TD> </TR>
+<TR> <TD>nslit</TD>
+     <TD>1</TD>
+     <TD>Number of slits </TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>d</TD>
+     <TD>m</TD>
+     <TD>Width of spacers (subdividing absorbing walls) </TD>
+<TD ALIGN=RIGHT>0.0</TD> </TR>
+<TR> <TD>debug</TD>
+     <TD>1</TD>
+     <TD>if debug > 0 print out some internal parameters </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>endFlat</TD>
+     <TD>1</TD>
+     <TD>If endflat>0 then entrance and exit planes are parallel. </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>drawOption</TD>
+     <TD>1</TD>
+     <TD>1: fine(all slits/90 points per arc), 2: normal (max 20/40), 3: rough (max 5/10) </TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>localG</B></TD>
+     <TD>m/s/s</TD>
+     <TD>Gravity vector in guide reference system </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>normTopBot</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>normIn</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>normOut</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>pointTop</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>pointBot</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>pointIn</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>pointOut</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>rTopUpParPtr</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>rTopDownParPtr</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>rBotUpParPtr</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>rBotDownParPtr</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>rLeftUpParPtr</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>rLeftDownParPtr</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>rRightUpParPtr</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>rRightDownParPtr</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Pol_bender.comp">Source code</A> for <CODE>Pol_bender.comp</CODE>.
+  <LI> 
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

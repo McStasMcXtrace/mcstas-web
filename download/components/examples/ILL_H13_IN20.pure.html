@@ -1,0 +1,201 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: ILL_H13_IN20 Instrument at  ILL</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>ILL_H13_IN20</CODE> Instrument</H1>
+
+Thermal neutron three-axis spectrometer IN20@ILL (unpolarized configuration)
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    ILL</B>
+  <LI> <B>Author:</B> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></B>
+  <LI> <B>Origin:</B> <a href="http://www.ill.fr">ILL (France)</a></B>
+  <LI> <B>Date:</B> 2006</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+IN20 is installed at the H13 thermal beam tube (Phi 170 mm) in the reactor hall.
+
+Both the primary and the secondary spectrometer employ a monochromatic
+horizontal focusing geometry. A heavy input slit of an adjustable size, placed
+in the casemate, serves as a virtual source, providing a large solid angle for
+the monochromatic beam, while reducing, together with a sapphire filter window,
+the fast neutron background. The neutron energy is selected either by a doubly
+focusing polarizing Heusler 111 monochromator (230 x 150 mm2 w x h) or by an
+unpolarised Si 111 monochromator (elastically bent crystals, 195 x 200 mm2 w x
+h) free of higher-order contamination in the incident beam at wave-numbers ki >
+3 Angs-1. The analysis of the energy and polarisation state of the scattered
+neutrons is effectuated by a similar horizontally focusing Heusler crystal
+analyzer. Further PG 002 and Si 111 analyzers are available for occasional
+unpolarised work.
+
+The energy transfer range accessible in the present configuration of IN20
+extends to 100 meV with maximum incident neutron energies reaching 150 meV. The
+typical energy widths (FWHM) measured with a reference vanadium sample at the
+graphite filter wave-numbers ki = 2.66 A-1 and 4.1 A-1 are 0.82(3) meV and 3.05
+(15) meV, respectively.
+
+This model uses two Si111 monochromator and analyzers (unpolarized
+configuration).
+
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>KF</TD>
+     <TD>Angs-1</TD>
+     <TD>Outgoing neutron wavevector </TD>
+<TD ALIGN=RIGHT>3</TD> </TR>
+<TR> <TD>KI</TD>
+     <TD>Angs-1</TD>
+     <TD>Incoming neutron wavevector </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>QM</TD>
+     <TD>Angs-1</TD>
+     <TD>Wavevector transfer in crystal </TD>
+<TD ALIGN=RIGHT>0.5</TD> </TR>
+<TR> <TD>EN</TD>
+     <TD>meV</TD>
+     <TD>Energy transfer in crystal </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>verbose</TD>
+     <TD>1</TD>
+     <TD>print TAS configuration. 0 to be quiet </TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>WM</TD>
+     <TD>m</TD>
+     <TD>Width of monochromator </TD>
+<TD ALIGN=RIGHT>0.20</TD> </TR>
+<TR> <TD>HM</TD>
+     <TD>m</TD>
+     <TD>Height of monochromator </TD>
+<TD ALIGN=RIGHT>0.19</TD> </TR>
+<TR> <TD>RMH</TD>
+     <TD>m</TD>
+     <TD>Monochromator horizontal curvature, 0 for flat, -1 for automatic setting </TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>RMV</TD>
+     <TD>m</TD>
+     <TD>Monochromator vertical curvature, 0 for flat, -1 for automatic setting </TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>DM</TD>
+     <TD>Angs</TD>
+     <TD>Monochromator d-spacing </TD>
+<TD ALIGN=RIGHT>3.155</TD> </TR>
+<TR> <TD>NHM</TD>
+     <TD>1</TD>
+     <TD>Number of horizontal slabs composing the monochromator </TD>
+<TD ALIGN=RIGHT>15</TD> </TR>
+<TR> <TD>NVM</TD>
+     <TD>1</TD>
+     <TD>Number of vertical slabs composing the monochromator </TD>
+<TD ALIGN=RIGHT>15</TD> </TR>
+<TR> <TD>WA</TD>
+     <TD>m</TD>
+     <TD>Width of analyzer </TD>
+<TD ALIGN=RIGHT>0.16</TD> </TR>
+<TR> <TD>HA</TD>
+     <TD>m</TD>
+     <TD>Height of analyzer </TD>
+<TD ALIGN=RIGHT>0.08</TD> </TR>
+<TR> <TD>RAH</TD>
+     <TD>m</TD>
+     <TD>Analyzer horizontal curvature, 0 for flat, -1 for automatic setting </TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>RAV</TD>
+     <TD>m</TD>
+     <TD>Analyzer vertical curvature, 0 for flat, -1 for automatic setting </TD>
+<TD ALIGN=RIGHT>-1</TD> </TR>
+<TR> <TD>DA</TD>
+     <TD>Angs</TD>
+     <TD>Analyzer d-spacing </TD>
+<TD ALIGN=RIGHT>3.155</TD> </TR>
+<TR> <TD>NHA</TD>
+     <TD>1</TD>
+     <TD>Number of horizontal slabs composing the analyzer </TD>
+<TD ALIGN=RIGHT>15</TD> </TR>
+<TR> <TD>NVA</TD>
+     <TD>1</TD>
+     <TD>Number of vertical slabs composing the analyzer </TD>
+<TD ALIGN=RIGHT>15</TD> </TR>
+<TR> <TD>L1</TD>
+     <TD>m</TD>
+     <TD>Source-Monochromator distance. Contains 1st Collimator of length 5.34 </TD>
+<TD ALIGN=RIGHT>2.33</TD> </TR>
+<TR> <TD>ALF1</TD>
+     <TD>arc min</TD>
+     <TD>Horizontal collimation from Source to Monochromator </TD>
+<TD ALIGN=RIGHT>60</TD> </TR>
+<TR> <TD>ALF2</TD>
+     <TD>arc min</TD>
+     <TD>Horizontal collimation from Monochromator to Sample A</TD>
+<TD ALIGN=RIGHT>60</TD> </TR>
+<TR> <TD>ALF3</TD>
+     <TD>arc min</TD>
+     <TD>Horizontal collimation from Sample to Analyzer </TD>
+<TD ALIGN=RIGHT>60</TD> </TR>
+<TR> <TD>ALF4</TD>
+     <TD>arc min</TD>
+     <TD>Horizontal collimation from Analyzer to Detector </TD>
+<TD ALIGN=RIGHT>60</TD> </TR>
+<TR> <TD>BET1</TD>
+     <TD>arc min</TD>
+     <TD>Vertical collimation from Source to Monochromator </TD>
+<TD ALIGN=RIGHT>120</TD> </TR>
+<TR> <TD>BET2</TD>
+     <TD>arc min</TD>
+     <TD>Vertical collimation from Monochromator to Sample A</TD>
+<TD ALIGN=RIGHT>120</TD> </TR>
+<TR> <TD>BET3</TD>
+     <TD>arc min</TD>
+     <TD>Vertical collimation from Sample to Analyzer </TD>
+<TD ALIGN=RIGHT>120</TD> </TR>
+<TR> <TD>BET4</TD>
+     <TD>arc min</TD>
+     <TD>Vertical collimation from Analyzer to Detector </TD>
+<TD ALIGN=RIGHT>120</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="ILL_H13_IN20.instr">Source code</A> for <CODE>ILL_H13_IN20.instr</CODE>.
+  <LI> Rescal for Matlab at http://www.ill.eu/instruments-support/computing-for-science/cs-software/all-software/matlab-ill/
+  <LI> Restrax at http://omega.ujf.cas.cz/restrax/
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

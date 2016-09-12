@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Reflectometer Instrument at  Templates</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Reflectometer</CODE> Instrument</H1>
+
+Instrument short description
+Horizontal reflectometer, multi-angle of incidence
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    Templates</B>
+  <LI> <B>Author:</B> Anette Vickery, contact: anette.vickery@fys.ku.dk</B>
+  <LI> <B>Origin:</B>(Unknown)</B>
+  <LI> <B>Date:</B>  November 2011.</B>
+  <LI> <B>Version:</B> 0.1</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+A horizontal reflectometer. The instrument is built of a 2.5 m long mirror and an inclined elliptical guide. The grazing angle is defined by a set of
+slits. The sample size is 4cm x 4cm (horizontal sample). 
+The role of the mirror is to provide an angle of incidence of up to 4 deg and at the same time avoid a direct line of sight to the source. 
+The reflectivity is the ratio between the direct beam reflected beam intensities. Therefore two simulations are needed to get the reflectivity curve:
+
+Example: mcrun Reflectometer.instr -n1e10 directbeam=1,thetasample=0.4,Qmin=0,Qmax=0.15 -d directbeam
+Example: mcrun Reflectometer.instr -n1e10 directbeam=0,thetasample=0.4,Qmin=0,Qmax=0.15 -d reflectedbeam
+
+
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>directbeam</TD>
+     <TD>-</TD>
+     <TD>=1,</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>Lam_min</TD>
+     <TD>-</TD>
+     <TD>=2.0,</TD>
+<TD ALIGN=RIGHT>2.0</TD> </TR>
+<TR> <TD>Lam_max</TD>
+     <TD>-</TD>
+     <TD>=10,</TD>
+<TD ALIGN=RIGHT>10</TD> </TR>
+<TR> <TD>deltatheta</TD>
+     <TD>-</TD>
+     <TD>=2,</TD>
+<TD ALIGN=RIGHT>2</TD> </TR>
+<TR> <TD>theta_sample</TD>
+     <TD>-</TD>
+     <TD>=1,</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>defineAngle</TD>
+     <TD>-</TD>
+     <TD>=1,</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>Qmin</TD>
+     <TD>-</TD>
+     <TD>=0,</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>Qmax</TD>
+     <TD>-</TD>
+     <TD>=0.5,</TD>
+<TD ALIGN=RIGHT>0.5</TD> </TR>
+<TR> <TD>straight</TD>
+     <TD>-</TD>
+     <TD>=1,</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>width</TD>
+     <TD>-</TD>
+     <TD>=0.05</TD>
+<TD ALIGN=RIGHT>0.05</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Reflectometer.instr">Source code</A> for <CODE>Reflectometer.instr</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:08 2016</ADDRESS>
+</BODY></HTML>

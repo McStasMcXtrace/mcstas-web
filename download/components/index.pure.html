@@ -1,0 +1,3115 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML>
+<HEAD>
+   <META NAME="GENERATOR" CONTENT="McDoc">
+   <TITLE>McStas : Components/Instruments Library </TITLE>
+</HEAD>
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#sources">sources</A>
+ | <A href="#optics">optics</A>
+ | <A href="#samples">samples</A>
+ | <A href="#monitors">monitors</A>
+ | <A href="#misc">misc</A>
+ | <A href="#contrib">contrib</A>
+ | <A href="#examples">examples</A> ]
+</P>
+<P ALIGN=CENTER>
+ [ <a href="doc/manuals/mcstas-manual.pdf">User Manual</a>
+| <a href="doc/manuals/mcstas-components.pdf">Component Manual</a>
+| <a href="data">Data files</a> | <a href=""></a> ]
+</P>
+
+<CENTER><H1>Components and Instruments from the Library for <i>McStas</i></H1></CENTER>
+
+<P> Names in <B>Boldface</B> denote components that are properly
+documented with comments in the source code.</P>
+
+<P><A NAME="sources"></A>
+<B><FONT COLOR="#FF0000">Sources</FONT></B>
+<TABLE BORDER COLS=5 WIDTH="100%" NOSAVE>
+<TR>
+<TD><B><I>Name</I></B></TD>
+<TD WIDTH="10%"><B><I>Origin</I></B></TD>
+<TD WIDTH="10%"><B><I>Author(s)</I></B></TD>
+<TD><B><I>Source code</I></B></TD>
+<TD><B><I>Description</I></B></TD>
+</TR>
+<TR>
+<TD> <B><A HREF="sources/Adapt_check.html">Adapt_check</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kristian Nielsen</TD>
+<TD><A HREF="sources/Adapt_check.comp">comp</A></TD>
+<TD>Optimization specifier for the Source_adapt component.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="sources/ESS_moderator.html">ESS_moderator</A></B></TD>
+<TD> DTU</TD>
+<TD> P Willendrup and E Klinkby, February 2014, derived from K Lefmann ESS_moderator_long</TD>
+<TD><A HREF="sources/ESS_moderator.comp">comp</A></TD>
+<TD>A parametrised pulsed source for modelling ESS long pulses.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="sources/Moderator.html">Moderator</A></B></TD>
+<TD> Risoe</TD>
+<TD> KN, M.Hagen</TD>
+<TD><A HREF="sources/Moderator.comp">comp</A></TD>
+<TD>A simple pulsed source for time-of-flight.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="sources/Monitor_Optimizer.html">Monitor_Optimizer</A></B></TD>
+<TD> <a href="http://www.ill.fr">ILL (France)</a></TD>
+<TD> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></TD>
+<TD><A HREF="sources/Monitor_Optimizer.comp">comp</A></TD>
+<TD>To be used after the <b>Source_Optimizer</b> component
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="sources/Source_Maxwell_3.html">Source_Maxwell_3</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kim Lefmann</TD>
+<TD><A HREF="sources/Source_Maxwell_3.comp">comp</A></TD>
+<TD>Source with up to three Maxwellian distributions
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="sources/Source_Optimizer.html">Source_Optimizer</A></B></TD>
+<TD> <a href="http://www.ill.fr">ILL (France)</a></TD>
+<TD> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></TD>
+<TD><A HREF="sources/Source_Optimizer.comp">comp</A></TD>
+<TD>A component that optimizes the neutron flux passing through the
+Source_Optimizer in order to have the maximum flux at the
+<b>Monitor_Optimizer</b> position.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="sources/Source_adapt.html">Source_adapt</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kristian Nielsen</TD>
+<TD><A HREF="sources/Source_adapt.comp">comp</A></TD>
+<TD>Neutron source with adaptive importance sampling
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="sources/Source_div.html">Source_div</A></B></TD>
+<TD> Risoe</TD>
+<TD> KL</TD>
+<TD><A HREF="sources/Source_div.comp">comp</A></TD>
+<TD>Neutron source with Gaussian or uniform divergence
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="sources/Source_gen.html">Source_gen</A></B></TD>
+<TD> ILL/Risoe</TD>
+<TD> Emmanuel Farhi, Kim Lefmann</TD>
+<TD><A HREF="sources/Source_gen.comp">comp</A></TD>
+<TD>Circular/squared neutron source with flat or Maxwellian energy/wavelength
+spectrum
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="sources/Source_simple.html">Source_simple</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kim Lefmann</TD>
+<TD><A HREF="sources/Source_simple.comp">comp</A></TD>
+<TD>A circular neutron source with flat energy spectrum and arbitrary flux
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="sources/Virtual_input.html">Virtual_input</A></B></TD>
+<TD> <a href="http://www.ill.fr">ILL</a></TD>
+<TD> <a href="mailto:farhi@ill.fr">E. Farhi</a></TD>
+<TD><A HREF="sources/Virtual_input.comp">comp</A></TD>
+<TD>Source-like component that generates neutron events from an ascii
+'virtual source' filename.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="sources/Virtual_output.html">Virtual_output</A></B></TD>
+<TD> <a href="http://www.ill.fr">ILL</a></TD>
+<TD> <a href="mailto:farhi@ill.fr">E. Farhi</a></TD>
+<TD><A HREF="sources/Virtual_output.comp">comp</A></TD>
+<TD>Detector-like component that writes neutron state parameters into an ascci-format 
+'virtual source' neutron file.
+</TD>
+</TR>
+
+</TABLE>
+
+
+<P><A NAME="optics"></A>
+<B><FONT COLOR="#FF0000">Optics</FONT></B>
+<TABLE BORDER COLS=5 WIDTH="100%" NOSAVE>
+<TR>
+<TD><B><I>Name</I></B></TD>
+<TD WIDTH="10%"><B><I>Origin</I></B></TD>
+<TD WIDTH="10%"><B><I>Author(s)</I></B></TD>
+<TD><B><I>Source code</I></B></TD>
+<TD><B><I>Description</I></B></TD>
+</TR>
+<TR>
+<TD> <B><A HREF="optics/Absorber.html">Absorber</A></B></TD>
+<TD> Risoe</TD>
+<TD> Peter Willendrup</TD>
+<TD><A HREF="optics/Absorber.comp">comp</A></TD>
+<TD>Box-shaped absorbing slab.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Arm.html">Arm</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kim Lefmann and Kristian Nielsen</TD>
+<TD><A HREF="optics/Arm.comp">comp</A></TD>
+<TD>Arm/optical bench
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Beamstop.html">Beamstop</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kristian Nielsen</TD>
+<TD><A HREF="optics/Beamstop.comp">comp</A></TD>
+<TD>Rectangular/circular beam stop.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Bender.html">Bender</A></B></TD>
+<TD> Uni. Erlangen (Germany)</TD>
+<TD> Philipp Bernhardt</TD>
+<TD><A HREF="optics/Bender.comp">comp</A></TD>
+<TD>Models a curved neutron guide.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Collimator_linear.html">Collimator_linear</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kristian Nielsen</TD>
+<TD><A HREF="optics/Collimator_linear.comp">comp</A></TD>
+<TD>A simple analytical Soller collimator (with triangular transmission).
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Collimator_radial.html">Collimator_radial</A></B></TD>
+<TD> ILL</TD>
+<TD> Emmanuel Farhi <farhi@ill.fr></TD>
+<TD><A HREF="optics/Collimator_radial.comp">comp</A></TD>
+<TD>A radial Soller collimator.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Derotator.html">Derotator</A></B></TD>
+<TD> <a href="http://www.ill.fr">ILL</a></TD>
+<TD> Emmanuel Farhi</TD>
+<TD><A HREF="optics/Derotator.comp">comp</A></TD>
+<TD>The counterpart of the Rotator component.
+</TD>
+</TR>
+
+<TR>
+<TD> <A HREF="optics/Diaphragm.html">Diaphragm</A></TD>
+<TD> DTU</TD>
+<TD> Peter Willendrup</TD>
+<TD><A HREF="optics/Diaphragm.comp">comp</A></TD>
+<TD>Rectangular/circular diaphragm (alias of the Slit component)
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/DiskChopper.html">DiskChopper</A></B></TD>
+<TD> Risoe</TD>
+<TD> Peter Willendrup</TD>
+<TD><A HREF="optics/DiskChopper.comp">comp</A></TD>
+<TD>Based on Chopper (Philipp Bernhardt), Jitter and beamstop from work by 
+Kaspar Hewitt Klenoe (jan 2006), adjustments by Rob Bewey (march 2006)
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/FermiChopper.html">FermiChopper</A></B></TD>
+<TD>     ILL Grenoble / TU Muenchen</TD>
+<TD> M. Poehlmann, C. Carbogno, H. Schober, E. Farhi</TD>
+<TD><A HREF="optics/FermiChopper.comp">comp</A></TD>
+<TD>Fermi Chopper with rotating frame.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Filter_gen.html">Filter_gen</A></B></TD>
+<TD> ILL</TD>
+<TD>  E. Farhi</TD>
+<TD><A HREF="optics/Filter_gen.comp">comp</A></TD>
+<TD>This components may either set the flux or change it (filter-like), using
+an external data filename.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Guide.html">Guide</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kristian Nielsen</TD>
+<TD><A HREF="optics/Guide.comp">comp</A></TD>
+<TD>Neutron guide.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Guide_anyshape.html">Guide_anyshape</A></B></TD>
+<TD> ILL</TD>
+<TD> Emmanuel Farhi</TD>
+<TD><A HREF="optics/Guide_anyshape.comp">comp</A></TD>
+<TD>Reflecting surface (guide and mirror) with any shape, defined from an OFF file.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Guide_channeled.html">Guide_channeled</A></B></TD>
+<TD> Risoe</TD>
+<TD> Christian Nielsen</TD>
+<TD><A HREF="optics/Guide_channeled.comp">comp</A></TD>
+<TD>Neutron guide with channels (bender section).
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Guide_gravity.html">Guide_gravity</A></B></TD>
+<TD> <a href="http://www.ill.fr">ILL (France)</a>.</TD>
+<TD> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></TD>
+<TD><A HREF="optics/Guide_gravity.comp">comp</A></TD>
+<TD>Neutron straight guide with gravity. Can be channeled and focusing.
+Waviness may be specified, as well as side chamfers (on substrate).
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Guide_tapering.html">Guide_tapering</A></B></TD>
+<TD> PSI</TD>
+<TD> Uwe Filges</TD>
+<TD><A HREF="optics/Guide_tapering.comp">comp</A></TD>
+<TD>Models a rectangular tapered guide (many shapes)
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Guide_wavy.html">Guide_wavy</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kim Lefmann</TD>
+<TD><A HREF="optics/Guide_wavy.comp">comp</A></TD>
+<TD>Neutron guide with gaussian waviness.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Mirror.html">Mirror</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kristian Nielsen</TD>
+<TD><A HREF="optics/Mirror.comp">comp</A></TD>
+<TD>Single mirror plate.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Monochromator_curved.html">Monochromator_curved</A></B></TD>
+<TD> <a href="http://www.ill.fr">ILL</a></TD>
+<TD> Emmanuel Farhi, Kim, Lefmann, Peter Link</TD>
+<TD><A HREF="optics/Monochromator_curved.comp">comp</A></TD>
+<TD>Double bent multiple crystal slabs with anisotropic gaussian mosaic.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Monochromator_flat.html">Monochromator_flat</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kristian Nielsen</TD>
+<TD><A HREF="optics/Monochromator_flat.comp">comp</A></TD>
+<TD>Flat Monochromator crystal with anisotropic mosaic.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Monochromator_pol.html">Monochromator_pol</A></B></TD>
+<TD> RISOE</TD>
+<TD> Peter Christiansen</TD>
+<TD><A HREF="optics/Monochromator_pol.comp">comp</A></TD>
+<TD>Flat polarizaing monochromator crystal.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Pol_bender.html">Pol_bender</A></B></TD>
+<TD> RISOE</TD>
+<TD> Peter Christiansen</TD>
+<TD><A HREF="optics/Pol_bender.comp">comp</A></TD>
+<TD>Polarising bender.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Pol_constBfield.html">Pol_constBfield</A></B></TD>
+<TD> RISOE</TD>
+<TD> Peter Christiansen</TD>
+<TD><A HREF="optics/Pol_constBfield.comp">comp</A></TD>
+<TD>Constant magnetic field.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Pol_guide_vmirror.html">Pol_guide_vmirror</A></B></TD>
+<TD> RISOE</TD>
+<TD> Peter Christiansen</TD>
+<TD><A HREF="optics/Pol_guide_vmirror.comp">comp</A></TD>
+<TD>Polarising guide with two supermirros sitting in a v-shape inside.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Pol_mirror.html">Pol_mirror</A></B></TD>
+<TD> RISOE</TD>
+<TD> Peter Christiansen</TD>
+<TD><A HREF="optics/Pol_mirror.comp">comp</A></TD>
+<TD>Polarising mirror.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Pol_simpleBfield.html">Pol_simpleBfield</A></B></TD>
+<TD> RISOE</TD>
+<TD> Erik B Knudsen, Peter Christiansen and Peter Willendrup</TD>
+<TD><A HREF="optics/Pol_simpleBfield.comp">comp</A></TD>
+<TD>Magnetic field component.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Pol_simpleBfield_stop.html">Pol_simpleBfield_stop</A></B></TD>
+<TD> RISOE</TD>
+<TD> Peter Christiansen and Peter Willendrup</TD>
+<TD><A HREF="optics/Pol_simpleBfield_stop.comp">comp</A></TD>
+<TD>Magnetic field component.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Refractor.html">Refractor</A></B></TD>
+<TD> ILL</TD>
+<TD> E. Farhi, B. Cubitt</TD>
+<TD><A HREF="optics/Refractor.comp">comp</A></TD>
+<TD>A refractor material/shape, which can be used to model e.g. lenses and prisms.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Rotator.html">Rotator</A></B></TD>
+<TD> <a href="http://www.ill.fr">ILL</a></TD>
+<TD> Emmanuel Farhi</TD>
+<TD><A HREF="optics/Rotator.comp">comp</A></TD>
+<TD>A rotative frame along vertical axis
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Selector.html">Selector</A></B></TD>
+<TD> Uni. Gottingen (Germany)</TD>
+<TD> Peter Link, <a href="mailto:Andreas.Ostermann@frm2.tum.de">Andreas Ostermann</a></TD>
+<TD><A HREF="optics/Selector.comp">comp</A></TD>
+<TD>velocity selector (helical lamella type) such as <b>V_selector</b> component
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Slit.html">Slit</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kim Lefmann and Henrik M. Roennow</TD>
+<TD><A HREF="optics/Slit.comp">comp</A></TD>
+<TD>Rectangular/circular slit 
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/V_selector.html">V_selector</A></B></TD>
+<TD> Risoe</TD>
+<TD>  Kim Lefmann</TD>
+<TD><A HREF="optics/V_selector.comp">comp</A></TD>
+<TD>Velocity selector.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Virtual_mcnp_ss_Guide.html">Virtual_mcnp_ss_Guide</A></B></TD>
+<TD> Risoe-DTU</TD>
+<TD> Esben klinkby and Peter Willendrup</TD>
+<TD><A HREF="optics/Virtual_mcnp_ss_Guide.comp">comp</A></TD>
+<TD>Neutron guide initiated using Virtual_mcnp_ss_input.comp, and replacing Virtual_mcnp_ss_output.comp  - see examples//Test_SSR_SSW_Guide.instr
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="optics/Vitess_ChopperFermi.html">Vitess_ChopperFermi</A></B></TD>
+<TD> VITESS module 'chopper_fermi'</TD>
+<TD> Geza Zsigmond</TD>
+<TD><A HREF="optics/Vitess_ChopperFermi.comp">comp</A></TD>
+<TD>Fermi chopper with absorbing walls using the VITESS module 'chopper_fermi'
+</TD>
+</TR>
+
+</TABLE>
+
+
+<P><A NAME="samples"></A>
+<B><FONT COLOR="#FF0000">Samples</FONT></B>
+<TABLE BORDER COLS=5 WIDTH="100%" NOSAVE>
+<TR>
+<TD><B><I>Name</I></B></TD>
+<TD WIDTH="10%"><B><I>Origin</I></B></TD>
+<TD WIDTH="10%"><B><I>Author(s)</I></B></TD>
+<TD><B><I>Source code</I></B></TD>
+<TD><B><I>Description</I></B></TD>
+</TR>
+<TR>
+<TD> <B><A HREF="samples/Incoherent.html">Incoherent</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kim Lefmann and Kristian Nielsen</TD>
+<TD><A HREF="samples/Incoherent.comp">comp</A></TD>
+<TD>Incoherent sample (such as Vanadium) sample, with quasielastic component.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="samples/Isotropic_Sqw.html">Isotropic_Sqw</A></B></TD>
+<TD>  ILL</TD>
+<TD> E. Farhi, V. Hugouvieux</TD>
+<TD><A HREF="samples/Isotropic_Sqw.comp">comp</A></TD>
+<TD>Isotropic sample handling multiple scattering and absorption for a general
+S(q,w) (coherent and/or incoherent/self)
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="samples/Phonon_simple.html">Phonon_simple</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kim Lefmann</TD>
+<TD><A HREF="samples/Phonon_simple.comp">comp</A></TD>
+<TD>A sample for phonon scattering
+based on cross section expressions from Squires, Ch.3.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="samples/Powder1.html">Powder1</A></B></TD>
+<TD> Risoe</TD>
+<TD> E.M.Lauridsen, N.B.Christensen, A.B.Abrahamsen</TD>
+<TD><A HREF="samples/Powder1.comp">comp</A></TD>
+<TD>General powder sample with a single scattering vector.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="samples/PowderN.html">PowderN</A></B></TD>
+<TD> McStas release</TD>
+<TD> P. Willendrup, L. Chapon, K. Lefmann, A.B.Abrahamsen, N.B.Christensen, E.M.Lauridsen.</TD>
+<TD><A HREF="samples/PowderN.comp">comp</A></TD>
+<TD>General powder sample (N lines, single scattering, incoherent scattering)
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="samples/Res_sample.html">Res_sample</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kristian Nielsen</TD>
+<TD><A HREF="samples/Res_sample.comp">comp</A></TD>
+<TD>Sample for resolution function calculation.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="samples/Sans_spheres.html">Sans_spheres</A></B></TD>
+<TD> Risoe</TD>
+<TD> P. Willendrup, K. Lefmann, L. Arleth</TD>
+<TD><A HREF="samples/Sans_spheres.comp">comp</A></TD>
+<TD>Sample for Small Angle Neutron Scattering - hard spheres in thin solution, mono disperse.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="samples/SasView_model.html">SasView_model</A></B></TD>
+<TD> SasView, DTU, European Spallation Source ERIC </TD>
+<TD> Jakob Garde, Torben Nielsen, Peter Willendrup</TD>
+<TD><A HREF="samples/SasView_model.comp">comp</A></TD>
+<TD>This SANS sample exposes <a href="http://www.sasview.org">SasView's</a> scattering kernels to McStas. In this way SasView's monodisperse scattering kernels can be call from McStas.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="samples/Single_crystal.html">Single_crystal</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kristian Nielsen</TD>
+<TD><A HREF="samples/Single_crystal.comp">comp</A></TD>
+<TD>Mosaic single crystal with multiple scattering vectors, optimised for speed
+with large crystals and many reflections.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="samples/TOFRes_sample.html">TOFRes_sample</A></B></TD>
+<TD> Risoe</TD>
+<TD> KL, 10 October 2004</TD>
+<TD><A HREF="samples/TOFRes_sample.comp">comp</A></TD>
+<TD>Sample for TOF resolution function calculation.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="samples/Tunneling_sample.html">Tunneling_sample</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kim Lefmann </TD>
+<TD><A HREF="samples/Tunneling_sample.comp">comp</A></TD>
+<TD>A Double-cylinder shaped all-incoherent scatterer
+with elastic, quasielastic (Lorentzian), and tunneling (sharp) 
+components.
+</TD>
+</TR>
+
+</TABLE>
+
+
+<P><A NAME="monitors"></A>
+<B><FONT COLOR="#FF0000">Detectors</FONT> and monitors</B>
+<TABLE BORDER COLS=5 WIDTH="100%" NOSAVE>
+<TR>
+<TD><B><I>Name</I></B></TD>
+<TD WIDTH="10%"><B><I>Origin</I></B></TD>
+<TD WIDTH="10%"><B><I>Author(s)</I></B></TD>
+<TD><B><I>Source code</I></B></TD>
+<TD><B><I>Description</I></B></TD>
+</TR>
+<TR>
+<TD> <B><A HREF="monitors/Brilliance_monitor.html">Brilliance_monitor</A></B></TD>
+<TD> DTU Physics</TD>
+<TD> Peter Willendrup, derived from TOF_lambda_monitor.comp</TD>
+<TD><A HREF="monitors/Brilliance_monitor.comp">comp</A></TD>
+<TD>Special "Brilliance" monitor. 
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/DivLambda_monitor.html">DivLambda_monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kristian Nielsen</TD>
+<TD><A HREF="monitors/DivLambda_monitor.comp">comp</A></TD>
+<TD>Divergence/wavelength monitor.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/DivPos_monitor.html">DivPos_monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kristian Nielsen</TD>
+<TD><A HREF="monitors/DivPos_monitor.comp">comp</A></TD>
+<TD>Divergence/position monitor (acceptance diagram).
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/Divergence_monitor.html">Divergence_monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kim Lefmann</TD>
+<TD><A HREF="monitors/Divergence_monitor.comp">comp</A></TD>
+<TD>Horizontal+vertical divergence monitor.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/EPSD_monitor.html">EPSD_monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kim Lefmann</TD>
+<TD><A HREF="monitors/EPSD_monitor.comp">comp</A></TD>
+<TD>A monitor measuring neutron intensity vs. position, x, and neutron energy, E
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/E_monitor.html">E_monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kristian Nielsen and Kim Lefmann</TD>
+<TD><A HREF="monitors/E_monitor.comp">comp</A></TD>
+<TD>Energy-sensitive monitor.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/Hdiv_monitor.html">Hdiv_monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD> KL,</TD>
+<TD><A HREF="monitors/Hdiv_monitor.comp">comp</A></TD>
+<TD>A divergence sensitive monitor.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/L_monitor.html">L_monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kristian Nielsen and Kim Lefmann</TD>
+<TD><A HREF="monitors/L_monitor.comp">comp</A></TD>
+<TD>Wavelength-sensitive monitor.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/MeanPolLambda_monitor.html">MeanPolLambda_monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD> Peter Christiansen</TD>
+<TD><A HREF="monitors/MeanPolLambda_monitor.comp">comp</A></TD>
+<TD>Polarisation and wavelength sensitive monitor.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/Monitor.html">Monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kim Lefmann</TD>
+<TD><A HREF="monitors/Monitor.comp">comp</A></TD>
+<TD>Simple single detector/monitor.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/Monitor_4PI.html">Monitor_4PI</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kim Lefmann and Kristian Nielsen</TD>
+<TD><A HREF="monitors/Monitor_4PI.comp">comp</A></TD>
+<TD>Monitor that detects ALL non-absorbed neutrons.
+Example: Monitor_4PI()
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/Monitor_Sqw.html">Monitor_Sqw</A></B></TD>
+<TD> <a href="http://www.ill.fr">ILL</a></TD>
+<TD> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></TD>
+<TD><A HREF="monitors/Monitor_Sqw.comp">comp</A></TD>
+<TD>This component is a Sqw Monitor that records the dynamic structure factor S(q,w)
+from a scattering location, seen from a detector location.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/Monitor_nD.html">Monitor_nD</A></B></TD>
+<TD> <a href="http://www.ill.fr">ILL</a></TD>
+<TD> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></TD>
+<TD><A HREF="monitors/Monitor_nD.comp">comp</A></TD>
+<TD>This component is a general Monitor that can output 0/1/2D signals
+(Intensity or signal vs. [something] and vs. [something] ...)
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/PSD_TOF_monitor.html">PSD_TOF_monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD> Peter Willendrup, derived from PSD_monitor by Kim Lefmann</TD>
+<TD><A HREF="monitors/PSD_TOF_monitor.comp">comp</A></TD>
+<TD>Position-sensitive monitor with TOF slices.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/PSD_monitor.html">PSD_monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kim Lefmann</TD>
+<TD><A HREF="monitors/PSD_monitor.comp">comp</A></TD>
+<TD>Position-sensitive monitor.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/PSD_monitor_4PI.html">PSD_monitor_4PI</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kim Lefmann and Kristian Nielsen</TD>
+<TD><A HREF="monitors/PSD_monitor_4PI.comp">comp</A></TD>
+<TD>Spherical position-sensitive detector.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/PSD_monitor_psf.html">PSD_monitor_psf</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kim Lefmann, Linda Udby</TD>
+<TD><A HREF="monitors/PSD_monitor_psf.comp">comp</A></TD>
+<TD>Updated: Oct 15, 2007 (with psf)
+Position-sensitive monitor.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/PSD_monitor_psf_eff.html">PSD_monitor_psf_eff</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kim Lefmann, Linda Udby</TD>
+<TD><A HREF="monitors/PSD_monitor_psf_eff.comp">comp</A></TD>
+<TD>Updated: Oct 15, 2007 (with psf)
+Position-sensitive monitor.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/PSDcyl_monitor.html">PSDcyl_monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kim Lefmann</TD>
+<TD><A HREF="monitors/PSDcyl_monitor.comp">comp</A></TD>
+<TD>A 2D Position-sensitive monitor. The shape is cylindrical with
+the axis vertical. The monitor covers the whole cylinder (360 degrees).
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/PSDlin_diff_monitor.html">PSDlin_diff_monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD>  Kim Lefmann, Peter Willendrup, Linda Udby</TD>
+<TD><A HREF="monitors/PSDlin_diff_monitor.comp">comp</A></TD>
+<TD>Rectangular 1D PSD, measuring intensity vs. horizontal position, x
+A second monitor shows the difference of intensities between in n'th and (n-1)'th pixels.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/PSDlin_monitor.html">PSDlin_monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD>  Kim Lefmann</TD>
+<TD><A HREF="monitors/PSDlin_monitor.comp">comp</A></TD>
+<TD>Rectangular 1D PSD, measuring intensity vs. vertical position, x
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/PolLambda_monitor.html">PolLambda_monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD> Peter Christiansen</TD>
+<TD><A HREF="monitors/PolLambda_monitor.comp">comp</A></TD>
+<TD>Polarisation and wavelength sensitive monitor.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/Pol_monitor.html">Pol_monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD> Peter Christiansen</TD>
+<TD><A HREF="monitors/Pol_monitor.comp">comp</A></TD>
+<TD>Modified by  Erik B Knudsen
+Polarisation sensitive monitor.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/PreMonitor_nD.html">PreMonitor_nD</A></B></TD>
+<TD> <a href="http://www.ill.fr">ILL (France)</a></TD>
+<TD> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></TD>
+<TD><A HREF="monitors/PreMonitor_nD.comp">comp</A></TD>
+<TD>Neutron parameters spatial cross-correlation monitor.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/Res_monitor.html">Res_monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kristian Nielsen</TD>
+<TD><A HREF="monitors/Res_monitor.comp">comp</A></TD>
+<TD>Monitor for resolution calculations
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/TOF2E_monitor.html">TOF2E_monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD> Kim Lefmann and Helmuth Schoeber</TD>
+<TD><A HREF="monitors/TOF2E_monitor.comp">comp</A></TD>
+<TD>TOF-sensitive monitor, converting to energy
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/TOF2Q_cylPSD_monitor.html">TOF2Q_cylPSD_monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD> Anette Vickery, derived from Lefmann TOF_cylPSD</TD>
+<TD><A HREF="monitors/TOF2Q_cylPSD_monitor.comp">comp</A></TD>
+<TD>Cylindrical (2pi) Time-of-flight to Q monitor.
+Calculates Q from TOF and known nominal grazing angle theta:
+E = VS2E*(L_flight/(t-T_zero))*(L_flight/(t-T_zero));
+   Q=2*sqrt(E/2.072)*sin(theta);
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/TOFLambda_monitor.html">TOFLambda_monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD> KL</TD>
+<TD><A HREF="monitors/TOFLambda_monitor.comp">comp</A></TD>
+<TD>Time-of-flight/wavelength monitor.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/TOF_PSD_monitor_rad.html">TOF_PSD_monitor_rad</A></B></TD>
+<TD>     UCPH</TD>
+<TD> Kim Lefmann</TD>
+<TD><A HREF="monitors/TOF_PSD_monitor_rad.comp">comp</A></TD>
+<TD>Modified from: PSD_monitor_rad by Henrich Frielinghaus, FZJuelich
+Position-sensitive TOF monitor with radially averaging.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/TOF_cylPSD_monitor.html">TOF_cylPSD_monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD>  Kim Lefmann</TD>
+<TD><A HREF="monitors/TOF_cylPSD_monitor.comp">comp</A></TD>
+<TD>Cylindrical (2pi) PSD Time-of-flight monitor.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/TOF_monitor.html">TOF_monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD>  KN, M. Hagen</TD>
+<TD><A HREF="monitors/TOF_monitor.comp">comp</A></TD>
+<TD>Rectangular Time-of-flight monitor.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="monitors/TOFlog_monitor.html">TOFlog_monitor</A></B></TD>
+<TD> Risoe</TD>
+<TD>  Kim Lefmann</TD>
+<TD><A HREF="monitors/TOFlog_monitor.comp">comp</A></TD>
+<TD>Rectangular Time-of-flight monitor with logarithmic time binning.
+</TD>
+</TR>
+
+</TABLE>
+
+
+<P><A NAME="misc"></A>
+<B><FONT COLOR="#FF0000">Misc</FONT></B>
+<TABLE BORDER COLS=5 WIDTH="100%" NOSAVE>
+<TR>
+<TD><B><I>Name</I></B></TD>
+<TD WIDTH="10%"><B><I>Origin</I></B></TD>
+<TD WIDTH="10%"><B><I>Author(s)</I></B></TD>
+<TD><B><I>Source code</I></B></TD>
+<TD><B><I>Description</I></B></TD>
+</TR>
+<TR>
+<TD> <B><A HREF="misc/Beam_spy.html">Beam_spy</A></B></TD>
+<TD> Risoe</TD>
+<TD> E. Farhi</TD>
+<TD><A HREF="misc/Beam_spy.comp">comp</A></TD>
+<TD>Beam analyzer for previous component
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="misc/MCPL_input.html">MCPL_input</A></B></TD>
+<TD> DTU Physics</TD>
+<TD> Erik N Knudsen </TD>
+<TD><A HREF="misc/MCPL_input.comp">comp</A></TD>
+<TD>Source-like component that reads neutron state parameters from an mcpl-file.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="misc/MCPL_output.html">MCPL_output</A></B></TD>
+<TD> DTU Physics</TD>
+<TD> Erik B Knudsen </TD>
+<TD><A HREF="misc/MCPL_output.comp">comp</A></TD>
+<TD>Detector-like component that writes neutron state parameters into an mcpl-format 
+binary, virtual-source neutron file.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="misc/PolAnalyser_ideal.html">PolAnalyser_ideal</A></B></TD>
+<TD> Risoe</TD>
+<TD> Erik Knudsen</TD>
+<TD><A HREF="misc/PolAnalyser_ideal.comp">comp</A></TD>
+<TD>(Unphysical) ideal analyzer.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="misc/Progress_bar.html">Progress_bar</A></B></TD>
+<TD> ILL</TD>
+<TD> Emmanuel Farhi</TD>
+<TD><A HREF="misc/Progress_bar.comp">comp</A></TD>
+<TD>A simulation progress bar
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="misc/Scatter_log_iterator.html">Scatter_log_iterator</A></B></TD>
+<TD> DTU Physics</TD>
+<TD> Erik B Knudsen </TD>
+<TD><A HREF="misc/Scatter_log_iterator.comp">comp</A></TD>
+<TD>Iteration element for a Scatter_log
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="misc/Scatter_log_iterator_stop.html">Scatter_log_iterator_stop</A></B></TD>
+<TD> DTU Physics</TD>
+<TD> Erik B Knudsen </TD>
+<TD><A HREF="misc/Scatter_log_iterator_stop.comp">comp</A></TD>
+<TD>Iteration stop element for a Scatter_log
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="misc/Scatter_logger.html">Scatter_logger</A></B></TD>
+<TD> DTU Physics / DTU Nutech</TD>
+<TD> Erik B Knudsen, Peter K Willendrup & Esben Klinkby </TD>
+<TD><A HREF="misc/Scatter_logger.comp">comp</A></TD>
+<TD>Logging iteractions of neutrons with components
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="misc/Scatter_logger_stop.html">Scatter_logger_stop</A></B></TD>
+<TD> DTU Physics / DTU Nutech</TD>
+<TD> Erik B Knudsen, Peter K Willendrup & Esben Klinkby </TD>
+<TD><A HREF="misc/Scatter_logger_stop.comp">comp</A></TD>
+<TD>Stop logging iteractions of neutrons with components
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="misc/Set_pol.html">Set_pol</A></B></TD>
+<TD> Risoe</TD>
+<TD> Peter Christiansen</TD>
+<TD><A HREF="misc/Set_pol.comp">comp</A></TD>
+<TD>(Unphysical) way of setting the polarization.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="misc/Shape.html">Shape</A></B></TD>
+<TD> ILL</TD>
+<TD> E. Farhi</TD>
+<TD><A HREF="misc/Shape.comp">comp</A></TD>
+<TD>A geometric shape without effect on neutron, for instrument display purpose.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="misc/Vitess_input.html">Vitess_input</A></B></TD>
+<TD> Risoe/ILL</TD>
+<TD> Kristian Nielsen</TD>
+<TD><A HREF="misc/Vitess_input.comp">comp</A></TD>
+<TD>Read neutron state parameters from VITESS neutron filename.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="misc/Vitess_output.html">Vitess_output</A></B></TD>
+<TD> Risoe/ILL</TD>
+<TD> Kristian Nielsen</TD>
+<TD><A HREF="misc/Vitess_output.comp">comp</A></TD>
+<TD>Write neutron state parameters to VITESS neutron filename.
+</TD>
+</TR>
+
+</TABLE>
+
+
+<P><A NAME="contrib"></A>
+<B><FONT COLOR="#FF0000">Contributed</FONT> components</B>
+<TABLE BORDER COLS=5 WIDTH="100%" NOSAVE>
+<TR>
+<TD><B><I>Name</I></B></TD>
+<TD WIDTH="10%"><B><I>Origin</I></B></TD>
+<TD WIDTH="10%"><B><I>Author(s)</I></B></TD>
+<TD><B><I>Source code</I></B></TD>
+<TD><B><I>Description</I></B></TD>
+</TR>
+<TR>
+<TD> <B><A HREF="contrib/Al_window.html">Al_window</A></B></TD>
+<TD>     FRM-II</TD>
+<TD> S. Roth</TD>
+<TD><A HREF="contrib/Al_window.comp">comp</A></TD>
+<TD>Aluminium window in the beam
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Analyser_ideal.html">Analyser_ideal</A></B></TD>
+<TD> Risoe</TD>
+<TD> Erik Knudsen</TD>
+<TD><A HREF="contrib/Analyser_ideal.comp">comp</A></TD>
+<TD>(Unphysical) ideal analyzer.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/CavitiesIn.html">CavitiesIn</A></B></TD>
+<TD> JCNS - FZ-Juelich</TD>
+<TD> Henrich Frielinghaus</TD>
+<TD><A HREF="contrib/CavitiesIn.comp">comp</A></TD>
+<TD>Slit - sorting in channels
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/CavitiesOut.html">CavitiesOut</A></B></TD>
+<TD> JCNS - FZ-Juelich</TD>
+<TD> Henrich Frielinghaus</TD>
+<TD><A HREF="contrib/CavitiesOut.comp">comp</A></TD>
+<TD>Slit - sorting in channels
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Collimator_ROC.html">Collimator_ROC</A></B></TD>
+<TD> <a href="http://www.ill.fr">ILL</a> (Dif/<a href="http://www.ill.fr/YellowBook/D20">D20</a>)</TD>
+<TD> <a href="mailto:hansen@ill.fr">Thomas C Hansen</a></TD>
+<TD><A HREF="contrib/Collimator_ROC.comp">comp</A></TD>
+<TD>Radial Oscillationg Collimator (ROC)
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Elliptic_guide_gravity.html">Elliptic_guide_gravity</A></B></TD>
+<TD> NBI</TD>
+<TD> Henrik Bo Hoffmann Carlsen and Mads Bertelsen</TD>
+<TD><A HREF="contrib/Elliptic_guide_gravity.comp">comp</A></TD>
+<TD>Perfect elliptic guide which allow for simulations with gravity.
+The guide mirrors can be divided into segments with individual m-values.
+Parabolic guide components can also be simulated.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Exact_radial_coll.html">Exact_radial_coll</A></B></TD>
+<TD> HMI</TD>
+<TD> Roland Schedler <roland.schedler at hmi.de></TD>
+<TD><A HREF="contrib/Exact_radial_coll.comp">comp</A></TD>
+<TD>An exact radial Soller collimator.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/FermiChopper_ILL.html">FermiChopper_ILL</A></B></TD>
+<TD>     ILL Grenoble / TU Muenchen</TD>
+<TD> M. Poehlmann, C. Carbogno, H. Schober, E. Farhi</TD>
+<TD><A HREF="contrib/FermiChopper_ILL.comp">comp</A></TD>
+<TD>Fermi Chopper with rotating frame.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Fermi_chop2a.html">Fermi_chop2a</A></B></TD>
+<TD> SNS Oak Ridge,TN</TD>
+<TD> Garrett Granroth</TD>
+<TD><A HREF="contrib/Fermi_chop2a.comp">comp</A></TD>
+<TD></TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Filter_graphite.html">Filter_graphite</A></B></TD>
+<TD> <a href="http://www.ill.fr">ILL</a></TD>
+<TD> <a href="mailto:hansen@ill.fr">Thomas C Hansen</a></TD>
+<TD><A HREF="contrib/Filter_graphite.comp">comp</A></TD>
+<TD>Pyrolytic graphite filter (analytical model)
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Foil_flipper_magnet.html">Foil_flipper_magnet</A></B></TD>
+<TD> DTU Physics</TD>
+<TD> Erik B Knudsen</TD>
+<TD><A HREF="contrib/Foil_flipper_magnet.comp">comp</A></TD>
+<TD></TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Guide_curved.html">Guide_curved</A></B></TD>
+<TD> <a href="http://www.ill.fr">ILL (France)</a>.</TD>
+<TD> Ross Stewart</TD>
+<TD><A HREF="contrib/Guide_curved.comp">comp</A></TD>
+<TD>Non-focusing curved neutron guide.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Guide_four_side.html">Guide_four_side</A></B></TD>
+<TD> PSI</TD>
+<TD> Tobias Panzner</TD>
+<TD><A HREF="contrib/Guide_four_side.comp">comp</A></TD>
+<TD>Guide with four side walls
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Guide_four_side_10_shells.html">Guide_four_side_10_shells</A></B></TD>
+<TD> PSI</TD>
+<TD> Tobias Panzner</TD>
+<TD><A HREF="contrib/Guide_four_side_10_shells.comp">comp</A></TD>
+<TD>Guide with four side walls surounded by up to 10 shells
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Guide_four_side_2_shells.html">Guide_four_side_2_shells</A></B></TD>
+<TD> PSI</TD>
+<TD> Tobias Panzner</TD>
+<TD><A HREF="contrib/Guide_four_side_2_shells.comp">comp</A></TD>
+<TD>Guide with four side walls surounded by up to 2 shells
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Guide_gravity_psd.html">Guide_gravity_psd</A></B></TD>
+<TD> <a href="http://www.ill.fr">ILL (France)</a>.</TD>
+<TD> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></TD>
+<TD><A HREF="contrib/Guide_gravity_psd.comp">comp</A></TD>
+<TD>Neutron straight guide with gravity. Can be channeled and focusing.
+Waviness may be specified, as well as side chamfers (on substrate).
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Guide_honeycomb.html">Guide_honeycomb</A></B></TD>
+<TD> <a href="http://www.ill.fr">ILL (France)</a>.</TD>
+<TD> G. Venturi</TD>
+<TD><A HREF="contrib/Guide_honeycomb.comp">comp</A></TD>
+<TD>Neutron guide with gravity and honeycomb geometry. Can be channeled and focusing.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/He3_cell.html">He3_cell</A></B></TD>
+<TD> ILL</TD>
+<TD> Trefor Roberts</TD>
+<TD><A HREF="contrib/He3_cell.comp">comp</A></TD>
+<TD>Polarised 3He cell
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/ISIS_moderator.html">ISIS_moderator</A></B></TD>
+<TD> ISIS</TD>
+<TD> S. Ansell and D. Champion</TD>
+<TD><A HREF="contrib/ISIS_moderator.comp">comp</A></TD>
+<TD>ISIS Moderators
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Lens.html">Lens</A></B></TD>
+<TD> ILL/LLB</TD>
+<TD> C. Monzat/E. Farhi/S. Desert/G. Euzen</TD>
+<TD><A HREF="contrib/Lens.comp">comp</A></TD>
+<TD>Refractive lens with absorption, incoherent scattering and surface imperfection.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Lens_simple.html">Lens_simple</A></B></TD>
+<TD> FZ Juelich</TD>
+<TD> Henrich Frielinghaus</TD>
+<TD><A HREF="contrib/Lens_simple.comp">comp</A></TD>
+<TD>Rectangular/circular slit with parabolic/spherical LENS.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Mirror_Curved_Bispectral.html">Mirror_Curved_Bispectral</A></B></TD>
+<TD> RNBI</TD>
+<TD> Henrik Jacobsen</TD>
+<TD><A HREF="contrib/Mirror_Curved_Bispectral.comp">comp</A></TD>
+<TD>Single mirror plate that is curved and fits into an elliptic guide. 
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Mirror_Elliptic.html">Mirror_Elliptic</A></B></TD>
+<TD> <a href="http://www-llb.cea.fr/">LLB</a></TD>
+<TD> <a href="mailto:desert@drecam.cea.fr">Sylvain Desert</a></TD>
+<TD><A HREF="contrib/Mirror_Elliptic.comp">comp</A></TD>
+<TD>Elliptical mirror.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Mirror_Elliptic_Bispectral.html">Mirror_Elliptic_Bispectral</A></B></TD>
+<TD> RNBI</TD>
+<TD> Henrik Jacobsen</TD>
+<TD><A HREF="contrib/Mirror_Elliptic_Bispectral.comp">comp</A></TD>
+<TD>Single mirror plate that is curved and fits into an elliptic guide. 
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Mirror_Parabolic.html">Mirror_Parabolic</A></B></TD>
+<TD> <a href="http://www-llb.cea.fr/">LLB</a></TD>
+<TD> <a href="mailto:desert@drecam.cea.fr">Sylvain Desert</a></TD>
+<TD><A HREF="contrib/Mirror_Parabolic.comp">comp</A></TD>
+<TD>Parabolic mirror.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Monochromator_2foc.html">Monochromator_2foc</A></B></TD>
+<TD> Uni. Gottingen (Germany)</TD>
+<TD> <a href="mailto:plink@physik.tu-muenchen.de">Peter Link</a>.</TD>
+<TD><A HREF="contrib/Monochromator_2foc.comp">comp</A></TD>
+<TD>Double bent monochromator with multiple slabs
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/MultiDiskChopper.html">MultiDiskChopper</A></B></TD>
+<TD> ILL / FAU Erlangen-Nuernberg</TD>
+<TD> Markus Appel</TD>
+<TD><A HREF="contrib/MultiDiskChopper.comp">comp</A></TD>
+<TD>Based on DiskChopper (Revision 1.18) by Peter Willendrup (2006), 
+which in turn is based on Chopper (Philipp Bernhardt), Jitter and beamstop from work by 
+Kaspar Hewitt Klenoe (jan 2006), adjustments by Rob Bewey (march 2006)
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Multilayer_Sample.html">Multilayer_Sample</A></B></TD>
+<TD> McStas 1.12b</TD>
+<TD> Robert Dalgliesh</TD>
+<TD><A HREF="contrib/Multilayer_Sample.comp">comp</A></TD>
+<TD>Multilayer Reflecting sample using matrix Formula.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/PSD_Detector.html">PSD_Detector</A></B></TD>
+<TD> ILL</TD>
+<TD> Thorwald van Vuure</TD>
+<TD><A HREF="contrib/PSD_Detector.comp">comp</A></TD>
+<TD>Position-sensitive gas-filled detector with gaseous thermal-neutron
+converter (box, cylinder or 'banana').
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/PSD_monitor_rad.html">PSD_monitor_rad</A></B></TD>
+<TD>     FZ-Juelich/FRJ-2/IFF/KWS-2</TD>
+<TD> Henrich Frielinghaus</TD>
+<TD><A HREF="contrib/PSD_monitor_rad.comp">comp</A></TD>
+<TD>Position-sensitive monitor with radially averaging.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/PerfectCrystal.html">PerfectCrystal</A></B></TD>
+<TD> ILL / FAU Erlangen-Nuernberg</TD>
+<TD> Markus Appel</TD>
+<TD><A HREF="contrib/PerfectCrystal.comp">comp</A></TD>
+<TD>Based on a perfect crystal component by: Miguel A. Gonzalez, A. Dianoux June 2013 (ILL)
+Changelog:
+Version 1.1
+ - BUGFIX: correct neutron energy shift in Doppler mode
+ - added option 'debyescherrer' to select analyzer geometry
+ - added option 'facette' to approximate analyzer sphere by small, flat crystals
+Version 1.0
+ - inital release
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Pol_bender_tapering.html">Pol_bender_tapering</A></B></TD>
+<TD> DTU Physics</TD>
+<TD> Erik Bergbäck Knudsen (erkn@fysik.dtu.dk)</TD>
+<TD><A HREF="contrib/Pol_bender_tapering.comp">comp</A></TD>
+<TD>Polarising bender.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Pol_pi_2_rotator.html">Pol_pi_2_rotator</A></B></TD>
+<TD> Risoe</TD>
+<TD> Erik Knudsen (erkn@fysik.dtu.dk)</TD>
+<TD><A HREF="contrib/Pol_pi_2_rotator.comp">comp</A></TD>
+<TD>Ideal &pi;/2-rotator
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Pol_triafield.html">Pol_triafield</A></B></TD>
+<TD> Helmholtz-Zentrum Berlin</TD>
+<TD> Morten Sales, based on Pol_constBfield by Peter Christiansen</TD>
+<TD><A HREF="contrib/Pol_triafield.comp">comp</A></TD>
+<TD>Constant magnetic field in a isosceles triangular coil
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Radial_div.html">Radial_div</A></B></TD>
+<TD>(Unknown)</TD>
+<TD>(Unknown)</TD>
+<TD><A HREF="contrib/Radial_div.comp">comp</A></TD>
+<TD>A radial divergence sensitive monitor with wavelength restrictions.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/SANSCurve.html">SANSCurve</A></B></TD>
+<TD> KU-Science</TD>
+<TD> Martin Cramer Pedersen (mcpe@nbi.dk)</TD>
+<TD><A HREF="contrib/SANSCurve.comp">comp</A></TD>
+<TD>A component mimicking the scattering from a given I(q)-curve by using
+linear interpolation between the given points.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/SANSCylinders.html">SANSCylinders</A></B></TD>
+<TD> KU-Science</TD>
+<TD> Martin Cramer Pedersen (mcpe@nbi.dk)</TD>
+<TD><A HREF="contrib/SANSCylinders.comp">comp</A></TD>
+<TD>A sample of monodisperse cylindrical particles in solution.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/SANSEllipticCylinders.html">SANSEllipticCylinders</A></B></TD>
+<TD> KU-Science</TD>
+<TD> Martin Cramer Pedersen (mcpe@nbi.dk)</TD>
+<TD><A HREF="contrib/SANSEllipticCylinders.comp">comp</A></TD>
+<TD>A sample of monodisperse cylindrical particles with elliptic cross section in 
+solution.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/SANSLiposomes.html">SANSLiposomes</A></B></TD>
+<TD> KU-Science</TD>
+<TD> Martin Cramer Pedersen (mcpe@nbi.dk)</TD>
+<TD><A HREF="contrib/SANSLiposomes.comp">comp</A></TD>
+<TD>A sample of polydisperse liposomes in solution (water).
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/SANSNanodiscs.html">SANSNanodiscs</A></B></TD>
+<TD> KU-Science</TD>
+<TD> Martin Cramer Pedersen (mcpe@nbi.dk)</TD>
+<TD><A HREF="contrib/SANSNanodiscs.comp">comp</A></TD>
+<TD>A sample of monodisperse phospholipid bilayer nanodiscs in solution (water).
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/SANSNanodiscsFast.html">SANSNanodiscsFast</A></B></TD>
+<TD> KU-Science</TD>
+<TD> Martin Cramer Pedersen (mcpe@nbi.dk)</TD>
+<TD><A HREF="contrib/SANSNanodiscsFast.comp">comp</A></TD>
+<TD>A sample of monodisperse phospholipid bilayer nanodiscs in solution (water).
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/SANSNanodiscsWithTags.html">SANSNanodiscsWithTags</A></B></TD>
+<TD> KU-Science</TD>
+<TD> Martin Cramer Pedersen (mcpe@nbi.dk)</TD>
+<TD><A HREF="contrib/SANSNanodiscsWithTags.comp">comp</A></TD>
+<TD>A sample of monodisperse phospholipid bilayer nanodiscs in solution (water) - with
+histidine tag still on the belt proteins.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/SANSNanodiscsWithTagsFast.html">SANSNanodiscsWithTagsFast</A></B></TD>
+<TD> KU-Science</TD>
+<TD> Martin Cramer Pedersen (mcpe@nbi.dk)</TD>
+<TD><A HREF="contrib/SANSNanodiscsWithTagsFast.comp">comp</A></TD>
+<TD>A sample of monodisperse phospholipid bilayer nanodiscs in solution (water) - with
+histidine tag still on the belt proteins.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/SANSPDB.html">SANSPDB</A></B></TD>
+<TD> KU-Science</TD>
+<TD> Martin Cramer Pedersen (mcpe@nbi.dk) and Søren Kynde (kynde@nbi.dk)</TD>
+<TD><A HREF="contrib/SANSPDB.comp">comp</A></TD>
+<TD>A sample describing a thin solution of proteins. This components must be compiled 
+with the -lgsl and -lgslcblas flags (and possibly linked to the appropriate 
+libraries).
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/SANSPDBFast.html">SANSPDBFast</A></B></TD>
+<TD> KU-Science</TD>
+<TD> Martin Cramer Pedersen (mcpe@nbi.dk) and Søren Kynde (kynde@nbi.dk)</TD>
+<TD><A HREF="contrib/SANSPDBFast.comp">comp</A></TD>
+<TD>A sample describing a thin solution of proteins using linear interpolation
+to increase computational speed. This components must be compiled with the
+-lgsl and -lgslcblas flags (and possibly linked to the appropriate libraries).
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/SANSQMonitor.html">SANSQMonitor</A></B></TD>
+<TD> KU-Science</TD>
+<TD> Martin Cramer Pedersen (mcpe@nbi.dk)</TD>
+<TD><A HREF="contrib/SANSQMonitor.comp">comp</A></TD>
+<TD>A circular detector measuring the radial average of intensity as a function 
+of the momentum transform in the sample.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/SANSShells.html">SANSShells</A></B></TD>
+<TD> KU-Science</TD>
+<TD> Martin Cramer Pedersen (mcpe@nbi.dk)</TD>
+<TD><A HREF="contrib/SANSShells.comp">comp</A></TD>
+<TD>A sample of monodisperse shell-like particles in solution.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/SANSSpheres.html">SANSSpheres</A></B></TD>
+<TD> KU-Science</TD>
+<TD> Martin Cramer Pedersen (mcpe@nbi.dk)</TD>
+<TD><A HREF="contrib/SANSSpheres.comp">comp</A></TD>
+<TD>Based on a SANS-component in McStas by Peter Willendrup
+A sample of monodisperse spherical particles in solution.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/SANS_AnySamp.html">SANS_AnySamp</A></B></TD>
+<TD>     FZ-Juelich/FRJ-2/IFF/KWS-2</TD>
+<TD> Henrich Frielinghaus</TD>
+<TD><A HREF="contrib/SANS_AnySamp.comp">comp</A></TD>
+<TD>Sample for Small Angle Neutron Scattering. To be customized.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/SANS_DebyeS.html">SANS_DebyeS</A></B></TD>
+<TD>     FZ-Juelich/FRJ-2/IFF/KWS-2</TD>
+<TD> Henrich Frielinghaus</TD>
+<TD><A HREF="contrib/SANS_DebyeS.comp">comp</A></TD>
+<TD>Sample for Small Angle Neutron Scattering: Debye-Scherrer Ring
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/SANS_Guinier.html">SANS_Guinier</A></B></TD>
+<TD>     FZ-Juelich/FRJ-2/IFF/KWS-2</TD>
+<TD> Henrich Frielinghaus</TD>
+<TD><A HREF="contrib/SANS_Guinier.comp">comp</A></TD>
+<TD>Sample for Small Angle Neutron Scattering: Guinier model
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/SANS_benchmark2.html">SANS_benchmark2</A></B></TD>
+<TD>(Unknown)</TD>
+<TD>(Unknown)</TD>
+<TD><A HREF="contrib/SANS_benchmark2.comp">comp</A></TD>
+<TD>Henrich Frielinghaus
+Several benchmark SANS samples are defined in this routine. The first ones are analytically defined. Higher numbers are forseen for tables.
+In principle, the exact definitions can be changed freely - inside this code.
+The consideration of all parameters as a routine parameter would be too much for the general purpose.
+The user might decide to make single parameters routine parameters.
+For the scattering simulation a high fraction of neutron paths is directed to the scattering (exact fraction is sc_aim).
+The remaining paths are used for the transmitted beams. The absolute intensities are treated accordingly, and the p-parameter is set accordingly.
+For the scattering probability, the integral of the scattering function between Q = 0.0001 and 1.0 AA-1 is calculated.
+This is used in terms of transmisson, and of course for the scattering probability.
+In this way, multiple scattering processes could be treated as well.
+The typical SANS range was considered to be between 0.0001 and 1.0 AA-1.
+This means that the scattered neutrons are equally distributed in this range on logarithmic Q-scales.
+The Q-parameters can be changed still inside the code, if needed.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/SNS_source.html">SNS_source</A></B></TD>
+<TD> SNS Project Oak Ridge National Laboratory</TD>
+<TD> G. Granroth</TD>
+<TD><A HREF="contrib/SNS_source.comp">comp</A></TD>
+<TD>A source that produces a time and energy distribution from the SNS moderator files
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/SNS_source_analytic.html">SNS_source_analytic</A></B></TD>
+<TD> SNS Oak Ridge National Laboratory</TD>
+<TD> F. X. Gallmeier</TD>
+<TD><A HREF="contrib/SNS_source_analytic.comp">comp</A></TD>
+<TD>A source that produces a time and energy distribution from 
+parameterized SNS moderator files  
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Sample_nxs.html">Sample_nxs</A></B></TD>
+<TD> Helmholtz-Zentrum Berlin fuer Materialien und Energie (Germany)</TD>
+<TD> Mirko Boin</TD>
+<TD><A HREF="contrib/Sample_nxs.comp">comp</A></TD>
+<TD>General powder/polycrystalline sample with neutron-matter interaction based
+   on neutron cross section calculations of a unit cell
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Saphire_Filter.html">Saphire_Filter</A></B></TD>
+<TD> PSI</TD>
+<TD> Jonas Okkels Birk (based upon Filteg_Graphite by Thomas C Hansen (2000))</TD>
+<TD><A HREF="contrib/Saphire_Filter.comp">comp</A></TD>
+<TD>Saphire filter at 300K
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/SiC.html">SiC</A></B></TD>
+<TD> IRI.</TD>
+<TD> <a href="mailto:S.RYCROFT@IRI.TUDELFT.NL">S. Rycroft</a></TD>
+<TD><A HREF="contrib/SiC.comp">comp</A></TD>
+<TD>SiC layer sample
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Source_gen4.html">Source_gen4</A></B></TD>
+<TD> ILL/Risoe</TD>
+<TD> Emmanuel Farhi, Kim Lefmann, modified to PSI use by Jonas Okkels Birk</TD>
+<TD><A HREF="contrib/Source_gen4.comp">comp</A></TD>
+<TD>Circular/squared neutron source with flat or Maxwellian energy/wavelength
+spectrum (possibly spatially gaussian)
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Source_multi_surfaces.html">Source_multi_surfaces</A></B></TD>
+<TD> PSI/Villigen</TD>
+<TD> Ludovic Giller, Uwe Filges</TD>
+<TD><A HREF="contrib/Source_multi_surfaces.comp">comp</A></TD>
+<TD>Rectangular neutron source with subareas - using wavelength spectra reading
+from files
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Spot_sample.html">Spot_sample</A></B></TD>
+<TD> Oak Ridge National Laboratory</TD>
+<TD> Garrett Granroth</TD>
+<TD><A HREF="contrib/Spot_sample.comp">comp</A></TD>
+<TD>Spot sample.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/StatisticalChopper.html">StatisticalChopper</A></B></TD>
+<TD> ILL</TD>
+<TD>  C. Monzat/E. Farhi/S. Rozenkranz</TD>
+<TD><A HREF="contrib/StatisticalChopper.comp">comp</A></TD>
+<TD>Statistical (correlation) Chopper
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/StatisticalChopper_Monitor.html">StatisticalChopper_Monitor</A></B></TD>
+<TD> ILL</TD>
+<TD> C. Monzat/E. Farhi</TD>
+<TD><A HREF="contrib/StatisticalChopper_Monitor.comp">comp</A></TD>
+<TD>Monitor designed to compute the autocorrelation signal for the Statistical Chopper
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/TOFSANSdet.html">TOFSANSdet</A></B></TD>
+<TD>     xxx</TD>
+<TD>(Unknown)</TD>
+<TD><A HREF="contrib/TOFSANSdet.comp">comp</A></TD>
+<TD>Based on:   Henrich Frielinghaus, FZJuelich
+Multiple TOF detectors for SANS instrument.
+The component is to be placed at the sample position.
+For the time being better switch gravity off.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Transmission_polarisatorABSnT.html">Transmission_polarisatorABSnT</A></B></TD>
+<TD> McStas 1.8/<a href="http://www.ill.fr">ILL (France)</a>.</TD>
+<TD> Andreas Ostermann</TD>
+<TD><A HREF="contrib/Transmission_polarisatorABSnT.comp">comp</A></TD>
+<TD>Component: Transmission_polarisatorABSnT
+        The main source code was taken from Gravity_guide (ver 1.6ill)
+Example: Gravity_guide(w1=0.1, h1=0.1, w2=0.1, h2=0.1, l=12, 
+          R0=0.99, Qc=0.021, alpha=6.07, m=1.0, W=0.003, k=1, d=0.0005)
+Example: Transmission_polarisatorABSnT(w1=0.050, h1=0.050,
+                                       w2=0.050, h2=0.050, l=2.700,
+                                       waferD=0.0003, FeD=2.16e-06,
+                                       Si_i=0.2, Si_a=0.215,
+                                       R0=0.99, Qc=0.02174, alpha=4.25, W=0.001,
+                                       mleft=1.2, mright=1.2, mtop=1.2, mbottom=1.2,
+                                       R0_up=0.99, Qc_up=0.014, alpha_up=2.25, W_up=0.0025, mup=1.0,
+                                       R0_down=0.99, Qc_down=0.02174, alpha_down=3.8, W_down=0.00235, mdown=2.5)
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Vertical_T0a.html">Vertical_T0a</A></B></TD>
+<TD> SNS Oak Ridge,TN</TD>
+<TD> Garrett Granroth</TD>
+<TD><A HREF="contrib/Vertical_T0a.comp">comp</A></TD>
+<TD>Vertical T0 chopper contributed by Garrett Granroth, SNS.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Virtual_mcnp_input.html">Virtual_mcnp_input</A></B></TD>
+<TD> <a href="http://www.ill.fr/">ILL</a></TD>
+<TD> <a href="mailto:hennanec@ensimag.fr">Chama Hennane</a> and E. Farhi</TD>
+<TD><A HREF="contrib/Virtual_mcnp_input.comp">comp</A></TD>
+<TD>This component uses a filename of recorded neutrons from the reactor monte carlo
+code MCNP as a source of particles.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Virtual_mcnp_output.html">Virtual_mcnp_output</A></B></TD>
+<TD> <a href="http://www.ill.fr/">ILL</a></TD>
+<TD> <a href="mailto hennanec@ensimag.fr">Chama Hennane</a> and E. Farhi</TD>
+<TD><A HREF="contrib/Virtual_mcnp_output.comp">comp</A></TD>
+<TD>Detector-like component that writes neutron state parameters into a
+'virtual source' neutron file with MCNP/PTRAC format.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Virtual_mcnp_ss_input.html">Virtual_mcnp_ss_input</A></B></TD>
+<TD> <a href="http://www.risoe.dtu.dk/">DTU</a></TD>
+<TD> <a href="mailto:esbe@dtu.dk">Esben Klinkby</a> and <a href="mailto:pkwi@dtu.dk">Peter Willendrup</a> </TD>
+<TD><A HREF="contrib/Virtual_mcnp_ss_input.comp">comp</A></TD>
+<TD>This component uses a Source Surface type file of recorded neutrons from the 
+reactor monte carlo code MCNP as a source of particles.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Virtual_mcnp_ss_output.html">Virtual_mcnp_ss_output</A></B></TD>
+<TD> <a href="http://www.risoe.dtu.dk/">DTU</a></TD>
+<TD> <a href="mailto:esbe@dtu.dk">Esben Klinkby</a> and <a href="mailto:pkwi@dtu.dk">Peter Willendrup</a> </TD>
+<TD><A HREF="contrib/Virtual_mcnp_ss_output.comp">comp</A></TD>
+<TD>This component uses a Source Surface type file of recorded neutrons from the 
+reactor monte carlo code MCNP as a source of particles.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Virtual_tripoli4_input.html">Virtual_tripoli4_input</A></B></TD>
+<TD> <a href="http://www.serma.cea.fr/">SERMA</a></TD>
+<TD> <a href="mailto:guillaume.campioni@cea.fr">Guillaume Campioni</a></TD>
+<TD><A HREF="contrib/Virtual_tripoli4_input.comp">comp</A></TD>
+<TD>This component reads a file of recorded neutrons from the reactor Monte Carlo
+code TRIPOLI4.4 as a source of particles.
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/Virtual_tripoli4_output.html">Virtual_tripoli4_output</A></B></TD>
+<TD> <a href="http://www.cea-llb.fr">LLB</a></TD>
+<TD> <a href="mailtoguillaume.campioni@cea.fr">Guillaume Campioni</a></TD>
+<TD><A HREF="contrib/Virtual_tripoli4_output.comp">comp</A></TD>
+<TD>Detector-like component that writes neutron state parameters into a
+'virtual source' neutron file when neutrons come from the source :
+Virtual_tripoli4_input.comp
+</TD>
+</TR>
+
+<TR>
+<TD> <B><A HREF="contrib/multi_pipe.html">multi_pipe</A></B></TD>
+<TD>(Unknown)</TD>
+<TD> Uwe Filges</TD>
+<TD><A HREF="contrib/multi_pipe.comp">comp</A></TD>
+<TD>multi pipe circular slit.
+</TD>
+</TR>
+
+</TABLE>
+
+
+<P><A NAME="examples"></A>
+<B><FONT COLOR="#FF0000">Instrument Examples</FONT></B>
+<TABLE BORDER COLS=5 WIDTH="100%" NOSAVE>
+<TR>
+<TD><B><I>Name</I></B></TD>
+<TD WIDTH="10%"><B><I>Origin</I></B></TD>
+<TD WIDTH="10%"><B><I>Author(s)</I></B></TD>
+<TD><B><I>Source code</I></B></TD>
+<TD><B><I>Description</I></B></TD>
+</TR>
+<TR>
+<TD> <B> Brookhaven <A HREF="examples/BNL_H8.html">BNL_H8</A> (BNL_H8.instr)</B></TD>
+<TD> <a href="http://www.ill.fr">ILL (France)</a></TD>
+<TD> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></TD>
+<TD><A HREF="examples/BNL_H8.instr">instr</A></TD>
+<TD>The former thermal H8 triple-axis spectrometer from Brookhaven reactor
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ESS <A HREF="examples/ESS_2001_bispectral.html">ESS_2001_bispectral</A> (ESS_2001_bispectral.instr)</B></TD>
+<TD> NBI, ESS</TD>
+<TD> Henrik Jacobsen, contact: hjacobse@fys.ku.dk</TD>
+<TD><A HREF="examples/ESS_2001_bispectral.instr">instr</A></TD>
+<TD>Instrument short description
+Bispectral extraction system
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ESS <A HREF="examples/ESS_2015_test.html">ESS_2015_test</A> (ESS_2015_test.instr)</B></TD>
+<TD> NPI Rez</TD>
+<TD> Jan Saroun (saroun@ujf.cas.cz)</TD>
+<TD><A HREF="examples/ESS_2015_test.instr">instr</A></TD>
+<TD>Test of the ESS-2015 moderator model with updated component ESS_moderator_corr.comp  . 
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ESS <A HREF="examples/ESS_Brilliance_2001.html">ESS_Brilliance_2001</A> (ESS_Brilliance_2001.instr)</B></TD>
+<TD> DTU Fysik</TD>
+<TD> Peter Willendrup (pkwi@fysik.dtu.dk)</TD>
+<TD><A HREF="examples/ESS_Brilliance_2001.instr">instr</A></TD>
+<TD>This instrument produces the legacy ESS 2001 cold brilliance, at 14 Hz 2.86 ms.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ESS <A HREF="examples/ESS_Brilliance_2013.html">ESS_Brilliance_2013</A> (ESS_Brilliance_2013.instr)</B></TD>
+<TD> DTU Fysik</TD>
+<TD> Peter Willendrup (pkwi@fysik.dtu.dk)</TD>
+<TD><A HREF="examples/ESS_Brilliance_2013.instr">instr</A></TD>
+<TD>This instrument produces the ESS 2013 post-TDR brillance, before the "pancake" moderator was introduced.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ESS <A HREF="examples/ESS_Brilliance_2014.html">ESS_Brilliance_2014</A> (ESS_Brilliance_2014.instr)</B></TD>
+<TD> DTU Fysik</TD>
+<TD> Peter Willendrup (pkwi@fysik.dtu.dk)</TD>
+<TD><A HREF="examples/ESS_Brilliance_2014.instr">instr</A></TD>
+<TD>This instrument produces the ESS 2014 updated brilliance, including the "pancake" moderator option.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ESS <A HREF="examples/ESS_Brilliance_2015.html">ESS_Brilliance_2015</A> (ESS_Brilliance_2015.instr)</B></TD>
+<TD> DTU Fysik</TD>
+<TD> Peter Willendrup (pkwi@fysik.dtu.dk)</TD>
+<TD><A HREF="examples/ESS_Brilliance_2015.instr">instr</A></TD>
+<TD>This instrument produces the ESS 2014 updated brilliance, including the "pancake" moderator option.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ESS <A HREF="examples/ESS_Brilliance_TDR.html">ESS_Brilliance_TDR</A> (ESS_Brilliance_TDR.instr)</B></TD>
+<TD> DTU Fysik</TD>
+<TD> Peter Willendrup (pkwi@fysik.dtu.dk)</TD>
+<TD><A HREF="examples/ESS_Brilliance_TDR.instr">instr</A></TD>
+<TD>This instrument produces the ESS TDR brilliance.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ESS <A HREF="examples/ESS_IN5_reprate.html">ESS_IN5_reprate</A> (ESS_IN5_reprate.instr)</B></TD>
+<TD>ESS</TD>
+<TD> Kim Lefmann (kim.lefmann@risoe.dk), Helmuth Schober, Feri Mezei</TD>
+<TD><A HREF="examples/ESS_IN5_reprate.instr">instr</A></TD>
+<TD>An IN5 type (cold chopper) multi-frame spectrometer at ESS LPTS
+</TD>
+</TR>
+
+<TR>
+<TD> <B> FZ_Juelich <A HREF="examples/FZJ_BenchmarkSfin2.html">FZJ_BenchmarkSfin2</A> (FZJ_BenchmarkSfin2.instr)</B></TD>
+<TD> FZ Juelich</TD>
+<TD> Henrich Frielinghaus</TD>
+<TD><A HREF="examples/FZJ_BenchmarkSfin2.instr">instr</A></TD>
+<TD>Test instrument for the H Frielinghaus SANS_benchmark2 component
+</TD>
+</TR>
+
+<TR>
+<TD> <B> FZ_Juelich <A HREF="examples/FZJ_KWS2_Lens.html">FZJ_KWS2_Lens</A> (FZJ_KWS2_Lens.instr)</B></TD>
+<TD> FZ Juelich</TD>
+<TD> Henrich Frielinghaus</TD>
+<TD><A HREF="examples/FZJ_KWS2_Lens.instr">instr</A></TD>
+<TD>FZ Juelich KWS2 SANS, serving as test instrument for the Lens_simple component.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> FZ_Juelich <A HREF="examples/FZJ_SANS_KWS2_AnySample.html">SANS_KWS2_AnySample</A> (FZJ_SANS_KWS2_AnySample.instr)</B></TD>
+<TD>     FZ-Juelich/FRJ-2/IFF/KWS-2</TD>
+<TD> Henrich Frielinghaus</TD>
+<TD><A HREF="examples/FZJ_SANS_KWS2_AnySample.instr">instr</A></TD>
+<TD>KWS2 SANS instrument at FZ-Juelich. 2 detectors. 4 available sample models.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> SNS <A HREF="examples/Gallmeier_SNS_decoupled_poisoned.html">Gallmeier_SNS_decoupled_poisoned</A> (Gallmeier_SNS_decoupled_poisoned.instr)</B></TD>
+<TD>(Unknown)</TD>
+<TD>(Unknown)</TD>
+<TD><A HREF="examples/Gallmeier_SNS_decoupled_poisoned.instr">instr</A></TD>
+<TD></TD>
+</TR>
+
+<TR>
+<TD> <B> SNS <A HREF="examples/Granroth_SNS_decoupled_poisoned.html">Granroth_SNS_decoupled_poisoned</A> (Granroth_SNS_decoupled_poisoned.instr)</B></TD>
+<TD>(Unknown)</TD>
+<TD>(Unknown)</TD>
+<TD><A HREF="examples/Granroth_SNS_decoupled_poisoned.instr">instr</A></TD>
+<TD></TD>
+</TR>
+
+<TR>
+<TD> <B> HZB <A HREF="examples/HZB_FLEX.html">HZB_FLEX</A> (HZB_FLEX.instr)</B></TD>
+<TD> Helmholtz-Zentrum Berlin</TD>
+<TD> M. Skoulatos and K. Habicht, port to McStas 2.0 by Mathias Kure KU</TD>
+<TD><A HREF="examples/HZB_FLEX.instr">instr</A></TD>
+<TD>Instrument short description
+Primary and secondary spectrometer for the FLEX upgrade
+</TD>
+</TR>
+
+<TR>
+<TD> <B> HZB <A HREF="examples/HZB_NEAT.html">HZB_NEAT</A> (HZB_NEAT.instr)</B></TD>
+<TD> <a href="http://www.ill.fr">ILL (France)</a>/<a href="http://www.helmholtz-berlin.de/user/neutrons/index_en.html">BENSC (Germany)</a></TD>
+<TD> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a> and R. Lechner</TD>
+<TD><A HREF="examples/HZB_NEAT.instr">instr</A></TD>
+<TD>V3 Time-of-Flight-Spectrometer (NEAT) at BENSC, 1995 version.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tools <A HREF="examples/Histogrammer.html">Histogrammer</A> (Histogrammer.instr)</B></TD>
+<TD> Risoe</TD>
+<TD> Peter Willendrup (peter.willendrup@risoe.dk)</TD>
+<TD><A HREF="examples/Histogrammer.instr">instr</A></TD>
+<TD>Takes eventfile input (Virtual_input/Vitess/MCNP/Tripoli4 formats) and applies Monitor_nD to generate
+histograms. Histograms can be chosen freely using the options string, see mcdoc Monitor_nD.comp
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_BRISP.html">ILL_BRISP</A> (ILL_BRISP.instr)</B></TD>
+<TD> ILL</TD>
+<TD> E. Farhi and N. Formissano [formisan@ill.fr]</TD>
+<TD><A HREF="examples/ILL_BRISP.instr">instr</A></TD>
+<TD>Time of Flight Neutron Spectrometer for Small Angle Inelastic Scattering BRISP
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_D2B.html">ILL_D2B</A> (ILL_D2B.instr)</B></TD>
+<TD> ILL</TD>
+<TD> C. M. I Enrique, K. Lieutenant, E. Farhi and L. Cussen</TD>
+<TD><A HREF="examples/ILL_D2B.instr">instr</A></TD>
+<TD>Simple monochromator Diffractometer for powders
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_D4.html">ILL_D4</A> (ILL_D4.instr)</B></TD>
+<TD> LLB/ILL</TD>
+<TD> E. Farhi</TD>
+<TD><A HREF="examples/ILL_D4.instr">instr</A></TD>
+<TD>D4 Diffractometer for liquids at the ILL.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_H10_IN8.html">ILL_H10_IN8</A> (ILL_H10_IN8.instr)</B></TD>
+<TD> <a href="http://www.ill.fr">ILL (France)</a></TD>
+<TD> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></TD>
+<TD><A HREF="examples/ILL_H10_IN8.instr">instr</A></TD>
+<TD>Thermal neutron three-axis spectrometer IN8@ILL
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_H113.html">ILL_H113</A> (ILL_H113.instr)</B></TD>
+<TD>ILL</TD>
+<TD> FARHI Emmanuel (farhi@ill.fr)</TD>
+<TD><A HREF="examples/ILL_H113.instr">instr</A></TD>
+<TD>The H113 supermirror ballistic curved cold guide at the ILL
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_H13_IN20.html">ILL_H13_IN20</A> (ILL_H13_IN20.instr)</B></TD>
+<TD> <a href="http://www.ill.fr">ILL (France)</a></TD>
+<TD> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></TD>
+<TD><A HREF="examples/ILL_H13_IN20.instr">instr</A></TD>
+<TD>Thermal neutron three-axis spectrometer IN20@ILL (unpolarized configuration)
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_H142.html">ILL_H142</A> (ILL_H142.instr)</B></TD>
+<TD>ILL</TD>
+<TD> FARHI Emmanuel (farhi@ill.fr)</TD>
+<TD><A HREF="examples/ILL_H142.instr">instr</A></TD>
+<TD>The H142 S-curved cold guide at the ILL
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_H142_IN12.html">ILL_H142_IN12</A> (ILL_H142_IN12.instr)</B></TD>
+<TD>ILL</TD>
+<TD> FARHI Emmanuel (farhi@ill.fr)</TD>
+<TD><A HREF="examples/ILL_H142_IN12.instr">instr</A></TD>
+<TD>The H142 S-curved cold guide at the ILL feeding IN12 TAS spectrometer
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_H143_LADI.html">ILL_H143_LADI</A> (ILL_H143_LADI.instr)</B></TD>
+<TD> <a href="http://www.ill.fr">ILL (France)</a></TD>
+<TD> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></TD>
+<TD><A HREF="examples/ILL_H143_LADI.instr">instr</A></TD>
+<TD>The LADI protein crystallography cold Laue diffractometer
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_H15.html">ILL_H15</A> (ILL_H15.instr)</B></TD>
+<TD>ILL</TD>
+<TD> FARHI Emmanuel (farhi@ill.fr)</TD>
+<TD><A HREF="examples/ILL_H15.instr">instr</A></TD>
+<TD>The H15@ILL curved cold guide at the ILL (feeding IN6, D7, IN10, D11)
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_H15_IN6.html">ILL_H15_IN6</A> (ILL_H15_IN6.instr)</B></TD>
+<TD> <a href="http://www.ill.fr">ILL (France)</a></TD>
+<TD> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></TD>
+<TD><A HREF="examples/ILL_H15_IN6.instr">instr</A></TD>
+<TD>The IN6 Time-of-Flight simulation, positioned as the first instrument in the
+cold guide H15 (Nickel coating) at the ILL.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_H16.html">ILL_H16</A> (ILL_H16.instr)</B></TD>
+<TD> ILL</TD>
+<TD> E. Farhi, J. Ollivier, Celia Castan Guerrero</TD>
+<TD><A HREF="examples/ILL_H16.instr">instr</A></TD>
+<TD>The H16 cold guide (feeding IN5)
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_H16_IN5.html">ILL_H16_IN5</A> (ILL_H16_IN5.instr)</B></TD>
+<TD> ILL</TD>
+<TD> E. Farhi, J. Ollivier, Celia Castan Guerrero</TD>
+<TD><A HREF="examples/ILL_H16_IN5.instr">instr</A></TD>
+<TD>  The full IN5B: H16 guide & chopper system + sample + PSD and tof detector
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Mantid <A HREF="examples/ILL_H16_IN5_Mantid.html">ILL_H16_IN5_Mantid</A> (ILL_H16_IN5_Mantid.instr)</B></TD>
+<TD> Mantid</TD>
+<TD> E. Farhi, J. Ollivier, Celia Castan Guerrero</TD>
+<TD><A HREF="examples/ILL_H16_IN5_Mantid.instr">instr</A></TD>
+<TD>The full ILL IN5B ToF spectrometer adapted for use with Mantid-friendly NeXus output.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Mantid <A HREF="examples/ILL_H16_Mantid.html">ILL_H16_Mantid</A> (ILL_H16_Mantid.instr)</B></TD>
+<TD> ILL</TD>
+<TD> E. Farhi, J. Ollivier, Celia Castan Guerrero</TD>
+<TD><A HREF="examples/ILL_H16_Mantid.instr">instr</A></TD>
+<TD>The ILL H16 cold guide (feeding IN5) for use with mantid
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_H22.html">ILL_H22</A> (ILL_H22.instr)</B></TD>
+<TD>ILL</TD>
+<TD> FARHI Emmanuel (farhi@ill.fr)</TD>
+<TD><A HREF="examples/ILL_H22.instr">instr</A></TD>
+<TD>The H22 curved thermal guide at the ILL
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_H22_D1A.html">ILL_H22_D1A</A> (ILL_H22_D1A.instr)</B></TD>
+<TD> ILL</TD>
+<TD> E. Farhi</TD>
+<TD><A HREF="examples/ILL_H22_D1A.instr">instr</A></TD>
+<TD>Simple monochromator Diffractometer for powders (D1A) installed on H22, with 
+container/sample environment and radial collimator.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL    <A HREF="examples/ILL_H22_D1B.html">ILL_H22_D1B</A> (ILL_H22_D1B.instr)</B></TD>
+<TD>ILL</TD>
+<TD> FARHI Emmanuel (farhi@ill.fr) and SANCHEZ Javier (sanchez-montero@ill.fr)   </TD>
+<TD><A HREF="examples/ILL_H22_D1B.instr">instr</A></TD>
+<TD>The D1B diffractometer on the H22 curved thermal guide at the ILL    
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL    <A HREF="examples/ILL_H22_VIVALDI.html">ILL_H22_VIVALDI</A> (ILL_H22_VIVALDI.instr)</B></TD>
+<TD>ILL</TD>
+<TD> FARHI Emmanuel (farhi@ill.fr)</TD>
+<TD><A HREF="examples/ILL_H22_VIVALDI.instr">instr</A></TD>
+<TD>The VIVALDI Laue diffractometer on the H22 curved thermal guide at the ILL    
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_H24.html">ILL_H24</A> (ILL_H24.instr)</B></TD>
+<TD>ILL</TD>
+<TD> FARHI Emmanuel (farhi@ill.fr)</TD>
+<TD><A HREF="examples/ILL_H24.instr">instr</A></TD>
+<TD>The H24 curved thermal guide at the ILL
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_H25.html">ILL_H25</A> (ILL_H25.instr)</B></TD>
+<TD> <a href="http://www.ill.fr">ILL (France)</a></TD>
+<TD> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></TD>
+<TD><A HREF="examples/ILL_H25.instr">instr</A></TD>
+<TD>The H25 supermirror curved thermal guide at the ILL
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_H25_IN22.html">ILL_H25_IN22</A> (ILL_H25_IN22.instr)</B></TD>
+<TD> <a href="http://www.ill.fr">ILL (France)</a></TD>
+<TD> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></TD>
+<TD><A HREF="examples/ILL_H25_IN22.instr">instr</A></TD>
+<TD>IN22 thermal triple-axis machine (TAS) on guide H25 with sample
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_H512_D22.html">ILL_H512_D22</A> (ILL_H512_D22.instr)</B></TD>
+<TD>ILL</TD>
+<TD> FARHI Emmanuel (farhi@ill.fr)</TD>
+<TD><A HREF="examples/ILL_H512_D22.instr">instr</A></TD>
+<TD>The H512 cold guide at the ILL, with D22
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_H53.html">ILL_H53</A> (ILL_H53.instr)</B></TD>
+<TD>ILL</TD>
+<TD> FARHI Emmanuel (farhi@ill.fr)</TD>
+<TD><A HREF="examples/ILL_H53.instr">instr</A></TD>
+<TD>The H53 curved cold guide at the ILL
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_H53_D16.html">ILL_H53_D16</A> (ILL_H53_D16.instr)</B></TD>
+<TD>ILL</TD>
+<TD> FARHI Emmanuel (farhi@ill.fr)</TD>
+<TD><A HREF="examples/ILL_H53_D16.instr">instr</A></TD>
+<TD>The D16 diffractometer/reflectometer on the H53 curved cold guide at the ILL
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_H53_IN14.html">ILL_H53_IN14</A> (ILL_H53_IN14.instr)</B></TD>
+<TD> <a href="http://www.ill.fr">ILL (France)</a></TD>
+<TD> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></TD>
+<TD><A HREF="examples/ILL_H53_IN14.instr">instr</A></TD>
+<TD>IN14 cold triple-axis machine (TAS) on guide H53 with sample
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_H8_IN1.html">ILL_H8_IN1</A> (ILL_H8_IN1.instr)</B></TD>
+<TD> <a href="http://www.ill.fr">ILL (France)</a></TD>
+<TD> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></TD>
+<TD><A HREF="examples/ILL_H8_IN1.instr">instr</A></TD>
+<TD>Hot neutron three-axis spectrometer IN1@ILL
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_IN13.html">ILL_IN13</A> (ILL_IN13.instr)</B></TD>
+<TD>ILL</TD>
+<TD> E. Farhi and A. Dennison</TD>
+<TD><A HREF="examples/ILL_IN13.instr">instr</A></TD>
+<TD>IN13 Thermal neutron backscattering spectrometer (without guide)
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_IN4.html">ILL_IN4</A> (ILL_IN4.instr)</B></TD>
+<TD> <a href="http://www.ill.fr">ILL (France)</a></TD>
+<TD> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></TD>
+<TD><A HREF="examples/ILL_IN4.instr">instr</A></TD>
+<TD>The IN4 thermal Time-of-Flight spectrometer at the ILL (H12 tube).
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_IN5.html">ILL_IN5</A> (ILL_IN5.instr)</B></TD>
+<TD> ILL</TD>
+<TD> E. Farhi, J. Ollivier, Celia Castan Guerrero</TD>
+<TD><A HREF="examples/ILL_IN5.instr">instr</A></TD>
+<TD>  The IN5B instrument: chopper system + sample + PSD and tof detector
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Mantid <A HREF="examples/ILL_IN5_Mantid.html">ILL_IN5_Mantid</A> (ILL_IN5_Mantid.instr)</B></TD>
+<TD> ILL</TD>
+<TD> E. Farhi, J. Ollivier, Celia Castan Guerrero</TD>
+<TD><A HREF="examples/ILL_IN5_Mantid.instr">instr</A></TD>
+<TD>  The IN5B instrument: chopper system + sample + PSD and tof detector, adapted for
+  use with Mantid-friendly NeXus output. To compile and run, use these steps:
+  <ol>
+    <li>Compile the instrument with NeXus support - zero neutrons:
+    <ul>
+      <li>export MCSTAS_CFLAGS="-g -lm -O2 -DUSE_NEXUS -lNeXus"
+      <li>mcrun -c -n0 --format=NeXus ILL_IN5_Mantid.instr --format=NeXus --no-output-files
+    </ul>
+    <li>Generate the IDF in XML format using the (Perl) mcdisplay tool:
+    <ul>
+      <li>mcdisplay ILL_IN5_Mantid.instr -n0 --format=Mantid
+    </ul>
+    <li>Run a simulation with NeXus output
+    <ul>
+      <li>mcrun ILL_IN5_Mantid.instr --format=NeXus
+    </ul>
+  </ol>
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_IN6.html">ILL_IN6</A> (ILL_IN6.instr)</B></TD>
+<TD> <a href="http://www.ill.fr">ILL (France)</a></TD>
+<TD> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></TD>
+<TD><A HREF="examples/ILL_IN6.instr">instr</A></TD>
+<TD>The IN6 Time-of-Flight simulation at the ILL (instrument only).
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ILL <A HREF="examples/ILL_Lagrange.html">ILL_Lagrange</A> (ILL_Lagrange.instr)</B></TD>
+<TD> LLB/ILL</TD>
+<TD> E. Farhi</TD>
+<TD><A HREF="examples/ILL_Lagrange.instr">instr</A></TD>
+<TD>IN1-Lagrange hot neutrons spectrometer for liquids at the ILL.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ISIS <A HREF="examples/ISIS_CRISP.html">ISIS_CRISP</A> (ISIS_CRISP.instr)</B></TD>
+<TD> <a href="http://www.isis.stfc.ac.uk/">ISIS (UK)</a></TD>
+<TD> <a href="robert.dalgliesh@stfc.ac.uk">Robert Dalgliesh</a></TD>
+<TD><A HREF="examples/ISIS_CRISP.instr">instr</A></TD>
+<TD>Model of the ISIS CRISP reflectometer, including the Multilayer_Sample reflectivity sample.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ISIS <A HREF="examples/ISIS_GEM.html">ISIS_GEM</A> (ISIS_GEM.instr)</B></TD>
+<TD> ISIS</TD>
+<TD> E. Farhi, G. Cuello, M. Tucker</TD>
+<TD><A HREF="examples/ISIS_GEM.instr">instr</A></TD>
+<TD>McStas instrument for simulating the GEM diffractometer at ISIS TS1.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ISIS <A HREF="examples/ISIS_HET.html">ISIS_HET</A> (ISIS_HET.instr)</B></TD>
+<TD> <a href="http://www.isis.rl.ac.uk">ISIS (UK)</a></TD>
+<TD> <a href="mailto:d.champion@rl.ac.uk">Dickon Champion</a></TD>
+<TD><A HREF="examples/ISIS_HET.instr">instr</A></TD>
+<TD>HET: High Energy Transfer Chopper Spectrometer
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ISIS <A HREF="examples/ISIS_OSIRIS.html">ISIS_OSIRIS</A> (ISIS_OSIRIS.instr)</B></TD>
+<TD> DTU Fysik, RISOE and ISIS</TD>
+<TD> Peter Christiansen with input from Mark Telling, updates by P Willendrup</TD>
+<TD><A HREF="examples/ISIS_OSIRIS.instr">instr</A></TD>
+<TD>A simulation of the indirect TOF geometry part of the OSIRIS instrument.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ISIS <A HREF="examples/ISIS_Prisma2.html">ISIS_Prisma2</A> (ISIS_Prisma2.instr)</B></TD>
+<TD> ISIS/Risoe</TD>
+<TD> Kristian Nielsen and Mark Hagen</TD>
+<TD><A HREF="examples/ISIS_Prisma2.instr">instr</A></TD>
+<TD>Simple simulation of PRISMA2 with RITA-style analyser backend.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ISIS <A HREF="examples/ISIS_SANS2d.html">ISIS_SANS2d</A> (ISIS_SANS2d.instr)</B></TD>
+<TD> ISIS, DTU Fysik</TD>
+<TD> Richard Heenan with edits by Peter Willendrup</TD>
+<TD><A HREF="examples/ISIS_SANS2d.instr">instr</A></TD>
+<TD>This instrument models the ISIS TS2 SANS2d instrument.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ISIS <A HREF="examples/ISIS_TS1_Brilliance.html">ISIS_TS1_Brilliance</A> (ISIS_TS1_Brilliance.instr)</B></TD>
+<TD> DTU Fysik</TD>
+<TD> Peter Willendrup</TD>
+<TD><A HREF="examples/ISIS_TS1_Brilliance.instr">instr</A></TD>
+<TD>This instrument produces brilliance curves from the ISIS TS1 facility.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> ISIS <A HREF="examples/ISIS_TS2_Brilliance.html">ISIS_TS2_Brilliance</A> (ISIS_TS2_Brilliance.instr)</B></TD>
+<TD> DTU Fysik</TD>
+<TD> Peter Willendrup</TD>
+<TD><A HREF="examples/ISIS_TS2_Brilliance.instr">instr</A></TD>
+<TD>This instrument produces brilliance curves from the ISIS TS2 facility.
+</TD>
+</TR>
+
+<TR>
+<TD>  ISIS <A HREF="examples/ISIS_test.html">ISIS_test</A> (ISIS_test.instr)</TD>
+<TD> <a href="http://www.isis.rl.ac.uk/">ISIS</a></TD>
+<TD> <a href="mailto:D.Champion@rl.ac.uk">Dickon Champion</a></TD>
+<TD><A HREF="examples/ISIS_test.instr">instr</A></TD>
+<TD>Simple test instrument for the ISIS_moderator component
+</TD>
+</TR>
+
+<TR>
+<TD> <B> LLB <A HREF="examples/LLB_6T2.html">LLB_6T2</A> (LLB_6T2.instr)</B></TD>
+<TD> <a href="http://www-llb.cea.fr">LLB (France)</a></TD>
+<TD> <a href="mailto:xavier.fabreges@cea.fr">Xavier Fabrèges</a></TD>
+<TD><A HREF="examples/LLB_6T2.instr">instr</A></TD>
+<TD>The 6T2 thermal single crystal diffractometer at the LLB.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> SNS <A HREF="examples/Mezei_SNS_decoupled_poisoned.html">Mezei_SNS_decoupled_poisoned</A> (Mezei_SNS_decoupled_poisoned.instr)</B></TD>
+<TD>(Unknown)</TD>
+<TD>(Unknown)</TD>
+<TD><A HREF="examples/Mezei_SNS_decoupled_poisoned.instr">instr</A></TD>
+<TD></TD>
+</TR>
+
+<TR>
+<TD> <B> PSI <A HREF="examples/PSI_DMC.html">PSI_DMC</A> (PSI_DMC.instr)</B></TD>
+<TD>PSI</TD>
+<TD> Peter Willendrup (Risoe), Uwe Filges (PSI), Lukas Keller (PSI)</TD>
+<TD><A HREF="examples/PSI_DMC.instr">instr</A></TD>
+<TD>McStas model of the DMC powder diffractometer at PSI, CH.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> PSI <A HREF="examples/PSI_Focus.html">PSI_Focus</A> (PSI_Focus.instr)</B></TD>
+<TD> <a href="http://www.psi.ch">PSI</a></TD>
+<TD> <a href="mailto:Uwe.Filges@psi.ch">Uwe Filges</a></TD>
+<TD><A HREF="examples/PSI_Focus.instr">instr</A></TD>
+<TD>The FOCUS Spectrometer at PSI (Paul Scherrer Institute,Switzerland)
+</TD>
+</TR>
+
+<TR>
+<TD> <B> PSI <A HREF="examples/RITA-II.html">RITA_II</A> (RITA-II.instr)</B></TD>
+<TD> <a href="http://www.risoe.dk">Ris&oslash; (Denmark)</a></TD>
+<TD> <a href="mailto:udby@fys.ku.dk">Linda Udby</a>  and <a href="mailto:pkwi@fysik.dtu.dk">Peter Willendrup</a></TD>
+<TD><A HREF="examples/RITA-II.instr">instr</A></TD>
+<TD>RITA type triple-axis spectrometer (TAS)
+</TD>
+</TR>
+
+<TR>
+<TD> <B> TRIGA <A HREF="examples/RTP_DIF.html">RTP_DIF</A> (RTP_DIF.instr)</B></TD>
+<TD> ILL/RTP</TD>
+<TD> E. Farhi and Megat Harun Al-Rashid</TD>
+<TD><A HREF="examples/RTP_DIF.instr">instr</A></TD>
+<TD>A powder diffractometer at Reactor TRIGA PUSPATI (Malaysia)
+</TD>
+</TR>
+
+<TR>
+<TD> <B> TRIGA <A HREF="examples/RTP_Laue.html">RTP_Laue</A> (RTP_Laue.instr)</B></TD>
+<TD> ILL/RTP</TD>
+<TD> E. Farhi and Megat Harun Al-Rashid</TD>
+<TD><A HREF="examples/RTP_Laue.instr">instr</A></TD>
+<TD>The NR instrument installed at Reactor TRIGA PUSPATI (Malaysia)
+</TD>
+</TR>
+
+<TR>
+<TD> <B> TRIGA <A HREF="examples/RTP_NeutronRadiography.html">RTP_NeutronRadiography</A> (RTP_NeutronRadiography.instr)</B></TD>
+<TD> ILL/RTP</TD>
+<TD> E. Farhi and Megat Harun Al-Rashid</TD>
+<TD><A HREF="examples/RTP_NeutronRadiography.instr">instr</A></TD>
+<TD>The radiography instrument installed at Reactor TRIGA PUSPATI (Malaysia)
+</TD>
+</TR>
+
+<TR>
+<TD> <B> TRIGA <A HREF="examples/RTP_SANS.html">RTP_SANS</A> (RTP_SANS.instr)</B></TD>
+<TD> ILL/RTP</TD>
+<TD> E. Farhi and Megat Harun Al-Rashid</TD>
+<TD><A HREF="examples/RTP_SANS.instr">instr</A></TD>
+<TD>The SANS instrument installed at Reactor TRIGA PUSPATI (Malaysia)
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Templates <A HREF="examples/Reflectometer.html">Reflectometer</A> (Reflectometer.instr)</B></TD>
+<TD>(Unknown)</TD>
+<TD> Anette Vickery, contact: anette.vickery@fys.ku.dk</TD>
+<TD><A HREF="examples/Reflectometer.instr">instr</A></TD>
+<TD>Instrument short description
+Horizontal reflectometer, multi-angle of incidence
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Necsa <A HREF="examples/SAFARI_MPISI.html">SAFARI_MPISI</A> (SAFARI_MPISI.instr)</B></TD>
+<TD> Necsa</TD>
+<TD> Deon Marais (deon.marais@necsa.co.za)</TD>
+<TD><A HREF="examples/SAFARI_MPISI.instr">instr</A></TD>
+<TD>Materials Probe for Internal Strain Investigations
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Necsa <A HREF="examples/SAFARI_PITSI.html">SAFARI_PITSI</A> (SAFARI_PITSI.instr)</B></TD>
+<TD> Necsa</TD>
+<TD> Deon Marais (deon.marais@necsa.co.za)</TD>
+<TD><A HREF="examples/SAFARI_PITSI.instr">instr</A></TD>
+<TD>Powder Instrument for Transition in Structure Investigations
+</TD>
+</TR>
+
+<TR>
+<TD> <B> <A HREF="examples/SEMSANS_instrument.html">SEMSANS_instrument</A> (SEMSANS_instrument.instr)</B></TD>
+<TD> Copenhagen, Berlin, Delft</TD>
+<TD> Morten Sales</TD>
+<TD><A HREF="examples/SEMSANS_instrument.instr">instr</A></TD>
+<TD>INSTRUMENT_SITE: TU Delft. 
+SEMSANS-instrument
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Templates <A HREF="examples/SE_example.html">SE_example</A> (SE_example.instr)</B></TD>
+<TD> Risoe</TD>
+<TD> Erik Knudsen, Peter Willendrup</TD>
+<TD><A HREF="examples/SE_example.instr">instr</A></TD>
+<TD>Mockup of transmission Spin-Echo, written for PNCMI 2010 school in Delft.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Templates <A HREF="examples/SE_example2.html">SE_example2</A> (SE_example2.instr)</B></TD>
+<TD> Risoe</TD>
+<TD> Erik Knudsen, Peter Willendrup</TD>
+<TD><A HREF="examples/SE_example2.instr">instr</A></TD>
+<TD>Mockup of transmission Spin-Echo, written for PNCMI 2010 school in Delft. This version uses Pol_FieldBox for description of the fields.
+</TD>
+</TR>
+
+<TR>
+<TD> <B>SNS <A HREF="examples/SNS_ARCS.html">SNS_ARCS</A> (SNS_ARCS.instr)</B></TD>
+<TD> SNS </TD>
+<TD> G. Granroth</TD>
+<TD><A HREF="examples/SNS_ARCS.instr">instr</A></TD>
+<TD>Model of the ARCS spectrometer from SNS.
+</TD>
+</TR>
+
+<TR>
+<TD> <B>SNS <A HREF="examples/SNS_analytic_test.html">SNS_test</A> (SNS_analytic_test.instr)</B></TD>
+<TD> SNS Project Oak Ridge National Laboratory</TD>
+<TD> G. Granroth</TD>
+<TD><A HREF="examples/SNS_analytic_test.instr">instr</A></TD>
+<TD>Simple test instrument for the SNS_source component.
+</TD>
+</TR>
+
+<TR>
+<TD> <B>SNS <A HREF="examples/SNS_test.html">SNS_test</A> (SNS_test.instr)</B></TD>
+<TD> SNS Project Oak Ridge National Laboratory</TD>
+<TD> G. Granroth</TD>
+<TD><A HREF="examples/SNS_test.instr">instr</A></TD>
+<TD>Simple test instrument for the SNS_source component.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_samples <A HREF="examples/Samples_Incoherent.html">Samples_Incoherent</A> (Samples_Incoherent.instr)</B></TD>
+<TD> RISOE</TD>
+<TD> Peter Willendrup, Erik Knudsen, Aziz Aziz Daoud-aladine</TD>
+<TD><A HREF="examples/Samples_Incoherent.instr">instr</A></TD>
+<TD>This instrument allows to compare incoherent scattering from different McStas
+sample components.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_samples <A HREF="examples/Samples_Incoherent_off.html">Samples_Incoherent_off</A> (Samples_Incoherent_off.instr)</B></TD>
+<TD> ILL</TD>
+<TD> Reynald ARNERIN</TD>
+<TD><A HREF="examples/Samples_Incoherent_off.instr">instr</A></TD>
+<TD>Instrument to demonstrate the usage of OFF shape samples with totally absorbing material.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_samples <A HREF="examples/Samples_Isotropic_Sqw.html">Samples_Isotropic_Sqw</A> (Samples_Isotropic_Sqw.instr)</B></TD>
+<TD> ILL</TD>
+<TD> E. Farhi</TD>
+<TD><A HREF="examples/Samples_Isotropic_Sqw.instr">instr</A></TD>
+<TD>A test instrument for the S(q,w) sample
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_samples <A HREF="examples/Samples_Phonon.html">Samples_Phonon</A> (Samples_Phonon.instr)</B></TD>
+<TD> <a href="http://www.risoe.dk/">RISOE</a></TD>
+<TD> K. Lefmann <kim.lefmann@risoe.dk> RISOE, Feb 2004</TD>
+<TD><A HREF="examples/Samples_Phonon.instr">instr</A></TD>
+<TD>Simple test instrument for the Phonon_simple component
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_samples <A HREF="examples/Samples_vanadium.html">Samples_vanadium</A> (Samples_vanadium.instr)</B></TD>
+<TD> Risoe</TD>
+<TD> Kristian Nielsen and Kim Lefmann</TD>
+<TD><A HREF="examples/Samples_vanadium.instr">instr</A></TD>
+<TD>A test instrument using a vanadium cylinder
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Templates <A HREF="examples/TestSANS.html">TestSANS</A> (TestSANS.instr)</B></TD>
+<TD> KU-Science</TD>
+<TD> Martin Cramer Pedersen (mcpe@nbi.dk) and S&oslash;en Kynde (kynde@nbi.dk)</TD>
+<TD><A HREF="examples/TestSANS.instr">instr</A></TD>
+<TD>Template instrument for a suite of SANS sample models.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_optics <A HREF="examples/Test_Collimator_Radial.html">Test_Collimator_Radial</A> (Test_Collimator_Radial.instr)</B></TD>
+<TD> ILL</TD>
+<TD> E. Farhi [farhi@ill.fr]</TD>
+<TD><A HREF="examples/Test_Collimator_Radial.instr">instr</A></TD>
+<TD>Cross comparison of radial collimator components
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_optics <A HREF="examples/Test_Fermi.html">Test_Fermi</A> (Test_Fermi.instr)</B></TD>
+<TD> ILL</TD>
+<TD> E. Farhi [farhi@ill.fr]</TD>
+<TD><A HREF="examples/Test_Fermi.instr">instr</A></TD>
+<TD>Cross comparison of Fermi Chopper components
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_optics <A HREF="examples/Test_FocalisationMirrors.html">Test_FocalisationMirrors</A> (Test_FocalisationMirrors.instr)</B></TD>
+<TD> <a href="http://www-llb.cea.fr/">LLB</a></TD>
+<TD> <a href="mailto:desert@drecam.cea.fr">Sylvain Desert</a></TD>
+<TD><A HREF="examples/Test_FocalisationMirrors.instr">instr</A></TD>
+<TD>Test instrument for neutron focalisation with a set of supermirrors. 
+No guide / velocity selector
+One parabolic SM converges the incoming beam to its focal point, then one 
+elliptic SM (with primary focal point at same location as parabolic SM focal point) 
+images the focal point onto the detector.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_optics <A HREF="examples/Test_Guides.html">Test_Guides</A> (Test_Guides.instr)</B></TD>
+<TD> ILL</TD>
+<TD> E. Farhi [farhi@ill.fr]</TD>
+<TD><A HREF="examples/Test_Guides.instr">instr</A></TD>
+<TD>Cross comparison of Guide components
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_optics <A HREF="examples/Test_Guides_Curved.html">Test_Guides_Curved</A> (Test_Guides_Curved.instr)</B></TD>
+<TD> DTU Fysik</TD>
+<TD> P. Willendrup, DTU Fysik</TD>
+<TD><A HREF="examples/Test_Guides_Curved.instr">instr</A></TD>
+<TD>Cross comparison of curved Guide components
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_grammar <A HREF="examples/Test_Jump_Iterate.html">Test_Jump_Iterate</A> (Test_Jump_Iterate.instr)</B></TD>
+<TD>ILL</TD>
+<TD> E. Farhi</TD>
+<TD><A HREF="examples/Test_Jump_Iterate.instr">instr</A></TD>
+<TD>A test of the JUMP ITERATE keyword to describe a long curved guide in a concise way.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_optics <A HREF="examples/Test_Lens.html">Test_Lens</A> (Test_Lens.instr)</B></TD>
+<TD> ILL</TD>
+<TD> E. Farhi/C. Monzat</TD>
+<TD><A HREF="examples/Test_Lens.instr">instr</A></TD>
+<TD>Demonstrate focusing effect of refractive lenses
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_optics <A HREF="examples/Test_MCPL_input.html">Test_MCPL_input</A> (Test_MCPL_input.instr)</B></TD>
+<TD> </TD>
+<TD> Erik B Knudsen <erkn@fysik.dtu.dk></TD>
+<TD><A HREF="examples/Test_MCPL_input.instr">instr</A></TD>
+<TD>A test instrument for MCPL_input
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_optics <A HREF="examples/Test_MCPL_output.html">Test_MCPL_output</A> (Test_MCPL_output.instr)</B></TD>
+<TD> </TD>
+<TD> Erik B Knudsen <erkn@fysik.dtu.dk></TD>
+<TD><A HREF="examples/Test_MCPL_output.instr">instr</A></TD>
+<TD>A test instrument for MCPL_output
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_polarization <A HREF="examples/Test_Magnetic_Constant.html">Test_Magnetic_Constant</A> (Test_Magnetic_Constant.instr)</B></TD>
+<TD> RISOE</TD>
+<TD> Peter Christiansen and Peter Willendrup</TD>
+<TD><A HREF="examples/Test_Magnetic_Constant.instr">instr</A></TD>
+<TD>This instrument demonstrates how to use the Pol_simpleBfield
+component with a constant field.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_polarization <A HREF="examples/Test_Magnetic_Majorana.html">Test_Magnetic_Majorana</A> (Test_Magnetic_Majorana.instr)</B></TD>
+<TD> RISOE</TD>
+<TD> Peter Christiansen and Peter Willendrup</TD>
+<TD><A HREF="examples/Test_Magnetic_Majorana.instr">instr</A></TD>
+<TD>This instrument demonstrates how to use the Pol_simpleBfield
+component with a Majorana field.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_polarization <A HREF="examples/Test_Magnetic_Rotation.html">Test_Magnetic_Rotation</A> (Test_Magnetic_Rotation.instr)</B></TD>
+<TD> RISOE</TD>
+<TD> Peter Christiansen and Peter Willendrup</TD>
+<TD><A HREF="examples/Test_Magnetic_Rotation.instr">instr</A></TD>
+<TD>This instrument demonstrates how to use the Pol_constBfield
+component.
+</TD>
+</TR>
+
+<TR>
+<TD>  Tests_polarization <A HREF="examples/Test_Magnetic_Userdefined.html">Test_Magnetic_Userdefined</A> (Test_Magnetic_Userdefined.instr)</TD>
+<TD> RISOE</TD>
+<TD> Peter Christiansen and Peter Willendrup</TD>
+<TD><A HREF="examples/Test_Magnetic_Userdefined.instr">instr</A></TD>
+<TD>This instrument demonstrates how to use the Pol_simpleBfield
+component with a user-specified fieldFunction.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_samples <A HREF="examples/Test_Monitor_Sqw.html">Test_Monitor_Sqw</A> (Test_Monitor_Sqw.instr)</B></TD>
+<TD> ILL</TD>
+<TD> E. Farhi</TD>
+<TD><A HREF="examples/Test_Monitor_Sqw.instr">instr</A></TD>
+<TD>A simple ToF with cylindrical/spherical sample, and furnace/cryostat/container. The sample can be hollow.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_optics <A HREF="examples/Test_Monochromators.html">Test_Monochromators</A> (Test_Monochromators.instr)</B></TD>
+<TD> RISOE.</TD>
+<TD> Peter Christiansen</TD>
+<TD><A HREF="examples/Test_Monochromators.instr">instr</A></TD>
+<TD>Compares intensities of Monochromator components.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_optics <A HREF="examples/Test_PSD_Detector.html">Test_PSD_Detector</A> (Test_PSD_Detector.instr)</B></TD>
+<TD> ILL</TD>
+<TD> Thorwald van Vuure</TD>
+<TD><A HREF="examples/Test_PSD_Detector.instr">instr</A></TD>
+<TD>Test for PSD_Detector component
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_polarization <A HREF="examples/Test_Pol_Bender.html">Test_Pol_Bender</A> (Test_Pol_Bender.instr)</B></TD>
+<TD> RISOE</TD>
+<TD> Peter Christiansen </TD>
+<TD><A HREF="examples/Test_Pol_Bender.instr">instr</A></TD>
+<TD>Test Pol_bender. 
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_optics <A HREF="examples/Test_Pol_Bender_Vs_Guide_Curved.html">Test_Pol_Bender_Vs_Guide_Curved</A> (Test_Pol_Bender_Vs_Guide_Curved.instr)</B></TD>
+<TD> RISOE</TD>
+<TD> Peter Christiansen (peter.christiansen@risoe.dk)</TD>
+<TD><A HREF="examples/Test_Pol_Bender_Vs_Guide_Curved.instr">instr</A></TD>
+<TD>Test that Pol_bender and Guide_curved intensities are the same. 
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_polarization <A HREF="examples/Test_Pol_Guide_Vmirror.html">Test_Pol_Guide_Vmirror</A> (Test_Pol_Guide_Vmirror.instr)</B></TD>
+<TD> RISOE</TD>
+<TD> Peter Christiansen </TD>
+<TD><A HREF="examples/Test_Pol_Guide_Vmirror.instr">instr</A></TD>
+<TD>Test Pol_guide_Vmirror. 
+</TD>
+</TR>
+
+<TR>
+<TD>  Tests_polarization <A HREF="examples/Test_Pol_MSF.html">Test_Pol_MSF</A> (Test_Pol_MSF.instr)</TD>
+<TD> RISOE</TD>
+<TD> Peter Christiansen</TD>
+<TD><A HREF="examples/Test_Pol_MSF.instr">instr</A></TD>
+<TD>This instrument demonstrates how to use the Pol_constBfield
+component.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_polarization <A HREF="examples/Test_Pol_Mirror.html">Test_Pol_Mirror</A> (Test_Pol_Mirror.instr)</B></TD>
+<TD> RISOE</TD>
+<TD> Peter Christiansen </TD>
+<TD><A HREF="examples/Test_Pol_Mirror.instr">instr</A></TD>
+<TD>Test that Pol_mirror reflects, transmits, and polarizes. 
+</TD>
+</TR>
+
+<TR>
+<TD>  Tests_polarization <A HREF="examples/Test_Pol_Set.html">Test_Pol_Set</A> (Test_Pol_Set.instr)</TD>
+<TD> RISOE</TD>
+<TD> Peter Christiansen</TD>
+<TD><A HREF="examples/Test_Pol_Set.instr">instr</A></TD>
+<TD>Tests Set_pol, V_sample, and pol monitors.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Templates <A HREF="examples/Test_Pol_TripleAxis.html">Test_Pol_TripleAxis</A> (Test_Pol_TripleAxis.instr)</B></TD>
+<TD> RISOE</TD>
+<TD> Peter Christiansen</TD>
+<TD><A HREF="examples/Test_Pol_TripleAxis.instr">instr</A></TD>
+<TD>Based on Emmanuel Farhi's thermal H8 triple-axis spectrometer from
+Brookhaven reactor
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Test_samples <A HREF="examples/Test_PowderN_Res.html">Test_PowderN_Res</A> (Test_PowderN_Res.instr)</B></TD>
+<TD> DTU</TD>
+<TD> Peter Willendrup</TD>
+<TD><A HREF="examples/Test_PowderN_Res.instr">instr</A></TD>
+<TD>Idealized powder diffractometer, to illustrate the difference between 'banana,theta' and 'banana,divergence' in Monitor_nD.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_optics <A HREF="examples/Test_PreMonitor_nD.html">Test_PreMonitor_nD</A> (Test_PreMonitor_nD.instr)</B></TD>
+<TD> LLB</TD>
+<TD> E. Farhi</TD>
+<TD><A HREF="examples/Test_PreMonitor_nD.instr">instr</A></TD>
+<TD>A test of the PreMonitor_nD component
+</TD>
+</TR>
+
+<TR>
+<TD>  Tests_optics <A HREF="examples/Test_SSR_SSW.html">test_SSW_SSR</A> (Test_SSR_SSW.instr)</TD>
+<TD>(Unknown)</TD>
+<TD> <a href="mailto:esbe@dtu.dk">Esben Klinkby</a></TD>
+<TD><A HREF="examples/Test_SSR_SSW.instr">instr</A></TD>
+<TD>and <a href="mailto:pkwi@dtu.dk">Peter Willendrup</a> 
+Test instrument for SSW/SSR interface between McStas and MCNP
+</TD>
+</TR>
+
+<TR>
+<TD>  Tests_optics <A HREF="examples/Test_SSR_SSW_Guide.html">Test_SSW_SSR_Guide</A> (Test_SSR_SSW_Guide.instr)</TD>
+<TD> Risoe-DTU</TD>
+<TD> <a href="mailto:esbe@dtu.dk">Esben Klinkby</a> and <a href="mailto:pkwi@dtu.dk">Peter Willendrup</a> </TD>
+<TD><A HREF="examples/Test_SSR_SSW_Guide.instr">instr</A></TD>
+<TD>Test instrument for SSW/SSR interface between McStas and MCNP
+</TD>
+</TR>
+
+<TR>
+<TD> <B> HZB <A HREF="examples/Test_Sample_nxs_diffraction.html">Test_Sample_nxs_diffraction</A> (Test_Sample_nxs_diffraction.instr)</B></TD>
+<TD> HZB</TD>
+<TD> Mirko Boin (HZB)</TD>
+<TD><A HREF="examples/Test_Sample_nxs_diffraction.instr">instr</A></TD>
+<TD>Test TOF-diffraction instrument for the Sample_nxs.comp component
+</TD>
+</TR>
+
+<TR>
+<TD> <B> HZB <A HREF="examples/Test_Sample_nxs_imaging.html">Test_Sample_nxs_imaging</A> (Test_Sample_nxs_imaging.instr)</B></TD>
+<TD> HZB</TD>
+<TD> Mirko Boin (HZB)</TD>
+<TD><A HREF="examples/Test_Sample_nxs_imaging.instr">instr</A></TD>
+<TD>Test TOF-imaging instrument for the Sample_nxs.comp component.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Templates <A HREF="examples/Test_Scatter_log_losses.html">Test_Scatter_log_losses</A> (Test_Scatter_log_losses.instr)</B></TD>
+<TD> DTU Fysik</TD>
+<TD> Erik B Knudsen (erkn@fysik.dtu.dk)</TD>
+<TD><A HREF="examples/Test_Scatter_log_losses.instr">instr</A></TD>
+<TD>Example instrument of Scatter_logger feature usage for detection of lost instensity
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Templates <A HREF="examples/Test_Scatter_log_mvalues.html">Test_Scatter_log_mvalues</A> (Test_Scatter_log_mvalues.instr)</B></TD>
+<TD> DTU Fysik</TD>
+<TD> Erik B Knudsen (erkn@fysik.dtu.dk)</TD>
+<TD><A HREF="examples/Test_Scatter_log_mvalues.instr">instr</A></TD>
+<TD>Example instrument of Scatter_logger feature advanced usage
+</TD>
+</TR>
+
+<TR>
+<TD>  Templates <A HREF="examples/Test_Scatter_log_ssw_mcnp.html">Test_Scatter_log_srw_mcnp</A> (Test_Scatter_log_ssw_mcnp.instr)</TD>
+<TD> DTU Nutech</TD>
+<TD> Esben Klinkby (esbe@dtu.dk), Peter Willendrup (pkwi@fysik.dtu.dk)</TD>
+<TD><A HREF="examples/Test_Scatter_log_ssw_mcnp.instr">instr</A></TD>
+<TD>Example instrument of Scatter_logger feature usage for lost neutron transfer to MCNP via the ssr/ssw mechanism.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_optics <A HREF="examples/Test_Selectors.html">Test_Selectors</A> (Test_Selectors.instr)</B></TD>
+<TD> ILL</TD>
+<TD> E. Farhi [farhi@ill.fr]</TD>
+<TD><A HREF="examples/Test_Selectors.instr">instr</A></TD>
+<TD>Cross comparison of velocity selector components
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_optics <A HREF="examples/Test_Sources.html">Test_Sources</A> (Test_Sources.instr)</B></TD>
+<TD>ILL</TD>
+<TD> FARHI Emmanuel (farhi@ill.fr)</TD>
+<TD><A HREF="examples/Test_Sources.instr">instr</A></TD>
+<TD>A test instrument to compare sources
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_optics <A HREF="examples/Test_StatisticalChopper.html">Test_StatisticalChopper</A> (Test_StatisticalChopper.instr)</B></TD>
+<TD> <a href="http://www.ill.fr">ILL (France)</a></TD>
+<TD> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></TD>
+<TD><A HREF="examples/Test_StatisticalChopper.instr">instr</A></TD>
+<TD>An example using a statistical/correlation chopper and its de-correlation monitor
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_polarization <A HREF="examples/Test_pol_tabled.html">Test_pol_tabled</A> (Test_pol_tabled.instr)</B></TD>
+<TD> Your institution</TD>
+<TD> Your name (email)</TD>
+<TD><A HREF="examples/Test_pol_tabled.instr">instr</A></TD>
+<TD>Test the tabled magnetic field option
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Tests_optics <A HREF="examples/Test_shellguides.html">Test_shellguides</A> (Test_shellguides.instr)</B></TD>
+<TD> PSI</TD>
+<TD> <a href="tobias.panzner@psi.ch">Tobias Panzner</a>, <a href="mailto:uwe.filges@psi.ch">Uwe Filges</a></TD>
+<TD><A HREF="examples/Test_shellguides.instr">instr</A></TD>
+<TD> This is an instrument test file for 3 components.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Templates <A HREF="examples/Tomography.html">Tomography</A> (Tomography.instr)</B></TD>
+<TD> Risoe</TD>
+<TD> Peter Willendrup, based on work by Reynald ARNERIN</TD>
+<TD><A HREF="examples/Tomography.instr">instr</A></TD>
+<TD>Instrument to study tomographic imaging by means of the new V_sample feature of OFF shape samples.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> DTU <A HREF="examples/Vin_test.html">Vin_test</A> (Vin_test.instr)</B></TD>
+<TD> DTU Physics</TD>
+<TD> Peter Willendrup (pkwi@fysik.dtu.dk)</TD>
+<TD><A HREF="examples/Vin_test.instr">instr</A></TD>
+<TD>Simple test instrument for the Virtual_input component
+</TD>
+</TR>
+
+<TR>
+<TD> <B> DTU <A HREF="examples/Vout_test.html">Vout_test</A> (Vout_test.instr)</B></TD>
+<TD> DTU Physics</TD>
+<TD> Peter Willendrup (pkwi@fysik.dtu.dk)</TD>
+<TD><A HREF="examples/Vout_test.instr">instr</A></TD>
+<TD>Simple test instrument for the Virtual_output component
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Brookhaven <A HREF="examples/h8_test_legacy.html">h8_test_legacy</A> (h8_test_legacy.instr)</B></TD>
+<TD> <a href="http://www.ill.fr">ILL (France)</a></TD>
+<TD> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></TD>
+<TD><A HREF="examples/h8_test_legacy.instr">instr</A></TD>
+<TD>The former thermal H8 triple-axis spectrometer from Brookhaven reactor, 1.12c-comparable
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Risoe <A HREF="examples/linup-1.html">TAS1_C1</A> (linup-1.instr)</B></TD>
+<TD> Risoe</TD>
+<TD> A. Abrahamsen, N. B. Christensen, and E. Lauridsen</TD>
+<TD><A HREF="examples/linup-1.instr">instr</A></TD>
+<TD>The conventional cold-source triple-axis spectrometer TAS1 at Risoe National
+Laboratory used as a diffractometer for monochromator rocking curves
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Risoe <A HREF="examples/linup-2.html">TAS1_C1_Tilt</A> (linup-2.instr)</B></TD>
+<TD> Risoe</TD>
+<TD> A. Abrahamsen, N. B. Christensen, and E. Lauridsen</TD>
+<TD><A HREF="examples/linup-2.instr">instr</A></TD>
+<TD>The conventional cold-source triple-axis spectrometer TAS1 at Risoe National
+Laboratory used as a diffractometer for a collimator tilt alignment.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Risoe <A HREF="examples/linup-3.html">TAS1_Diff_Slit</A> (linup-3.instr)</B></TD>
+<TD> Risoe</TD>
+<TD> A. Abrahamsen, N. B. Christensen, and E. Lauridsen</TD>
+<TD><A HREF="examples/linup-3.instr">instr</A></TD>
+<TD>The conventional cold-source triple-axis spectrometer TAS1 at Risoe National
+Laboratory used as a diffractometer for a collimation alignment study with a
+slit sample.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Risoe <A HREF="examples/linup-4.html">TAS1_Diff_Vana</A> (linup-4.instr)</B></TD>
+<TD> Risoe</TD>
+<TD> A. Abrahamsen, N. B. Christensen, and E. Lauridsen</TD>
+<TD><A HREF="examples/linup-4.instr">instr</A></TD>
+<TD>The conventional cold-source triple-axis spectrometer TAS1 at Risoe National
+Laboratory used as a diffractometer for an alignment study with a
+vanadium sample.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Risoe <A HREF="examples/linup-5.html">TAS1_Diff_Powder</A> (linup-5.instr)</B></TD>
+<TD> Risoe</TD>
+<TD> A. Abrahamsen, N. B. Christensen, and E. Lauridsen</TD>
+<TD><A HREF="examples/linup-5.instr">instr</A></TD>
+<TD>The conventional cold-source triple-axis spectrometer TAS1 at Risoe National
+Laboratory used as a diffractometer for an alignment study with a
+powder sample.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Risoe <A HREF="examples/linup-6.html">TAS1_Vana</A> (linup-6.instr)</B></TD>
+<TD> Risoe</TD>
+<TD> A. Abrahamsen, N. B. Christensen, and E. Lauridsen</TD>
+<TD><A HREF="examples/linup-6.instr">instr</A></TD>
+<TD>The conventional cold-source triple-axis spectrometer TAS1 at Risoe National
+Laboratory used with a vanadium sample.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Risoe <A HREF="examples/linup-7.html">TAS1_Powder</A> (linup-7.instr)</B></TD>
+<TD> Risoe</TD>
+<TD> A. Abrahamsen, N. B. Christensen, and E. Lauridsen</TD>
+<TD><A HREF="examples/linup-7.instr">instr</A></TD>
+<TD>The conventional cold-source triple-axis spectrometer TAS1 at Risoe National
+Laboratory used with a powder sample.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Templates <A HREF="examples/template.html">test</A> (template.instr)</B></TD>
+<TD> Your institution</TD>
+<TD> Your name (email)</TD>
+<TD><A HREF="examples/template.instr">instr</A></TD>
+<TD>Instrument short description
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Templates <A HREF="examples/templateDIFF.html">templateDIFF</A> (templateDIFF.instr)</B></TD>
+<TD> LLB/ILL</TD>
+<TD> E. Farhi</TD>
+<TD><A HREF="examples/templateDIFF.instr">instr</A></TD>
+<TD>Simple monochromator Diffractometer for powders
+</TD>
+</TR>
+
+<TR>
+<TD>  Templates <A HREF="examples/templateLaue.html">templateLaue</A> (templateLaue.instr)</TD>
+<TD> ILL</TD>
+<TD> K. Nielsen</TD>
+<TD><A HREF="examples/templateLaue.instr">instr</A></TD>
+<TD>A simple Laue diffractometer
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Templates <A HREF="examples/templateNMX.html">templateNMX</A> (templateNMX.instr)</B></TD>
+<TD> ILL</TD>
+<TD> K. Nielsen</TD>
+<TD><A HREF="examples/templateNMX.instr">instr</A></TD>
+<TD>A simple Laue NMX diffractometer for macromolecules, adapted from the classic 
+templateLaue instrument.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Templates <A HREF="examples/templateSANS.html">templateSANS</A> (templateSANS.instr)</B></TD>
+<TD> <a href="http://www.risoe.dk">Risoe</a></TD>
+<TD> <a href="mailto:kim.lefmann@risoe.dk">Kim Lefmann</a></TD>
+<TD><A HREF="examples/templateSANS.instr">instr</A></TD>
+<TD>Test instrument for the Sans_spheres component. No guide / velocity selector
+etc. Will be developed further at later time.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Templates <A HREF="examples/templateSANS_Mantid.html">templateSANS_Mantid</A> (templateSANS_Mantid.instr)</B></TD>
+<TD> <a href="http://www.risoe.dk">Risoe</a></TD>
+<TD> <a href="mailto:kim.lefmann@risoe.dk">Kim Lefmann</a></TD>
+<TD><A HREF="examples/templateSANS_Mantid.instr">instr</A></TD>
+<TD>Test instrument for the Sans_spheres component. No guide / velocity selector
+etc. Will be developed further at later time.
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Templates <A HREF="examples/templateSasView.html">templateSasView</A> (templateSasView.instr)</B></TD>
+<TD> Risoe</TD>
+<TD> Kim Lefmann</TD>
+<TD><A HREF="examples/templateSasView.instr">instr</A></TD>
+<TD>Test instrument for the SasView_model component. No guide / velocity selector
+etc. 
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Templates <A HREF="examples/templateSasView_Mantid.html">templateSasView_Mantid</A> (templateSasView_Mantid.instr)</B></TD>
+<TD> DTU, European Spallation Source ERIC </TD>
+<TD> Peter Willendrup and Torben Nielsen</TD>
+<TD><A HREF="examples/templateSasView_Mantid.instr">instr</A></TD>
+<TD>Test instrument for the SasView_model component generating event data for Mantid. No guide / velocity selector
+etc. 
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Templates <A HREF="examples/templateTAS.html">templateTAS</A> (templateTAS.instr)</B></TD>
+<TD> <a href="http://www.ill.fr">ILL (France)</a></TD>
+<TD> <a href="mailto:farhi@ill.fr">Emmanuel Farhi</a></TD>
+<TD><A HREF="examples/templateTAS.instr">instr</A></TD>
+<TD>Template RESCAL type triple-axis machine (TAS)
+</TD>
+</TR>
+
+<TR>
+<TD> <B> Templates <A HREF="examples/templateTOF.html">templateTOF</A> (templateTOF.instr)</B></TD>
+<TD> ILL</TD>
+<TD> E. Farhi</TD>
+<TD><A HREF="examples/templateTOF.instr">instr</A></TD>
+<TD>A test instrument for the S(q,w) sample, with furnace/container
+</TD>
+</TR>
+
+<TR>
+<TD> <B> <A HREF="examples/template_body_simple.html">template_body_simple</A> (template_body_simple.instr)</B></TD>
+<TD>(Unknown)</TD>
+<TD>(Unknown)</TD>
+<TD><A HREF="examples/template_body_simple.instr">instr</A></TD>
+<TD></TD>
+</TR>
+
+<TR>
+<TD> <A HREF="examples/template_header_simple.html"><Unknown></A></TD>
+<TD> <your institution></TD>
+<TD> <your name (email)></TD>
+<TD><A HREF="examples/template_header_simple.comp">comp</A></TD>
+<TD><instrument short description>
+</TD>
+</TR>
+
+</TABLE>
+
+<P>This Component list was updated on Thu Jun 16 08:51:08 2016.
+<HR WIDTH="100%">
+<CENTER>
+[ <A href="http://www.mcstas.org/"><I>McStas web site</I></A> ]</CENTER>
+
+<P><BR>
+<ADDRESS>
+Generated by mcdoc,
+Maintained by Emmanuel Farhi &lt;<a href="mailto:farhi@ill.fr">farhi@ill.fr</a>>,
+Peter Willendrup &lt;<a href="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</a>>,
+and Erik B Knudsen &lt;<a href="mailto:erkn@fysik.dtu.dk">erkn@fysik.dtu.dk</a>>.
+Contact us for any comments.
+</ADDRESS>
+</BODY></HTML>

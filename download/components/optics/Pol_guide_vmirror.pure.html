@@ -1,0 +1,190 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Pol_guide_vmirror Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Pol_guide_vmirror</CODE> Component</H1>
+
+Polarising guide with two supermirros sitting in a v-shape inside.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Peter Christiansen</B>
+  <LI> <B>Origin:</B> RISOE</B>
+  <LI> <B>Date:</B> July 2006</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Models a rectangular guide with entrance centered on the Z axis and
+with two supermirros sitting in a v-shape inside.
+The entrance lies in the X-Y plane.  Draws a true depiction
+of the guide with mirrors, and trajectories.
+The polarisation is handled similar to in Monochromator_pol.
+The reflec functions are handled similar to Pol_mirror.
+The up direction is hardcoded to be along the y-axis (0, 1, 0)
+
+The parameters can either be 
+double pointer initializations (e.g. {R0, Qc, alpha, m, W}) 
+or table names (e.g."supermirror_m2.rfl" AND useTables=1).
+NB! This might cause warnings by the compiler that can be ignored.
+
+GRAVITY: YES
+
+%BUGS 
+No absorption by mirror.
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>xwidth</B></TD>
+     <TD>m</TD>
+     <TD>Width at the guide entry
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>yheight</B></TD>
+     <TD>m</TD>
+     <TD>Height at the guide entry
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>length</B></TD>
+     <TD>m</TD>
+     <TD>length of guide
+</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD>rFunc</TD>
+     <TD>1</TD>
+     <TD>Guide Reflection function
+</TD>
+<TD ALIGN=RIGHT>StdReflecFunc</TD> </TR>
+<TR> <TD>rUpFunc</TD>
+     <TD>1</TD>
+     <TD>Mirror Reflection function for spin up
+</TD>
+<TD ALIGN=RIGHT>StdReflecFunc</TD> </TR>
+<TR> <TD>rDownFunc</TD>
+     <TD>1</TD>
+     <TD>Mirror Reflection function for spin down
+</TD>
+<TD ALIGN=RIGHT>StdReflecFunc</TD> </TR>
+<TR> <TD>rPar</TD>
+     <TD>1</TD>
+     <TD>Guide Parameters for rFunc
+</TD>
+<TD ALIGN=RIGHT>{1.0</TD> </TR>
+<TR> <TD>rUpPar</TD>
+     <TD>1</TD>
+     <TD>Mirror Parameters for rUpFunc
+</TD>
+<TD ALIGN=RIGHT>{1.0</TD> </TR>
+<TR> <TD>rDownPar</TD>
+     <TD>1</TD>
+     <TD>Mirror Parameters for rDownFunc
+</TD>
+<TD ALIGN=RIGHT>{0.1</TD> </TR>
+<TR> <TD>useTables</TD>
+     <TD>1</TD>
+     <TD>Parameters are 0: Values, 1: Table names 
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>debug</TD>
+     <TD>1</TD>
+     <TD>if debug > 0 print out some internal runtime parameters
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>localG</B></TD>
+     <TD>m/s/s</TD>
+     <TD>Gravity vector in guide reference system </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>normalTop</B></TD>
+     <TD>1</TD>
+     <TD>One of several normal vectors used for defining the geometry </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>normalBot</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>normalLeft</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>normalRight</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>normalInOut</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>pointTop</B></TD>
+     <TD>1</TD>
+     <TD>One of several points used for defining the geometry </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>pointBot</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>pointLeft</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>pointRight</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>pointIn</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>pointOut</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>rParPtr</B></TD>
+     <TD>*</TD>
+     <TD>One of several pointers to reflection parameters used with the ref. functions. </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>rUpParPtr</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>rDownParPtr</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Pol_guide_vmirror.comp">Source code</A> for <CODE>Pol_guide_vmirror.comp</CODE>.
+  <LI> 
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

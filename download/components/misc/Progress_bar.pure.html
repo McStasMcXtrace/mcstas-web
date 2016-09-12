@@ -1,0 +1,109 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Progress_bar Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Progress_bar</CODE> Component</H1>
+
+A simulation progress bar
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Emmanuel Farhi</B>
+  <LI> <B>Origin:</B> ILL</B>
+  <LI> <B>Date:</B> 2002</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+An indicator of the progress of the simulation, monitoring
+the Init, Trace with the achieved percentage, and the Finally section.
+Intermediate savings (e.g. triggered by USR2 signal) are also shown.
+This component should be positioned at the very begining of the instrument
+The profile option will save the intensity and number of events for each
+component It may be used to evaluate the simulation efficiency.
+
+Example: Progress_bar(percent=10,flag_save=1) AT (0,0,0)
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>profile</TD>
+     <TD>str</TD>
+     <TD>file name to save the simulation profile
+if set to "", it is set to the name of the instrument.
+</TD>
+<TD ALIGN=RIGHT>"NULL"</TD> </TR>
+<TR> <TD>percent</TD>
+     <TD>0-100</TD>
+     <TD>percentage interval between updates. Default is 10%.
+</TD>
+<TD ALIGN=RIGHT>10</TD> </TR>
+<TR> <TD>flag_save</TD>
+     <TD>0|1</TD>
+     <TD>flag to enable intermediate saving for all monitors
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>minutes</TD>
+     <TD>min</TD>
+     <TD>time in minutes between updates (Overrides percent flag).
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>IntermediateCnts</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>StartTime</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>EndTime</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>CurrentTime</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Progress_bar.comp">Source code</A> for <CODE>Progress_bar.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

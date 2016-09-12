@@ -1,0 +1,113 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Test_Fermi Instrument at  Tests_optics</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Test_Fermi</CODE> Instrument</H1>
+
+Cross comparison of Fermi Chopper components
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    Tests_optics</B>
+  <LI> <B>Author:</B> E. Farhi [farhi@ill.fr]</B>
+  <LI> <B>Origin:</B> ILL</B>
+  <LI> <B>Date:</B> Sept 1st, 2008</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Cross comparison of Fermi Chopper components, using McStas and
+contributed components, as well as rotating collimator approximations. It 
+shows that all implementations are equivalent. However, approximating rotating
+guide are 30% faster than McStas Fermi chopper, and on the other hand
+Vitess implementation is 100 times slower.
+
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>Fermi</TD>
+     <TD>1</TD>
+     <TD>Choice of Fermi chopper component to test, with
+1=FermiChopper, 
+2=Vitess_ChopperFermi,
+3=FermiChopper_ILL, 
+4=rotating Guide_gravity,
+5=rotating Guide_channeled
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>lambda</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>3.39</TD> </TR>
+<TR> <TD>width_FC</TD>
+     <TD>m</TD>
+     <TD>total slit pack width </TD>
+<TD ALIGN=RIGHT>0.044</TD> </TR>
+<TR> <TD>height_FC</TD>
+     <TD>m</TD>
+     <TD>height of FC slit pack </TD>
+<TD ALIGN=RIGHT>0.064</TD> </TR>
+<TR> <TD>length_FC</TD>
+     <TD>m</TD>
+     <TD>length of FC slit pack </TD>
+<TD ALIGN=RIGHT>0.012</TD> </TR>
+<TR> <TD>FC_Hz</TD>
+     <TD>Hz</TD>
+     <TD>rotation speed. Omega=2*PI*nu in rad/s, nu*60 in rpm </TD>
+<TD ALIGN=RIGHT>100</TD> </TR>
+<TR> <TD>Nslit_FC</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>120</TD> </TR>
+<TR> <TD>d_SF</TD>
+     <TD>m</TD>
+     <TD>distance from Source to FC center </TD>
+<TD ALIGN=RIGHT>3</TD> </TR>
+<TR> <TD>d_FD</TD>
+     <TD>m</TD>
+     <TD>distance from FC center to Detector </TD>
+<TD ALIGN=RIGHT>3</TD> </TR>
+<TR> <TD>phase</TD>
+     <TD>deg</TD>
+     <TD>FC phase. Use -0 for automatic </TD>
+<TD ALIGN=RIGHT>271.92</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Test_Fermi.instr">Source code</A> for <CODE>Test_Fermi.instr</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:08 2016</ADDRESS>
+</BODY></HTML>

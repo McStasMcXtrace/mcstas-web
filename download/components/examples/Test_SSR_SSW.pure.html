@@ -1,0 +1,89 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: test_SSW_SSR Instrument at  Tests_optics</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>test_SSW_SSR</CODE> Instrument</H1>
+
+and <a href="mailto:pkwi@dtu.dk">Peter Willendrup</a> 
+Test instrument for SSW/SSR interface between McStas and MCNP
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    Tests_optics</B>
+  <LI> <B>Author:</B> <a href="mailto:esbe@dtu.dk">Esben Klinkby</a></B>
+  <LI> <B>Origin:</B>(Unknown)</B>
+  <LI> <B>Date:</B> January, 2012</B>
+  <LI> <B>Version:</B>  $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+This instrument draws neutron events from a Source Surface file created using the
+MCNP Monte Carlo code and converts them to make them suitable for a McStas simulation.
+Assumes a file called 'rssa' is present in the run dir (or a symbolic link to a file).
+To produce 'rssa' file a MCNP simualtion must by run, using a SSW card. See 'MCNP_test_write'
+in the /examples
+After passing a slit at z=2m, events are written to the same format
+
+Note that axes orientation may be different between MCNP and McStas!
+Note also that the conversion of between McStas and MCNP units and parameters 
+is done automatically by this component - but the user must ensure that
+geometry description matches between the two Monte Carlo codes.
+
+The verbose mode is highly recommended as it displays lots of useful informations.
+
+This interface uses the MCNP Source Surface Read/Write format (SSW/SSR). 
+Infomation transfer from(to) SSW files proceeds via a set of Fortran modules 
+and subroutines collected in "subs.f"
+For succesful compilation, it is required that these subroutines are compiled 
+and linked to the instrument file:
+
+Example: 
+
+ "mcstas SSRSSW_test.instr" gives: SSRSSW_test.c
+ "gfortran -c subs.f" gives:  subs.f
+ "gcc -o runme.out SSRSSW_test.c subs.o -lm -lgfortran" gives: runme.out
+ "./runme.out" runs the simulation example
+
+Note that this requires a fortran compiler (here gfortran) and gcc.
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+None.
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Test_SSR_SSW.instr">Source code</A> for <CODE>test_SSW_SSR.instr</CODE>.
+  <LI> A reference/HTML link for more information
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:08 2016</ADDRESS>
+</BODY></HTML>

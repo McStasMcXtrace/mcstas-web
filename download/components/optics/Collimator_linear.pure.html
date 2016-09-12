@@ -1,0 +1,135 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Collimator_linear Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Collimator_linear</CODE> Component</H1>
+
+A simple analytical Soller collimator (with triangular transmission).
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Kristian Nielsen</B>
+  <LI> <B>Origin:</B> Risoe</B>
+  <LI> <B>Date:</B> August 1998</B>
+  <LI> <B>Version:</B> $Revision$</B>
+  <LI> <B>Modification history:</B> <UL>
+    <LI>  GA, June 1999, added transmission
+  </UL>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Soller collimator with rectangular opening and specified length. The
+transmission function is an average and does not utilize knowledge of the
+actual neutron trajectory. A zero divergence disables collimation (then the
+component works as a double slit).
+
+Example: Collimator_linear(xmin=-0.1, xmax=0.1, ymin=-0.1, ymax=0.1,
+          length=0.25, divergence=40,transmission=0.7)
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>xmin</TD>
+     <TD>m</TD>
+     <TD>Lower x bound on slits
+</TD>
+<TD ALIGN=RIGHT>-0.02</TD> </TR>
+<TR> <TD>xmax</TD>
+     <TD>m</TD>
+     <TD>Upper x bound on slits
+</TD>
+<TD ALIGN=RIGHT>0.02</TD> </TR>
+<TR> <TD>ymin</TD>
+     <TD>m</TD>
+     <TD>Lower y bound on slits
+</TD>
+<TD ALIGN=RIGHT>-0.05</TD> </TR>
+<TR> <TD>ymax</TD>
+     <TD>m</TD>
+     <TD>Upper y bound on slits
+</TD>
+<TD ALIGN=RIGHT>0.05</TD> </TR>
+<TR> <TD>xwidth</TD>
+     <TD>m</TD>
+     <TD>Width of slits
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>m</TD>
+     <TD>Height of slits
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>length</TD>
+     <TD>m</TD>
+     <TD>Distance between input and output slits
+</TD>
+<TD ALIGN=RIGHT>0.3</TD> </TR>
+<TR> <TD>divergence</TD>
+     <TD>minutes of arc</TD>
+     <TD>Divergence horizontal angle (calculated as atan(d/length),
+where d is the blade spacing)
+</TD>
+<TD ALIGN=RIGHT>40</TD> </TR>
+<TR> <TD>transmission</TD>
+     <TD>1</TD>
+     <TD>Transmission of Soller (0<=t<=1)
+</TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>divergenceV</TD>
+     <TD>minutes of arc</TD>
+     <TD>Divergence vertical angle
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>slope</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>slopeV</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Collimator_linear.comp">Source code</A> for <CODE>Collimator_linear.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

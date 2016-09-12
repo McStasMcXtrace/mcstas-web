@@ -1,0 +1,129 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: SANS_AnySamp Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>SANS_AnySamp</CODE> Component</H1>
+
+Sample for Small Angle Neutron Scattering. To be customized.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Henrich Frielinghaus</B>
+  <LI> <B>Origin:</B>     FZ-Juelich/FRJ-2/IFF/KWS-2</B>
+  <LI> <B>Date:</B>       Sept 2004</B>
+  <LI> <B>Version:</B>    $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+Sample for Small Angle Neutron Scattering.
+May be customized for Any Sample model.
+Copy this component and modify it to your needs.
+Just give shape of scattering function.
+Normalization of scattering will be done in INITIALIZE.
+
+Some remarks:
+Scattering function should be a defined the same way in INITIALIZE and TRACE sections
+There exist maybe better library functions for the integral.
+
+Here for comparison: Guinier.
+Transmitted paths set to 3% of all paths. In this simulation method paths are
+well distributed among transmission and scattering (equally in Q-space).
+
+Sample components leave the units of flux for the probability
+of the individual paths. That is more consitent than the
+Sans_spheres routine. Furthermore one can simulate the
+transmitted beam. This allows to determine the needed size of
+the beam stop. Only absorption has not been included yet to
+these sample-components. But thats really nothing.
+
+Example: SANS_AnySamp(transm=0.5, Rg=100, qmax=0.03, xwidth=0.01, yheight=0.01, zdepth=0.001)
+
+</PRE>
+WARNING: <B>This is a contributed Component.</B>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>transm</TD>
+     <TD>1</TD>
+     <TD>: coherent transmission of sample for the optical path "zdepth"
+</TD>
+<TD ALIGN=RIGHT>0.5</TD> </TR>
+<TR> <TD>Rg</TD>
+     <TD>Angs</TD>
+     <TD>: Radius of Gyration
+</TD>
+<TD ALIGN=RIGHT>100</TD> </TR>
+<TR> <TD>qmax</TD>
+     <TD>AA-1</TD>
+     <TD>: Maximum scattering vector
+</TD>
+<TD ALIGN=RIGHT>0.03</TD> </TR>
+<TR> <TD>xwidth</TD>
+     <TD>m</TD>
+     <TD>: horiz. dimension of sample, as a width (m)
+</TD>
+<TD ALIGN=RIGHT>0.01</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>m</TD>
+     <TD>: vert.. dimension of sample, as a height (m)
+</TD>
+<TD ALIGN=RIGHT>0.01</TD> </TR>
+<TR> <TD>zdepth</TD>
+     <TD>m</TD>
+     <TD>: thickness of sample (m)
+</TD>
+<TD ALIGN=RIGHT>0.001</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>q_v</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>isq</B></TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="SANS_AnySamp.comp">Source code</A> for <CODE>SANS_AnySamp.comp</CODE>.
+  <LI> Sans_spheres component
+
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

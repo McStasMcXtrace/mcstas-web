@@ -1,0 +1,125 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: PolLambda_monitor Component</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>PolLambda_monitor</CODE> Component</H1>
+
+Polarisation and wavelength sensitive monitor.
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Author:</B> Peter Christiansen</B>
+  <LI> <B>Origin:</B> Risoe</B>
+  <LI> <B>Date:</B> July 2006</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+polarisation along a given normalized m-vector (mx, my, mz) as a
+function of wavelength.
+
+Example: Pollambda_monitor(Lmin=1, Lmax=20, nL=20, xwidth=0.1, yheight=0.1, npol=11, 
+                             mx=0, my=1, mz=0, filename="pollambdaMon.data")
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>xwidth</TD>
+     <TD>-</TD>
+     <TD>Width of detector (m).</TD>
+<TD ALIGN=RIGHT>0.1</TD> </TR>
+<TR> <TD>yheight</TD>
+     <TD>-</TD>
+     <TD>Height of detector (m).</TD>
+<TD ALIGN=RIGHT>0.1</TD> </TR>
+<TR> <TD>nL</TD>
+     <TD>1</TD>
+     <TD>Number of bins in wavelength </TD>
+<TD ALIGN=RIGHT>20</TD> </TR>
+<TR> <TD>npol</TD>
+     <TD>1</TD>
+     <TD>Number of bins in Pol </TD>
+<TD ALIGN=RIGHT>21</TD> </TR>
+<TR> <TD>restore_neutron</TD>
+     <TD>1</TD>
+     <TD>If set, the monitor does not influence the neutron state </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>mx</TD>
+     <TD>1</TD>
+     <TD>X-component of monitor vector (can be negative) </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>my</TD>
+     <TD>1</TD>
+     <TD>Y-component of monitor vector (can be negative) </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>mz</TD>
+     <TD>1</TD>
+     <TD>Z-component of monitor vector (can be negative) </TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD><B>Lmin</B></TD>
+     <TD>AA</TD>
+     <TD>Minimum wavelength detected </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>Lmax</B></TD>
+     <TD>AA</TD>
+     <TD>Maximum wavelength detected </TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=opar></A>Output parameters</H2>
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD><B>PolL_N</B></TD>
+     <TD>-</TD>
+     <TD>Array of neutron counts</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>PolL_p</B></TD>
+     <TD>-</TD>
+     <TD>Array of neutron weight counts</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+<TR> <TD><B>PolL_p2</B></TD>
+     <TD>-</TD>
+     <TD>Array of second moments</TD>
+<TD ALIGN=RIGHT>&nbsp;</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="PolLambda_monitor.comp">Source code</A> for <CODE>PolLambda_monitor.comp</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:07 2016</ADDRESS>
+</BODY></HTML>

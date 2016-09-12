@@ -1,0 +1,84 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2//EN">
+<HTML><HEAD>
+<TITLE>McStas: Test_Sources Instrument at  Tests_optics</TITLE>
+<LINK REV="made" HREF="mailto:peter.willendrup@risoe.dk">
+</HEAD>
+
+<BODY>
+
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<H1>The <CODE>Test_Sources</CODE> Instrument</H1>
+
+A test instrument to compare sources
+
+
+<H2><A NAME=id></A>Identification</H2>
+
+<UL>
+  <LI> <B>Site:    Tests_optics</B>
+  <LI> <B>Author:</B> FARHI Emmanuel (farhi@ill.fr)</B>
+  <LI> <B>Origin:</B>ILL</B>
+  <LI> <B>Date:</B> Aug 3, 2008</B>
+  <LI> <B>Version:</B> $Revision$</B>
+</UL>
+<H2><A NAME=desc></A>Description</H2>
+
+<PRE>
+A test instrument to compare sources and check they provide the valid
+sprectrum and intensity. It shows that the first 4 flat sources are equivalent,
+the 2 Maxwellian sources as well.
+
+WARNING: Result of test no. 1 for Source_adapt.comp is not correct if MPI is used, as 
+that source component does not support MPI.
+
+
+
+</PRE>
+
+<H2><A NAME=ipar></A>Input parameters</H2>
+Parameters in <B>boldface</B> are required;
+the others are optional.
+<TABLE BORDER=1>
+<TR><TH>Name</TH>  <TH>Unit</TH>  <TH>Description</TH> <TH>Default</TH></TR>
+<TR> <TD>source</TD>
+     <TD>1</TD>
+     <TD>selection of the source to use in 1=Source_adapt, 2=Source_div, 
+3=Source_simple, 4=Source_gen (simple), 5=Source_gen, 
+6=Source_Maxwell_3, 7=ESS_moderator_long, 8=Moderator
+</TD>
+<TD ALIGN=RIGHT>0</TD> </TR>
+<TR> <TD>Lmin</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>1</TD> </TR>
+<TR> <TD>Lmax</TD>
+     <TD></TD> <TD></TD>
+<TD ALIGN=RIGHT>11</TD> </TR>
+</TABLE>
+
+
+<H2><A NAME=links></A>Links</H2>
+
+<UL>
+  <LI> <A HREF="Test_Sources.instr">Source code</A> for <CODE>Test_Sources.instr</CODE>.
+</UL>
+<HR>
+<P ALIGN=CENTER>
+ [ <A href="#id">Identification</A>
+ | <A href="#desc">Description</A>
+ | <A href="#ipar">Input parameters</A>
+ | <A href="#opar">Output parameters</A>
+ | <A href="#links">Links</A> ]
+</P>
+
+<ADDRESS>
+Generated automatically by McDoc, Peter Willendrup
+&lt;<A HREF="mailto:peter.willendrup@risoe.dk">peter.willendrup@risoe.dk</A>&gt; /
+Thu Jun 16 08:51:08 2016</ADDRESS>
+</BODY></HTML>
